@@ -8,18 +8,19 @@ public class Player : MonoBehaviour
 
     [HideInInspector]
     public bool death;
-
     [HideInInspector]
     public bool moving;
-
-
-    Rigidbody2D rb2d;
+    [HideInInspector]
+    public bool dashing;
     
     //variables para el ataque
     [Header ("Attack Attributes")]
     public Transform shotpos;
 
-    public GameObject Gun;
+    [Header ("Weapon")]
+    public Transform weaponContainer;
+    public Transform sight;
+    public Gun gun;
 
     [Header("Life UI")]
     public Life lifeUI;
@@ -29,16 +30,22 @@ public class Player : MonoBehaviour
 
     private bool _wait = true;
 
+    public Vector2 _mouseDirection;
+    private Rigidbody2D _rg;
+
     //sonido
     public GameObject[] SonidoPlayer;
     
     public GameObject[] SonidoItems;
 
-    public Vector2 _mouseDirection;
 
     void Start()
     {
-        rb2d = GetComponent<Rigidbody2D>();
+        _rg = GetComponent<Rigidbody2D>();
+
+        gun.sight = sight;
+        gun.container = weaponContainer;
+
         stats.currentHp = stats.maxHp;
     }
 
@@ -96,7 +103,7 @@ public class Player : MonoBehaviour
     public void Recoil(float force)
     {
         DetectMouse();
-        rb2d.velocity = -_mouseDirection * force * Time.fixedDeltaTime;
+        _rg.velocity = -_mouseDirection * force * Time.fixedDeltaTime;
     }
 
 

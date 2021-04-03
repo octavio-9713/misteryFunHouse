@@ -60,7 +60,7 @@ public class Dash : MonoBehaviour
         Vector2 move = new Vector2(horMov, verMov);
         if (move != Vector2.zero)
         {
-            _move.moveEnabled = false;
+            _move.DisableMove();
         }
 
         if (_dashEnabled)
@@ -77,9 +77,12 @@ public class Dash : MonoBehaviour
         if (_dashTimeCounter <= 0f)
         {
             _dashing = false;
+            _player.dashing = false;
+
             _dashTimeCounter = startTime;
+
             _animator.SetBool("dash", false);
-            _move.moveEnabled = true;
+            _move.EnableMove();
         }
         else
         {
@@ -101,6 +104,7 @@ public class Dash : MonoBehaviour
     void PrepareDash()
     {
         _dashing = true;
+        _player.dashing = true;
 
         Vector2 mousePosition = Camera.main.ScreenToWorldPoint(Input.mousePosition);
         _directionFromMouse = mousePosition - (Vector2)transform.position;

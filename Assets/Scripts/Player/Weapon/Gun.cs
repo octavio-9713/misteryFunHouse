@@ -4,155 +4,72 @@ using UnityEngine;
 
 public class Gun : MonoBehaviour
 {
-
-    public Transform mira;
-    public Transform ContArma;
-
+    [Header("Weapon Shot Position")]
     public Transform shotpos;
 
-    public Player player;
+    [Header("Weapon Settings")]
+    public WeaponInfo weapon;
 
-    public GameObject defaultBullet;
-    public GameObject pistolBullet;
-    public GameObject shotgunBullet;
-    public GameObject machinegunBullet;
-    public GameObject bazookaBullet;
+    [HideInInspector]
+    public Transform sight;
+    [HideInInspector]
+    public Transform container;
 
-    private int indice;
-
-    private bool disparo = true;
-
-    public int cantidadBalas;
- 
-    public float retroceso = 10000f;
-
-    //sonido
-    public GameObject[] SonidoGun;
+    private Player _player;
+    private bool _canShoot = true;
 
     void Start()
     {
-
+        _player = GameManager.Instance.player;
     }
 
 
     void Update()
     {
-        DetectarMause();
+        DetectMouse();
 
-        //para que rote el sprite
-        if (mira.transform.position.x < ContArma.transform.position.x)
-        {
-            gameObject.GetComponent<SpriteRenderer>().flipY = true;
-        }
-        else
-        {
-            gameObject.GetComponent<SpriteRenderer>().flipY = false;
-        }
+        if (Input.GetMouseButton(0) && _canShoot)
+            Shoot();
 
-        if (mira.transform.position.y > ContArma.transform.position.y)
-        {
+        if (sight.transform.position.y > container.transform.position.y)
             gameObject.GetComponent<SpriteRenderer>().sortingOrder = -2;
-        }
+        
         else
-        {
             gameObject.GetComponent<SpriteRenderer>().sortingOrder = 2;
-        }
-
-        if (Input.GetMouseButton(0))
-        {
-            //indice = player.IndiceDelArreglo();
-
-            Disparo();
-        }
-
-
-
-
     }
 
-    //diparar
-    public void Disparo()
+    public void Shoot()
     {
-        if (disparo && indice == 0)
+        for (int i = 0; i < weapon.bulletQuantity; i++)
         {
-            Instantiate(defaultBullet, shotpos.transform.position, Quaternion.identity);
-            Instantiate(SonidoGun[0], shotpos.transform.position, Quaternion.identity);
-            StartCoroutine(EnableMovementAfter(1.3f));
-
+            Instantiate(weapon.bullet, shotpos.transform.position, transform.rotation);
         }
 
-        if (disparo && indice == 1)
-        {
-            Instantiate(pistolBullet, shotpos.transform.position, Quaternion.identity);
-            Instantiate(SonidoGun[1], shotpos.transform.position, Quaternion.identity);
-            StartCoroutine(EnableMovementAfter(1f));
-
-        }
-
-        if (disparo && indice == 2)
-        {
-            ShotGun();
-            Instantiate(SonidoGun[2], shotpos.transform.position, Quaternion.identity);
-            StartCoroutine(EnableMovementAfter(1.5f));
-
-        }
-
-        if (disparo && indice == 3)
-        {
-            Instantiate(machinegunBullet, shotpos.transform.position, transform.rotation);
-            Instantiate(SonidoGun[3], shotpos.transform.position, Quaternion.identity);
-            StartCoroutine(EnableMovementAfter(0.2f));
-
-        }
-
-        if (disparo && indice == 4)
-        {
-            player.Recoil(retroceso);
-            Instantiate(bazookaBullet, shotpos.transform.position, transform.rotation);
-            Instantiate(SonidoGun[4], shotpos.transform.position, Quaternion.identity);
-            StartCoroutine(EnableMovementAfter(2.3f));
-
-        }
+        Instantiate(weapon.weaponSound, shotpos.transform.position, Quaternion.identity);
+        StartCoroutine(WaitToShoot(1.3f));
     }
 
 
-    //para que gire el arma
     public void LateUpdate()
     {
-        ContArma.up = ContArma.position - mira.position;
+        container.up = container.position - sight.position;
     }
 
 
     //detectar el mause
-    public void DetectarMause()
+    public void DetectMouse()
     {
-        mira.position = Camera.main.ScreenToWorldPoint(new Vector3(
+        sight.position = Camera.main.ScreenToWorldPoint(new Vector3(
             Input.mousePosition.x,
             Input.mousePosition.y,
             -Camera.main.transform.position.z
             ));
     }
 
-    public void ShotGun()
+    IEnumerator WaitToShoot(float seconds)
     {
-
-        for (int i = 0; i < cantidadBalas; i++)
-        {
-
-            Instantiate(shotgunBullet, shotpos.transform.position, transform.rotation);
-
-        }
-
-    }
-
-    //corrutina
-    IEnumerator EnableMovementAfter(float seconds)
-    {
-        disparo = false;
+        _canShoot = false;
         yield return new WaitForSeconds(seconds);
-        disparo = true;
+        _canShoot = true;
     }
-
-
-   
 }

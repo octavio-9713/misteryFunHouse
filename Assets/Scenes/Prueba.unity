@@ -3240,6 +3240,10 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 1338505186, guid: 93f0fa913e9aa504eacfc18a99538f1f, type: 3}
+      propertyPath: startTime
+      value: 0.25
+      objectReference: {fileID: 0}
     - target: {fileID: 3619905251375331893, guid: 93f0fa913e9aa504eacfc18a99538f1f,
         type: 3}
       propertyPath: m_RootOrder
@@ -3299,6 +3303,31 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: player
+      objectReference: {fileID: 0}
+    - target: {fileID: 5373942582161254871, guid: 93f0fa913e9aa504eacfc18a99538f1f,
+        type: 3}
+      propertyPath: stats.dashSpeed
+      value: 15000
+      objectReference: {fileID: 0}
+    - target: {fileID: 5373942582161254871, guid: 93f0fa913e9aa504eacfc18a99538f1f,
+        type: 3}
+      propertyPath: stats.playerSpeed
+      value: 12000
+      objectReference: {fileID: 0}
+    - target: {fileID: 6088944589472554309, guid: 93f0fa913e9aa504eacfc18a99538f1f,
+        type: 3}
+      propertyPath: m_Mass
+      value: 0.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 6088944589472554309, guid: 93f0fa913e9aa504eacfc18a99538f1f,
+        type: 3}
+      propertyPath: m_LinearDrag
+      value: 5
+      objectReference: {fileID: 0}
+    - target: {fileID: 6088944589472554309, guid: 93f0fa913e9aa504eacfc18a99538f1f,
+        type: 3}
+      propertyPath: m_GravityScale
+      value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 93f0fa913e9aa504eacfc18a99538f1f, type: 3}
