@@ -9,15 +9,17 @@ public class Dash : MonoBehaviour
 
     [Header("Dash Wait Time")]
     public float dashWait = 0.35f;
+    public float dashWaitTime = 2.5f;
 
     private Player _player;
+    private Move _move;
     private Rigidbody2D _rb;
     private Animator _animator;
 
+    private float _ogRotation;
     private bool _dashSound = false;
 
     private bool _dashing = false;
-    private bool _dashing2 = false;
 
     private float _dashTimeCounter;
 
@@ -32,6 +34,7 @@ public class Dash : MonoBehaviour
 
         _rb = GetComponent<Rigidbody2D>();
         _player = this.GetComponent<Player>();
+        _move = this.GetComponent<Move>();
         _animator = this.GetComponent<Animator>();
     }
 
@@ -57,24 +60,15 @@ public class Dash : MonoBehaviour
         Vector2 move = new Vector2(horMov, verMov);
         if (move != Vector2.zero)
         {
-            _dashSound = true;
-            StartCoroutine(EnableMovementAfter(dashWait));
-
-            if (_dashing2)
-            {
-                _rb.AddForce(move * _player.stats.initialDashForce * Time.deltaTime);
-                _player.PlayDashSound();
-            }
+            _move.moveEnabled = false;
         }
-        else
+
+        if (_dashEnabled)
         {
-            if (_dashEnabled)
-            {
-                _dashSound = true;
-                PrepareDash();
-                _animator.SetBool("dash", true);
-                _player.PlayDashSound();
-            }
+            _dashSound = true;
+            PrepareDash();
+            _animator.SetBool("dash", true);
+            _player.PlayDashSound();
         }
     }
 
@@ -84,6 +78,8 @@ public class Dash : MonoBehaviour
         {
             _dashing = false;
             _dashTimeCounter = startTime;
+            _animator.SetBool("dash", false);
+            _move.moveEnabled = true;
         }
         else
         {
@@ -97,7 +93,7 @@ public class Dash : MonoBehaviour
         if (_dashing)
         {
             _rb.velocity = _directionFromMouse * _player.stats.dashSpeed * Time.fixedDeltaTime;
-            StartCoroutine(DashWait(2.5f));
+            StartCoroutine(DashWait(dashWaitTime));
         }
 
     }
@@ -109,23 +105,6 @@ public class Dash : MonoBehaviour
         Vector2 mousePosition = Camera.main.ScreenToWorldPoint(Input.mousePosition);
         _directionFromMouse = mousePosition - (Vector2)transform.position;
         _directionFromMouse.Normalize();
-
-        //Rotate Character
-        float angleToRotate = Mathf.Atan2(_directionFromMouse.y, _directionFromMouse.x) * Mathf.Rad2Deg;
-        _rb.rotation = angleToRotate;
-    }
-
-    //corrutina
-    IEnumerator EnableMovementAfter(float seconds)
-    {
-        _dashing2 = true;
-        _animator.SetBool("dash", true);
-
-        yield return new WaitForSeconds(seconds);
-
-        _animator.SetBool("dash", false);
-        StartCoroutine(DashWait(2.5f));
-        _dashing2 = false;
     }
 
     IEnumerator DashWait(float seconds)

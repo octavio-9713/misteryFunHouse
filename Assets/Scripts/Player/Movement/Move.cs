@@ -4,6 +4,8 @@ using UnityEngine;
 
 public class Move : MonoBehaviour
 {
+    public bool moveEnabled = true;
+
     private Rigidbody2D _rb;
     private Animator _animator;
     private SpriteRenderer _renderer;
@@ -23,7 +25,7 @@ public class Move : MonoBehaviour
 
     void Update()
     {
-        if (!player.death)
+        if (!player.death && moveEnabled)
         {
 
             float horMov = Input.GetAxisRaw("Horizontal");
@@ -49,12 +51,9 @@ public class Move : MonoBehaviour
             }
 
             _rb.AddForce(move * player.stats.playerSpeed * Time.deltaTime);
-            _renderer.flipX = sight.transform.position.x < transform.position.x;
         }
-    }
 
-    private void MovePlayer()
-    {
+        _renderer.flipX = sight.transform.position.x < transform.position.x;
     }
 }
 
