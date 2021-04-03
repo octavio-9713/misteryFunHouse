@@ -11,9 +11,14 @@ public class GameManager : MonoBehaviour
     public static int Score;
     public TextMeshProUGUI TextScore;
 
+    [Header("Scene Name")]
     public string sceneName;
 
+    [Header("Player")]
     public Player player;
+
+    [Header("Player")]
+    public GameUi gameUi;
 
     private static GameManager _instance;
 

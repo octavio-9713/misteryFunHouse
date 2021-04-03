@@ -26,7 +26,7 @@ public class Player : MonoBehaviour
     public Life lifeUI;
 
     [Header("Stats")]
-    public PlayerStats stats;
+    public PlayerStats stats = new PlayerStats();
 
     private bool _wait = true;
 

@@ -106,7 +106,7 @@
     <Compile Include="Assets\TextMesh Pro\Examples &amp; Extras\Scripts\VertexZoom.cs" />
     <Compile Include="Assets\TextMesh Pro\Examples &amp; Extras\Scripts\ObjectSpin.cs" />
     <Compile Include="Assets\Scripts\GameManager.cs" />
-    <Compile Include="Assets\Scripts\Player\UiArmas.cs" />
+    <Compile Include="Assets\Scripts\Player\GameUi.cs" />
     <Compile Include="Assets\Scripts\Sonido.cs" />
     <Compile Include="Assets\Scripts\Player\Movement\Move.cs" />
     <Compile Include="Assets\TextMesh Pro\Examples &amp; Extras\Scripts\TMP_TextInfoDebugTool.cs" />

@@ -98,16 +98,18 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 250e1068d819433458b12bcc43593c39, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  sight: {fileID: 0}
-  container: {fileID: 0}
   shotpos: {fileID: 3351845715839540341}
   weapon:
     bullet: {fileID: 4874965438107038533, guid: af2478b4887dcbc439242ba2c437a72d,
       type: 3}
     weaponSound: {fileID: 6841920746257912502, guid: 5c19bc15372f4f04a90f1f9ef1523c25,
       type: 3}
+    weaponSprite: {fileID: 5632039433030287380, guid: 5d1fdf8906d631c4eb6224d5adc93cfe,
+      type: 3}
     bulletQuantity: 1
     weaponRecoil: 10000
+  sight: {fileID: 0}
+  container: {fileID: 0}
 --- !u!95 &3092769702484730569
 Animator:
   serializedVersion: 3

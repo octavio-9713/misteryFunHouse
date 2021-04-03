@@ -8,7 +8,7 @@ public class Gun : MonoBehaviour
     public Transform shotpos;
 
     [Header("Weapon Settings")]
-    public WeaponInfo weapon;
+    public WeaponInfo weapon = new WeaponInfo();
 
     [HideInInspector]
     public Transform sight;
@@ -21,6 +21,8 @@ public class Gun : MonoBehaviour
     void Start()
     {
         _player = GameManager.Instance.player;
+        Debug.Log(weapon.weaponSprite);
+        GameManager.Instance.gameUi.ChangePanel(weapon.weaponSprite);
     }
 
 

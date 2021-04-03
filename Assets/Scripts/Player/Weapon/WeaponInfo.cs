@@ -10,6 +10,9 @@ public class WeaponInfo
     [Header("Weapon Sound")]
     public GameObject weaponSound;
 
+    [Header("Weapon Sound")]
+    public Sprite weaponSprite;
+
     [Header("Weapon Settings")]
     public int bulletQuantity;
     public float weaponRecoil = 10000f;
