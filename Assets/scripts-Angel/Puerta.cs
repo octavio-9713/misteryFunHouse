@@ -1,13 +1,17 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using System;
 
 public class Puerta : MonoBehaviour
 {
-   
+    public int idPuerta;
+
     void Start()
     {
-        
+        LlamadoPuerta.Cerrar += Cerrar;
+
+        LlamadoPuerta.Abrir += Abrir;
     }
 
 
@@ -16,15 +20,20 @@ public class Puerta : MonoBehaviour
         
     }
 
-    public void Cerrar()
+    public void Cerrar(int idCerrar)
     {
+        
         gameObject.GetComponent<BoxCollider2D>().isTrigger = false;
         return;
+        
     }
 
-    public void Abrir()
+    public void Abrir(int idabrir)
     {
-        gameObject.GetComponent<BoxCollider2D>().isTrigger = true;
-        return;
+      
+        
+            gameObject.GetComponent<BoxCollider2D>().isTrigger = true;
+            return;
+        
     }
 }
