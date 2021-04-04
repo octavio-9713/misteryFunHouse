@@ -81,7 +81,7 @@ public class Gun : MonoBehaviour
         {
             Instantiate(weapon.bullet, shotpos.transform.position, transform.rotation);
             Instantiate(weapon.weaponSound, shotpos.transform.position, Quaternion.identity);
-            yield return weapon.weaponCadence;
+            yield return new WaitForSeconds(weapon.weaponCadence);
         }
     }
 }

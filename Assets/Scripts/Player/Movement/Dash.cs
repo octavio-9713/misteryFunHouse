@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
+
 public class Dash : MonoBehaviour
 {
     [Header("Dash Settings")]
@@ -52,6 +53,7 @@ public class Dash : MonoBehaviour
 
     }
 
+    //Cambiar hacia adonde te moves...
     private void DoADash()
     {
         float horMov = Input.GetAxisRaw("Horizontal");
