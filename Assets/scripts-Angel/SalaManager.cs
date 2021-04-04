@@ -1,15 +1,20 @@
-﻿
-using System.Collections;
+﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using System;
+
+
 
 public class SalaManager : MonoBehaviour
 {
+    public int idPuerta;
+
     private int numActivacion = 0;
     private bool activacion = false;
     private int indice = 0;
 
     public Puerta puerta;
+    public Cortina cortina;
 
     public Transform[] spawner;
     public GameObject[] enemy;
@@ -28,10 +33,12 @@ public class SalaManager : MonoBehaviour
 
         if (activacion)
         {
-            indice = Random.Range(0,1);
+            indice = UnityEngine.Random.Range(0,1);
             Instantiate(enemy[indice], spawner[0].transform.position, Quaternion.identity);
 
-            puerta.Cerrar();
+            puerta.Cerrar(idPuerta);
+            
+            cortina.Despejar();
 
             activacion = false;
         }
@@ -55,7 +62,7 @@ public class SalaManager : MonoBehaviour
 
     public void DesactivarSala()
     {
-        puerta.Abrir();
+        puerta.Abrir(idPuerta);
     }
 
     public void MuerteEnemy()
@@ -64,3 +71,12 @@ public class SalaManager : MonoBehaviour
     }
 
 }
+
+public static class LlamadoPuerta
+{
+    public static Action<int> Cerrar;
+
+    public static Action<int> Abrir;
+   
+}
+
