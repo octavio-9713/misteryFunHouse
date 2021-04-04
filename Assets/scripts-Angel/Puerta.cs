@@ -5,35 +5,22 @@ using System;
 
 public class Puerta : MonoBehaviour
 {
-    public int idPuerta;
+    private SalaManager _manager;
 
     void Start()
     {
-        LlamadoPuerta.Cerrar += Cerrar;
-
-        LlamadoPuerta.Abrir += Abrir;
+        _manager = GetComponentInParent<SalaManager>();
+        _manager.closeEvent.AddListener(Cerrar);
+        _manager.openEvent.AddListener(Abrir);
     }
 
-
-    void Update()
+    public void Cerrar()
     {
-        
-    }
-
-    public void Cerrar(int idCerrar)
-    {
-        
         gameObject.GetComponent<BoxCollider2D>().isTrigger = false;
-        return;
-        
-    }
+     }
 
-    public void Abrir(int idabrir)
+    public void Abrir()
     {
-      
-        
-            gameObject.GetComponent<BoxCollider2D>().isTrigger = true;
-            return;
-        
+        gameObject.GetComponent<BoxCollider2D>().isTrigger = true;   
     }
 }

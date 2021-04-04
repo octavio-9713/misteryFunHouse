@@ -1,8 +1,9 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.Events;
 
-public class EnemyT1 : MonoBehaviour
+public class EnemyT1 : Enemy
 {// Variables para gestionar el radio de visión, el de ataque y la velocidad
     public float visionRadius;
     public float attackRadius;
@@ -49,11 +50,6 @@ public class EnemyT1 : MonoBehaviour
     //variables para la muerte
     private bool muerto = false;
     public GameObject explocionMuerte;
-
-    //sonido
-    public GameObject[] SonidoEnemy;
-    private bool variable = true;
-
 
 
 
@@ -348,7 +344,8 @@ public class EnemyT1 : MonoBehaviour
     public IEnumerator muerte(float seconds)
     {
         SonidoMuerte();
-        yield return new WaitForSeconds(seconds);
+        deathEvent.Invoke();
+         yield return new WaitForSeconds(seconds);
         
     }
 

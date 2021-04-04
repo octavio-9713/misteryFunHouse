@@ -14,7 +14,7 @@ public class T1Gun : MonoBehaviour
 
     void Start()
     {
-        
+        player = GameManager.Instance.player.transform;
     }
 
     

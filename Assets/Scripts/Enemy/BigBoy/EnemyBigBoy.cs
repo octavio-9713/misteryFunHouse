@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class EnemyBigBoy : MonoBehaviour
+public class EnemyBigBoy : Enemy
 {
     // Variables para gestionar el radio de visión, el de ataque y la velocidad
     public float visionRadius;
