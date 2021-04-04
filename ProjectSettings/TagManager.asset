@@ -4,6 +4,7 @@
 TagManager:
   serializedVersion: 2
   tags:
+<<<<<<< HEAD
   - BulletsEnemy
   - Enemy
   - pistol
@@ -19,6 +20,28 @@ TagManager:
   - bazooka
   - Explocion
   - PlayEvent
+=======
+  - pistol
+  - machinegun
+  - default
+  - shotgun
+  - bazooka
+  - Enemy
+  - muro
+  - BulletsEnemy
+  - BuDefault
+  - BuMachine
+  - BuPistol
+  - BuShotgun
+  - BuBazooka
+  - BuBazookaEnemy
+  - ItemHealth
+  - ItemHealth1
+  - Explocion
+  - Tornillo
+  - Portal
+  - Gun
+>>>>>>> 6ff4e9744677d57e78dca88ba130ac43e0dea4a7
   layers:
   - Default
   - TransparentFX
@@ -28,7 +51,7 @@ TagManager:
   - UI
   - 
   - 
-  - 
+  - Enemy
   - 
   - 
   - 
