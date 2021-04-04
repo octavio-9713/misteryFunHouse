@@ -14,6 +14,7 @@ GameObject:
   - component: {fileID: 1206821592472965517}
   - component: {fileID: 1206821592472965518}
   - component: {fileID: 1206821592472965519}
+  - component: {fileID: -1471396763413632049}
   m_Layer: 8
   m_Name: EnemyR6
   m_TagString: Enemy
@@ -51,6 +52,7 @@ SpriteRenderer:
   m_LightProbeUsage: 1
   m_ReflectionProbeUsage: 1
   m_RayTracingMode: 0
+  m_RayTraceProcedural: 0
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
@@ -74,7 +76,7 @@ SpriteRenderer:
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 0
   m_SortingLayer: 0
-  m_SortingOrder: 0
+  m_SortingOrder: 10
   m_Sprite: {fileID: -17495808979658203, guid: 61a43814cc900e146a6c4c2bb095a250, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
@@ -185,6 +187,20 @@ MonoBehaviour:
   - {fileID: 7538424558530803751, guid: ef1edc65b3f9d0745a2ad3ff246f69cf, type: 3}
   - {fileID: 6162679792437158704, guid: bdd6cad2e7388474098b4f4a182cfbef, type: 3}
   - {fileID: 2391574670333720977, guid: f8190fc51a6ee8349b83617193e843db, type: 3}
+--- !u!114 &-1471396763413632049
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1206821592472965504}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7906ed8d09833644696ef7a746bfbbde, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  muerto: 0
+  salaManager: {fileID: 0}
 --- !u!1 &1206821593491249440
 GameObject:
   m_ObjectHideFlags: 0

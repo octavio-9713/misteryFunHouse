@@ -3,7 +3,22 @@
 --- !u!78 &1
 TagManager:
   serializedVersion: 2
-  tags: []
+  tags:
+  - BulletsEnemy
+  - Enemy
+  - pistol
+  - Tornillo
+  - shotgun
+  - BuPistol
+  - machinegun
+  - BuShotgun
+  - Gun
+  - BuDefault
+  - BuMachine
+  - default
+  - bazooka
+  - Explocion
+  - PlayEvent
   layers:
   - Default
   - TransparentFX
