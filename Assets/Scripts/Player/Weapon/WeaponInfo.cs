@@ -10,10 +10,20 @@ public class WeaponInfo
     [Header("Weapon Sound")]
     public GameObject weaponSound;
 
-    [Header("Weapon Sound")]
+    [Header("Sprite")]
     public Sprite weaponSprite;
 
     [Header("Weapon Settings")]
     public int bulletQuantity;
+    public float weaponCadence = 4f;
     public float weaponRecoil = 10000f;
+
+    public void ApplyChanges(WeaponInfo changes)
+    {
+        bullet = changes.bullet != null ? changes.bullet : bullet;
+        weaponSound = changes.weaponSound != null ? changes.weaponSound : weaponSound;
+
+        bulletQuantity = changes.bulletQuantity;
+        weaponRecoil = changes.weaponRecoil;
+    }
 }

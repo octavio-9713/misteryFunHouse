@@ -42,12 +42,7 @@ public class Gun : MonoBehaviour
 
     public void Shoot()
     {
-        for (int i = 0; i < weapon.bulletQuantity; i++)
-        {
-            Instantiate(weapon.bullet, shotpos.transform.position, transform.rotation);
-        }
-
-        Instantiate(weapon.weaponSound, shotpos.transform.position, Quaternion.identity);
+        StartCoroutine(InstantiateShoot());
         StartCoroutine(WaitToShoot(1.3f));
     }
 
@@ -68,10 +63,25 @@ public class Gun : MonoBehaviour
             ));
     }
 
+    public void ApplyChanges(WeaponInfo weaponInfo)
+    {
+        this.weapon.ApplyChanges(weaponInfo);
+    }
+
     IEnumerator WaitToShoot(float seconds)
     {
         _canShoot = false;
         yield return new WaitForSeconds(seconds);
         _canShoot = true;
+    }
+
+    IEnumerator InstantiateShoot()
+    {
+        for (int i = 0; i < weapon.bulletQuantity; i++)
+        {
+            Instantiate(weapon.bullet, shotpos.transform.position, transform.rotation);
+            Instantiate(weapon.weaponSound, shotpos.transform.position, Quaternion.identity);
+            yield return weapon.weaponCadence;
+        }
     }
 }

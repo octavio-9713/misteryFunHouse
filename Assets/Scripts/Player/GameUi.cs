@@ -7,6 +7,8 @@ public class GameUi : MonoBehaviour
 { 
     public Sprite panel;
 
+    public Life lifeControl;
+
     private Image _mainImage;
 
     public void Start()

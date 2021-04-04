@@ -17,8 +17,9 @@ public class GameManager : MonoBehaviour
     [Header("Player")]
     public Player player;
 
-    [Header("Player")]
+    [Header("Ui")]
     public GameUi gameUi;
+    public Canvas canvas;
 
     private static GameManager _instance;
 

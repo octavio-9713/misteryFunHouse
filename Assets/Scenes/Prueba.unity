@@ -425,6 +425,7 @@ MonoBehaviour:
   sceneName: 
   player: {fileID: 0}
   gameUi: {fileID: 864129201}
+  canvas: {fileID: 615970772}
 --- !u!4 &253748938
 Transform:
   m_ObjectHideFlags: 0
@@ -521,6 +522,29 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
+--- !u!1 &352318662 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 710113307828906870, guid: 5e334e27c94f97c46a5a9e382629076e,
+    type: 3}
+  m_PrefabInstance: {fileID: 4131465657398019635}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &352318665
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 352318662}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 227ce8167b0927a46ab8b738ff00d6a5, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  itemName: Life Up
+  itemDescription: You Feel Rejuvenated
+  pickedPrefab: {fileID: 5357196364174934046, guid: d80f6da6a3fda054aa2bea685cb14cfc,
+    type: 3}
+  effect: {fileID: 6532494816528742082, guid: 188205de955240347b752c0cffa37289, type: 3}
 --- !u!1 &389880135
 GameObject:
   m_ObjectHideFlags: 0
@@ -1333,7 +1357,7 @@ GameObject:
   - component: {fileID: 864129202}
   - component: {fileID: 864129201}
   m_Layer: 5
-  m_Name: panel
+  m_Name: Player Life
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -1375,6 +1399,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   panel: {fileID: 0}
+  lifeControl: {fileID: 389880137}
 --- !u!114 &864129202
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -3300,6 +3325,11 @@ PrefabInstance:
       objectReference: {fileID: 773706316}
     - target: {fileID: 5373942582161254871, guid: 93f0fa913e9aa504eacfc18a99538f1f,
         type: 3}
+      propertyPath: stats.maxHp
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 5373942582161254871, guid: 93f0fa913e9aa504eacfc18a99538f1f,
+        type: 3}
       propertyPath: stats.dashSpeed
       value: 15000
       objectReference: {fileID: 0}
@@ -3358,6 +3388,16 @@ PrefabInstance:
       propertyPath: m_Name
       value: ITEM Health 1up
       objectReference: {fileID: 0}
+    - target: {fileID: 5336128527121079923, guid: 5e334e27c94f97c46a5a9e382629076e,
+        type: 3}
+      propertyPath: m_Enabled
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 5457581839781199781, guid: 5e334e27c94f97c46a5a9e382629076e,
+        type: 3}
+      propertyPath: m_IsTrigger
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 5864122254940062452, guid: 5e334e27c94f97c46a5a9e382629076e,
         type: 3}
       propertyPath: m_RootOrder
@@ -3366,17 +3406,17 @@ PrefabInstance:
     - target: {fileID: 5864122254940062452, guid: 5e334e27c94f97c46a5a9e382629076e,
         type: 3}
       propertyPath: m_LocalPosition.x
-      value: -421.3309
+      value: -457.4
       objectReference: {fileID: 0}
     - target: {fileID: 5864122254940062452, guid: 5e334e27c94f97c46a5a9e382629076e,
         type: 3}
       propertyPath: m_LocalPosition.y
-      value: 191.20099
+      value: 142.6
       objectReference: {fileID: 0}
     - target: {fileID: 5864122254940062452, guid: 5e334e27c94f97c46a5a9e382629076e,
         type: 3}
       propertyPath: m_LocalPosition.z
-      value: 459.62228
+      value: 469
       objectReference: {fileID: 0}
     - target: {fileID: 5864122254940062452, guid: 5e334e27c94f97c46a5a9e382629076e,
         type: 3}

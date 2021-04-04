@@ -9,12 +9,12 @@ public class Life : MonoBehaviour
 
     void Start()
     {
-        CambioVida(5);
+        CambioVida(3);
     }
 
     public void CambioVida (int pos)
     {
-        
+        Debug.Log(pos);
         if(pos <= 0)
         {
             this.GetComponent<Image>().sprite = vida[0];

@@ -17,4 +17,13 @@ public class PlayerStats
     public float dashSpeed;
     public float initialDashForce = 8000;
 
+
+    public void ApplyStats(PlayerStats stats)
+    {
+        playerSpeed += stats.playerSpeed;
+
+        dashSpeed += stats.dashSpeed;
+        initialDashForce += stats.initialDashForce;
+    }
+
 }

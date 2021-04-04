@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class Dash : MonoBehaviour
 {
-    [Header ("Dash Settings")]
+    [Header("Dash Settings")]
     public float startTime;
 
     [Header("Dash Wait Time")]
@@ -44,7 +44,7 @@ public class Dash : MonoBehaviour
         //el uso del dash
         if (Input.GetMouseButtonDown(1) && _dashEnabled)
             this.DoADash();
-        
+
         else
         {
             this.CheckTime();
@@ -77,10 +77,7 @@ public class Dash : MonoBehaviour
         if (_dashTimeCounter <= 0f)
         {
             _dashing = false;
-            _player.dashing = false;
-
             _dashTimeCounter = startTime;
-
             _animator.SetBool("dash", false);
             _move.EnableMove();
         }
@@ -104,12 +101,18 @@ public class Dash : MonoBehaviour
     void PrepareDash()
     {
         _dashing = true;
-        _player.dashing = true;
 
         Vector2 mousePosition = Camera.main.ScreenToWorldPoint(Input.mousePosition);
         _directionFromMouse = mousePosition - (Vector2)transform.position;
         _directionFromMouse.Normalize();
     }
+    public void ChangeStats(float timeBetweenDashes, float dashLength, float dashWait)
+    {
+        this.dashWait += timeBetweenDashes;
+        this.startTime += dashLength;
+        this.dashWaitTime += dashWait;
+    }
+
 
     IEnumerator DashWait(float seconds)
     {

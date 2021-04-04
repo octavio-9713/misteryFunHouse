@@ -30,8 +30,9 @@ public class Player : MonoBehaviour
 
     private bool _wait = true;
 
-    public Vector2 _mouseDirection;
+    private Vector2 _mouseDirection;
     private Rigidbody2D _rg;
+    private Dash _dash;
 
     //sonido
     public GameObject[] SonidoPlayer;
@@ -42,6 +43,7 @@ public class Player : MonoBehaviour
     void Start()
     {
         _rg = GetComponent<Rigidbody2D>();
+        _dash = GetComponent<Dash>();
 
         gun.sight = sight;
         gun.container = weaponContainer;
@@ -120,13 +122,29 @@ public class Player : MonoBehaviour
     }
     public void PlayStepSound()
     {
-        Instantiate(SonidoPlayer[4], shotpos.transform.position, Quaternion.identity);
+        //Instantiate(SonidoPlayer[4], shotpos.transform.position, Quaternion.identity);
     }
     public void DashReadySound()
     {
         Instantiate(SonidoPlayer[7], shotpos.transform.position, Quaternion.identity);
     }
 
+    public void IncreaseLife(int amount, bool recover)
+    {
+        stats.maxHp += amount;
+
+        if (recover)
+            stats.currentHp = stats.maxHp;
+
+        GameManager.Instance.gameUi.lifeControl.CambioVida(stats.currentHp);
+    }
+
+    public void ChangeStats(PlayerStats stats, float timeBetweenDashes, float dashLength, float dashWait, WeaponInfo weaponStats)
+    {
+        stats.ApplyStats(stats);
+        _dash.ChangeStats(timeBetweenDashes, dashLength, dashWait);
+        gun.ApplyChanges(weaponStats);
+    }
 
 
     //detecta cuando entraste al arma del piso
