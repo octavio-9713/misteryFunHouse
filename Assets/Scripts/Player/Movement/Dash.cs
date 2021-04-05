@@ -76,16 +76,21 @@ public class Dash : MonoBehaviour
 
     private void CheckTime()
     {
-        if (_dashTimeCounter <= 0f)
+        if (_dashing)
         {
-            _dashing = false;
-            _dashTimeCounter = startTime;
-            _animator.SetBool("dash", false);
-            _move.EnableMove();
-        }
-        else
-        {
-            _dashTimeCounter -= Time.deltaTime;
+            if (_dashTimeCounter <= 0f)
+            {
+                _dashing = false;
+                _dashTimeCounter = startTime;
+                _animator.SetBool("dash", false);
+
+                _move.EnableMove();
+                _player.DashReadySound();
+            }
+            else
+            {
+                _dashTimeCounter -= Time.deltaTime;
+            }
         }
     }
 
@@ -107,6 +112,8 @@ public class Dash : MonoBehaviour
         Vector2 mousePosition = Camera.main.ScreenToWorldPoint(Input.mousePosition);
         _directionFromMouse = mousePosition - (Vector2)transform.position;
         _directionFromMouse.Normalize();
+
+        _player.PlayDashSound();
     }
     public void ChangeStats(float timeBetweenDashes, float dashLength, float dashWait)
     {

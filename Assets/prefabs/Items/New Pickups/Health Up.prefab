@@ -1,0 +1,104 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &352318665
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 9205412027030925943}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 227ce8167b0927a46ab8b738ff00d6a5, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  itemName: Life Up
+  itemDescription: You Feel Rejuvenated
+  pickedPrefab: {fileID: 5357196364174934046, guid: d80f6da6a3fda054aa2bea685cb14cfc,
+    type: 3}
+  effect: {fileID: 3843753336030610211, guid: 174f1aaefcee2c242bc1c4a647085df1, type: 3}
+--- !u!1001 &8510366499735738625
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    m_TransformParent: {fileID: 0}
+    m_Modifications:
+    - target: {fileID: 710113307828906870, guid: 5e334e27c94f97c46a5a9e382629076e,
+        type: 3}
+      propertyPath: m_Name
+      value: Health Up
+      objectReference: {fileID: 0}
+    - target: {fileID: 5336128527121079923, guid: 5e334e27c94f97c46a5a9e382629076e,
+        type: 3}
+      propertyPath: m_Enabled
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 5457581839781199781, guid: 5e334e27c94f97c46a5a9e382629076e,
+        type: 3}
+      propertyPath: m_IsTrigger
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5864122254940062452, guid: 5e334e27c94f97c46a5a9e382629076e,
+        type: 3}
+      propertyPath: m_RootOrder
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5864122254940062452, guid: 5e334e27c94f97c46a5a9e382629076e,
+        type: 3}
+      propertyPath: m_LocalPosition.x
+      value: -457.4
+      objectReference: {fileID: 0}
+    - target: {fileID: 5864122254940062452, guid: 5e334e27c94f97c46a5a9e382629076e,
+        type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 142.6
+      objectReference: {fileID: 0}
+    - target: {fileID: 5864122254940062452, guid: 5e334e27c94f97c46a5a9e382629076e,
+        type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 469
+      objectReference: {fileID: 0}
+    - target: {fileID: 5864122254940062452, guid: 5e334e27c94f97c46a5a9e382629076e,
+        type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 5864122254940062452, guid: 5e334e27c94f97c46a5a9e382629076e,
+        type: 3}
+      propertyPath: m_LocalRotation.x
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5864122254940062452, guid: 5e334e27c94f97c46a5a9e382629076e,
+        type: 3}
+      propertyPath: m_LocalRotation.y
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5864122254940062452, guid: 5e334e27c94f97c46a5a9e382629076e,
+        type: 3}
+      propertyPath: m_LocalRotation.z
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5864122254940062452, guid: 5e334e27c94f97c46a5a9e382629076e,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5864122254940062452, guid: 5e334e27c94f97c46a5a9e382629076e,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5864122254940062452, guid: 5e334e27c94f97c46a5a9e382629076e,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: 5e334e27c94f97c46a5a9e382629076e, type: 3}
+--- !u!1 &9205412027030925943 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 710113307828906870, guid: 5e334e27c94f97c46a5a9e382629076e,
+    type: 3}
+  m_PrefabInstance: {fileID: 8510366499735738625}
+  m_PrefabAsset: {fileID: 0}

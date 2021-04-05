@@ -33,6 +33,8 @@ public class Player : MonoBehaviour
     private Vector2 _mouseDirection;
     private Rigidbody2D _rg;
     private Dash _dash;
+    private Move _move;
+    private AudioSource _audio;
 
     //sonido
     public GameObject[] SonidoPlayer;
@@ -44,6 +46,8 @@ public class Player : MonoBehaviour
     {
         _rg = GetComponent<Rigidbody2D>();
         _dash = GetComponent<Dash>();
+        _move = GetComponent<Move>();
+        _audio = GetComponent<AudioSource>();
 
         gun.sight = sight;
         gun.container = weaponContainer;
@@ -122,7 +126,7 @@ public class Player : MonoBehaviour
     }
     public void PlayStepSound()
     {
-        //Instantiate(SonidoPlayer[4], shotpos.transform.position, Quaternion.identity);
+        Instantiate(SonidoPlayer[4], shotpos.transform.position, Quaternion.identity);
     }
     public void DashReadySound()
     {
@@ -146,6 +150,22 @@ public class Player : MonoBehaviour
         gun.ApplyChanges(weaponStats);
     }
 
+    public void DecreaseLife()
+    {
+        stats.currentHp--;
+        if (stats.currentHp <= 0)
+        {
+            gameObject.GetComponent<Animator>().SetBool("muerte", true);
+            StartCoroutine(DeathTime(1.7f));
+            gun.gameObject.SetActive(false);
+            _rg.velocity = Vector2.zero;
+            _move.DisableMove();
+
+        }
+
+        Instantiate(SonidoPlayer[3], shotpos.transform.position, Quaternion.identity);
+        lifeUI.CambioVida(stats.currentHp);
+    }
 
     //detecta cuando entraste al arma del piso
     public void OnTriggerEnter2D(Collider2D c)
@@ -218,16 +238,11 @@ public class Player : MonoBehaviour
 
     //Death Time Sound
 
-    //IEnumerator DeathTime(float seconds)
-    //{
-
-    //    yield return new WaitForSeconds(seconds);
-    //    if (variable)
-    //    {
-    //        Instantiate(SonidoPlayer[1], shotpos.transform.position, Quaternion.identity);
-    //        variable = false;
-    //    }
-    //}
+    IEnumerator DeathTime(float seconds)
+    {
+        yield return new WaitForSeconds(seconds);
+        Instantiate(SonidoPlayer[1], shotpos.transform.position, Quaternion.identity);
+    }
 
 
     IEnumerator Teleport(float seconds)

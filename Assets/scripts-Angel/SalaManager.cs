@@ -14,41 +14,55 @@ public class SalaManager : MonoBehaviour
 
     private int numActivacion = 0;
     private bool activacion = false;
-    private int indice = 0;
 
-    public Puerta puerta;
-    public Cortina cortina;
+    public Cortina[] cortinas;
 
     public Transform[] spawner;
-    public GameObject[] enemy;
+    public GameObject[] enemies;
 
-    public int cantEnemy;
-    private int enemymuerte = 0;
+    private int _cantEnemies;
+    public int deathEnemies = 0;
 
-    void Start()
+    public GameObject rewardPrefab;
+    public GameObject rewardPos;
+
+    public void Start()
     {
-        gral.contador += MuerteEnemy;
+        _cantEnemies = enemies.Length;    
     }
 
-    
     void Update()
     {
 
         if (activacion)
         {
-            indice = UnityEngine.Random.Range(0,1);
-            GameObject en = Instantiate(enemy[indice], spawner[0].transform.position, Quaternion.identity);
-            en.GetComponent<Enemy>().deathEvent.AddListener(DesactivarSala);
+            for (int i = 0; i < _cantEnemies; i++) {
+                GameObject en = Instantiate(enemies[i], spawner[i].transform.position, Quaternion.identity);
+                en.GetComponent<Enemy>().deathEvent.AddListener(MuerteEnemy);
+            }
+
+            for (int i = 0; i < cortinas.Length; i++)
+            {
+                cortinas[i].Despejar();
+            }
 
             closeEvent.Invoke();
-            cortina.Despejar();
-
             activacion = false;
         }
 
-        if (enemymuerte == cantEnemy)
+        if (deathEnemies == _cantEnemies)
         {
             DesactivarSala();
+
+            if (rewardPrefab != null)
+            {
+                GameObject reward = Instantiate(rewardPrefab);
+                Vector3 spawPos = new Vector3(rewardPos.transform.position.x, rewardPos.transform.position.y, reward.transform.position.z);
+                Instantiate(GameManager.Instance.confeti, rewardPos.transform.position, transform.rotation);
+                reward.transform.position = spawPos;
+            }
+
+            Destroy(gameObject);
         }
 
     }
@@ -70,7 +84,7 @@ public class SalaManager : MonoBehaviour
 
     public void MuerteEnemy()
     {
-        enemymuerte++;
+        deathEnemies++;
     }
 
 }

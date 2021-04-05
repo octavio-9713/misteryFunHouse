@@ -5,7 +5,7 @@ using UnityEngine;
 public class PlayerStats
 {
     [Header("Player Life")]
-    public int maxHp = 5;
+    public int maxHp = 3;
 
     [HideInInspector]
     public int currentHp;

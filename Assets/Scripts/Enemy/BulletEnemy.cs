@@ -19,7 +19,7 @@ public class BulletEnemy : MonoBehaviour
     private float momentoExplocion;
     public GameObject explocion;
 
-   
+
 
     void Start()
     {
@@ -48,7 +48,7 @@ public class BulletEnemy : MonoBehaviour
 
     void Update()
     {
-        
+
         if (pistol)
         {
             rb2d.velocity = dir * speed * Time.fixedDeltaTime;
@@ -82,9 +82,9 @@ public class BulletEnemy : MonoBehaviour
 
 
     public void BazookaExplocion()
-    {               
+    {
         Destroy(gameObject);
-        
+
         Instantiate(explocion, transform.position, transform.rotation);
 
 
@@ -107,23 +107,38 @@ public class BulletEnemy : MonoBehaviour
     void OnTriggerEnter2D(Collider2D col)
     {
         // Si chocamos contra el jugador o un bullet se borra
-        if (col.gameObject.tag == "Player" || col.gameObject.tag == "muro")
+        if (col.gameObject.tag == "Player")
         {
 
+            if (!GameManager.Instance.player.dashing)
+            {
+                Destroy(gameObject);
+                GameManager.Instance.player.DecreaseLife();
+            }
+            else
+            {
+                this.GetComponent<BoxCollider>().isTrigger = true;
+            }
+        }
+        else if (col.gameObject.tag == "muro")
+        {
             Destroy(gameObject);
-
         }
 
         if (Bazooka)
         {
             if (col.gameObject.tag == "Player" || col.gameObject.tag == "muro")
             {
-
                 BazookaExplocion();
-
             }
         }
     }
 
-  
+    public void OnTriggerExit2D(Collider2D collision)
+    {
+        if (collision.gameObject.tag == "Player")
+        {
+            this.GetComponent<BoxCollider>().isTrigger = false;
+        }
+    }
 }

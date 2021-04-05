@@ -56,7 +56,6 @@ public class EnemyR6 : Enemy
     public GameObject explocionMuerte;
 
     //sonido
-    public GameObject[] SonidoEnemy;
     private bool variable = true;
 
 
@@ -271,8 +270,8 @@ public class EnemyR6 : Enemy
                 Destroy(gameObject);
 
                 StartCoroutine(muerte(2.25f));
-                dropeoArma();
-                dropeoTornillo();
+                //dropeoArma();
+                //dropeoTornillo();
                 manager.SumarPuntos(puntos);
             }
 
@@ -292,8 +291,8 @@ public class EnemyR6 : Enemy
                 Destroy(gameObject);
 
                 StartCoroutine(muerte(2.25f));
-                dropeoArma();
-                dropeoTornillo();
+                //dropeoArma();
+                //dropeoTornillo();
                 manager.SumarPuntos(puntos);
             }
 
@@ -313,8 +312,8 @@ public class EnemyR6 : Enemy
                 Destroy(gameObject);
 
                 StartCoroutine(muerte(2.25f));
-                dropeoArma();
-                dropeoTornillo();
+                //dropeoArma();
+                //dropeoTornillo();
                 manager.SumarPuntos(puntos);
             }
 
@@ -334,8 +333,8 @@ public class EnemyR6 : Enemy
                 Destroy(gameObject);
 
                 StartCoroutine(muerte(2.25f));
-                dropeoArma();
-                dropeoTornillo();
+                //dropeoArma();
+                //dropeoTornillo();
                 manager.SumarPuntos(puntos);
             }
 
@@ -355,8 +354,8 @@ public class EnemyR6 : Enemy
                 Destroy(gameObject);
 
                 StartCoroutine(muerte(2.25f));
-                dropeoArma();
-                dropeoTornillo();
+                //dropeoArma();
+                //dropeoTornillo();
                 manager.SumarPuntos(puntos);
             }
 

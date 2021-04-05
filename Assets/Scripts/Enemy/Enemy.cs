@@ -9,12 +9,15 @@ public class Enemy : MonoBehaviour
     [HideInInspector]
     public UnityEvent deathEvent = new UnityEvent();
 
+    public GameManager manager;
+
     public GameObject[] SonidoEnemy;
     protected bool variable = true;
 
     public IEnumerator muerte(float seconds)
     {
         SonidoMuerte();
+        Debug.Log("Hi im dead");
         deathEvent.Invoke();
         yield return new WaitForSeconds(seconds);
 

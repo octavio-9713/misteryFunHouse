@@ -48,7 +48,6 @@ public class EnemyBigBoy : Enemy
 
     //variable para los puntos
     public int puntos = 200;
-    public GameManager gameControler;
 
     //para acceder al collider;
     private BoxCollider2D m_ObjectCollider;
@@ -58,13 +57,13 @@ public class EnemyBigBoy : Enemy
     public GameObject explocionMuerte;
 
     //sonido
-    public GameObject[] SonidoEnemy;
     private bool variable = true;
 
 
     void Start()
     {
 
+        manager = GameManager.Instance;
         // Recuperamos al jugador gracias al Tag
         player = GameObject.FindGameObjectWithTag("Player");
 
@@ -267,9 +266,9 @@ public class EnemyBigBoy : Enemy
                 Destroy(gameObject);
 
                 StartCoroutine(muerte(2.62f));
-                dropeoArma();
-                dropeoTornillo();
-                gameControler.SumarPuntos(puntos);
+                //dropeoArma();
+                //dropeoTornillo();
+                manager.SumarPuntos(puntos);
             }
 
             Instantiate(SonidoEnemy[1], transform.position, Quaternion.identity);
@@ -287,9 +286,9 @@ public class EnemyBigBoy : Enemy
                 Destroy(gameObject);
 
                 StartCoroutine(muerte(2.62f));
-                dropeoArma();
-                dropeoTornillo();
-                gameControler.SumarPuntos(puntos);
+                //dropeoArma();
+                //dropeoTornillo();
+                manager.SumarPuntos(puntos);
             }
 
             Instantiate(SonidoEnemy[1], transform.position, Quaternion.identity);
@@ -307,9 +306,9 @@ public class EnemyBigBoy : Enemy
                 Destroy(gameObject);
 
                 StartCoroutine(muerte(2.62f));
-                dropeoArma();
-                dropeoTornillo();
-                gameControler.SumarPuntos(puntos);
+                //dropeoArma();
+                //dropeoTornillo();
+                manager.SumarPuntos(puntos);
             }
 
             Instantiate(SonidoEnemy[1], transform.position, Quaternion.identity);
@@ -327,9 +326,9 @@ public class EnemyBigBoy : Enemy
                 Destroy(gameObject);
 
                 StartCoroutine(muerte(2.62f));
-                dropeoArma();
-                dropeoTornillo();
-                gameControler.SumarPuntos(puntos);
+                //dropeoArma();
+                //dropeoTornillo();
+                manager.SumarPuntos(puntos);
             }
 
             Instantiate(SonidoEnemy[1], transform.position, Quaternion.identity);
@@ -349,9 +348,9 @@ public class EnemyBigBoy : Enemy
                 Destroy(gameObject);
 
                 StartCoroutine(muerte(2.62f));
-                dropeoArma();
-                dropeoTornillo();
-                gameControler.SumarPuntos(puntos);
+                //dropeoArma();
+                //dropeoTornillo();
+                manager.SumarPuntos(puntos);
             }
             
             Instantiate(SonidoEnemy[1], transform.position, Quaternion.identity);
@@ -359,23 +358,5 @@ public class EnemyBigBoy : Enemy
         }
 
 
-    }
-
-    public IEnumerator muerte(float seconds)
-    {
-        SonidoMuerte();
-        yield return new WaitForSeconds(seconds);
-        
-    }
-
-    // el sonido de la muerte
-    private void SonidoMuerte()
-    {
-
-        if (variable)
-        {
-            Instantiate(SonidoEnemy[0], transform.position, Quaternion.identity);
-            variable = false;
-        }
     }
 }

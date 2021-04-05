@@ -21,6 +21,9 @@ public class GameManager : MonoBehaviour
     public GameUi gameUi;
     public Canvas canvas;
 
+    [Header("Confetti")]
+    public GameObject confeti;
+
     private static GameManager _instance;
 
     public static GameManager Instance { get { return _instance; } }

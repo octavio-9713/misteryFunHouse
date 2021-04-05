@@ -42,7 +42,6 @@ public class EnemyT1 : Enemy
 
     //variable para los puntos
     public int puntos = 75;
-    public GameManager manager;
 
     //para acceder al collider;
     private BoxCollider2D m_ObjectCollider;
@@ -56,6 +55,7 @@ public class EnemyT1 : Enemy
     void Start()
     {
 
+        manager = GameManager.Instance;
         // Recuperamos al jugador gracias al Tag
         player = GameObject.FindGameObjectWithTag("Player");
 
@@ -245,8 +245,8 @@ public class EnemyT1 : Enemy
                 Destroy(gameObject);
 
                 StartCoroutine(muerte(2.25f));
-                dropeoArma();
-                dropeoTornillo();
+                //dropeoArma();
+                //dropeoTornillo();
                 manager.SumarPuntos(puntos);
             }
 
@@ -266,8 +266,8 @@ public class EnemyT1 : Enemy
                 Destroy(gameObject);
 
                 StartCoroutine(muerte(2.25f));
-                dropeoArma();
-                dropeoTornillo();
+                //dropeoArma();
+                //dropeoTornillo();
                 manager.SumarPuntos(puntos);
             }
 
@@ -287,8 +287,8 @@ public class EnemyT1 : Enemy
                 Destroy(gameObject);
 
                 StartCoroutine(muerte(2.25f));
-                dropeoArma();
-                dropeoTornillo();
+                //dropeoArma();
+                //dropeoTornillo();
                 manager.SumarPuntos(puntos);
             }
 
@@ -308,8 +308,8 @@ public class EnemyT1 : Enemy
                 Destroy(gameObject);
 
                 StartCoroutine(muerte(2.25f));
-                dropeoArma();
-                dropeoTornillo();
+                //dropeoArma();
+                //dropeoTornillo();
                 manager.SumarPuntos(puntos);
             }
 
@@ -328,8 +328,8 @@ public class EnemyT1 : Enemy
                 Instantiate(explocionMuerte, transform.position, Quaternion.identity);
 
                 StartCoroutine(muerte(2.25f));
-                dropeoArma();
-                dropeoTornillo();
+                //dropeoArma();
+                //dropeoTornillo();
                 manager.SumarPuntos(puntos);
             }
 
@@ -341,23 +341,5 @@ public class EnemyT1 : Enemy
 
     }
 
-    public IEnumerator muerte(float seconds)
-    {
-        SonidoMuerte();
-        deathEvent.Invoke();
-         yield return new WaitForSeconds(seconds);
-        
-    }
-
-    // el sonido de la muerte
-    private void SonidoMuerte()
-    {
-        
-        if (variable)
-        {
-            Instantiate(SonidoEnemy[0], transform.position, Quaternion.identity);
-            variable = false;
-        }
-    }
 }
 
