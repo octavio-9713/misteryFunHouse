@@ -2,17 +2,10 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class PlayEvent : MonoBehaviour
+public class DoorShutter : MonoBehaviour
 {
     private int entro = 0;
-    public SalaManager salaManager;
-
-    void Start()
-    {}
-
-
-    void Update()
-    {}
+    public RoomManager salaManager;
 
     public void OnTriggerEnter2D(Collider2D c)
     {

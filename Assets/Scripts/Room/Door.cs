@@ -3,13 +3,13 @@ using System.Collections.Generic;
 using UnityEngine;
 using System;
 
-public class Puerta : MonoBehaviour
+public class Door : MonoBehaviour
 {
-    private SalaManager _manager;
+    private RoomManager _manager;
 
     void Start()
     {
-        _manager = GetComponentInParent<SalaManager>();
+        _manager = GetComponentInParent<RoomManager>();
         _manager.closeEvent.AddListener(Cerrar);
         _manager.openEvent.AddListener(Abrir);
     }

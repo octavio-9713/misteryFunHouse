@@ -4,359 +4,355 @@ using UnityEngine;
 
 public class EnemyBigBoy : Enemy
 {
-    // Variables para gestionar el radio de visión, el de ataque y la velocidad
-    public float visionRadius;
-    public float attackRadius;
-    public float speed;
+    //// Variables para gestionar el radio de visión, el de ataque y la velocidad
+    //public float visionRadius;
+    //public float attackRadius;
+    //public float speed;
 
-    // Variables relacionadas con el ataque
-    [Tooltip("Velocidad de ataque (segundos entre ataques)")]
-    public float attackSpeed = 2.3f;
-    bool attacking;
-    public GameObject bazookaBullet;
-    public Transform shotpos1;
-    public Transform shotpos2;
-
-
-    ///--- Variables relacionadas con la vida
-    [Tooltip("Puntos de vida")]
-    public int maxHp = 3;
-    [Tooltip("Vida actual")]
-    private double hp;
-
-    // Variable para guardar al jugador
-    GameObject player;
-
-    // Variable para guardar la posición inicial
-    Vector3 initialPosition, target;
-
-    // Animador y cuerpo cinemático con la rotación en Z congelada
-    Animator anim;
-    Rigidbody2D rb2d;
-
-    // Variable para el drop
-    public GameObject BazookaGun;
-    public bool dropeoFijo;
-    public GameObject tornillo;
-
-    //variable para que gire la bala
-    public Transform contPost1;
-    public Transform contPost2;
-
-    //movimiento aleatorio
-    private bool movAleato = true;
-
-    //variable para los puntos
-    public int puntos = 200;
-
-    //para acceder al collider;
-    private BoxCollider2D m_ObjectCollider;
-
-    //variable para la muerte
-    private bool muerto = false;
-    public GameObject explocionMuerte;
-
-    //sonido
-    private bool variable = true;
+    //// Variables relacionadas con el ataque
+    //[Tooltip("Velocidad de ataque (segundos entre ataques)")]
+    //public float attackSpeed = 2.3f;
+    //bool attacking;
+    //public GameObject bazookaBullet;
+    //public Transform shotpos1;
+    //public Transform shotpos2;
 
 
-    void Start()
-    {
+    /////--- Variables relacionadas con la vida
+    //[Tooltip("Puntos de vida")]
+    //public int maxHp = 3;
+    //[Tooltip("Vida actual")]
+    //private double hp;
 
-        manager = GameManager.Instance;
-        // Recuperamos al jugador gracias al Tag
-        player = GameObject.FindGameObjectWithTag("Player");
+    //// Variable para guardar al jugador
+    //GameObject player;
 
-        m_ObjectCollider = GetComponent<BoxCollider2D>();
+    //// Variable para guardar la posición inicial
+    //Vector3 initialPosition, target;
 
-        anim = GetComponent<Animator>();
-        rb2d = GetComponent<Rigidbody2D>();
+    //// Animador y cuerpo cinemático con la rotación en Z congelada
+    //Animator anim;
+    //Rigidbody2D rb2d;
 
-        ///--- Iniciamos la vida
-        hp = maxHp;
-    }
+    //// Variable para el drop
+    //public GameObject BazookaGun;
+    //public bool dropeoFijo;
+    //public GameObject tornillo;
 
-    void Update()
-    {
+    ////variable para que gire la bala
+    //public Transform contPost1;
+    //public Transform contPost2;
 
-        if (!muerto)
-        {
-            // Guardamos nuestra posición inicial
-            initialPosition = transform.position;
+    ////movimiento aleatorio
+    //private bool movAleato = true;
 
-            // Por defecto nuestro target siempre será nuestra posición inicial
-            target = initialPosition;
+    ////variable para los puntos
+    //public int puntos = 200;
 
-            // Comprobamos un Raycast del enemigo hasta el jugador
-            RaycastHit2D hit = Physics2D.Raycast(
-                transform.position,
-                player.transform.position - transform.position,
-                visionRadius,
-                1 << LayerMask.NameToLayer("Default")
-            // Poner el propio Enemy en una layer distinta a Default para evitar el raycast
-            // También poner al objeto Attack y al Prefab Slash una Layer Attack 
-            // Sino los detectará como entorno y se mueve atrás al hacer ataques
-            );
+    ////para acceder al collider;
+    //private BoxCollider2D m_ObjectCollider;
 
-            // Aquí podemos debugear el Raycast
-            Vector3 forward = transform.TransformDirection(player.transform.position - transform.position);
-            Debug.DrawRay(transform.position, forward, Color.red);
+    ////variable para la muerte
+    //private bool muerto = false;
+    //public GameObject explocionMuerte;
 
-            // Si el Raycast encuentra al jugador lo ponemos de target
-            if (hit.collider != null)
-            {
-                if (hit.collider.tag == "Player")
-                {
-                    target = player.transform.position;
-                }
-            }
+    //void Start()
+    //{
 
-            // Calculamos la distancia y dirección actual hasta el target
-            float distance = Vector3.Distance(target, transform.position);
-            Vector3 dir = (target - transform.position).normalized;
+    //    manager = GameManager.Instance;
+    //    // Recuperamos al jugador gracias al Tag
+    //    player = GameObject.FindGameObjectWithTag("Player");
 
-            // Si es el enemigo y está en rango de ataque nos paramos y le atacamos
-            if (target != initialPosition && distance < attackRadius)
-            {
+    //    m_ObjectCollider = GetComponent<BoxCollider2D>();
 
-                gameObject.GetComponent<Animator>().SetBool("disparar", true);
+    //    anim = GetComponent<Animator>();
+    //    rb2d = GetComponent<Rigidbody2D>();
 
+    //    ///--- Iniciamos la vida
+    //    hp = maxHp;
+    //}
 
-                ///-- Empezamos a atacar (importante una Layer en ataque para evitar Raycast)
-                if (!attacking) StartCoroutine(Attack(attackSpeed));
-            }
-            // En caso contrario nos movemos hacia él
-            else
-            {
-                rb2d.MovePosition(transform.position + dir * speed * Time.deltaTime);
+    //void Update()
+    //{
 
-                //poner la animacion de mover
-                gameObject.GetComponent<Animator>().SetBool("disparar", false);
-                gameObject.GetComponent<Animator>().SetBool("move", true);
-            }
+    //    if (!muerto)
+    //    {
+    //        // Guardamos nuestra posición inicial
+    //        initialPosition = transform.position;
 
-            // Una última comprobación para evitar bugs forzando la posición inicial
-            if (target == initialPosition && distance < 0.05f)
-            {
-                gameObject.GetComponent<Animator>().SetBool("disparar", false);
-                gameObject.GetComponent<Animator>().SetBool("move", false);
+    //        // Por defecto nuestro target siempre será nuestra posición inicial
+    //        target = initialPosition;
 
-                if (movAleato)
-                {
-                    float movimientoX = Random.Range(-1f, 1f);
-                    float movimientoY = Random.Range(-1f, 1f);
-                    float time = Random.Range(7f, 15f);
+    //        // Comprobamos un Raycast del enemigo hasta el jugador
+    //        RaycastHit2D hit = Physics2D.Raycast(
+    //            transform.position,
+    //            player.transform.position - transform.position,
+    //            visionRadius,
+    //            1 << LayerMask.NameToLayer("Default")
+    //        // Poner el propio Enemy en una layer distinta a Default para evitar el raycast
+    //        // También poner al objeto Attack y al Prefab Slash una Layer Attack 
+    //        // Sino los detectará como entorno y se mueve atrás al hacer ataques
+    //        );
 
-                    Vector2 offset = new Vector2(movimientoX, movimientoY);
-                    StartCoroutine(MovimientoAleatorio(time, offset));
-                }
-            }
+    //        // Aquí podemos debugear el Raycast
+    //        Vector3 forward = transform.TransformDirection(player.transform.position - transform.position);
+    //        Debug.DrawRay(transform.position, forward, Color.red);
 
-            // Y un debug optativo con una línea hasta el target
-            Debug.DrawLine(transform.position, target, Color.green);
+    //        // Si el Raycast encuentra al jugador lo ponemos de target
+    //        if (hit.collider != null)
+    //        {
+    //            if (hit.collider.tag == "Player")
+    //            {
+    //                target = player.transform.position;
+    //            }
+    //        }
 
-            //para que gire el personaje
-            if (player.transform.position.x < transform.position.x)
-            {
-                transform.localScale = new Vector3(-1, 1, 1);
+    //        // Calculamos la distancia y dirección actual hasta el target
+    //        float distance = Vector3.Distance(target, transform.position);
+    //        Vector3 dir = (target - transform.position).normalized;
 
-            }
-            else
-            {
-                transform.localScale = new Vector3(1, 1, 1);
+    //        // Si es el enemigo y está en rango de ataque nos paramos y le atacamos
+    //        if (target != initialPosition && distance < attackRadius)
+    //        {
 
-            }
-
-        }
+    //            gameObject.GetComponent<Animator>().SetBool("disparar", true);
 
 
-    }
+    //            ///-- Empezamos a atacar (importante una Layer en ataque para evitar Raycast)
+    //            if (!attacking) StartCoroutine(Attack(attackSpeed));
+    //        }
+    //        // En caso contrario nos movemos hacia él
+    //        else
+    //        {
+    //            rb2d.MovePosition(transform.position + dir * speed * Time.deltaTime);
 
-    //para que gire la bala
-    public void LateUpdate()
-    {
-        contPost1.up = contPost1.transform.position - player.transform.position;
-        contPost2.up = contPost2.transform.position - player.transform.position;
-    }
+    //            //poner la animacion de mover
+    //            gameObject.GetComponent<Animator>().SetBool("disparar", false);
+    //            gameObject.GetComponent<Animator>().SetBool("move", true);
+    //        }
+
+    //        // Una última comprobación para evitar bugs forzando la posición inicial
+    //        if (target == initialPosition && distance < 0.05f)
+    //        {
+    //            gameObject.GetComponent<Animator>().SetBool("disparar", false);
+    //            gameObject.GetComponent<Animator>().SetBool("move", false);
+
+    //            if (movAleato)
+    //            {
+    //                float movimientoX = Random.Range(-1f, 1f);
+    //                float movimientoY = Random.Range(-1f, 1f);
+    //                float time = Random.Range(7f, 15f);
+
+    //                Vector2 offset = new Vector2(movimientoX, movimientoY);
+    //                StartCoroutine(MovimientoAleatorio(time, offset));
+    //            }
+    //        }
+
+    //        // Y un debug optativo con una línea hasta el target
+    //        Debug.DrawLine(transform.position, target, Color.green);
+
+    //        //para que gire el personaje
+    //        if (player.transform.position.x < transform.position.x)
+    //        {
+    //            transform.localScale = new Vector3(-1, 1, 1);
+
+    //        }
+    //        else
+    //        {
+    //            transform.localScale = new Vector3(1, 1, 1);
+
+    //        }
+
+    //    }
 
 
-    public IEnumerator MovimientoAleatorio(float seconds, Vector2 offset)
-    {
+    //}
+
+    ////para que gire la bala
+    //public void LateUpdate()
+    //{
+    //    contPost1.up = contPost1.transform.position - player.transform.position;
+    //    contPost2.up = contPost2.transform.position - player.transform.position;
+    //}
+
+
+    //public IEnumerator MovimientoAleatorio(float seconds, Vector2 offset)
+    //{
         
-        movAleato = false;
+    //    movAleato = false;
 
-        Vector2 pos = new Vector2(transform.position.x, transform.position.y);
+    //    Vector2 pos = new Vector2(transform.position.x, transform.position.y);
 
-        rb2d.velocity = offset * 700f * Time.fixedDeltaTime;
+    //    rb2d.velocity = offset * 700f * Time.fixedDeltaTime;
 
-        gameObject.GetComponent<Animator>().SetBool("move", true);
+    //    gameObject.GetComponent<Animator>().SetBool("move", true);
 
-        yield return new WaitForSeconds(3f);
+    //    yield return new WaitForSeconds(3f);
         
-        rb2d.velocity = Vector2.zero;
-        gameObject.GetComponent<Animator>().SetBool("move", false);
+    //    rb2d.velocity = Vector2.zero;
+    //    gameObject.GetComponent<Animator>().SetBool("move", false);
         
-        yield return new WaitForSeconds(seconds);
+    //    yield return new WaitForSeconds(seconds);
 
-        movAleato = true;
+    //    movAleato = true;
 
-    }
+    //}
 
-    //funcion para dropear el tornillo
-    public void dropeoTornillo()
-    {
-        int numeroRam = Random.Range(0, 4);
+    ////funcion para dropear el tornillo
+    //public void dropeoTornillo()
+    //{
+    //    int numeroRam = Random.Range(0, 4);
 
-        for (int i = 0; i < numeroRam; i++)
-        {
-            float dispercionH = Random.Range(-6f, 6f);
-            float dispercionHY = Random.Range(-6f, 6f);
+    //    for (int i = 0; i < numeroRam; i++)
+    //    {
+    //        float dispercionH = Random.Range(-6f, 6f);
+    //        float dispercionHY = Random.Range(-6f, 6f);
 
-            Vector3 offset = new Vector3(dispercionH, dispercionHY, 0f);
+    //        Vector3 offset = new Vector3(dispercionH, dispercionHY, 0f);
 
-            Instantiate(tornillo, transform.position + offset, transform.rotation);
-        }
+    //        Instantiate(tornillo, transform.position + offset, transform.rotation);
+    //    }
 
-    }
+    //}
 
-    public void dropeoArma()
-    {
-        int numeroRam = Random.Range(1, 3);
+    //public void dropeoArma()
+    //{
+    //    int numeroRam = Random.Range(1, 3);
 
-        if (dropeoFijo)
-        {
-            Instantiate(BazookaGun, transform.position, Quaternion.identity);
-        }
-        else
-        {
-            if (numeroRam == 2)
-            {
-                Instantiate(BazookaGun, transform.position, Quaternion.identity);
-            }
-        }
-    }
-
-
-    //ataque del enemigo
-    IEnumerator Attack(float seconds)
-    {
-        attacking = true;
-        Instantiate(bazookaBullet, shotpos1.transform.position, shotpos1.transform.rotation);
-        Instantiate(SonidoEnemy[2], transform.position, Quaternion.identity);
-        Instantiate(bazookaBullet, shotpos2.transform.position, shotpos2.transform.rotation);
-        Instantiate(SonidoEnemy[2], transform.position, Quaternion.identity);
-        yield return new WaitForSeconds(seconds);
-        attacking = false;
-    }
+    //    if (dropeoFijo)
+    //    {
+    //        Instantiate(BazookaGun, transform.position, Quaternion.identity);
+    //    }
+    //    else
+    //    {
+    //        if (numeroRam == 2)
+    //        {
+    //            Instantiate(BazookaGun, transform.position, Quaternion.identity);
+    //        }
+    //    }
+    //}
 
 
+    ////ataque del enemigo
+    //IEnumerator Attack(float seconds)
+    //{
+    //    attacking = true;
+    //    Instantiate(bazookaBullet, shotpos1.transform.position, shotpos1.transform.rotation);
+    //    Instantiate(SonidoEnemy[2], transform.position, Quaternion.identity);
+    //    Instantiate(bazookaBullet, shotpos2.transform.position, shotpos2.transform.rotation);
+    //    Instantiate(SonidoEnemy[2], transform.position, Quaternion.identity);
+    //    yield return new WaitForSeconds(seconds);
+    //    attacking = false;
+    //}
 
-    ///--- Gestión del daño de las armas, la vida y el dropeo del arma
-    void OnTriggerEnter2D(Collider2D collision)
-    {
-        if (collision.gameObject.tag == "BuDefault" && !muerto)
-        {
-            hp = hp - 1;
-            if (hp == 0)
-            {
-                muerto = true;
-                m_ObjectCollider.isTrigger = true;
-                transform.localScale = new Vector3(1, 1, 1);
-                Instantiate(explocionMuerte, transform.position, Quaternion.identity);
-                Destroy(gameObject);
 
-                StartCoroutine(muerte(2.62f));
-                //dropeoArma();
-                //dropeoTornillo();
-                manager.SumarPuntos(puntos);
-            }
 
-            Instantiate(SonidoEnemy[1], transform.position, Quaternion.identity);
-        }
+    /////--- Gestión del daño de las armas, la vida y el dropeo del arma
+    //void OnTriggerEnter2D(Collider2D collision)
+    //{
+    //    if (collision.gameObject.tag == "BuDefault" && !muerto)
+    //    {
+    //        hp = hp - 1;
+    //        if (hp == 0)
+    //        {
+    //            muerto = true;
+    //            m_ObjectCollider.isTrigger = true;
+    //            transform.localScale = new Vector3(1, 1, 1);
+    //            Instantiate(explocionMuerte, transform.position, Quaternion.identity);
+    //            Destroy(gameObject);
 
-        if (collision.gameObject.tag == "BuPistol" && !muerto)
-        {
-            hp = hp - 1;
-            if (hp <= 0)
-            {
-                muerto = true;
-                m_ObjectCollider.isTrigger = true;
-                transform.localScale = new Vector3(1, 1, 1);
-                Instantiate(explocionMuerte, transform.position, Quaternion.identity);
-                Destroy(gameObject);
+    //            StartCoroutine(Death(2.62f));
+    //            //dropeoArma();
+    //            //dropeoTornillo();
+    //            manager.SumarPuntos(puntos);
+    //        }
 
-                StartCoroutine(muerte(2.62f));
-                //dropeoArma();
-                //dropeoTornillo();
-                manager.SumarPuntos(puntos);
-            }
+    //        Instantiate(SonidoEnemy[1], transform.position, Quaternion.identity);
+    //    }
 
-            Instantiate(SonidoEnemy[1], transform.position, Quaternion.identity);
-        }
+    //    if (collision.gameObject.tag == "BuPistol" && !muerto)
+    //    {
+    //        hp = hp - 1;
+    //        if (hp <= 0)
+    //        {
+    //            muerto = true;
+    //            m_ObjectCollider.isTrigger = true;
+    //            transform.localScale = new Vector3(1, 1, 1);
+    //            Instantiate(explocionMuerte, transform.position, Quaternion.identity);
+    //            Destroy(gameObject);
 
-        if (collision.gameObject.tag == "BuMachine" && !muerto)
-        {
-            hp = hp - 0.5;
-            if (hp <= 0)
-            {
-                muerto = true;
-                m_ObjectCollider.isTrigger = true;
-                transform.localScale = new Vector3(1, 1, 1);
-                Instantiate(explocionMuerte, transform.position, Quaternion.identity);
-                Destroy(gameObject);
+    //            StartCoroutine(Death(2.62f));
+    //            //dropeoArma();
+    //            //dropeoTornillo();
+    //            manager.SumarPuntos(puntos);
+    //        }
 
-                StartCoroutine(muerte(2.62f));
-                //dropeoArma();
-                //dropeoTornillo();
-                manager.SumarPuntos(puntos);
-            }
+    //        Instantiate(SonidoEnemy[1], transform.position, Quaternion.identity);
+    //    }
 
-            Instantiate(SonidoEnemy[1], transform.position, Quaternion.identity);
-        }
+    //    if (collision.gameObject.tag == "BuMachine" && !muerto)
+    //    {
+    //        hp = hp - 0.5;
+    //        if (hp <= 0)
+    //        {
+    //            muerto = true;
+    //            m_ObjectCollider.isTrigger = true;
+    //            transform.localScale = new Vector3(1, 1, 1);
+    //            Instantiate(explocionMuerte, transform.position, Quaternion.identity);
+    //            Destroy(gameObject);
 
-        if (collision.gameObject.tag == "BuShotgun" && !muerto)
-        {
-            hp = hp - 0.5;
-            if (hp <= 0)
-            {
-                muerto = true;             
-                transform.localScale = new Vector3(1, 1, 1);
-                Instantiate(explocionMuerte, transform.position, Quaternion.identity);
-                m_ObjectCollider.isTrigger = true;
-                Destroy(gameObject);
+    //            StartCoroutine(Death(2.62f));
+    //            //dropeoArma();
+    //            //dropeoTornillo();
+    //            manager.SumarPuntos(puntos);
+    //        }
 
-                StartCoroutine(muerte(2.62f));
-                //dropeoArma();
-                //dropeoTornillo();
-                manager.SumarPuntos(puntos);
-            }
+    //        Instantiate(SonidoEnemy[1], transform.position, Quaternion.identity);
+    //    }
 
-            Instantiate(SonidoEnemy[1], transform.position, Quaternion.identity);
-        }
+    //    if (collision.gameObject.tag == "BuShotgun" && !muerto)
+    //    {
+    //        hp = hp - 0.5;
+    //        if (hp <= 0)
+    //        {
+    //            muerto = true;             
+    //            transform.localScale = new Vector3(1, 1, 1);
+    //            Instantiate(explocionMuerte, transform.position, Quaternion.identity);
+    //            m_ObjectCollider.isTrigger = true;
+    //            Destroy(gameObject);
 
-        if (collision.gameObject.tag == "Explocion" && !muerto)
-        {
-            hp = hp - 3;
-            if (hp <= 0)
-            {
+    //            StartCoroutine(Death(2.62f));
+    //            //dropeoArma();
+    //            //dropeoTornillo();
+    //            manager.SumarPuntos(puntos);
+    //        }
 
-                muerto = true;
+    //        Instantiate(SonidoEnemy[1], transform.position, Quaternion.identity);
+    //    }
+
+    //    if (collision.gameObject.tag == "Explocion" && !muerto)
+    //    {
+    //        hp = hp - 3;
+    //        if (hp <= 0)
+    //        {
+
+    //            muerto = true;
                 
-                m_ObjectCollider.isTrigger = true;
-                transform.localScale = new Vector3(1, 1, 1);
-                Instantiate(explocionMuerte, transform.position, Quaternion.identity);
-                Destroy(gameObject);
+    //            m_ObjectCollider.isTrigger = true;
+    //            transform.localScale = new Vector3(1, 1, 1);
+    //            Instantiate(explocionMuerte, transform.position, Quaternion.identity);
+    //            Destroy(gameObject);
 
-                StartCoroutine(muerte(2.62f));
-                //dropeoArma();
-                //dropeoTornillo();
-                manager.SumarPuntos(puntos);
-            }
+    //            StartCoroutine(Death(2.62f));
+    //            //dropeoArma();
+    //            //dropeoTornillo();
+    //            manager.SumarPuntos(puntos);
+    //        }
             
-            Instantiate(SonidoEnemy[1], transform.position, Quaternion.identity);
+    //        Instantiate(SonidoEnemy[1], transform.position, Quaternion.identity);
 
-        }
+    //    }
 
 
-    }
+    //}
 }

@@ -4,7 +4,7 @@ using UnityEngine;
 using System;
 using UnityEngine.Events;
 
-public class SalaManager : MonoBehaviour
+public class RoomManager : MonoBehaviour
 {
     [HideInInspector]
     public UnityEvent closeEvent = new UnityEvent();
@@ -15,7 +15,7 @@ public class SalaManager : MonoBehaviour
     private int numActivacion = 0;
     private bool activacion = false;
 
-    public Cortina[] cortinas;
+    public Curtain[] cortinas;
 
     public Transform[] spawner;
     public GameObject[] enemies;

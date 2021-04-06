@@ -16,10 +16,13 @@ public class PlayerStats
     [Header ("Dash Settings")]
     public float dashSpeed;
     public float initialDashForce = 8000;
+    public float dashDamage;
 
 
     public void ApplyStats(PlayerStats stats)
     {
+        this.maxHp += stats.maxHp;
+
         playerSpeed += stats.playerSpeed;
 
         dashSpeed += stats.dashSpeed;

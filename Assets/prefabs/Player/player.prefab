@@ -13,7 +13,7 @@ GameObject:
   - component: {fileID: 228934264}
   - component: {fileID: 228934263}
   m_Layer: 0
-  m_Name: mira
+  m_Name: sight
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -251,7 +251,7 @@ Rigidbody2D:
   m_UseFullKinematicContacts: 0
   m_UseAutoMass: 0
   m_Mass: 0.5
-  m_LinearDrag: 6
+  m_LinearDrag: 5
   m_AngularDrag: 0.05
   m_GravityScale: 0
   m_Material: {fileID: 0}
@@ -320,14 +320,17 @@ MonoBehaviour:
   moving: 0
   dashing: 0
   shotpos: {fileID: 1272917463130621780}
-  Gun: {fileID: 916955023891880934}
+  weaponContainer: {fileID: 395580913984384087}
+  sight: {fileID: 228934262}
+  gun: {fileID: 8688177931726254579}
   lifeUI: {fileID: 0}
   stats:
-    maxHp: 5
+    maxHp: 3
     currentHp: 0
-    playerSpeed: 10000
-    dashSpeed: 80000
+    playerSpeed: 12000
+    dashSpeed: 15000
     initialDashForce: 8000
+    dashDamage: 0
   SonidoPlayer:
   - {fileID: 3574618696464622083, guid: 88337c638890994459f3308717fd29d2, type: 3}
   - {fileID: 5249616227782800830, guid: c96f01547d7bec543ba120612309fd67, type: 3}
@@ -341,7 +344,6 @@ MonoBehaviour:
   - {fileID: 3207955470152386793, guid: 956d5ec8107d0c84887d42f404592b07, type: 3}
   - {fileID: 1623949721329680129, guid: 940ec155c394b034894224f49477e4bf, type: 3}
   - {fileID: 5230070736455551544, guid: bc18358ad87dbeb4d936166bf6e2cb95, type: 3}
-  _mouseDirection: {x: 0, y: 0}
 --- !u!114 &3619905251375265379
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -367,9 +369,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b7e5306c955717244aa95ab8eadfa714, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  startTime: 1
+  dashLengthSec: 0.2
   dashWait: 0.35
-  dashWaitTime: 2.5
+  dashWaitTime: 1
 --- !u!1001 &4552693213211466529
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -380,7 +382,7 @@ PrefabInstance:
     - target: {fileID: 3717659813893161159, guid: ef47fd73a0c6aef4e8015205f9a50820,
         type: 3}
       propertyPath: m_Name
-      value: ' Gun'
+      value: Pistol
       objectReference: {fileID: 0}
     - target: {fileID: 4304674694389213048, guid: ef47fd73a0c6aef4e8015205f9a50820,
         type: 3}
@@ -437,20 +439,42 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: -89.76501
       objectReference: {fileID: 0}
+    - target: {fileID: 5169272104048356050, guid: ef47fd73a0c6aef4e8015205f9a50820,
+        type: 3}
+      propertyPath: sight
+      value: 
+      objectReference: {fileID: 228934262}
+    - target: {fileID: 5169272104048356050, guid: ef47fd73a0c6aef4e8015205f9a50820,
+        type: 3}
+      propertyPath: container
+      value: 
+      objectReference: {fileID: 395580913984384087}
+    - target: {fileID: 5169272104048356050, guid: ef47fd73a0c6aef4e8015205f9a50820,
+        type: 3}
+      propertyPath: weapon.weaponSprite
+      value: 
+      objectReference: {fileID: 883699020832820799, guid: 5d1fdf8906d631c4eb6224d5adc93cfe,
+        type: 3}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: ef47fd73a0c6aef4e8015205f9a50820, type: 3}
---- !u!1 &916955023891880934 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 3717659813893161159, guid: ef47fd73a0c6aef4e8015205f9a50820,
-    type: 3}
-  m_PrefabInstance: {fileID: 4552693213211466529}
-  m_PrefabAsset: {fileID: 0}
 --- !u!4 &329656164119985241 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 4304674694389213048, guid: ef47fd73a0c6aef4e8015205f9a50820,
     type: 3}
   m_PrefabInstance: {fileID: 4552693213211466529}
   m_PrefabAsset: {fileID: 0}
+--- !u!114 &8688177931726254579 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 5169272104048356050, guid: ef47fd73a0c6aef4e8015205f9a50820,
+    type: 3}
+  m_PrefabInstance: {fileID: 4552693213211466529}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 250e1068d819433458b12bcc43593c39, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!4 &1272917463130621780 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 3351845715839540341, guid: ef47fd73a0c6aef4e8015205f9a50820,

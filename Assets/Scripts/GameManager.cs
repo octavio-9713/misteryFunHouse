@@ -37,15 +37,15 @@ public class GameManager : MonoBehaviour
         else
         {
             _instance = this;
+
+            GameObject playerEntity = GameObject.FindGameObjectWithTag("Player");
+            player = playerEntity.GetComponent<Player>();
         }
     }
 
     void Start()
     {
         TextScore.text = Score.ToString();
-
-        GameObject playerEntity = GameObject.FindGameObjectWithTag("Player");
-        player = playerEntity.GetComponent<Player>();
     }
 
 

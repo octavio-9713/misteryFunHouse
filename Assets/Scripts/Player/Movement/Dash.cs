@@ -6,7 +6,7 @@ using UnityEngine;
 public class Dash : MonoBehaviour
 {
     [Header("Dash Settings")]
-    public float startTime;
+    public float dashLengthSec;
 
     [Header("Dash Wait Time")]
     public float dashWait = 0.35f;
@@ -17,22 +17,18 @@ public class Dash : MonoBehaviour
     private Rigidbody2D _rb;
     private Animator _animator;
 
-    private float _ogRotation;
-    private bool _dashSound = false;
-
     private bool _dashing = false;
 
     private float _dashTimeCounter;
 
     private bool _dashEnabled = true;
 
-    private Vector2 _directionFromMouse;
+    private Vector2 _dashDirection;
+    private float _dashStartTime;
 
     // Start is called before the first frame update
     void Start()
     {
-        _dashTimeCounter = startTime;
-
         _rb = GetComponent<Rigidbody2D>();
         _player = this.GetComponent<Player>();
         _move = this.GetComponent<Move>();
@@ -67,8 +63,8 @@ public class Dash : MonoBehaviour
 
         if (_dashEnabled)
         {
-            _dashSound = true;
-            PrepareDash();
+            PrepareDash(move);
+
             _animator.SetBool("dash", true);
             _player.PlayDashSound();
         }
@@ -78,10 +74,11 @@ public class Dash : MonoBehaviour
     {
         if (_dashing)
         {
-            if (_dashTimeCounter <= 0f)
+            if (_dashTimeCounter >= dashLengthSec)
             {
                 _dashing = false;
-                _dashTimeCounter = startTime;
+                _player.dashing = false;
+                _dashTimeCounter = dashLengthSec;
                 _animator.SetBool("dash", false);
 
                 _move.EnableMove();
@@ -89,7 +86,7 @@ public class Dash : MonoBehaviour
             }
             else
             {
-                _dashTimeCounter -= Time.deltaTime;
+                _dashTimeCounter = Time.time - _dashStartTime;
             }
         }
     }
@@ -99,26 +96,35 @@ public class Dash : MonoBehaviour
     {
         if (_dashing)
         {
-            _rb.velocity = _directionFromMouse * _player.stats.dashSpeed * Time.fixedDeltaTime;
+            _rb.velocity = _dashDirection * _player.stats.dashSpeed * Time.fixedDeltaTime;
             StartCoroutine(DashWait(dashWaitTime));
         }
 
     }
 
-    void PrepareDash()
+    void PrepareDash(Vector2 dashDirection)
     {
         _dashing = true;
+        _player.dashing = true;
 
-        Vector2 mousePosition = Camera.main.ScreenToWorldPoint(Input.mousePosition);
-        _directionFromMouse = mousePosition - (Vector2)transform.position;
-        _directionFromMouse.Normalize();
+        if (dashDirection == Vector2.zero)
+        {
+            _dashDirection = Camera.main.ScreenToWorldPoint(Input.mousePosition);
+            _dashDirection -= (Vector2)transform.position;
+        }
 
+        else
+            _dashDirection = dashDirection;
+
+        _dashDirection.Normalize();
         _player.PlayDashSound();
+        _dashStartTime = Time.time;
+        _dashTimeCounter = 0;
     }
     public void ChangeStats(float timeBetweenDashes, float dashLength, float dashWait)
     {
         this.dashWait += timeBetweenDashes;
-        this.startTime += dashLength;
+        this.dashLengthSec += dashLength;
         this.dashWaitTime += dashWait;
     }
 

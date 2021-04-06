@@ -167,6 +167,15 @@ public class Player : MonoBehaviour
         lifeUI.CambioVida(stats.currentHp);
     }
 
+    public Vector2 MovingDirection()
+    {
+        float horMov = Input.GetAxisRaw("Horizontal");
+        float verMov = Input.GetAxisRaw("Vertical");
+
+
+        return new Vector2(horMov, verMov);
+    }
+
     //detecta cuando entraste al arma del piso
     public void OnTriggerEnter2D(Collider2D c)
     {

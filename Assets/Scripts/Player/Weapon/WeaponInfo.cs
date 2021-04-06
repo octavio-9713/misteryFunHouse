@@ -16,6 +16,7 @@ public class WeaponInfo
     [Header("Weapon Settings")]
     public int bulletQuantity;
     public float weaponCadence = 0.05f;
+    public float weaponDamage = 25f;
     public float weaponRecoil = 10000f;
 
     public void ApplyChanges(WeaponInfo changes)

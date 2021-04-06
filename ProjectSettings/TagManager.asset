@@ -21,6 +21,7 @@ TagManager:
   - ItemHealth1
   - Explocion
   - BuDefault
+  - muro
   layers:
   - Default
   - TransparentFX
@@ -28,7 +29,7 @@ TagManager:
   - 
   - Water
   - UI
-  - 
+  - Enemy
   - 
   - 
   - 

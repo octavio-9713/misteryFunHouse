@@ -113,11 +113,7 @@ public class BulletEnemy : MonoBehaviour
             if (!GameManager.Instance.player.dashing)
             {
                 Destroy(gameObject);
-                GameManager.Instance.player.DecreaseLife();
-            }
-            else
-            {
-                this.GetComponent<BoxCollider>().isTrigger = true;
+                //GameManager.Instance.player.DecreaseLife();
             }
         }
         else if (col.gameObject.tag == "muro")
@@ -134,11 +130,4 @@ public class BulletEnemy : MonoBehaviour
         }
     }
 
-    public void OnTriggerExit2D(Collider2D collision)
-    {
-        if (collision.gameObject.tag == "Player")
-        {
-            this.GetComponent<BoxCollider>().isTrigger = false;
-        }
-    }
 }
