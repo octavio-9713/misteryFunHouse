@@ -24,6 +24,11 @@ public class GameManager : MonoBehaviour
     [Header("Confetti")]
     public GameObject confeti;
 
+    [Header("Spawn Settings")]
+    public int maxRooms = 5;
+    public int actualRooms = 0;
+    public bool finishSpawn = false;
+
     private static GameManager _instance;
 
     public static GameManager Instance { get { return _instance; } }
@@ -41,6 +46,7 @@ public class GameManager : MonoBehaviour
             GameObject playerEntity = GameObject.FindGameObjectWithTag("Player");
             player = playerEntity.GetComponent<Player>();
         }
+
     }
 
     void Start()
@@ -70,5 +76,16 @@ public class GameManager : MonoBehaviour
     {
         SceneManager.LoadScene(sceneName);
         Score = 0;
+    }
+
+    public void IncreaseRoom()
+    {
+        actualRooms++;
+
+        if (actualRooms > maxRooms)
+        {
+            finishSpawn = true;
+        }
+
     }
 }

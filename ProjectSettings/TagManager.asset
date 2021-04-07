@@ -22,6 +22,8 @@ TagManager:
   - Explocion
   - BuDefault
   - muro
+  - SpawnPointSala
+  - Rooms
   layers:
   - Default
   - TransparentFX
