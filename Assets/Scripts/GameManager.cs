@@ -51,15 +51,7 @@ public class GameManager : MonoBehaviour
 
     }
 
-<<<<<<< HEAD
-    void Start()
-    {
-        //TextScore.text = Score.ToString();
-    }
 
-
-=======
->>>>>>> 62d7930a7dd7ff11e7a3a2c1799af9fc4b8a7819
     void Update()
     {
         CountTime();

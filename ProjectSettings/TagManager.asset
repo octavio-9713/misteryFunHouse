@@ -4,31 +4,18 @@
 TagManager:
   serializedVersion: 2
   tags:
-  - Tornillo
-  - BulletsEnemy
-  - shotgun
   - Enemy
+  - BulletsEnemy
   - BuShotgun
   - Gun
-  - PlayEvent
-  - Portal
-  - default
-  - pistol
-  - BuMachine
-  - bazooka
+  - Player Bullet
   - ItemHealth
-  - machinegun
+  - PlayEvent
+  - SpawnPointSala
+  - BuMachine
   - ItemHealth1
   - Explocion
-  - BuDefault
-  - muro
-<<<<<<< HEAD
-  - SpawnPointSala
   - Rooms
-=======
-  - PlayerBullet
-  - Player Bullet
->>>>>>> 62d7930a7dd7ff11e7a3a2c1799af9fc4b8a7819
   layers:
   - Default
   - TransparentFX
@@ -36,9 +23,9 @@ TagManager:
   - 
   - Water
   - UI
-  - Enemy
-  - Enemy Bullet
-  - Player Bullet
+  - PostProcessing
+  - 
+  - 
   - 
   - 
   - 
