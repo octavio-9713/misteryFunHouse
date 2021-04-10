@@ -22,8 +22,13 @@ TagManager:
   - Explocion
   - BuDefault
   - muro
+<<<<<<< HEAD
+  - SpawnPointSala
+  - Rooms
+=======
   - PlayerBullet
   - Player Bullet
+>>>>>>> 62d7930a7dd7ff11e7a3a2c1799af9fc4b8a7819
   layers:
   - Default
   - TransparentFX
