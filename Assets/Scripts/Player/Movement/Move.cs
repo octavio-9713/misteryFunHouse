@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class Move : MonoBehaviour
 {
-    private bool moveEnabled = true;
+    public bool moveEnabled = true;
 
     private Rigidbody2D _rb;
     private Animator _animator;
@@ -17,7 +17,7 @@ public class Move : MonoBehaviour
     void Start()
     {
         _rb = GetComponent<Rigidbody2D>();
-        _player = this.GetComponent<Player>();
+        _player = GameManager.Instance.player;
         _animator = gameObject.GetComponent<Animator>();
         _renderer = gameObject.GetComponent<SpriteRenderer>();
     }
@@ -35,14 +35,14 @@ public class Move : MonoBehaviour
 
             if (move == Vector2.zero)
             {
-                _animator.SetBool("Move", false);
+                _animator.SetBool("move", false);
                 _player.moving = false;
             }
 
             else
             {
-                if (!_animator.GetBool("Move"))
-                    _animator.SetBool("Move", true);
+                if (!_animator.GetBool("move"))
+                    _animator.SetBool("move", true);
 
                 _player.moving = true;
             }

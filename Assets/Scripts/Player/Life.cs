@@ -14,7 +14,6 @@ public class Life : MonoBehaviour
 
     public void CambioVida (int pos)
     {
-        Debug.Log(pos);
         if(pos <= 0)
         {
             this.GetComponent<Image>().sprite = vida[0];

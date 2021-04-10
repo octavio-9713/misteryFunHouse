@@ -12,6 +12,7 @@ public class PlayerStats
 
     [Header("Player Settings")]
     public float playerSpeed = 10000;
+    public float invencibilityTime = 0.5f;
 
     [Header ("Dash Settings")]
     public float dashSpeed;
@@ -27,6 +28,8 @@ public class PlayerStats
 
         dashSpeed += stats.dashSpeed;
         initialDashForce += stats.initialDashForce;
+
+        invencibilityTime += stats.invencibilityTime;
     }
 
 }

@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class IdleState : State
 {
-    private float enterTime;
+    protected float enterTime;
 
     public IdleState(Enemy enemy, Player player, Animator animator) : base(enemy, player, animator)
     {

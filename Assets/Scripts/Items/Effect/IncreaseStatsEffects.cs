@@ -1,7 +1,7 @@
-using System.Collections;
-using System.Collections.Generic;
+using System;
 using UnityEngine;
 
+[Serializable]
 public class IncreaseStatsEffects : ItemEffect
 {
     [Header ("Player Stats")]
@@ -10,7 +10,7 @@ public class IncreaseStatsEffects : ItemEffect
     [Header("Dash Stats")]
     public float timeBetweenDashes;
     public float dashLength;
-    public float dashWait;
+    public float dashCooldown;
 
     [Header ("Weapon Stats")]
     public WeaponInfo weapon;
@@ -19,6 +19,6 @@ public class IncreaseStatsEffects : ItemEffect
     public override void ApplyEffect()
     {
         Player player = GameManager.Instance.player;
-        player.ChangeStats(stats, timeBetweenDashes, dashLength, dashWait, weapon);
+        player.ChangeStats(stats, timeBetweenDashes, dashLength, dashCooldown, weapon);
     }
 }

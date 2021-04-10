@@ -321,13 +321,14 @@ MonoBehaviour:
   dashing: 0
   shotpos: {fileID: 1272917463130621780}
   weaponContainer: {fileID: 395580913984384087}
-  sight: {fileID: 228934262}
+  sight: {fileID: 228934260}
   gun: {fileID: 8688177931726254579}
   lifeUI: {fileID: 0}
   stats:
     maxHp: 3
     currentHp: 0
     playerSpeed: 12000
+    invencibilityTime: 0.5
     dashSpeed: 15000
     initialDashForce: 8000
     dashDamage: 0
@@ -356,6 +357,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ce412bbed23a29945b15c768cc62a6fb, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  moveEnabled: 1
   sight: {fileID: 228934262}
 --- !u!114 &1338505186
 MonoBehaviour:
@@ -371,7 +373,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   dashLengthSec: 0.2
   dashWait: 0.35
-  dashWaitTime: 1
+  dashCooldown: 2.5
 --- !u!1001 &4552693213211466529
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -383,6 +385,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: Pistol
+      objectReference: {fileID: 0}
+    - target: {fileID: 3717659813893161159, guid: ef47fd73a0c6aef4e8015205f9a50820,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 4304674694389213048, guid: ef47fd73a0c6aef4e8015205f9a50820,
         type: 3}
@@ -449,6 +456,11 @@ PrefabInstance:
       propertyPath: container
       value: 
       objectReference: {fileID: 395580913984384087}
+    - target: {fileID: 5169272104048356050, guid: ef47fd73a0c6aef4e8015205f9a50820,
+        type: 3}
+      propertyPath: weapon.bulletLife
+      value: 2
+      objectReference: {fileID: 0}
     - target: {fileID: 5169272104048356050, guid: ef47fd73a0c6aef4e8015205f9a50820,
         type: 3}
       propertyPath: weapon.weaponSprite

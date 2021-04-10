@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class WanderState : State
 {
-    private float enterTime;
+    protected float enterTime;
 
     public WanderState(Enemy enemy, Player player, Animator animator) : base(enemy, player, animator)
     {
@@ -14,6 +14,7 @@ public class WanderState : State
     public override void Enter()
     {
         _animator.SetBool("move", true);
+        _animator.SetTrigger("move");
         enterTime = Time.time;
         base.Enter();
     }
@@ -25,24 +26,15 @@ public class WanderState : State
         float finalTime = Time.time - enterTime;
         if (_enemy.CanSeePlayer())
         {
-            if (_enemy.IsInPersonalSpace())
+            if (_enemy.IsWhitinAttackRange())
             {
-                nextState = new FleeState(_enemy, _player, _animator);
+                nextState = new AttackState(_enemy, _player, _animator);
                 _stage = EVENT.EXIT;
             }
-
             else
             {
-                if (_enemy.IsWhitinAttackRange())
-                {
-                    nextState = new AttackState(_enemy, _player, _animator);
-                    _stage = EVENT.EXIT;
-                }
-                else
-                {
-                    nextState = new PersueState(_enemy, _player, _animator);
-                    _stage = EVENT.EXIT;
-                }
+                nextState = new PersueState(_enemy, _player, _animator);
+                _stage = EVENT.EXIT;
             }
         }
 
@@ -57,7 +49,7 @@ public class WanderState : State
         }
     }
 
-    private void Wander()
+    protected void Wander()
     {
         if (_enemy.needsWanderDirection)
         {
@@ -77,6 +69,7 @@ public class WanderState : State
     public override void Exit()
     {
         _animator.SetBool("move", false);
+        _animator.ResetTrigger("move");
         base.Exit();
     }
 }

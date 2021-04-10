@@ -10,12 +10,18 @@ public class Enemy : MonoBehaviour
 
     public EnemyInfo stats;
 
+    [Header("Attack Settings")]
+    public GameObject[] shotpos;
     public bool attacking = false;
 
     protected Animator _animator;
     protected SpriteRenderer _renderer;
-    protected Rigidbody2D _rg;
+    protected ParticleSystem _ps;
+    protected Rigidbody2D _rb;
     protected Player _player;
+
+    [Header ("Audio Source")]
+    public AudioSource audio;
 
     [Header("Wander Config")]
     public float wanderTimeDir = 1f;
@@ -28,13 +34,15 @@ public class Enemy : MonoBehaviour
     [HideInInspector]
     public Vector3 wanderTarget;
 
+    protected bool _waitForHurt = false;
 
     private void Start()
     {
         _player = GameManager.Instance.player;
         _animator = gameObject.GetComponent<Animator>();
         _renderer = gameObject.GetComponent<SpriteRenderer>();
-        _rg = gameObject.GetComponent<Rigidbody2D>();
+        _ps = gameObject.GetComponentInChildren<ParticleSystem>();
+        _rb = gameObject.GetComponent<Rigidbody2D>();
 
         currentState = new IdleState(this, _player, _animator);
     }
@@ -46,11 +54,16 @@ public class Enemy : MonoBehaviour
 
     public void MoveToTarget(Vector3 target, float speed)
     {
-        _rg.AddForce(target * speed * Time.deltaTime);
-        _animator.SetBool("move", target != Vector3.zero);
-        _renderer.flipX = target.x < 0;
+        if (!_waitForHurt)
+        {
+            _rb.AddForce(target * speed * Time.deltaTime);
+            _animator.SetBool("move", target != Vector3.zero);
+            transform.rotation = target.x < 0 ? Quaternion.Euler(0, -180, 0) : Quaternion.Euler(0, 0, 0);
+        }
     }
 
+    ////////////////// Status Methods //////////////////////
+    
     public bool CanSeePlayer()
     {
         // Enemy layer distinta a Default para evitar el raycast (Mismo con Attack y Slash)
@@ -77,7 +90,6 @@ public class Enemy : MonoBehaviour
         return Vector3.Distance(_player.transform.position, transform.position) < stats.personalSpace;
     }
 
-
     public bool IsWhitinAttackRange()
     {
         float dist = Vector3.Distance(_player.transform.position, transform.position);
@@ -85,16 +97,82 @@ public class Enemy : MonoBehaviour
         return dist > stats.attackRangeStart && dist < stats.attackRangeEnd;
     }
 
-    protected void Attack()
-    {
-        //poner la animacion de mover aca
-        _animator.SetBool("move", false);
+    ////////////////// Buff Methods //////////////////////
 
-        ///-- Empezamos a atacar (importante una Layer en ataque para evitar Raycast)
-        if (!attacking)
-            StartCoroutine(WaitForAttack());
+    public void BuffMeUp(BuffStats buff)
+    {
+        stats.ApplyBuff(buff);
+        _ps.Play();
     }
 
+    public void DeBuffMe(BuffStats buff)
+    {
+        stats.ReverseBuff(buff);
+        _ps.Stop();
+    }
+
+    ////////////////// Attacking Methods //////////////////////
+
+    public virtual void Attack()
+    {
+        if (!attacking && !_waitForHurt)
+        {
+            Vector3 target = _player.transform.position - this.transform.position;
+            transform.rotation = target.x < 0 ? Quaternion.Euler(0, -180, 0) : Quaternion.Euler(0, 0, 0);
+
+            _animator.SetTrigger("shooting");
+            attacking = true;
+
+            Shoot();
+            StartCoroutine(WaitForAttack());
+        }
+    }
+
+    protected virtual void Shoot()
+    {
+        foreach (GameObject pos in shotpos)
+        {
+            GameObject instance = Instantiate(stats.bullet, pos.transform.position, pos.transform.rotation);
+            BulletEnemy bullet = instance.GetComponent<BulletEnemy>();
+
+            bullet.speed = stats.bulletSpeed;
+            bullet.damage = stats.enemyDamage;
+
+            audio.PlayOneShot(stats.shootSound);
+        }
+    }
+
+    ////////////////// Hurt Methods //////////////////////
+
+    public virtual void GetHit(float value, Vector3 direction)
+    {
+        _waitForHurt = true;
+        stats.enemyHealth -= value;
+
+        _rb.AddForce(direction * 50000 * Time.deltaTime);
+
+        if (stats.enemyHealth <= 0)
+            _animator.SetTrigger("isDead");
+
+        else
+            _animator.SetTrigger("hurt");
+    }
+
+    public void FinishHurting()
+    {
+        this._waitForHurt = false;
+        _animator.ResetTrigger("hurt");
+    }
+
+
+    public void Die()
+    {
+        deathEvent.Invoke();
+        Destroy(gameObject);
+    }
+
+    ////////////////// Wander Methods //////////////////////
+    
     public void WaitToWander()
     {
         StartCoroutine(WaitWanderDirection(wanderTimeDir));
@@ -104,26 +182,20 @@ public class Enemy : MonoBehaviour
     {
         if (collision.gameObject.tag == "muro")
             wanderTarget *= -1;
-
     }
 
-    IEnumerator WaitForAttack()
+    protected IEnumerator WaitForAttack()
     {
+        _animator.ResetTrigger("shooting");
+        _animator.SetTrigger("waiting");
         yield return new WaitForSeconds(stats.attackDelay);
         attacking = false;
     }
 
-    IEnumerator WaitWanderDirection(float time)
+    protected IEnumerator WaitWanderDirection(float time)
     {
         needsWanderDirection = false;
         yield return new WaitForSeconds(time);
         needsWanderDirection = true;
-    }
-
-    IEnumerator Death(float seconds)
-    {
-        deathEvent.Invoke();
-        //Instantiate(SonidoEnemy[0], transform.position, Quaternion.identity);
-        yield return new WaitForSeconds(seconds);
     }
 }

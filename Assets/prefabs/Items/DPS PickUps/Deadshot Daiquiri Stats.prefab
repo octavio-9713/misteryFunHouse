@@ -1,0 +1,68 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!1 &6433627930026154171
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 5367127042041790344}
+  - component: {fileID: 6532494816528742082}
+  m_Layer: 0
+  m_Name: Deadshot Daiquiri Stats
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &5367127042041790344
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6433627930026154171}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_RootOrder: 0
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &6532494816528742082
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6433627930026154171}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 0abca02f3e16889469ed847b11e20146, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  stats:
+    maxHp: 0
+    currentHp: 0
+    playerSpeed: 0
+    invencibilityTime: 0
+    dashSpeed: 0
+    initialDashForce: 0
+    dashDamage: 0
+  timeBetweenDashes: 0
+  dashLength: 0
+  dashWait: 0
+  weapon:
+    bullet: {fileID: 0}
+    bulletSpeed: 1000
+    bulletLife: 0.2
+    weaponSound: {fileID: 0}
+    weaponSprite: {fileID: 0}
+    bulletQuantity: 0
+    weaponCadence: 0
+    weaponCooldown: 0
+    weaponDamage: 15
+    weaponRecoil: 0
+    effectProbability: 0
