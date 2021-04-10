@@ -7,9 +7,11 @@ using TMPro;
 
 public class GameManager : MonoBehaviour
 {
-    [Header("Score")]
-    public static int Score;
-    public TextMeshProUGUI TextScore;
+    [Header("Timer")]
+    public TextMeshProUGUI timer;
+    private float _secondsCount;
+    private int _minuteCount;
+    private int _hourCount;
 
     [Header("Scene Name")]
     public string sceneName;
@@ -43,14 +45,10 @@ public class GameManager : MonoBehaviour
         }
     }
 
-    void Start()
-    {
-        TextScore.text = Score.ToString();
-    }
-
-
     void Update()
     {
+        CountTime();
+
         if (Input.GetKey("r"))
         {
             RestarGame();
@@ -59,16 +57,28 @@ public class GameManager : MonoBehaviour
 
     }
 
-    public void SumarPuntos(int puntos)
+    public void CountTime()
     {
-        Score = Score + puntos;
-        TextScore.text = Score.ToString();
+        _secondsCount += Time.deltaTime;
+        timer.text = _hourCount + " : " + _minuteCount + " : " + (int)_secondsCount;
+        if (_secondsCount >= 60)
+        {
+            _minuteCount++;
+            _secondsCount = 0;
+        }
+        else if (_minuteCount >= 60)
+        {
+            _hourCount++;
+            _minuteCount = 0;
+        }
 
     }
 
     public void RestarGame()
     {
         SceneManager.LoadScene(sceneName);
-        Score = 0;
+        _hourCount = 0;
+        _minuteCount = 0;
+        _secondsCount = 0;
     }
 }

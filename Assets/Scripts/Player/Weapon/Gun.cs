@@ -39,6 +39,7 @@ public class Gun : MonoBehaviour
         
         else
             gameObject.GetComponent<SpriteRenderer>().sortingOrder = 2;
+
     }
 
     public void Shoot()

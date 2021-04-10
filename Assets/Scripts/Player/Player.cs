@@ -12,6 +12,8 @@ public class Player : MonoBehaviour
     public bool moving;
     [HideInInspector]
     public bool dashing;
+    [HideInInspector]
+    public bool waitForProvoli;
     
     //variables para el ataque
     [Header ("Attack Attributes")]
@@ -19,7 +21,7 @@ public class Player : MonoBehaviour
 
     [Header ("Weapon")]
     public Transform weaponContainer;
-    public Transform sight;
+    public GameObject sight;
     public Gun gun;
 
     [Header("Life UI")]
@@ -27,6 +29,9 @@ public class Player : MonoBehaviour
 
     [Header("Stats")]
     public PlayerStats stats = new PlayerStats();
+
+    [Header("Animator")]
+    public Animator animator;
 
     private bool _wait = true;
 
@@ -45,14 +50,14 @@ public class Player : MonoBehaviour
 
     private List<WeaponInfo> gunApliedStats = new List<WeaponInfo>();
 
-    void Start()
+    void Awake()
     {
         _rb = GetComponent<Rigidbody2D>();
         _dash = GetComponent<Dash>();
         _move = GetComponent<Move>();
         _audio = GetComponent<AudioSource>();
 
-        gun.sight = sight;
+        gun.sight = sight.transform;
         gun.container = weaponContainer;
 
         stats.currentHp = stats.maxHp;
@@ -63,47 +68,30 @@ public class Player : MonoBehaviour
     
     void Update()
     {
-        //TODO PickUP Logic 
-        //if (tag.gameObject.CompareTag("default") && entro)
-        //{
-        //    if (Input.GetKey("e") && _wait)
-        //    {
-        //        _wait = false;
-        //        DropearArma();
-        //        indi = 0;
-        //        Instantiate(SonidoPlayer[2], shotpos.transform.position, Quaternion.identity); 
-
-
-        //        Uiarma(indi);
-        //        Destroy(tag.gameObject);
-
-        //        StartCoroutine(EnableMovementAfter(0.5f));
-
-        //    }
-
-        //}
-
-        // TODO: Mover logica a portal
-        //if (tag.gameObject.CompareTag("Portal") && entro)
-        //{
-        //    if (confettiBool)
-        //    {               
-        //        StartCoroutine(Confetti(0.4f));
-        //        confettiBool = false;
-        //    }
-
-        //    if (Input.GetKey("e") && TP)
-        //    {
-
-        //        StartCoroutine(Teleport(0.15f));
-        //        TP = false;
-        //    }
-
-
-        //}
     }
 
     /////////////////// Move Methods //////////////////////////
+
+    public void DisableMovement()
+    {
+        this._move.enabled = false;
+        this._dash.enabled = false;
+        this.gun.gameObject.SetActive(false);
+        sight.SetActive(false);
+        waitForProvoli = true;
+
+        animator.SetBool("move", false);
+        animator.SetBool("dash", false);
+    }
+
+    public void EnableMovement()
+    {
+        this._move.enabled = true;
+        this._dash.enabled = true;
+        this.gun.gameObject.SetActive(true);
+        sight.SetActive(true);
+        waitForProvoli = false;
+    }
 
     public Vector2 MovingDirection()
     {

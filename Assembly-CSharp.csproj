@@ -145,6 +145,9 @@
     <Compile Include="Assets\Scripts\Enemy\Gunned Enemy\ShotGunGun.cs" />
     <Compile Include="Assets\Scripts\Enemy\Weapons\SimpleBullet.cs" />
     <Compile Include="Assets\Scripts\Items\Effect\OrbitalEffects.cs" />
+    <Compile Include="Assets\Scripts\Dialog\ProvoliDialogTree.cs" />
+    <Compile Include="Assets\Scripts\Dialog\Provoli.cs" />
+    <Compile Include="Assets\Scripts\CanvasTrigger.cs" />
   </ItemGroup>
   <ItemGroup>
      <None Include="Assets\TextMesh Pro\Shaders\TMPro.cginc" />

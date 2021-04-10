@@ -13,22 +13,26 @@ public class MainCamera : MonoBehaviour
     private Vector2 directionFromMouse;
     private float normalization;
     private Vector2 normalizedOrientation;
+    private Player _player;
 
     void Start()
     {
-        
+        _player = target.GetComponent<Player>();
     }
 
     
     void Update()
     {
-        DetectarMause();
+        if (!_player.waitForProvoli)
+        {
+            DetectarMause();
 
-        targetPos = new Vector3(target.transform.position.x, target.transform.position.y, transform.position.z);
+            targetPos = new Vector3(target.transform.position.x, target.transform.position.y, transform.position.z);
 
-        targetPos = new Vector3(targetPos.x + directionFromMouse.x * 30, targetPos.y + directionFromMouse.y * 30, transform.position.z);
+            targetPos = new Vector3(targetPos.x + directionFromMouse.x * 30, targetPos.y + directionFromMouse.y * 30, transform.position.z);
 
-        transform.position = Vector3.Lerp(transform.position, targetPos, smoothin * Time.deltaTime);
+            transform.position = Vector3.Lerp(transform.position, targetPos, smoothin * Time.deltaTime);
+        }
     }
 
 
