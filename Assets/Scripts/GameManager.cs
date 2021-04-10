@@ -51,7 +51,7 @@ public class GameManager : MonoBehaviour
 
     void Start()
     {
-        TextScore.text = Score.ToString();
+        //TextScore.text = Score.ToString();
     }
 
 

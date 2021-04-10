@@ -243,6 +243,8 @@ MonoBehaviour:
   - {fileID: 5413844181319713990, guid: b82c0f02eb5b0a840bc0c9f89cbcb4f0, type: 3}
   leftRoomsFinish:
   - {fileID: 8535317520884208241, guid: 191de0207debf3e47b647182649b7af5, type: 3}
+  closedRoom: {fileID: 7028568118569876699, guid: 8ead2b2ab27267f40aca297f43d51185,
+    type: 3}
 --- !u!4 &1004640783
 Transform:
   m_ObjectHideFlags: 0
@@ -407,7 +409,7 @@ PrefabInstance:
     - target: {fileID: 2322810100698521376, guid: 9c9619dda1b123c45ac91b8a8ff516d7,
         type: 3}
       propertyPath: m_TagString
-      value: SpawnPointSala
+      value: Untagged
       objectReference: {fileID: 0}
     - target: {fileID: 5776765935184278800, guid: 9c9619dda1b123c45ac91b8a8ff516d7,
         type: 3}
@@ -464,5 +466,6 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
-    m_RemovedComponents: []
+    m_RemovedComponents:
+    - {fileID: 1239548954074148707, guid: 9c9619dda1b123c45ac91b8a8ff516d7, type: 3}
   m_SourcePrefab: {fileID: 100100000, guid: 9c9619dda1b123c45ac91b8a8ff516d7, type: 3}

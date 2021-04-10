@@ -75,7 +75,14 @@ public class RoomSpawner : MonoBehaviour
     {      
         if (sala.CompareTag("SpawnPointSala"))
         {
-            Destroy(gameObject); 
+            if(sala.GetComponent<RoomSpawner>()._spawned == false && _spawned == false)
+            {
+                Instantiate(_templates.closedRoom, transform.position, sala.transform.rotation);
+                Destroy(gameObject);
+            }
+
+            _spawned = true;
+            
         }
     }
 
