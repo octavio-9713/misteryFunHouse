@@ -4,132 +4,52 @@ using UnityEngine;
 
 public class Bullet : MonoBehaviour
 {
-    Rigidbody2D rb2d;
+    private Rigidbody2D _rb;
+
+    [HideInInspector]
     public float speed;
+    [HideInInspector]
+    public float damage;
+    [HideInInspector]
+    public float life = 1f;
  
-    private Vector2 directionFromMouse;
-    private Vector2 directionFromMouseShotGun;
+    protected Vector2 directionFromMouse;
 
     public Transform player;
 
-    public bool defaultGun;
-    public bool pistol;
-    public bool machineGun;
-    public bool shotGun;
-    public bool Bazooka;
-
-
-    private float normalization;
-    private Vector2 normalizedOrientation;
-
-    //para el bazooka
-    public float tiempo = 2f;
-    private float momentoExplocion;
-    public GameObject explocion;
-
-
-
     void Start()
     {
-        momentoExplocion = Time.time + tiempo;
-
-        rb2d = GetComponent<Rigidbody2D>();
-        DetectarMause();
+        _rb = GetComponent<Rigidbody2D>();
+        Destroy(gameObject, life);
+        DetectarMouse();
     }
 
     
-    void Update()
+    void LateUpdate()
     {
-        if (defaultGun)
-        {
-            rb2d.velocity = directionFromMouse * speed * Time.fixedDeltaTime;
-            Destroy(gameObject, 0.7f);
-        }
-        
-        if (pistol)
-        {
-            rb2d.velocity = directionFromMouse * speed * Time.fixedDeltaTime;
-            Destroy(gameObject, 1f);
-        }
-
-        if (machineGun)
-        {
-            rb2d.velocity = directionFromMouse * speed * Time.fixedDeltaTime;
-            Destroy(gameObject, 1f);
-        }
-
-        if (shotGun)
-        {
-            rb2d.velocity = directionFromMouseShotGun * speed * Time.fixedDeltaTime;
-            Destroy(gameObject, 0.5f);
-        }
-      
-        if (Bazooka)
-        {
-            rb2d.velocity = directionFromMouse * speed * Time.fixedDeltaTime;
-            
-            if (Time.time > momentoExplocion)
-            {
-                BazookaExplocion();
-            }
-        }
+        _rb.velocity = directionFromMouse * speed * Time.fixedDeltaTime;
     }
 
 
-    public void DetectarMause()
+    public void DetectarMouse()
     {
         Vector2 mousePosition = Camera.main.ScreenToWorldPoint(Input.mousePosition);
         directionFromMouse = mousePosition - (Vector2)transform.position;
         directionFromMouse.Normalize();
-
-
-        float dispercionH = Random.Range(-0.3f, 0.3f);
-        float dispercionHY = Random.Range(-0.3f, 0.3f);
-
-        Vector2 offset = new Vector2(dispercionH, dispercionHY);
-
-        directionFromMouseShotGun = directionFromMouse + offset;
     }
-
-    public void BazookaExplocion()
-    {       
-
-        Instantiate(explocion, transform.position, transform.rotation);
-       
-        Destroy(gameObject);
-
-    }
-
-
 
     void OnTriggerEnter2D(Collider2D col)
     {
-      
+        if (col.gameObject.CompareTag("Enemy"))
+        {
+            col.gameObject.GetComponent<Enemy>().GetHit(damage, directionFromMouse);
+            Destroy(gameObject);
+        }
 
-            if (col.gameObject.tag == "Enemy" || col.gameObject.tag == "muro")
-            {
-
+        else
+        {
+            if (!col.gameObject.CompareTag("Player"))
                 Destroy(gameObject);
-
-            }
-
-            if (Bazooka)
-            {
-                if (col.gameObject.tag == "Enemy" || col.gameObject.tag == "muro")
-                {
-
-                    BazookaExplocion();
-
-                }
-            }
-        
-    }
-
-    //corrutina
-    IEnumerator Destruir(float seconds)
-    {       
-        yield return new WaitForSeconds(seconds);
-        Destroy(explocion.gameObject);
-        Debug.Log("se activo destruir");
+        }
     }
 }

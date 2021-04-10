@@ -9,11 +9,12 @@ public class Gun : MonoBehaviour
 
     [Header("Weapon Settings")]
     public WeaponInfo weapon = new WeaponInfo();
-
-    [HideInInspector]
     public Transform sight;
-    [HideInInspector]
     public Transform container;
+
+    [Header("Audio")]
+    public AudioSource audioSource;
+    public AudioClip shootAudio;
 
     private Player _player;
     private bool _canShoot = true;
@@ -30,7 +31,7 @@ public class Gun : MonoBehaviour
     {
         DetectMouse();
 
-        if (Input.GetMouseButton(0) && _canShoot)
+        if (Input.GetButton("Fire1") && _canShoot)
             Shoot();
 
         if (sight.transform.position.y > container.transform.position.y)
@@ -43,7 +44,7 @@ public class Gun : MonoBehaviour
     public void Shoot()
     {
         StartCoroutine(InstantiateShoot());
-        StartCoroutine(WaitToShoot(1.3f));
+        StartCoroutine(WaitToShoot(weapon.weaponCooldown));
     }
 
 
@@ -79,9 +80,17 @@ public class Gun : MonoBehaviour
     {
         for (int i = 0; i < weapon.bulletQuantity; i++)
         {
-            Instantiate(weapon.bullet, shotpos.transform.position, transform.rotation);
+            GameObject instance = Instantiate(weapon.bullet, shotpos.transform.position, transform.rotation);
+            Bullet bullet = instance.GetComponent<Bullet>();
+
+            bullet.speed = weapon.bulletSpeed;
+            bullet.damage = weapon.weaponDamage;
+            bullet.life = weapon.bulletLife;
+
             Instantiate(weapon.weaponSound, shotpos.transform.position, Quaternion.identity);
             yield return new WaitForSeconds(weapon.weaponCadence);
         }
+
+        this.audioSource.PlayOneShot(shootAudio);
     }
 }

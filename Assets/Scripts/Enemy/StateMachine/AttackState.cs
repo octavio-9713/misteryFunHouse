@@ -17,30 +17,20 @@ public class AttackState : State
 
     public override void Update()
     {
-        if (!_enemy.attacking)
+        _enemy.Attack();
+
+        if (!_enemy.CanSeePlayer())
         {
-            if (!_enemy.CanSeePlayer())
+            nextState = new WanderState(_enemy, _player, _animator);
+            _stage = EVENT.EXIT;
+        }
+
+        else
+        {
+            if (!_enemy.IsWhitinAttackRange())
             {
-                nextState = new WanderState(_enemy, _player, _animator);
+                nextState = new PersueState(_enemy, _player, _animator);
                 _stage = EVENT.EXIT;
-            }
-
-            else
-            {
-                if (!_enemy.IsWhitinAttackRange())
-                {
-                    if (!_enemy.IsInPersonalSpace())
-                    {
-                        nextState = new PersueState(_enemy, _player, _animator);
-                        _stage = EVENT.EXIT;
-                    }
-
-                    else
-                    {
-                        nextState = new FleeState(_enemy, _player, _animator);
-                        _stage = EVENT.EXIT;
-                    }
-                }
             }
         }
     }

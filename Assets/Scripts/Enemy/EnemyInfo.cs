@@ -14,8 +14,37 @@ public class EnemyInfo
 
     [Header("Attack Settings")]
     public int enemyDamage;
-    public int attackDelay;
+    public float bulletSpeed;
+    public float attackDelay;
     public float enemyVision;
     public float attackRangeStart;
     public float attackRangeEnd;
+
+    [Header("Bullet Prefab")]
+    public GameObject bullet;
+    public AudioClip shootSound;
+
+    public void ApplyBuff(BuffStats buff)
+    {
+        enemyHealth += buff.lifeIncrease;
+        enemyDamage += buff.damage;
+        enemySpeed += buff.movementIncrease;
+        enemyVision += buff.vision;
+
+        attackDelay -= buff.weaponDelay;
+        attackRangeStart -= buff.attackRange;
+        attackRangeEnd += buff.attackRange;
+    }
+
+    public void ReverseBuff(BuffStats buff)
+    {
+        enemyHealth -= buff.lifeIncrease;
+        enemyDamage -= buff.damage;
+        enemySpeed -= buff.movementIncrease;
+        enemyVision -= buff.vision;
+
+        attackDelay += buff.weaponDelay;
+        attackRangeStart += buff.attackRange;
+        attackRangeEnd -= buff.attackRange;
+    }
 }

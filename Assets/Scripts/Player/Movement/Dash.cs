@@ -10,7 +10,7 @@ public class Dash : MonoBehaviour
 
     [Header("Dash Wait Time")]
     public float dashWait = 0.35f;
-    public float dashWaitTime = 2.5f;
+    public float dashCooldown = 2.5f;
 
     private Player _player;
     private Move _move;
@@ -49,6 +49,15 @@ public class Dash : MonoBehaviour
 
     }
 
+    void FixedUpdate()
+    {
+        if (_dashing)
+        {
+            _rb.velocity = _dashDirection * _player.stats.dashSpeed * Time.fixedDeltaTime;
+        }
+
+    }
+
     //Cambiar hacia adonde te moves...
     private void DoADash()
     {
@@ -67,6 +76,8 @@ public class Dash : MonoBehaviour
 
             _animator.SetBool("dash", true);
             _player.PlayDashSound();
+
+            StartCoroutine(DashWait(dashCooldown));
         }
     }
 
@@ -76,13 +87,7 @@ public class Dash : MonoBehaviour
         {
             if (_dashTimeCounter >= dashLengthSec)
             {
-                _dashing = false;
-                _player.dashing = false;
-                _dashTimeCounter = dashLengthSec;
-                _animator.SetBool("dash", false);
-
-                _move.EnableMove();
-                _player.DashReadySound();
+                StopDash();
             }
             else
             {
@@ -91,15 +96,18 @@ public class Dash : MonoBehaviour
         }
     }
 
-
-    public void FixedUpdate()
+    public void StopDash()
     {
-        if (_dashing)
-        {
-            _rb.velocity = _dashDirection * _player.stats.dashSpeed * Time.fixedDeltaTime;
-            StartCoroutine(DashWait(dashWaitTime));
-        }
+        this._dashing = false;
+        _player.dashing = false;
+        _dashTimeCounter = dashLengthSec;
+        _animator.SetBool("dash", false);
 
+        _move.EnableMove();
+        _player.DashReadySound();
+
+        _rb.velocity = Vector3.zero;
+        _rb.angularVelocity = 0;
     }
 
     void PrepareDash(Vector2 dashDirection)
@@ -123,11 +131,10 @@ public class Dash : MonoBehaviour
     }
     public void ChangeStats(float timeBetweenDashes, float dashLength, float dashWait)
     {
-        this.dashWait += timeBetweenDashes;
+        this.dashWait -= timeBetweenDashes;
         this.dashLengthSec += dashLength;
-        this.dashWaitTime += dashWait;
+        this.dashCooldown -= dashWait;
     }
-
 
     IEnumerator DashWait(float seconds)
     {

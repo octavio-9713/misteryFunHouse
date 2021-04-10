@@ -31,7 +31,7 @@ public class Player : MonoBehaviour
     private bool _wait = true;
 
     private Vector2 _mouseDirection;
-    private Rigidbody2D _rg;
+    private Rigidbody2D _rb;
     private Dash _dash;
     private Move _move;
     private AudioSource _audio;
@@ -41,10 +41,13 @@ public class Player : MonoBehaviour
     
     public GameObject[] SonidoItems;
 
+    private bool _waitForHurt = false;
+
+    private List<WeaponInfo> gunApliedStats = new List<WeaponInfo>();
 
     void Start()
     {
-        _rg = GetComponent<Rigidbody2D>();
+        _rb = GetComponent<Rigidbody2D>();
         _dash = GetComponent<Dash>();
         _move = GetComponent<Move>();
         _audio = GetComponent<AudioSource>();
@@ -53,6 +56,8 @@ public class Player : MonoBehaviour
         gun.container = weaponContainer;
 
         stats.currentHp = stats.maxHp;
+
+        lifeUI = GameManager.Instance.gameUi.GetComponentInChildren<Life>();
     }
 
     
@@ -98,18 +103,21 @@ public class Player : MonoBehaviour
         //}
     }
 
+    /////////////////// Move Methods //////////////////////////
 
-    //Todo Mover logica al pedestal
-    public void DropearArma()
+    public Vector2 MovingDirection()
     {
-        //Instantiate(pickedGun, shotpos.transform.position, Quaternion.identity);
+        float horMov = Input.GetAxisRaw("Horizontal");
+        float verMov = Input.GetAxisRaw("Vertical");
+
+        return new Vector2(horMov, verMov);
     }
 
     //retroceso del arma
     public void Recoil(float force)
     {
         DetectMouse();
-        _rg.velocity = -_mouseDirection * force * Time.fixedDeltaTime;
+        _rb.velocity = -_mouseDirection * force * Time.fixedDeltaTime;
     }
 
 
@@ -119,6 +127,8 @@ public class Player : MonoBehaviour
         _mouseDirection = mousePosition - (Vector2)transform.position;
         _mouseDirection.Normalize();
     }
+
+    /////////////////// Sound Methods //////////////////////////
 
     public void PlayDashSound()
     {
@@ -133,6 +143,8 @@ public class Player : MonoBehaviour
         Instantiate(SonidoPlayer[7], shotpos.transform.position, Quaternion.identity);
     }
 
+    /////////////////// Stats Methods //////////////////////////
+
     public void IncreaseLife(int amount, bool recover)
     {
         stats.maxHp += amount;
@@ -143,114 +155,81 @@ public class Player : MonoBehaviour
         GameManager.Instance.gameUi.lifeControl.CambioVida(stats.currentHp);
     }
 
+    public void RecoverLife(int amount)
+    {
+        if (stats.currentHp < stats.maxHp)
+        {
+            stats.currentHp += amount;
+            GameManager.Instance.gameUi.lifeControl.CambioVida(stats.currentHp);
+        }
+    }
+
+    public void GetHurt(int damage, Vector3 damageDir)
+    {
+        if (!_waitForHurt)
+        {
+            stats.currentHp -= damage;
+
+            _rb.AddForce(damageDir.normalized * 75000 * Time.deltaTime);
+
+            if (stats.currentHp <= 0)
+                Die();
+
+            Instantiate(SonidoPlayer[3], shotpos.transform.position, Quaternion.identity);
+            lifeUI.CambioVida(stats.currentHp);
+
+            StartCoroutine(InvencibilityTime(stats.invencibilityTime));
+        }
+    }
+
     public void ChangeStats(PlayerStats stats, float timeBetweenDashes, float dashLength, float dashWait, WeaponInfo weaponStats)
     {
         stats.ApplyStats(stats);
         _dash.ChangeStats(timeBetweenDashes, dashLength, dashWait);
         gun.ApplyChanges(weaponStats);
+        gunApliedStats.Add(weaponStats);
     }
 
-    public void DecreaseLife()
+    /////////////////// Death/Collisions Methods //////////////////////////
+
+    public void Die()
     {
-        stats.currentHp--;
-        if (stats.currentHp <= 0)
+        gameObject.GetComponent<Animator>().SetBool("muerte", true);
+        Instantiate(SonidoPlayer[1], shotpos.transform.position, Quaternion.identity);
+        gun.gameObject.SetActive(false);
+        _rb.velocity = Vector2.zero;
+        _move.DisableMove();
+    }
+
+    public void OnCollisionEnter2D(Collision2D collision)
+    {
+        if (collision.gameObject.CompareTag("Enemy"))
         {
-            gameObject.GetComponent<Animator>().SetBool("muerte", true);
-            StartCoroutine(DeathTime(1.7f));
-            gun.gameObject.SetActive(false);
-            _rg.velocity = Vector2.zero;
-            _move.DisableMove();
+            if (dashing)
+            {
+                Vector3 dir = collision.gameObject.transform.position - this.transform.position;
+                collision.gameObject.GetComponent<Enemy>().GetHit(stats.dashDamage, dir.normalized);
 
+                _dash.StopDash();
+            }
+
+            else
+            {
+                _rb.velocity = Vector3.zero;
+                _rb.angularVelocity = 0;
+
+                Vector3 dir = this.transform.position - collision.gameObject.transform.position;
+                GetHurt(1, dir);
+            }
         }
-
-        Instantiate(SonidoPlayer[3], shotpos.transform.position, Quaternion.identity);
-        lifeUI.CambioVida(stats.currentHp);
-    }
-
-    public Vector2 MovingDirection()
-    {
-        float horMov = Input.GetAxisRaw("Horizontal");
-        float verMov = Input.GetAxisRaw("Vertical");
-
-
-        return new Vector2(horMov, verMov);
-    }
-
-    //detecta cuando entraste al arma del piso
-    public void OnTriggerEnter2D(Collider2D c)
-    {
-
-        //TODO: mover logica a bala enemiga
-        //if (c.gameObject.tag == "BulletsEnemy")
-        //{
-        //    hp = hp - 1;
-        //    if (hp <= 0)
-        //    {
-        //        gameObject.GetComponent<Animator>().SetBool("muerte", true);
-        //        StartCoroutine(Tiempo(1.7f));
-        //        Gun.gameObject.SetActive(false);
-        //        rb2d.velocity = Vector2.zero;
-        //        move.CambioMuerto();
-
-        //    }
-
-
-        //    Instantiate(SonidoPlayer[3], shotpos.transform.position, Quaternion.identity);
-        //    vida.CambioVida(hp);
-        //}
-
-        //TODO: Mover logica a explocion
-        //if (c.gameObject.tag == "Explocion")
-        //{
-        //    hp = hp - 3;
-        //    if (hp <= 0)
-        //    {
-        //        gameObject.GetComponent<Animator>().SetBool("muerte", true);
-        //        StartCoroutine(Tiempo(2.3f));
-        //        Gun.gameObject.SetActive(false);
-        //        rb2d.velocity = Vector2.zero;
-        //        move.CambioMuerto();
-
-        //    }
-
-        //    Instantiate(SonidoPlayer[3], shotpos.transform.position, Quaternion.identity);
-        //    vida.CambioVida(hp);
-        //}
-        
-        
-
-        //TODO: Move to item
-        //if (c.gameObject.tag == "ItemHealth")
-        //{
-        //    hp = 5;
-        //    vida.CambioVida(hp);
-        //    Instantiate(SonidoItems[1], transform.position, Quaternion.identity);
-        //    Destroy(tag.gameObject);
-        //}
-
-        //TODO: Move to Screw
-        //if (c.gameObject.tag == "Tornillo")
-        //{
-        //    Instantiate(SonidoItems[2], transform.position, Quaternion.identity);
-        //    gameManager.SumarPuntos(150);
-        //    Destroy(tag.gameObject);
-        //}
-
     }
 
     //corrutina
-    IEnumerator EnableMovementAfter(float seconds)
+    IEnumerator InvencibilityTime(float seconds)
     {
-      yield return new WaitForSeconds(seconds);
-        _wait = true;
-    }
-
-    //Death Time Sound
-
-    IEnumerator DeathTime(float seconds)
-    {
+        _waitForHurt = true;
         yield return new WaitForSeconds(seconds);
-        Instantiate(SonidoPlayer[1], shotpos.transform.position, Quaternion.identity);
+        _waitForHurt = false;
     }
 
 
