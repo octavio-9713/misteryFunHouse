@@ -13,9 +13,10 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   itemName: Training Weights
-  itemDescription: I'm sure you should remove them, not put them!
+  itemDescription: I sure you know this, but you have wheels not legs!
   pickedPrefab: {fileID: 5357196364174934046, guid: d80f6da6a3fda054aa2bea685cb14cfc,
     type: 3}
+  showsProvoli: 1
   effect: {fileID: 6532494816528742082, guid: 8db2be51d06d35b45b29aeb8d773eb7d, type: 3}
 --- !u!1001 &4011675217768270166
 PrefabInstance:

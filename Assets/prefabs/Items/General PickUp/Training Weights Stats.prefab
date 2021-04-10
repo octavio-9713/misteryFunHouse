@@ -53,7 +53,7 @@ MonoBehaviour:
     dashDamage: 0
   timeBetweenDashes: 0.1
   dashLength: 0.1
-  dashWait: 0.5
+  dashCooldown: 0.3
   weapon:
     bullet: {fileID: 0}
     bulletSpeed: 0
