@@ -16,13 +16,16 @@ public class StaticEnemy : Enemy
 
     public override void GetHit(float value, Vector3 direction)
     {
-        _waitForHurt = true;
-        stats.enemyHealth -= value;
+        if (!_waitForHurt)
+        {
+            _waitForHurt = true;
+            stats.enemyHealth -= value;
 
-        if (stats.enemyHealth <= 0)
-            _animator.SetTrigger("isDead");
+            if (stats.enemyHealth <= 0)
+                Die();
 
-        else
-            _animator.SetTrigger("hurt");
+            else
+                _animator.SetTrigger("hurt");
+        }
     }
 }

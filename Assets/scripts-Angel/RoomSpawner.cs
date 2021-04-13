@@ -26,56 +26,58 @@ public class RoomSpawner : MonoBehaviour
     {
         if (_spawned == false)
         {
-            if (openSide == 1)
+            if (GameManager.Instance.finishSpawn)
+                SpawnEnd();
+
+            else
             {
-                _rand = Random.Range(0, GameManager.Instance.finishSpawn ? _templates.topRoomsFinish.Length : _templates.topRooms.Length);
+                float probEnd = Random.Range(0, 100);
+                if (probEnd < 20)
+                    SpawnEnd();
 
-                GameObject sala = GameManager.Instance.finishSpawn ? _templates.topRoomsFinish[_rand] : _templates.topRooms[_rand];
-
-                Instantiate(sala, transform.position, sala.transform.rotation);
-            }
-            else if (openSide == 2)
-            {
-                _rand = Random.Range(0, GameManager.Instance.finishSpawn ? _templates.rightRoomsFinish.Length : _templates.rightRooms.Length);
-
-                GameObject sala = GameManager.Instance.finishSpawn ? _templates.rightRoomsFinish[_rand] : _templates.rightRooms[_rand];
-
-                Instantiate(sala, transform.position, sala.transform.rotation);
-
-            }
-            else if (openSide == 3)
-            {
-                _rand = Random.Range(0, GameManager.Instance.finishSpawn ? _templates.bottomRoomsFinish.Length : _templates.bottomRooms.Length);
-
-                GameObject sala = GameManager.Instance.finishSpawn ? _templates.bottomRoomsFinish[_rand] : _templates.bottomRooms[_rand];
-
-                Instantiate(sala, transform.position, sala.transform.rotation);
-
-            }
-            else if (openSide == 4)
-            {
-                _rand = Random.Range(0, GameManager.Instance.finishSpawn ? _templates.leftRoomsFinish.Length : _templates.leftRooms.Length);
-
-                GameObject sala = GameManager.Instance.finishSpawn ? _templates.leftRoomsFinish[_rand] : _templates.leftRooms[_rand];
-
-                Instantiate(sala, transform.position, sala.transform.rotation);
-
+                else
+                    SpawnNormal();
+    
+                GameManager.Instance.IncreaseRoom();
             }
 
             _spawned = true;
-
-            GameManager.Instance.IncreaseRoom();
-
-
         }
         
+    }
+
+    private void SpawnNormal()
+    {
+        GameObject[] salas = openSide == 1 ? _templates.topRooms : openSide == 2 ?
+            _templates.rightRooms : openSide == 3 ? _templates.bottomRooms : _templates.leftRooms;
+
+
+        _rand = Random.Range(0, salas.Length - 1);
+
+        Debug.Log(openSide);
+        Debug.Log("Quantity: " + _rand);
+        GameObject sala = salas[_rand];
+        Instantiate(sala, transform.position, sala.transform.rotation, transform.parent.parent.parent);
+    }
+
+    private void SpawnEnd()
+    {
+        GameObject[] salas = openSide == 1 ? _templates.topRoomsFinish : openSide == 2 ?
+            _templates.rightRoomsFinish : openSide == 3 ? _templates.bottomRoomsFinish : _templates.leftRoomsFinish;
+
+
+        _rand = Random.Range(0, salas.Length - 1);
+        GameObject sala = salas[_rand];
+        GameObject spawnedRoom = Instantiate(sala, transform.position, sala.transform.rotation, transform.parent.parent.parent);
+        GameManager.Instance.AddEndRoom(openSide, spawnedRoom);
     }
 
     private void OnTriggerEnter2D(Collider2D sala)
     {      
         if (sala.CompareTag("SpawnPointSala"))
         {
-            if(sala.GetComponent<RoomSpawner>()._spawned == false && _spawned == false)
+            RoomSpawner spawner = sala.GetComponent<RoomSpawner>();
+            if(spawner != null && spawner._spawned == false)
             {
                 Instantiate(_templates.closedRoom, transform.position, sala.transform.rotation);
                 Destroy(gameObject);

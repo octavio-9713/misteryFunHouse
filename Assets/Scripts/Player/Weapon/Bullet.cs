@@ -17,6 +17,9 @@ public class Bullet : MonoBehaviour
 
     public Transform player;
 
+    [Header("Bullet Effect")]
+    public BulletEffect effect;
+
     void Start()
     {
         _rb = GetComponent<Rigidbody2D>();
@@ -43,12 +46,16 @@ public class Bullet : MonoBehaviour
         if (col.gameObject.CompareTag("Enemy"))
         {
             col.gameObject.GetComponent<Enemy>().GetHit(damage, directionFromMouse);
+
+            if (effect != null && effect.effect != null)
+                Instantiate(effect.effect, col.gameObject.transform);
+
             Destroy(gameObject);
         }
 
         else
         {
-            if (!col.gameObject.CompareTag("Player"))
+            if (col.gameObject.CompareTag("muro") || col.gameObject.CompareTag("Seek Missile"))
                 Destroy(gameObject);
         }
     }

@@ -9,6 +9,7 @@ public class EnemyGun : MonoBehaviour
 
     private Player _player;
     private Enemy _enemy;
+    private SpriteRenderer _renderer;
 
     //sonido
     public AudioSource audioSource;
@@ -18,6 +19,7 @@ public class EnemyGun : MonoBehaviour
     {
         _player = GameManager.Instance.player;
         _enemy = GetComponentInParent<Enemy>();
+        _renderer = GetComponentInParent<SpriteRenderer>();
 
     }
 
@@ -26,6 +28,8 @@ public class EnemyGun : MonoBehaviour
     {
         if (_enemy.currentState.name == State.STATE.ATTACK || _enemy.currentState.name == State.STATE.PERSUING)
             ContArma.up = ContArma.position - _player.transform.position;
+
+        _renderer.flipY = _player.transform.position.x < 0;
     }
 
 

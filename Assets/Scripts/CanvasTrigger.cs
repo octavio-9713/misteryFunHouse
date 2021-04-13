@@ -4,18 +4,31 @@ using UnityEngine;
 
 public class CanvasTrigger : MonoBehaviour
 {
-    [Header ("Canvas")]
-    public GameObject spawnPlace;
+    private GameObject _spawnPlace;
 
     [Header("Prefab to Instance")]
     public GameObject prefab;
+
+    public Curtain[] curtains;
+
+    private void Start()
+    {
+        _spawnPlace = GameObject.FindGameObjectWithTag("ProvoliContainer");
+    }
 
     private void OnTriggerEnter2D(Collider2D collision)
     {
         if (collision.CompareTag("Player"))
         {
-            Instantiate(prefab, spawnPlace.transform);
+            DisableCurtains();
+            Instantiate(prefab, _spawnPlace.transform);
             Destroy(gameObject);
         }
+    }
+
+    private void DisableCurtains()
+    {
+        foreach (Curtain curtain in curtains)
+            curtain.Despejar();
     }
 }

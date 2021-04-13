@@ -6,6 +6,6 @@ public class destruction : MonoBehaviour
 {
     private void OnTriggerEnter2D(Collider2D sala)
     {
-        Destroy(sala.gameObject);
+        //Destroy(sala.gameObject);
     }
 }

@@ -9,6 +9,9 @@ EditorBuildSettings:
     path: Assets/Scenes/Menu.unity
     guid: 7a5a4fc158e6e6d4fab0e4c3f54a2b85
   - enabled: 1
+    path: Assets/Scenas-Angel/Nivel_Progrecion.unity
+    guid: c6cc6190489d95d48bd0532dcbf2f3e8
+  - enabled: 0
     path: Assets/Scenas-Angel/nivel_1.unity
     guid: b11f8c2c45e13e34db1d6162ade32daa
   - enabled: 0

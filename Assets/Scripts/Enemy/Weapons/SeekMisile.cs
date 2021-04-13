@@ -53,7 +53,8 @@ public class SeekMisile : BulletEnemy
         }
         else
         {
-            Explode();
+            if (col.gameObject.CompareTag("muro") || col.gameObject.CompareTag("Player Bullet"))
+                Explode();
         }
     }
 }

@@ -17,12 +17,12 @@ public class BulletExplotion : MonoBehaviour
     private void OnTriggerEnter2D(Collider2D col)
     {
 
-        if (col.gameObject.CompareTag("Enemy"))
-        {
-            Enemy enemy = col.gameObject.GetComponent<Enemy>();
-            Vector3 damageDir = enemy.transform.position - col.gameObject.transform.position;
-            col.gameObject.GetComponent<Enemy>().GetHit(damageToEnemy, damageDir);
-        }
+        //if (col.gameObject.CompareTag("Enemy"))
+        //{
+        //    Enemy enemy = col.gameObject.GetComponent<Enemy>();
+        //    Vector3 damageDir = enemy.transform.position - col.gameObject.transform.position;
+        //    col.gameObject.GetComponent<Enemy>().GetHit(damageToEnemy, damageDir);
+        //}
 
         if (col.gameObject.CompareTag("Player"))
         {

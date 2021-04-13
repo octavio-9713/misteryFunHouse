@@ -9,8 +9,6 @@ public class SimpleBullet : BulletEnemy
         _rb = GetComponent<Rigidbody2D>();
         _player = GameManager.Instance.player;
 
-        //RotateTowardsPlayer();
-
         _dir = this.transform.right;
 
         Destroy(gameObject, 2f);
@@ -20,14 +18,6 @@ public class SimpleBullet : BulletEnemy
     void LateUpdate()
     {
         _rb.velocity = _dir * speed * Time.fixedDeltaTime;
-    }
-
-    public void RotateTowardsPlayer()
-    {
-        Vector3 vectorToTarget = _player.transform.position - transform.position;
-        float angle = Mathf.Atan2(vectorToTarget.y, vectorToTarget.x) * Mathf.Rad2Deg;
-        Quaternion q = Quaternion.AngleAxis(angle, Vector3.forward);
-        transform.rotation = Quaternion.Slerp(transform.rotation, q, Time.deltaTime * speed);
     }
 
     void OnTriggerEnter2D(Collider2D col)
@@ -43,6 +33,9 @@ public class SimpleBullet : BulletEnemy
             }
         }
         else
-            Destroy(gameObject);
+        {
+            if (col.gameObject.CompareTag("muro"))
+                Destroy(gameObject);
+        }
     }
 }

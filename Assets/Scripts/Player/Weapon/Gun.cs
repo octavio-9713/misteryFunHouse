@@ -9,19 +9,25 @@ public class Gun : MonoBehaviour
 
     [Header("Weapon Settings")]
     public WeaponInfo weapon = new WeaponInfo();
+
+    [Header("Weapon Effect")]
+    public WeaponEffect effect;
+    
+    [Header("Sight and Containers")]
     public Transform sight;
     public Transform container;
 
     [Header("Audio")]
     public AudioSource audioSource;
-    public AudioClip shootAudio;
 
     private Player _player;
+    private SpriteRenderer _renderer;
     private bool _canShoot = true;
 
     void Start()
     {
         _player = GameManager.Instance.player;
+        _renderer = GetComponent<SpriteRenderer>();
         Debug.Log(weapon.weaponSprite);
         GameManager.Instance.gameUi.ChangePanel(weapon.weaponSprite);
     }
@@ -31,15 +37,22 @@ public class Gun : MonoBehaviour
     {
         DetectMouse();
 
-        if (Input.GetButton("Fire1") && _canShoot)
+        if (Input.GetButton("Fire1") && CanShoot())
             Shoot();
 
-        if (sight.transform.position.y > container.transform.position.y)
-            gameObject.GetComponent<SpriteRenderer>().sortingOrder = -2;
-        
-        else
-            gameObject.GetComponent<SpriteRenderer>().sortingOrder = 2;
+        _renderer.flipY = sight.transform.position.x < transform.position.x;
+    }
 
+    public void LateUpdate()
+    {
+        container.up = container.position - sight.position;
+    }
+
+    /////////////////// Shoot Methods //////////////////////////
+
+    private bool CanShoot()
+    {
+        return _canShoot && !_player.dashing;
     }
 
     public void Shoot()
@@ -48,14 +61,6 @@ public class Gun : MonoBehaviour
         StartCoroutine(WaitToShoot(weapon.weaponCooldown));
     }
 
-
-    public void LateUpdate()
-    {
-        container.up = container.position - sight.position;
-    }
-
-
-    //detectar el mause
     public void DetectMouse()
     {
         sight.position = Camera.main.ScreenToWorldPoint(new Vector3(
@@ -65,11 +70,42 @@ public class Gun : MonoBehaviour
             ));
     }
 
+
+    /////////////////// Shoot Methods //////////////////////////
+    
+    public bool SpawnBulletWithEffect()
+    {
+        if (effect == null || effect.effect == null)
+            return false;
+
+        float range = Random.Range(0, 100);
+        return range <= effect.probability;
+    }
+
+    public void ApplyEffectToBullet(Bullet bullet)
+    {
+        bullet.speed *= effect.bulletSpeedMultiplier;
+        bullet.damage *= effect.bulletDamageMultiplier;
+        bullet.life *= effect.bulletLifeMultiplier;
+        bullet.effect = effect.effect;
+
+        Instantiate(effect.effect, bullet.transform);
+    }
+
+    /////////////////// Apply Methods //////////////////////////
+
     public void ApplyChanges(WeaponInfo weaponInfo)
     {
         this.weapon.ApplyChanges(weaponInfo);
     }
 
+    public void ApplyEffect(WeaponEffect effect)
+    {
+        this.effect = effect;
+    }
+
+    /////////////////// Enumerators //////////////////////////
+    ///
     IEnumerator WaitToShoot(float seconds)
     {
         _canShoot = false;
@@ -81,17 +117,26 @@ public class Gun : MonoBehaviour
     {
         for (int i = 0; i < weapon.bulletQuantity; i++)
         {
-            GameObject instance = Instantiate(weapon.bullet, shotpos.transform.position, transform.rotation);
+            GameObject instance = Instantiate(weapon.bullet, shotpos.transform.position, Quaternion.identity);
             Bullet bullet = instance.GetComponent<Bullet>();
 
             bullet.speed = weapon.bulletSpeed;
             bullet.damage = weapon.weaponDamage;
             bullet.life = weapon.bulletLife;
 
-            Instantiate(weapon.weaponSound, shotpos.transform.position, Quaternion.identity);
+            AudioClip shootSound = weapon.weaponSound;
+
+            if (SpawnBulletWithEffect())
+            {
+                Debug.Log("Applying Effect");
+                ApplyEffectToBullet(bullet);
+
+                if (weapon.weaponSound)
+                    shootSound = weapon.weaponSound;
+            }
+
+            audioSource.PlayOneShot(shootSound);
             yield return new WaitForSeconds(weapon.weaponCadence);
         }
-
-        this.audioSource.PlayOneShot(shootAudio);
     }
 }

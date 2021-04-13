@@ -16,7 +16,7 @@ GameObject:
   - component: {fileID: 94386228835831870}
   m_Layer: 7
   m_Name: SeekMisile
-  m_TagString: BulletsEnemy
+  m_TagString: Seek Missile
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0

@@ -22,7 +22,7 @@ public class ShotGunGun : EnemyGun
 
             Vector3 spawnPos = shotpos.transform.position + offset;
 
-            GameObject instance = Instantiate(bullet, spawnPos, transform.rotation);
+            GameObject instance = Instantiate(bullet, spawnPos, shotpos.transform.rotation);
             BulletEnemy bInstance = instance.GetComponent<BulletEnemy>();
 
             bInstance.speed = speed;

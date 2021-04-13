@@ -44,7 +44,10 @@ public class BulletEnemy : MonoBehaviour
             }
         }
         else
-            Destroy(gameObject);
+        {
+            if (col.gameObject.CompareTag("muro"))
+                Destroy(gameObject);
+        }
     }
 
     //public void ShotGunDisparo()

@@ -18,7 +18,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!4 &4304674694389213048
 Transform:
   m_ObjectHideFlags: 0
@@ -113,11 +113,9 @@ MonoBehaviour:
     weaponCooldown: 0.2
     weaponDamage: 15
     weaponRecoil: 10000
-    effectProbability: 0
   sight: {fileID: 0}
   container: {fileID: 0}
   audioSource: {fileID: 0}
-  shootAudio: {fileID: 0}
 --- !u!95 &3092769702484730569
 Animator:
   serializedVersion: 3

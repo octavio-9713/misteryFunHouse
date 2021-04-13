@@ -18,6 +18,7 @@ MonoBehaviour:
     type: 3}
   showsProvoli: 1
   effect: {fileID: 6532494816528742082, guid: f3164ad4e323f69488d0d95ea3191669, type: 3}
+  itemImage: {fileID: 0}
 --- !u!1001 &8510366499735738625
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -30,6 +31,48 @@ PrefabInstance:
       propertyPath: m_Name
       value: Provoli Loves
       objectReference: {fileID: 0}
+    - target: {fileID: 3575448142781611520, guid: 5e334e27c94f97c46a5a9e382629076e,
+        type: 3}
+      propertyPath: m_RootOrder
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3575448142781611520, guid: 5e334e27c94f97c46a5a9e382629076e,
+        type: 3}
+      propertyPath: m_LocalPosition.x
+      value: -3.4
+      objectReference: {fileID: 0}
+    - target: {fileID: 3575448142781611520, guid: 5e334e27c94f97c46a5a9e382629076e,
+        type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 1.4
+      objectReference: {fileID: 0}
+    - target: {fileID: 4804294253112802957, guid: 5e334e27c94f97c46a5a9e382629076e,
+        type: 3}
+      propertyPath: m_Size.x
+      value: 0.13
+      objectReference: {fileID: 0}
+    - target: {fileID: 4804294253112802957, guid: 5e334e27c94f97c46a5a9e382629076e,
+        type: 3}
+      propertyPath: m_Size.y
+      value: 0.12
+      objectReference: {fileID: 0}
+    - target: {fileID: 4804294253112802957, guid: 5e334e27c94f97c46a5a9e382629076e,
+        type: 3}
+      propertyPath: m_Sprite
+      value: 
+      objectReference: {fileID: 21300000, guid: 8f6fe7f6f3f0d58499fb443d23f4260c,
+        type: 3}
+    - target: {fileID: 4804294253112802957, guid: 5e334e27c94f97c46a5a9e382629076e,
+        type: 3}
+      propertyPath: m_Color.a
+      value: 0.9529412
+      objectReference: {fileID: 0}
+    - target: {fileID: 5336128527121079923, guid: 5e334e27c94f97c46a5a9e382629076e,
+        type: 3}
+      propertyPath: m_Sprite
+      value: 
+      objectReference: {fileID: 21300000, guid: bbcdb6abc3bc3154ab3dd821aefbaf10,
+        type: 3}
     - target: {fileID: 5336128527121079923, guid: 5e334e27c94f97c46a5a9e382629076e,
         type: 3}
       propertyPath: m_Enabled
@@ -37,8 +80,38 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 5457581839781199781, guid: 5e334e27c94f97c46a5a9e382629076e,
         type: 3}
+      propertyPath: m_Size.x
+      value: 19.825287
+      objectReference: {fileID: 0}
+    - target: {fileID: 5457581839781199781, guid: 5e334e27c94f97c46a5a9e382629076e,
+        type: 3}
+      propertyPath: m_Size.y
+      value: 26.700592
+      objectReference: {fileID: 0}
+    - target: {fileID: 5457581839781199781, guid: 5e334e27c94f97c46a5a9e382629076e,
+        type: 3}
+      propertyPath: m_Offset.x
+      value: -3.4126434
+      objectReference: {fileID: 0}
+    - target: {fileID: 5457581839781199781, guid: 5e334e27c94f97c46a5a9e382629076e,
+        type: 3}
+      propertyPath: m_Offset.y
+      value: 1.5750732
+      objectReference: {fileID: 0}
+    - target: {fileID: 5457581839781199781, guid: 5e334e27c94f97c46a5a9e382629076e,
+        type: 3}
       propertyPath: m_IsTrigger
-      value: 0
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 5457581839781199781, guid: 5e334e27c94f97c46a5a9e382629076e,
+        type: 3}
+      propertyPath: m_SpriteTilingProperty.oldSize.x
+      value: 40
+      objectReference: {fileID: 0}
+    - target: {fileID: 5457581839781199781, guid: 5e334e27c94f97c46a5a9e382629076e,
+        type: 3}
+      propertyPath: m_SpriteTilingProperty.oldSize.y
+      value: 49
       objectReference: {fileID: 0}
     - target: {fileID: 5864122254940062452, guid: 5e334e27c94f97c46a5a9e382629076e,
         type: 3}
@@ -48,17 +121,17 @@ PrefabInstance:
     - target: {fileID: 5864122254940062452, guid: 5e334e27c94f97c46a5a9e382629076e,
         type: 3}
       propertyPath: m_LocalPosition.x
-      value: -457.4
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 5864122254940062452, guid: 5e334e27c94f97c46a5a9e382629076e,
         type: 3}
       propertyPath: m_LocalPosition.y
-      value: 142.6
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 5864122254940062452, guid: 5e334e27c94f97c46a5a9e382629076e,
         type: 3}
       propertyPath: m_LocalPosition.z
-      value: 469
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 5864122254940062452, guid: 5e334e27c94f97c46a5a9e382629076e,
         type: 3}

@@ -32,6 +32,7 @@ public class Player : MonoBehaviour
 
     [Header("Animator")]
     public Animator animator;
+    public AudioSource audioSource;
 
     private bool _wait = true;
 
@@ -41,10 +42,14 @@ public class Player : MonoBehaviour
     private Move _move;
     private AudioSource _audio;
 
-    //sonido
-    public GameObject[] SonidoPlayer;
-    
-    public GameObject[] SonidoItems;
+    [Header("Move Audio")]
+    public AudioClip moveSound;
+    public AudioClip dashSound;
+    public AudioClip dashReadySound;
+
+    [Header("Hurt Audio")]
+    public AudioClip hitSound;
+    public AudioClip deathSound;
 
     private bool _waitForHurt = false;
 
@@ -62,7 +67,7 @@ public class Player : MonoBehaviour
 
         stats.currentHp = stats.maxHp;
 
-        lifeUI = GameManager.Instance.gameUi.GetComponentInChildren<Life>();
+        lifeUI.ChangeMaxLife(stats.maxHp, true);
     }
 
     
@@ -120,15 +125,15 @@ public class Player : MonoBehaviour
 
     public void PlayDashSound()
     {
-        Instantiate(SonidoPlayer[0], shotpos.transform.position, Quaternion.identity);
+        audioSource.PlayOneShot(dashSound);
     }
     public void PlayStepSound()
     {
-        Instantiate(SonidoPlayer[4], shotpos.transform.position, Quaternion.identity);
+        audioSource.PlayOneShot(moveSound);
     }
     public void DashReadySound()
     {
-        Instantiate(SonidoPlayer[7], shotpos.transform.position, Quaternion.identity);
+        audioSource.PlayOneShot(dashReadySound);
     }
 
     /////////////////// Stats Methods //////////////////////////
@@ -140,7 +145,7 @@ public class Player : MonoBehaviour
         if (recover)
             stats.currentHp = stats.maxHp;
 
-        GameManager.Instance.gameUi.lifeControl.CambioVida(stats.currentHp);
+        this.lifeUI.ChangeMaxLife(stats.currentHp, recover);
     }
 
     public void RecoverLife(int amount)
@@ -148,7 +153,7 @@ public class Player : MonoBehaviour
         if (stats.currentHp < stats.maxHp)
         {
             stats.currentHp += amount;
-            GameManager.Instance.gameUi.lifeControl.CambioVida(stats.currentHp);
+            this.lifeUI.SetLifeTo(stats.currentHp);
         }
     }
 
@@ -156,15 +161,18 @@ public class Player : MonoBehaviour
     {
         if (!_waitForHurt)
         {
+            _waitForHurt = true;
+
             stats.currentHp -= damage;
+            lifeUI.SetLifeTo(stats.currentHp);
 
             _rb.AddForce(damageDir.normalized * 75000 * Time.deltaTime);
 
             if (stats.currentHp <= 0)
                 Die();
 
-            Instantiate(SonidoPlayer[3], shotpos.transform.position, Quaternion.identity);
-            lifeUI.CambioVida(stats.currentHp);
+            else
+                audioSource.PlayOneShot(hitSound);
 
             StartCoroutine(InvencibilityTime(stats.invencibilityTime));
         }
@@ -182,11 +190,15 @@ public class Player : MonoBehaviour
 
     public void Die()
     {
+        DisableMovement();
+        death = true;
         gameObject.GetComponent<Animator>().SetBool("muerte", true);
-        Instantiate(SonidoPlayer[1], shotpos.transform.position, Quaternion.identity);
-        gun.gameObject.SetActive(false);
-        _rb.velocity = Vector2.zero;
-        _move.DisableMove();
+        audioSource.PlayOneShot(deathSound);
+    }
+
+    public void Restart()
+    {
+        GameManager.Instance.RestarGame();
     }
 
     public void OnCollisionEnter2D(Collision2D collision)
@@ -210,6 +222,12 @@ public class Player : MonoBehaviour
                 GetHurt(1, dir);
             }
         }
+
+        else
+        {
+            if (dashing)
+                _dash.StopDash();
+        }
     }
 
     //corrutina
@@ -223,7 +241,7 @@ public class Player : MonoBehaviour
 
     IEnumerator Teleport(float seconds)
     {
-        Instantiate(SonidoPlayer[5], shotpos.transform.position, Quaternion.identity);
+        //Instantiate(SonidoPlayer[5], shotpos.transform.position, Quaternion.identity);
         yield return new WaitForSeconds(seconds);
         SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex + 1);
 

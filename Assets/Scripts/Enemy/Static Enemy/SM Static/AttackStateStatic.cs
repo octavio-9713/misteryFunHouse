@@ -20,7 +20,7 @@ public class AttackStateStatic : State
     {
         _enemy.Attack();
 
-        if (!_enemy.attacking)
+        if (!_enemy.attacking || _player.death)
         {
             if (!_enemy.IsWhitinAttackRange())
             {

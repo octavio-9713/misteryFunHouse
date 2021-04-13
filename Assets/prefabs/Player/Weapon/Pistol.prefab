@@ -105,8 +105,7 @@ MonoBehaviour:
       type: 3}
     bulletSpeed: 8000
     bulletLife: 1
-    weaponSound: {fileID: 6841920746257912502, guid: 5c19bc15372f4f04a90f1f9ef1523c25,
-      type: 3}
+    weaponSound: {fileID: 8300000, guid: b912774f4af015a43aab8403cf24d8c4, type: 3}
     weaponSprite: {fileID: 5632039433030287380, guid: 5d1fdf8906d631c4eb6224d5adc93cfe,
       type: 3}
     bulletQuantity: 1
@@ -114,11 +113,9 @@ MonoBehaviour:
     weaponCooldown: 1
     weaponDamage: 25
     weaponRecoil: 10000
-    effectProbability: 0
   sight: {fileID: 0}
   container: {fileID: 0}
-  audioSource: {fileID: 0}
-  shootAudio: {fileID: 0}
+  audioSource: {fileID: 2495501257393788975}
 --- !u!95 &3092769702484730569
 Animator:
   serializedVersion: 3

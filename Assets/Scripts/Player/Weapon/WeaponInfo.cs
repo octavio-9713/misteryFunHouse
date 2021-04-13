@@ -10,7 +10,7 @@ public class WeaponInfo
     public float bulletLife = 1f;
 
     [Header("Weapon Sound")]
-    public GameObject weaponSound;
+    public AudioClip weaponSound;
 
     [Header("Sprite")]
     public Sprite weaponSprite;
@@ -22,16 +22,18 @@ public class WeaponInfo
     public float weaponDamage = 25f;
     public float weaponRecoil = 10000f;
 
-    [Header("Weapon Effect")]
-    public WeaponEffect effect;
-    public float effectProbability = 0f;
-
     public void ApplyChanges(WeaponInfo changes)
     {
         bullet = changes.bullet != null ? changes.bullet : bullet;
         weaponSound = changes.weaponSound != null ? changes.weaponSound : weaponSound;
 
-        bulletQuantity = changes.bulletQuantity;
-        weaponRecoil = changes.weaponRecoil;
+        bulletQuantity += changes.bulletQuantity;
+        bulletSpeed += changes.bulletSpeed;
+        bulletLife += changes.bulletLife;
+
+        weaponCadence += changes.weaponCadence;
+        weaponCooldown -= changes.weaponCooldown;
+        weaponDamage += changes.weaponDamage;
+        weaponRecoil += changes.weaponRecoil;
     }
 }

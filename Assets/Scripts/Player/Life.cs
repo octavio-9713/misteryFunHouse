@@ -5,23 +5,41 @@ using UnityEngine.UI;
 
 public class Life : MonoBehaviour
 {
-    public Sprite[] vida;
+    [Header("Life Slider")]
+    public Slider slider;
 
-    void Start()
+    [Header("Life Colors")]
+    public Color fullLifeColor;
+    public Color halfLifeColor;
+    public Color lastLifeColor;
+
+    public Image fill;
+
+
+    public void SetLifeTo(int quantity)
     {
-        CambioVida(3);
-    }
+        slider.value = quantity;
 
-    public void CambioVida (int pos)
-    {
-        if(pos <= 0)
-        {
-            this.GetComponent<Image>().sprite = vida[0];
+        if (slider.value > slider.maxValue / 2 )
+            fill.color = fullLifeColor;
 
-        }
         else
         {
-            this.GetComponent<Image>().sprite = vida[pos];
+            if (slider.value > slider.maxValue / 4)
+                fill.color = halfLifeColor;
+
+            else
+                fill.color = lastLifeColor;
+
         }
+        
+    }
+
+    public void ChangeMaxLife(int quantity, bool recover)
+    {
+        slider.maxValue = quantity;
+
+        if (recover)
+            SetLifeTo(quantity);
     }
 }
