@@ -4,20 +4,15 @@
 TagManager:
   serializedVersion: 2
   tags:
-  - Tornillo
-  - BulletsEnemy
-  - shotgun
   - Enemy
+  - BulletsEnemy
   - BuShotgun
   - Gun
-  - PlayEvent
-  - Portal
-  - default
-  - pistol
-  - BuMachine
-  - bazooka
+  - Player Bullet
   - ItemHealth
-  - machinegun
+  - PlayEvent
+  - SpawnPointSala
+  - BuMachine
   - ItemHealth1
   - Explocion
   - BuDefault
@@ -29,6 +24,7 @@ TagManager:
   - ProvoliContainer
   - Orbital
   - Seek Missile
+  - Rooms
   layers:
   - Default
   - TransparentFX
@@ -40,6 +36,10 @@ TagManager:
   - Enemy Bullet
   - Player Bullet
   - Room
+  - PostProcessing
+  - 
+  - 
+  - 
   - 
   - 
   - 
