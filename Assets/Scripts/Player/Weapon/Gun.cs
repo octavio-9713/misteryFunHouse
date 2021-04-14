@@ -11,7 +11,7 @@ public class Gun : MonoBehaviour
     public WeaponInfo weapon = new WeaponInfo();
 
     [Header("Weapon Effect")]
-    public WeaponEffect effect;
+    public List<WeaponEffect> effects = new List<WeaponEffect>();
     
     [Header("Sight and Containers")]
     public Transform sight;
@@ -73,17 +73,27 @@ public class Gun : MonoBehaviour
 
     /////////////////// Shoot Methods //////////////////////////
     
-    public bool SpawnBulletWithEffect()
+    protected bool SpawnBulletWithEffect()
     {
-        if (effect == null || effect.effect == null)
+        if (effects == null || effects.Count == 0)
             return false;
 
         float range = Random.Range(0, 100);
-        return range <= effect.probability;
+        return range <= EffectProbability();
+    }
+
+    protected float EffectProbability()
+    {
+        float prob = 0;
+        foreach (WeaponEffect effect in effects)
+            prob += effect.probability;
+
+        return prob;
     }
 
     public void ApplyEffectToBullet(Bullet bullet)
     {
+        WeaponEffect effect = effects[Random.Range(0, effects.Count)];
         bullet.speed *= effect.bulletSpeedMultiplier;
         bullet.damage *= effect.bulletDamageMultiplier;
         bullet.life *= effect.bulletLifeMultiplier;
@@ -101,7 +111,7 @@ public class Gun : MonoBehaviour
 
     public void ApplyEffect(WeaponEffect effect)
     {
-        this.effect = effect;
+        effects.Add(effect);
     }
 
     /////////////////// Enumerators //////////////////////////

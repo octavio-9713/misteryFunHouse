@@ -10,34 +10,39 @@ public abstract class TypeEffect : MonoBehaviour
     public Color effectColor;
     public GameObject particleEffect;
 
-    private Enemy _enemy;
-    private SpriteRenderer _renderer;
-    private Color _enemyColor;
+    protected Enemy _enemy;
+    protected SpriteRenderer _renderer;
+    protected Color _enemyColor;
+
+    protected GameObject _particle;
 
     private void Start()
     {
         _enemy = GetComponentInParent<Enemy>();
+        _enemy.appliedEffects.Add(this);
 
-        TypeEffect oldEffect = _enemy.GetComponentInChildren<TypeEffect>();
-
-        if (oldEffect != null)
-            Destroy(oldEffect.gameObject);
-
-        else
-            Instantiate(particleEffect, _enemy.transform);
+        if (particleEffect)
+            _particle = Instantiate(particleEffect, _enemy.transform);
         
         _renderer = _enemy.GetComponent<SpriteRenderer>();
 
-        Debug.Log("renderer: " + _renderer);
         _enemyColor = _renderer.color;
-        _renderer.color = _enemyColor;
+        _renderer.color = effectColor;
 
-        Destroy(this, effectTime);
+        Destroy(gameObject, effectTime);
+
+        ApplyEffect();
     }
 
-    private void OnDestroy()
+    protected void OnDestroy()
     {
-        _renderer.color = _enemyColor;
+        TypeEffect[] effects = _enemy.GetComponentsInChildren<TypeEffect>();
+
+        if (_enemy.appliedEffects.Count <= 1)
+            _renderer.color = _enemyColor;
+
+        _enemy.appliedEffects.Remove(this);
+        Destroy(_particle);
     }
 
     public abstract void ApplyEffect();

@@ -4882,7 +4882,7 @@ SpriteRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
-  m_Sprite: {fileID: -3738249962305283587, guid: f27630a5a5ff7ee4c80bbbdce726338a,
+  m_Sprite: {fileID: -3172916848484164771, guid: 71b42d58166478e47b94b981788cfe0c,
     type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
@@ -4951,7 +4951,7 @@ BoxCollider2D:
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0.5, y: 0.5}
-    oldSize: {x: 20, y: 21}
+    oldSize: {x: 30, y: 30}
     newSize: {x: 20, y: 21}
     adaptiveTilingThreshold: 0.5
     drawMode: 0
@@ -4973,6 +4973,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   deathEvent:
+    m_PersistentCalls:
+      m_Calls: []
+  fireEvent:
     m_PersistentCalls:
       m_Calls: []
   stats:
@@ -4999,6 +5002,7 @@ MonoBehaviour:
     _stage: 0
   needsWanderDirection: 1
   wanderTarget: {x: 0, y: 0, z: 0}
+  appliedEffects: []
   gun: {fileID: 0}
   weaponContainer: {fileID: 0}
 --- !u!82 &6308478998455941849
@@ -5112,6 +5116,9 @@ MonoBehaviour:
   deathEvent:
     m_PersistentCalls:
       m_Calls: []
+  fireEvent:
+    m_PersistentCalls:
+      m_Calls: []
   stats:
     enemyHealth: 100
     enemySpeed: 5000
@@ -5136,3 +5143,4 @@ MonoBehaviour:
     _stage: 0
   needsWanderDirection: 1
   wanderTarget: {x: 0, y: 0, z: 0}
+  appliedEffects: []

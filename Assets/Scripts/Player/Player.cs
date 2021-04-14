@@ -186,6 +186,11 @@ public class Player : MonoBehaviour
         gunApliedStats.Add(weaponStats);
     }
 
+    public void ApplyWeaponEffect(WeaponEffect effect)
+    {
+        gun.ApplyEffect(effect);
+    }
+
     /////////////////// Death/Collisions Methods //////////////////////////
 
     public void Die()

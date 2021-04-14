@@ -7,6 +7,9 @@ public class Enemy : MonoBehaviour
 {
     [HideInInspector]
     public UnityEvent deathEvent = new UnityEvent();
+    [HideInInspector]
+    public UnityEvent fireEvent = new UnityEvent();
+
     protected bool isDead = false;
 
     public EnemyInfo stats;
@@ -32,10 +35,14 @@ public class Enemy : MonoBehaviour
 
     [HideInInspector]
     public bool needsWanderDirection = true;
+
     [HideInInspector]
     public Vector3 wanderTarget;
 
     protected bool _waitForHurt = false;
+
+    [HideInInspector]
+    public List<TypeEffect> appliedEffects = new List<TypeEffect>();
 
     private void Start()
     {
@@ -127,6 +134,8 @@ public class Enemy : MonoBehaviour
             attacking = true;
 
             Shoot();
+
+            fireEvent.Invoke();
             StartCoroutine(WaitForAttack());
         }
     }
@@ -176,6 +185,7 @@ public class Enemy : MonoBehaviour
         _animator.SetTrigger("isDead");
 
         transform.rotation = Quaternion.Euler(0, 0, 0);
+        _renderer.flipX = false;
         _rb.velocity = Vector3.zero;
         _rb.angularVelocity = 0;
     }

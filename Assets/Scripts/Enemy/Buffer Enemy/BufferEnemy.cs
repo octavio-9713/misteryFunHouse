@@ -33,6 +33,8 @@ public class BufferEnemy : Enemy
             attacking = true;
 
             Buff();
+
+            fireEvent.Invoke();
         }
     }
 

@@ -41,14 +41,29 @@ public class Bullet : MonoBehaviour
         directionFromMouse.Normalize();
     }
 
+    private void ApplyEffectToEnemy(Enemy enemy)
+    {
+        if (enemy.appliedEffects.Count > 0)
+        {
+            foreach (TypeEffect appliedEffect in enemy.appliedEffects)
+            {
+                if (appliedEffect.name.Contains(effect.effect.name))
+                    Destroy(appliedEffect.gameObject);
+            }
+        }
+
+        Instantiate(effect.effect, enemy.gameObject.transform);
+    }
+
     void OnTriggerEnter2D(Collider2D col)
     {
         if (col.gameObject.CompareTag("Enemy"))
         {
-            col.gameObject.GetComponent<Enemy>().GetHit(damage, directionFromMouse);
+            Enemy enemy = col.gameObject.GetComponent<Enemy>();
+            enemy.GetHit(damage, directionFromMouse);
 
             if (effect != null && effect.effect != null)
-                Instantiate(effect.effect, col.gameObject.transform);
+                ApplyEffectToEnemy(enemy);
 
             Destroy(gameObject);
         }
