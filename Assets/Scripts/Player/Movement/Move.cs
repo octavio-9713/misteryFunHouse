@@ -38,8 +38,8 @@ public class Move : MonoBehaviour
                 _animator.SetBool("move", false);
                 _player.moving = false;
 
-                _rb.velocity = Vector2.zero;
-                _rb.angularVelocity = 0;
+                //_rb.velocity = Vector2.zero;
+                //_rb.angularVelocity = 0;
             }
 
             else

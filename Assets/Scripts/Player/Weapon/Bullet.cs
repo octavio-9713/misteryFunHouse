@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class Bullet : MonoBehaviour
 {
-    private Rigidbody2D _rb;
+    protected Rigidbody2D _rb;
 
     [HideInInspector]
     public float speed;
@@ -41,7 +41,7 @@ public class Bullet : MonoBehaviour
         directionFromMouse.Normalize();
     }
 
-    private void ApplyEffectToEnemy(Enemy enemy)
+    protected void ApplyEffectToEnemy(Enemy enemy)
     {
         if (enemy.appliedEffects.Count > 0)
         {

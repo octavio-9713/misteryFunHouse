@@ -28,7 +28,7 @@ public class SimpleBullet : BulletEnemy
             if (!_player.dashing)
             {
                 Vector3 damageDir = _player.transform.position - col.gameObject.transform.position;
-                GameManager.Instance.player.GetHurt(damage, damageDir);
+                GameManager.Instance.player.GetHurt(damage, damageDir, nockback);
                 Destroy(gameObject);
             }
         }

@@ -20,9 +20,9 @@ public class Gun : MonoBehaviour
     [Header("Audio")]
     public AudioSource audioSource;
 
-    private Player _player;
-    private SpriteRenderer _renderer;
-    private bool _canShoot = true;
+    protected Player _player;
+    protected SpriteRenderer _renderer;
+    protected bool _canShoot = true;
 
     void Start()
     {
@@ -40,7 +40,8 @@ public class Gun : MonoBehaviour
         if (Input.GetButton("Fire1") && CanShoot())
             Shoot();
 
-        _renderer.flipY = sight.transform.position.x < transform.position.x;
+        if (_renderer)
+            _renderer.flipY = sight.transform.position.x < transform.position.x;
     }
 
     public void LateUpdate()
@@ -55,10 +56,17 @@ public class Gun : MonoBehaviour
         return _canShoot && !_player.dashing;
     }
 
-    public void Shoot()
+    public void EnableShoot()
+    {
+        this._canShoot = true;
+    }
+
+    public virtual void Shoot()
     {
         StartCoroutine(InstantiateShoot());
         StartCoroutine(WaitToShoot(weapon.weaponCooldown));
+
+        _player.Recoil(weapon.weaponRecoil);
     }
 
     public void DetectMouse()
@@ -104,7 +112,7 @@ public class Gun : MonoBehaviour
 
     /////////////////// Apply Methods //////////////////////////
 
-    public void ApplyChanges(WeaponInfo weaponInfo)
+    public void ApplyChanges(WeaponBuff weaponInfo)
     {
         this.weapon.ApplyChanges(weaponInfo);
     }
@@ -116,18 +124,18 @@ public class Gun : MonoBehaviour
 
     /////////////////// Enumerators //////////////////////////
     ///
-    IEnumerator WaitToShoot(float seconds)
+    protected IEnumerator WaitToShoot(float seconds)
     {
         _canShoot = false;
         yield return new WaitForSeconds(seconds);
         _canShoot = true;
     }
 
-    IEnumerator InstantiateShoot()
+    protected  IEnumerator InstantiateShoot()
     {
         for (int i = 0; i < weapon.bulletQuantity; i++)
         {
-            GameObject instance = Instantiate(weapon.bullet, shotpos.transform.position, Quaternion.identity);
+            GameObject instance = Instantiate(weapon.bullet, shotpos.transform.position, shotpos.transform.rotation);
             Bullet bullet = instance.GetComponent<Bullet>();
 
             bullet.speed = weapon.bulletSpeed;
@@ -138,7 +146,6 @@ public class Gun : MonoBehaviour
 
             if (SpawnBulletWithEffect())
             {
-                Debug.Log("Applying Effect");
                 ApplyEffectToBullet(bullet);
 
                 if (weapon.weaponSound)

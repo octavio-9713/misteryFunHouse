@@ -201,6 +201,9 @@ MonoBehaviour:
   deathEvent:
     m_PersistentCalls:
       m_Calls: []
+  fireEvent:
+    m_PersistentCalls:
+      m_Calls: []
   stats:
     enemyHealth: 75
     enemySpeed: 5000
@@ -208,6 +211,7 @@ MonoBehaviour:
     personalSpace: 0
     enemyDamage: 1
     bulletSpeed: 8000
+    bulletNockback: 2000
     attackDelay: 2
     enemyVision: 500
     attackRangeStart: 0
@@ -225,6 +229,7 @@ MonoBehaviour:
     _stage: 0
   needsWanderDirection: 1
   wanderTarget: {x: 0, y: 0, z: 0}
+  appliedEffects: []
   gun: {fileID: 1245244904975635725}
   weaponContainer: {fileID: 7009168136932919640}
 --- !u!82 &1706024120022848725
@@ -607,7 +612,7 @@ ParticleSystem:
     startSize:
       serializedVersion: 2
       minMaxState: 0
-      scalar: 1.5
+      scalar: 2
       minScalar: 1
       maxCurve:
         serializedVersion: 2
@@ -929,7 +934,7 @@ ParticleSystem:
     gravityModifier:
       serializedVersion: 2
       minMaxState: 0
-      scalar: 0
+      scalar: -0.1
       minScalar: 0
       maxCurve:
         serializedVersion: 2
@@ -1188,7 +1193,7 @@ ParticleSystem:
     rateOverTime:
       serializedVersion: 2
       minMaxState: 0
-      scalar: 10
+      scalar: 20
       minScalar: 10
       maxCurve:
         serializedVersion: 2

@@ -11,7 +11,7 @@ public class GunnedEnemy : Enemy
 
     protected override void Shoot()
     {
-        gun.Shoot(stats.bullet, stats.bulletSpeed, stats.enemyDamage);
+        gun.Shoot(stats.bullet, stats.bulletSpeed, stats.enemyDamage, stats.bulletNockback);
     }
 
     public override void GetHit(float value, Vector3 direction)

@@ -262,7 +262,7 @@ GameObject:
   m_Component:
   - component: {fileID: 6388544136717727972}
   m_Layer: 5
-  m_Name: Provoli End Talk
+  m_Name: Provoli End Talk Level 1 Fast Time
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -469,14 +469,33 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   dialog: {fileID: 8047566140157029832}
-  dialogTree:
-  - Hi Again!
-  - I see that you made it to me...
-  - So... I think it's time i take care of you...
-  - Or... that is what i would say if i was developed.
-  - Since this is a preview i'm afraid that now is not the time.
-  - Maybe in the next version, maybe not.
-  - So... See you next time. The show have just begun!
-  - '  :)'
+  dialogTree2:
+  - dialog: Hi Again!
+    faceSprite: {fileID: 21300000, guid: 3720e50908198bf4c904909e145b0004, type: 3}
+    firesEvent: 0
+  - dialog: I must say that i'm impress
+    faceSprite: {fileID: 21300000, guid: 3720e50908198bf4c904909e145b0004, type: 3}
+    firesEvent: 0
+  - dialog: I'm Actually glad, it would have been boring if it end it here
+    faceSprite: {fileID: 21300000, guid: 3720e50908198bf4c904909e145b0004, type: 3}
+    firesEvent: 0
+  - dialog: So there are 2 other room down there, each one harder than the last one
+    faceSprite: {fileID: 21300000, guid: 3720e50908198bf4c904909e145b0004, type: 3}
+    firesEvent: 0
+  - dialog: So... try your best and reach to the end
+    faceSprite: {fileID: 21300000, guid: 3720e50908198bf4c904909e145b0004, type: 3}
+    firesEvent: 0
+  - dialog: Oh boy... I can't wait...
+    faceSprite: {fileID: 21300000, guid: 3720e50908198bf4c904909e145b0004, type: 3}
+    firesEvent: 0
+  - dialog: 'We could paint our nails and talk about boys... '
+    faceSprite: {fileID: 21300000, guid: 3720e50908198bf4c904909e145b0004, type: 3}
+    firesEvent: 0
+  - dialog: So yeah... See you
+    faceSprite: {fileID: 21300000, guid: 3720e50908198bf4c904909e145b0004, type: 3}
+    firesEvent: 0
   typeWritterSpeed: 0.05
   provoli: {fileID: 5152963933171662471}
+  dialogEvent:
+    m_PersistentCalls:
+      m_Calls: []

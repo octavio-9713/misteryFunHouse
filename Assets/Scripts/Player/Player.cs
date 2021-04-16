@@ -30,17 +30,17 @@ public class Player : MonoBehaviour
     [Header("Stats")]
     public PlayerStats stats = new PlayerStats();
 
+    private List<WeaponBuff> _grabbedGunItems = new List<WeaponBuff>();
+    private List<WeaponEffect> _appliedGunEffects = new List<WeaponEffect>();
+
     [Header("Animator")]
     public Animator animator;
     public AudioSource audioSource;
-
-    private bool _wait = true;
 
     private Vector2 _mouseDirection;
     private Rigidbody2D _rb;
     private Dash _dash;
     private Move _move;
-    private AudioSource _audio;
 
     [Header("Move Audio")]
     public AudioClip moveSound;
@@ -53,14 +53,11 @@ public class Player : MonoBehaviour
 
     private bool _waitForHurt = false;
 
-    private List<WeaponInfo> gunApliedStats = new List<WeaponInfo>();
-
     void Awake()
     {
         _rb = GetComponent<Rigidbody2D>();
         _dash = GetComponent<Dash>();
         _move = GetComponent<Move>();
-        _audio = GetComponent<AudioSource>();
 
         gun.sight = sight.transform;
         gun.container = weaponContainer;
@@ -157,7 +154,7 @@ public class Player : MonoBehaviour
         }
     }
 
-    public void GetHurt(int damage, Vector3 damageDir)
+    public void GetHurt(int damage, Vector3 damageDir, float nockback)
     {
         if (!_waitForHurt)
         {
@@ -166,7 +163,7 @@ public class Player : MonoBehaviour
             stats.currentHp -= damage;
             lifeUI.SetLifeTo(stats.currentHp);
 
-            _rb.AddForce(damageDir.normalized * 75000 * Time.deltaTime);
+            _rb.AddForce(damageDir * nockback * Time.deltaTime, ForceMode2D.Force);
 
             if (stats.currentHp <= 0)
                 Die();
@@ -174,21 +171,42 @@ public class Player : MonoBehaviour
             else
                 audioSource.PlayOneShot(hitSound);
 
+            animator.SetTrigger("hurt");
             StartCoroutine(InvencibilityTime(stats.invencibilityTime));
         }
     }
 
-    public void ChangeStats(PlayerStats stats, float timeBetweenDashes, float dashLength, float dashWait, WeaponInfo weaponStats)
+    public void ChangeStats(PlayerBuffStats stats, float timeBetweenDashes, float dashLength, float dashWait, WeaponBuff weaponStats)
     {
-        stats.ApplyStats(stats);
+        this.stats.ApplyStats(stats);
         _dash.ChangeStats(timeBetweenDashes, dashLength, dashWait);
         gun.ApplyChanges(weaponStats);
-        gunApliedStats.Add(weaponStats);
+
+        _grabbedGunItems.Add(weaponStats);
+    }
+
+    public void ChangeWeapon(GameObject gun)
+    {
+        Destroy(this.gun.gameObject);
+        
+        GameObject newGun = Instantiate(gun.gameObject, weaponContainer);
+        this.gun = newGun.GetComponent<Gun>();
+        this.gun.sight = sight.transform;
+        this.gun.container = weaponContainer;
+
+        this.ReapplyGunItems();
+    }
+
+    private void ReapplyGunItems()
+    {
+        _grabbedGunItems.ForEach(item => gun.ApplyChanges(item));
+        _appliedGunEffects.ForEach(effect => gun.ApplyEffect(effect));
     }
 
     public void ApplyWeaponEffect(WeaponEffect effect)
     {
         gun.ApplyEffect(effect);
+        _appliedGunEffects.Add(effect);
     }
 
     /////////////////// Death/Collisions Methods //////////////////////////
@@ -223,8 +241,9 @@ public class Player : MonoBehaviour
                 _rb.velocity = Vector3.zero;
                 _rb.angularVelocity = 0;
 
-                Vector3 dir = this.transform.position - collision.gameObject.transform.position;
-                GetHurt(1, dir);
+                ContactPoint2D[] contacts = new ContactPoint2D[5];
+                Vector3 dir = (Vector2)gameObject.transform.position - contacts[0].point;
+                GetHurt(1, dir, 2000);
             }
         }
 

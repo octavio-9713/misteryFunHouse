@@ -51,9 +51,15 @@ MonoBehaviour:
     dashSpeed: 0
     initialDashForce: 0
     dashDamage: 0
+  buffstats:
+    playerSpeed: 1.25
+    invencibilityTime: 0
+    dashSpeed: 0
+    initialDashForce: 0
+    dashDamage: 0
   timeBetweenDashes: 0.1
   dashLength: 0
-  dashWait: 0
+  dashCooldown: 0
   weapon:
     bullet: {fileID: 0}
     bulletSpeed: 0
@@ -65,4 +71,13 @@ MonoBehaviour:
     weaponCooldown: 0.2
     weaponDamage: 15
     weaponRecoil: 0
-    effectProbability: 0
+  buff:
+    bullet: {fileID: 0}
+    bulletSpeed: 0
+    bulletLife: 0
+    weaponSound: {fileID: 0}
+    bulletQuantity: 0
+    weaponCadence: 0
+    weaponCooldown: 1.2
+    weaponDamage: 1.25
+    weaponRecoil: 0

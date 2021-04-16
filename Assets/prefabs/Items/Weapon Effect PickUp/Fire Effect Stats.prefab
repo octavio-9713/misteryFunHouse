@@ -44,7 +44,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   effect:
-    probability: 10
+    probability: 100
     bulletSpeedMultiplier: 0.5
     bulletDamageMultiplier: 0.5
     bulletLifeMultiplier: 1

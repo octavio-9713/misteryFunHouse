@@ -10,11 +10,11 @@ public class BuffStats
     public int lifeIncrease = 25;
 
     [Header("Movement")]
-    public float movementIncrease = 2000;
-    public float vision = 10;
+    public float movementIncrease = 1.15f;
+    public float vision = 1.5f;
 
     [Header("Weapon")]
-    public int damage = 1;
+    public int damage = 2;
     public float weaponDelay = 0.5f;
-    public float attackRange = 10f;
+    public float attackRange = 1.15f;
 }

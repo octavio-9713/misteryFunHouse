@@ -5233,6 +5233,9 @@ MonoBehaviour:
   deathEvent:
     m_PersistentCalls:
       m_Calls: []
+  fireEvent:
+    m_PersistentCalls:
+      m_Calls: []
   stats:
     enemyHealth: 75
     enemySpeed: 5000
@@ -5240,6 +5243,7 @@ MonoBehaviour:
     personalSpace: 0
     enemyDamage: 1
     bulletSpeed: 8000
+    bulletNockback: 2000
     attackDelay: 2
     enemyVision: 500
     attackRangeStart: 0
@@ -5257,6 +5261,7 @@ MonoBehaviour:
     _stage: 0
   needsWanderDirection: 1
   wanderTarget: {x: 0, y: 0, z: 0}
+  appliedEffects: []
   gun: {fileID: 2567314594530029608}
   weaponContainer: {fileID: 2369740087140197978}
 --- !u!82 &6200208333154352087

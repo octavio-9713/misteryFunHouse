@@ -112,7 +112,8 @@ MonoBehaviour:
     weaponCadence: 0.15
     weaponCooldown: 1
     weaponDamage: 25
-    weaponRecoil: 10000
+    weaponRecoil: 0
+  effects: []
   sight: {fileID: 0}
   container: {fileID: 0}
   audioSource: {fileID: 2495501257393788975}

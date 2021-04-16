@@ -8,11 +8,11 @@ public class BulletEffect : MonoBehaviour
     public Color bulletColor;
     public TypeEffect effect;
 
-    private Bullet _bullet;
+    private SpriteRenderer _bullet;
 
     void Start()
     {
-        _bullet = GetComponentInParent<Bullet>();
+        _bullet = GetComponentInParent<SpriteRenderer>();
         _bullet.GetComponent<SpriteRenderer>().color = bulletColor;
     }
 

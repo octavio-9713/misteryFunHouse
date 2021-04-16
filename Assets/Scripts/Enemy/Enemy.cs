@@ -86,7 +86,7 @@ public class Enemy : MonoBehaviour
 
         if (hit.collider != null)
         {
-            if (hit.collider.tag == "Player" && !_player.death)
+            if (hit.collider.CompareTag("Player") && !_player.death)
             {
                 return true;
             }
@@ -148,6 +148,7 @@ public class Enemy : MonoBehaviour
             BulletEnemy bullet = instance.GetComponent<BulletEnemy>();
 
             bullet.speed = stats.bulletSpeed;
+            bullet.nockback = stats.bulletNockback;
             bullet.damage = stats.enemyDamage;
 
             audio.PlayOneShot(stats.shootSound);
@@ -212,8 +213,6 @@ public class Enemy : MonoBehaviour
 
     protected IEnumerator WaitForAttack()
     {
-        _animator.ResetTrigger("shooting");
-        _animator.SetTrigger("waiting");
         yield return new WaitForSeconds(stats.attackDelay);
         attacking = false;
     }

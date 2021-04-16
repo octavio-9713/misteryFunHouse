@@ -11,7 +11,6 @@ public class PersueState : State
 
     public override void Enter()
     {
-        _animator.SetTrigger("moving");
         _animator.SetBool("move", true);
         base.Enter();
     }
@@ -58,7 +57,6 @@ public class PersueState : State
 
     public override void Exit()
     {
-        _animator.ResetTrigger("moving");
         _animator.SetBool("move", false);
         base.Exit();
     }

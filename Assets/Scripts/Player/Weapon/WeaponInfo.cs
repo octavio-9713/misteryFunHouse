@@ -36,4 +36,19 @@ public class WeaponInfo
         weaponDamage += changes.weaponDamage;
         weaponRecoil += changes.weaponRecoil;
     }
+
+    public void ApplyChanges(WeaponBuff changes)
+    {
+        bullet = changes.bullet != null ? changes.bullet : bullet;
+        weaponSound = changes.weaponSound != null ? changes.weaponSound : weaponSound;
+
+        bulletQuantity = changes.bulletQuantity;
+        bulletSpeed *= changes.bulletSpeed;
+        bulletLife *= changes.bulletLife;
+
+        weaponCadence *= changes.weaponCadence;
+        weaponCooldown /= changes.weaponCooldown;
+        weaponDamage *= changes.weaponDamage;
+        weaponRecoil *= changes.weaponRecoil;
+    }
 }

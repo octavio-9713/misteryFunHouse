@@ -33,13 +33,14 @@ public class EnemyGun : MonoBehaviour
     }
 
 
-    public virtual void Shoot(GameObject bullet, float speed, int damage)
+    public virtual void Shoot(GameObject bullet, float speed, int damage, float nockback)
     {
         GameObject instance = Instantiate(bullet, shotpos.transform.position, Quaternion.identity);
         BulletEnemy bInstance = instance.GetComponent<BulletEnemy>();
 
         bInstance.speed = speed;
         bInstance.damage = damage;
+        bInstance.nockback = nockback;
 
         this.audioSource.PlayOneShot(gunSound);
     }

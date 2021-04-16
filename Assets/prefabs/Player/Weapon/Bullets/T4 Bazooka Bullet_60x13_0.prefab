@@ -12,7 +12,7 @@ GameObject:
   - component: {fileID: 8516563312189198909}
   - component: {fileID: 3521871428416560859}
   - component: {fileID: 8851253066043095577}
-  - component: {fileID: 3737875711626649985}
+  - component: {fileID: 27224565010121520}
   - component: {fileID: 265579681490137102}
   m_Layer: 0
   m_Name: T4 Bazooka Bullet_60x13_0
@@ -50,6 +50,7 @@ SpriteRenderer:
   m_LightProbeUsage: 1
   m_ReflectionProbeUsage: 1
   m_RayTracingMode: 0
+  m_RayTraceProcedural: 0
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
@@ -133,7 +134,7 @@ Rigidbody2D:
   m_SleepingMode: 1
   m_CollisionDetection: 0
   m_Constraints: 4
---- !u!114 &3737875711626649985
+--- !u!114 &27224565010121520
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -142,18 +143,15 @@ MonoBehaviour:
   m_GameObject: {fileID: 1181977607006607526}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: cff41239a1b4dc143bad27f82fe68acc, type: 3}
+  m_Script: {fileID: 11500000, guid: df3a92700dbe90c49845ed0d7dd92e5b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  speed: 6000
+  speed: 0
+  damage: 0
+  life: 1
   player: {fileID: 0}
-  defaultGun: 0
-  pistol: 0
-  machineGun: 0
-  shotGun: 0
-  Bazooka: 1
-  tiempo: 4
-  explocion: {fileID: 2353932657165550671, guid: 3f204ecc595ce3a4b9c35e472ac1f2ed,
+  effect: {fileID: 0}
+  explotionPrefab: {fileID: 1918800444527033114, guid: 3f204ecc595ce3a4b9c35e472ac1f2ed,
     type: 3}
 --- !u!95 &265579681490137102
 Animator:
