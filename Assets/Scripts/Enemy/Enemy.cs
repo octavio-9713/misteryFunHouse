@@ -11,6 +11,7 @@ public class Enemy : MonoBehaviour
     public UnityEvent fireEvent = new UnityEvent();
 
     protected bool isDead = false;
+    protected bool isAsleep = false;
 
     public EnemyInfo stats;
 
@@ -57,7 +58,8 @@ public class Enemy : MonoBehaviour
 
     private void Update()
     {
-        currentState = currentState.Process();
+        if (!isAsleep)
+            currentState = currentState.Process();
 
         if (CanSeePlayer())
             transform.rotation = _player.transform.position.x < transform.position.x ? Quaternion.Euler(0, -180, 0) : Quaternion.Euler(0, 0, 0);
@@ -198,17 +200,30 @@ public class Enemy : MonoBehaviour
         Destroy(gameObject);
     }
 
-    ////////////////// Wander Methods //////////////////////
+    ////////////////// Other Methods //////////////////////
     
     public void WaitToWander()
     {
         StartCoroutine(WaitWanderDirection(wanderTimeDir));
     }
 
+    public void WaitToWake(float sleepTime)
+    {
+        StartCoroutine(WakeUp(sleepTime));
+    }
+
+
     private void OnCollisionEnter2D(Collision2D collision)
     {
         if (collision.gameObject.tag == "muro")
             wanderTarget *= -1;
+    }
+
+    protected IEnumerator WakeUp(float timeTo)
+    {
+        isAsleep = true;
+        yield return new WaitForSeconds(timeTo);
+        isAsleep = false;
     }
 
     protected IEnumerator WaitForAttack()

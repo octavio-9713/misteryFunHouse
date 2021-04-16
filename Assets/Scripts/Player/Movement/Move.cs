@@ -17,7 +17,7 @@ public class Move : MonoBehaviour
     void Start()
     {
         _rb = GetComponent<Rigidbody2D>();
-        _player = GameManager.Instance.player;
+        _player = GetComponent<Player>();
         _animator = gameObject.GetComponent<Animator>();
         _renderer = gameObject.GetComponent<SpriteRenderer>();
     }

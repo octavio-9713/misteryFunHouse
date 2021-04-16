@@ -473,22 +473,22 @@ MonoBehaviour:
   - dialog: Hi Again!
     faceSprite: {fileID: 21300000, guid: 3720e50908198bf4c904909e145b0004, type: 3}
     firesEvent: 0
-  - dialog: I must say that i'm impress
+  - dialog: I must say that i'm impress, i didn't expect you here so soon
     faceSprite: {fileID: 21300000, guid: 3720e50908198bf4c904909e145b0004, type: 3}
     firesEvent: 0
-  - dialog: I'm Actually glad, it would have been boring if it end it here
+  - dialog: So in reward of your impresive display i will give you an extra item...
     faceSprite: {fileID: 21300000, guid: 3720e50908198bf4c904909e145b0004, type: 3}
     firesEvent: 0
-  - dialog: So there are 2 other room down there, each one harder than the last one
+  - dialog: Here you go champ, don't waste it.
+    faceSprite: {fileID: 21300000, guid: 3720e50908198bf4c904909e145b0004, type: 3}
+    firesEvent: 1
+  - dialog: I feel like i'm forgetting something...
     faceSprite: {fileID: 21300000, guid: 3720e50908198bf4c904909e145b0004, type: 3}
     firesEvent: 0
-  - dialog: So... try your best and reach to the end
+  - dialog: 
     faceSprite: {fileID: 21300000, guid: 3720e50908198bf4c904909e145b0004, type: 3}
     firesEvent: 0
-  - dialog: Oh boy... I can't wait...
-    faceSprite: {fileID: 21300000, guid: 3720e50908198bf4c904909e145b0004, type: 3}
-    firesEvent: 0
-  - dialog: 'We could paint our nails and talk about boys... '
+  - dialog: Well if i'm forgetting it, it must not be importan
     faceSprite: {fileID: 21300000, guid: 3720e50908198bf4c904909e145b0004, type: 3}
     firesEvent: 0
   - dialog: So yeah... See you

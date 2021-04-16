@@ -2948,6 +2948,17 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 5856501962825667920, guid: 4c2ab4487a088214782c6469c843dcb5,
         type: 3}
+      propertyPath: manager
+      value: 
+      objectReference: {fileID: 5627389309872471146}
+    - target: {fileID: 5856501962825667920, guid: 4c2ab4487a088214782c6469c843dcb5,
+        type: 3}
+      propertyPath: fastPrefab
+      value: 
+      objectReference: {fileID: 6396881423136387825, guid: 705a1fb8bc3f77545a41b2c006dfeb23,
+        type: 3}
+    - target: {fileID: 5856501962825667920, guid: 4c2ab4487a088214782c6469c843dcb5,
+        type: 3}
       propertyPath: curtains.Array.size
       value: 1
       objectReference: {fileID: 0}

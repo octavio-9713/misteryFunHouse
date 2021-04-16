@@ -74,6 +74,15 @@ public class ProvoliDialogTree : MonoBehaviour
 
     public void FinishTalk()
     {
+
+        if (dialogTree2.Count > 0)
+        {
+            Dialog firer = dialogTree2.Find(dialog => dialog.firesEvent);
+            Debug.Log(firer);
+            if (firer != null)
+                dialogEvent.Invoke();
+        }
+
         _provoliAnim.SetTrigger("fade");
         GetComponent<Animator>().SetTrigger("fade");
     }

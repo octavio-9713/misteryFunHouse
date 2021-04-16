@@ -42,13 +42,13 @@ public class WeaponInfo
         bullet = changes.bullet != null ? changes.bullet : bullet;
         weaponSound = changes.weaponSound != null ? changes.weaponSound : weaponSound;
 
-        bulletQuantity = changes.bulletQuantity;
-        bulletSpeed *= changes.bulletSpeed;
-        bulletLife *= changes.bulletLife;
+        bulletQuantity = changes.bulletQuantity > 0 ? changes.bulletQuantity : 1;
+        bulletSpeed *= changes.bulletSpeed > 0 ? changes.bulletSpeed : 1;
+        bulletLife *= changes.bulletLife > 0 ? changes.bulletLife : 1;
 
-        weaponCadence *= changes.weaponCadence;
-        weaponCooldown /= changes.weaponCooldown;
-        weaponDamage *= changes.weaponDamage;
-        weaponRecoil *= changes.weaponRecoil;
+        weaponCadence *= changes.weaponCadence > 0 ? changes.weaponCadence : 1;
+        weaponCooldown /= changes.weaponCooldown > 0 ? changes.weaponCooldown : 1;
+        weaponDamage *= changes.weaponDamage > 0 ? changes.weaponDamage : 1;
+        weaponRecoil *= changes.weaponRecoil > 0 ? changes.weaponRecoil : 1;
     }
 }

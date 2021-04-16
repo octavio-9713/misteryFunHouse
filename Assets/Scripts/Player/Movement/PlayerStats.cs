@@ -34,12 +34,12 @@ public class PlayerStats
 
     public void ApplyStats(PlayerBuffStats stats)
     {
-        playerSpeed *= stats.playerSpeed;
-        invencibilityTime *= stats.invencibilityTime;
+        playerSpeed *= stats.playerSpeed > 0 ? stats.playerSpeed : 1;
+        invencibilityTime *= stats.invencibilityTime > 0 ? stats.invencibilityTime : 1;
 
-        dashSpeed *= stats.dashSpeed;
-        initialDashForce *= stats.initialDashForce;
-        dashDamage *= stats.dashDamage;
+        dashSpeed *= stats.dashSpeed > 0 ? stats.dashSpeed : 1;
+        initialDashForce *= stats.initialDashForce > 0 ? stats.initialDashForce : 1;
+        dashDamage *= stats.dashDamage > 0 ? stats.dashDamage : 1;
     }
 
 }

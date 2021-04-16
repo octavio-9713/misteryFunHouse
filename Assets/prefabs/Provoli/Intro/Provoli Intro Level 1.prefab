@@ -262,7 +262,7 @@ GameObject:
   m_Component:
   - component: {fileID: 6388544136717727972}
   m_Layer: 5
-  m_Name: Provoli Intro
+  m_Name: Provoli Intro Level 1
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -469,19 +469,42 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   dialog: {fileID: 8047566140157029832}
-  dialogTree:
-  - Oh! Oh! Oh!
-  - Hello, you finally arrive. I was waiting for you.
-  - I'm exited. i haven't talked to somebody in days
-  - Well actually it has been months...
-  - Well alright it has been years.
-  - Now that you are here we can start a really fun game.
-  - Try to get to me, there are usefull things in here that may help you.
-  - So... i shouldn't keep you waiting any longer.
-  - I mean this is supposed to be a speed run kinda thing.
-  - So go, go, go, go!
-  - Also, you could have skipped all this with Right Click.
-  - 'Bye... '
-  - ' ;)'
+  dialogTree2:
+  - dialog: Oh, a visitor !
+    faceSprite: {fileID: 21300000, guid: 3720e50908198bf4c904909e145b0004, type: 3}
+    firesEvent: 0
+  - dialog: Are you real right? i'm not dreaming?
+    faceSprite: {fileID: 21300000, guid: 3720e50908198bf4c904909e145b0004, type: 3}
+    firesEvent: 0
+  - dialog: We are going to have so much fun !
+    faceSprite: {fileID: 0}
+    firesEvent: 0
+  - dialog: There are a lot of challenges ahead, so go on and try your best
+    faceSprite: {fileID: 21300000, guid: 3720e50908198bf4c904909e145b0004, type: 3}
+    firesEvent: 0
+  - dialog: If you are fast enough you may receive an extra reward...
+    faceSprite: {fileID: 21300000, guid: 3720e50908198bf4c904909e145b0004, type: 3}
+    firesEvent: 0
+  - dialog: So yeah that's enough for now...
+    faceSprite: {fileID: 21300000, guid: 3720e50908198bf4c904909e145b0004, type: 3}
+    firesEvent: 0
+  - dialog: Also the timer is running so you should hurry up...
+    faceSprite: {fileID: 21300000, guid: 3720e50908198bf4c904909e145b0004, type: 3}
+    firesEvent: 0
+  - dialog: This is a speed run kinda thing right?
+    faceSprite: {fileID: 0}
+    firesEvent: 0
+  - dialog: So bye...
+    faceSprite: {fileID: 21300000, guid: 3720e50908198bf4c904909e145b0004, type: 3}
+    firesEvent: 0
+  - dialog: One last thing, you could have skip all of this with right click...
+    faceSprite: {fileID: 21300000, guid: 3720e50908198bf4c904909e145b0004, type: 3}
+    firesEvent: 0
+  - dialog: ' ;)'
+    faceSprite: {fileID: 21300000, guid: 3720e50908198bf4c904909e145b0004, type: 3}
+    firesEvent: 0
   typeWritterSpeed: 0.05
   provoli: {fileID: 5152963933171662471}
+  dialogEvent:
+    m_PersistentCalls:
+      m_Calls: []

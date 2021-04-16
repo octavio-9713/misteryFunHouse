@@ -3,6 +3,7 @@ using UnityEngine;
 
 public class RewardRoom : MonoBehaviour
 {
+
     private int numActivacion = 0;
     private bool activacion = false;
 
@@ -10,19 +11,10 @@ public class RewardRoom : MonoBehaviour
     public Curtain[] cortinas;
     public GameObject[] doorPos;
     public GameObject[] confetiPos;
-    public bool needsItem = true;
+
+    public GameManager.TypeOfItems itemType = GameManager.TypeOfItems.ALL;
 
     public GameObject itemSpawnPos;
-
-
-    void Start()
-    {
-        if (needsItem)
-        {
-            GameObject item = GameManager.Instance.GetItem();
-            Instantiate(item, itemSpawnPos.transform);
-        }
-    }
 
     void Update()
     {
@@ -40,6 +32,9 @@ public class RewardRoom : MonoBehaviour
             }
 
             activacion = false;
+
+            GameObject item = GameManager.Instance.GetItem(itemType);
+            Instantiate(item, itemSpawnPos.transform);
 
             Destroy(this);
         }

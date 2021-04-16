@@ -67,11 +67,6 @@ public class Player : MonoBehaviour
         lifeUI.ChangeMaxLife(stats.maxHp, true);
     }
 
-    
-    void Update()
-    {
-    }
-
     /////////////////// Move Methods //////////////////////////
 
     public void DisableMovement()
@@ -243,7 +238,7 @@ public class Player : MonoBehaviour
 
                 ContactPoint2D[] contacts = new ContactPoint2D[5];
                 Vector3 dir = (Vector2)gameObject.transform.position - contacts[0].point;
-                GetHurt(1, dir, 2000);
+                GetHurt(1, dir, 1000);
             }
         }
 

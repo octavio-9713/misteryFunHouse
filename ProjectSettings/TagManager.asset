@@ -25,6 +25,16 @@ TagManager:
   - Orbital
   - Seek Missile
   - Rooms
+  - Tornillo
+  - shotgun
+  - Portal
+  - default
+  - pistol
+  - bazooka
+  - machinegun
+  - Player UI
+  - Player Life
+  - Player Spawnpoint
   layers:
   - Default
   - TransparentFX
@@ -37,10 +47,6 @@ TagManager:
   - Player Bullet
   - Room
   - PostProcessing
-  - 
-  - 
-  - 
-  - 
   - 
   - 
   - 

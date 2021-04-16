@@ -6,8 +6,12 @@ public class CanvasTrigger : MonoBehaviour
 {
     private GameObject _spawnPlace;
 
+    [Header("Room Manager")]
+    public RewardRoom manager;
+
     [Header("Prefab to Instance")]
     public GameObject prefab;
+    public GameObject fastPrefab;
 
     public Curtain[] curtains;
 
@@ -16,12 +20,24 @@ public class CanvasTrigger : MonoBehaviour
         _spawnPlace = GameObject.FindGameObjectWithTag("ProvoliContainer");
     }
 
+    private GameObject SelectPrefab()
+    {
+        if (GameManager.Instance.HasFastTime())
+            return fastPrefab;
+
+        return prefab;
+    }
+
     private void OnTriggerEnter2D(Collider2D collision)
     {
         if (collision.CompareTag("Player"))
         {
             DisableCurtains();
-            Instantiate(prefab, _spawnPlace.transform);
+            
+            GameObject provoliInst = Instantiate(SelectPrefab(), _spawnPlace.transform);
+            ProvoliDialogTree dialog = provoliInst.GetComponentInChildren<ProvoliDialogTree>();
+            dialog.dialogEvent.AddListener(manager.ActivarSala);
+
             Destroy(gameObject);
         }
     }

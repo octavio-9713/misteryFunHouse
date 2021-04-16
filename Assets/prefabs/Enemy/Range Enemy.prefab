@@ -5243,7 +5243,7 @@ MonoBehaviour:
     personalSpace: 0
     enemyDamage: 1
     bulletSpeed: 8000
-    bulletNockback: 2000
+    bulletNockback: 1500
     attackDelay: 2
     enemyVision: 500
     attackRangeStart: 0

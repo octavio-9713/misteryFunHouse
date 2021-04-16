@@ -18,7 +18,7 @@ MonoBehaviour:
     type: 3}
   showsProvoli: 1
   effect: {fileID: 6532494816528742082, guid: f3164ad4e323f69488d0d95ea3191669, type: 3}
-  itemImage: {fileID: 0}
+  itemImage: {fileID: 432710696276598158}
 --- !u!1001 &8510366499735738625
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -173,6 +173,12 @@ PrefabInstance:
 --- !u!1 &9205412027030925943 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 710113307828906870, guid: 5e334e27c94f97c46a5a9e382629076e,
+    type: 3}
+  m_PrefabInstance: {fileID: 8510366499735738625}
+  m_PrefabAsset: {fileID: 0}
+--- !u!1 &432710696276598158 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 8078236346742080655, guid: 5e334e27c94f97c46a5a9e382629076e,
     type: 3}
   m_PrefabInstance: {fileID: 8510366499735738625}
   m_PrefabAsset: {fileID: 0}

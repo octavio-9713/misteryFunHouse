@@ -10,16 +10,12 @@ public class RoomManager : MonoBehaviour
     [HideInInspector]
     public UnityEvent openEvent = new UnityEvent();
 
-    private int numActivacion = 0;
+    private float _waitToAttack = 1f;
     private bool activacion = false;
 
     [Header("Room Settings")]
     public Curtain[] cortinas;
-    public GameObject[] doorPos;
-    public GameObject doorPrefab;
-    public GameObject doorPrefabHor;
-
-    private List<GameObject> spawnedDoors = new List<GameObject>();
+    public DoorTrigger[] doors;
 
     [Header("Enemies Settings")]
     public Transform[] enemySpawner;
@@ -44,7 +40,9 @@ public class RoomManager : MonoBehaviour
         {
             for (int i = 0; i < _cantEnemies; i++) {
                 GameObject en = Instantiate(enemies[i], enemySpawner[i].transform.position, Quaternion.identity);
-                en.GetComponent<Enemy>().deathEvent.AddListener(MuerteEnemy);
+                Enemy enemy = en.GetComponent<Enemy>();
+                enemy.deathEvent.AddListener(MuerteEnemy);
+                enemy.WaitToWake(_waitToAttack);
             }
 
             for (int i = 0; i < cortinas.Length; i++)
@@ -78,15 +76,14 @@ public class RoomManager : MonoBehaviour
     {
         if (!activacion)
         {
-            foreach (GameObject door in doorPos)
+            foreach (DoorTrigger door in doors)
             {
                 //if (door.GetComponent<DoorTrigger>().hor)
                 //     spawnedDoors.Add(Instantiate(doorPrefabHor, door.transform.position, door.transform.rotation));
 
                 // else
                 //     spawnedDoors.Add(Instantiate(doorPrefab, door.transform.position, door.transform.rotation));
-
-                door.GetComponent<BoxCollider2D>().isTrigger = false;
+                door.LockDoor();
             }
 
             activacion = true;
@@ -96,8 +93,8 @@ public class RoomManager : MonoBehaviour
 
     public void DesactivarSala()
     {
-        foreach (GameObject door in doorPos)
-            Destroy(door);
+        foreach (DoorTrigger door in doors)
+            door.UnlockDoor();
 
         openEvent.Invoke();
     }

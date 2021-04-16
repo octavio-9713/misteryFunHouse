@@ -7,14 +7,16 @@ using TMPro;
 
 public class GameManager : MonoBehaviour
 {
+    public enum TypeOfItems { DPS, GENERAL, ORBITAL, EFFECT, WEAPON, ALL }
+
     [Header("Timer")]
     public TextMeshProUGUI timer;
+    public float minutesToFast = 10f;
     private float _secondsCount;
     private int _minuteCount;
     private int _hourCount;
 
-    [Header("Scene Name")]
-    public string sceneName;
+    private bool _countTime = true;
 
     [Header("Player")]
     public Player player;
@@ -22,29 +24,27 @@ public class GameManager : MonoBehaviour
     [Header("Ui")]
     public GameUi gameUi;
     public Canvas canvas;
+    public GameObject provolisIntroPlace;
+    public GameObject loading;
+
+    [Header("Provoli Intros")]
+    public List<GameObject> provolisIntros;
 
     [Header("Confetti")]
     public GameObject confeti;
 
-    [Header("Spawn Settings")]
-    public int maxRooms = 5;
-    public int rewardsRooms = 2;
-    
-    private int _actualRooms = 0;
-    private int _actualRewardRooms = 0;
-    
-    public bool finishSpawn = false;
-    private bool _needsSpecial = true;
-
     [Header("Items")]
-    public GameObject[] items;
-    private List<GameObject> _allItems;
+    public List<GameObject> dpsItems;
+    public List<GameObject> generalItems;
+    public List<GameObject> orbitalItems;
+    public List<GameObject> effectItems;
+    public List<GameObject> weaponItems;
 
-    [Header("End Rooms")]
-    private List<GameObject> _endRooms = new List<GameObject>();
+    private List<GameObject> _allitems = new List<GameObject>();
+    private List<ItemEffect> _pickedItems = new List<ItemEffect>();
 
-    [Header("Rooms")]
-    public RoomSpecialTemplates specialRooms;
+    private int _sceneIndex = 2;
+    private bool _needsToLoad = true;
 
     private static GameManager _instance;
 
@@ -54,37 +54,47 @@ public class GameManager : MonoBehaviour
     {
         if (_instance != null && _instance != this)
         {
-            //Destroy(this.gameObject);
+            Destroy(this.gameObject);
         }
         else
-        {
             _instance = this;
+        
+    }
 
-            GameObject playerEntity = GameObject.FindGameObjectWithTag("Player");
-            player = playerEntity.GetComponent<Player>();
+    private void Start()
+    {
+        this._allitems.AddRange(dpsItems);
+        this._allitems.AddRange(generalItems);
+        this._allitems.AddRange(orbitalItems);
+        this._allitems.AddRange(effectItems);
+        this._allitems.AddRange(weaponItems);
 
-            _allItems = new List<GameObject>(items);
-        }
+        _pickedItems.ForEach(item => item.ApplyEffect());
 
+        StopTheCount();
     }
 
     void Update()
     {
-        CountTime();
+        if (_countTime)
+            CountTime();
 
         if (Input.GetKey("r"))
         {
             RestarGame();
         }
 
-
+        if (_needsToLoad)
+        {
+            StartCoroutine(LoadScene(_sceneIndex));
+        }
     }
 
     /////////////////// Count time Methods //////////////////////////
     public void CountTime()
     {
         _secondsCount += Time.deltaTime;
-        timer.text = _hourCount + " : " + _minuteCount + " : " + (int)_secondsCount;
+        timer.text = ActualTime();
         if (_secondsCount >= 60)
         {
             _minuteCount++;
@@ -98,61 +108,140 @@ public class GameManager : MonoBehaviour
 
     }
 
+    public string ActualTime()
+    {
+        return _hourCount + " : " + _minuteCount + " : " + (int)_secondsCount;
+    }
+
+    public void StopTheCount()
+    {
+        this._countTime = false;
+    }
+
+    public void ResumeTheCount()
+    {
+        this._countTime = true;
+    }
+
+    public bool HasFastTime()
+    {
+        return _minuteCount <= minutesToFast;
+    }
+
+    /////////////////// Restart Game Methods //////////////////////////
+    private void MovePlayer()
+    {
+        GameObject spawnpoint = GameObject.FindGameObjectWithTag("Player Spawnpoint");
+        player.transform.position = spawnpoint.transform.position;
+        player.gameObject.SetActive(true);
+
+        Instantiate(provolisIntros[0], provolisIntroPlace.transform);
+        provolisIntros.RemoveAt(0);
+    }
+
     /////////////////// Restart Game Methods //////////////////////////
     public void RestarGame()
     {
-        SceneManager.LoadScene(SceneManager.GetActiveScene().name);
+        SceneManager.LoadScene(0);
         _hourCount = 0;
         _minuteCount = 0;
         _secondsCount = 0;
     }
 
-    /////////////////// Room Methods //////////////////////////
-    public void IncreaseRoom()
+    /////////////////// Items Methods //////////////////////////
+    public GameObject GetItem(TypeOfItems type)
     {
-        _actualRooms++;
+        GameObject item;
 
-        if (_actualRooms > maxRooms)
+        if (type.Equals(TypeOfItems.ALL))
         {
-            finishSpawn = true;
+            item = _allitems[Random.Range(0, _allitems.Count)];
+            dpsItems.Remove(item);
+            effectItems.Remove(item);
+            generalItems.Remove(item);
+            orbitalItems.Remove(item);
+            weaponItems.Remove(item);
         }
 
-    }
-
-    public void AddEndRoom(int openSide, GameObject room)
-    {
-        if (_needsSpecial)
+        else if (type.Equals(TypeOfItems.DPS))
         {
-            GameObject[] salas;
-
-            if (_actualRewardRooms < rewardsRooms)
-            {
-                salas = openSide == 1 ? specialRooms.topRewardsRoom : openSide == 2 ?
-                    specialRooms.rightRewardsRooms : openSide == 3 ? specialRooms.bottomRewardsRooms : specialRooms.leftRewardsRooms;
-                _actualRewardRooms++;
-            }
-
-            else
-            {
-                salas = openSide == 1 ? specialRooms.bossTopRooms : openSide == 2 ?
-                    specialRooms.bossRightRooms : openSide == 3 ? specialRooms.bossBottomRooms : specialRooms.bossLeftRooms;
-
-                _needsSpecial = false;
-            }
-
-            int _rand = Random.Range(0, salas.Length - 1);
-
-            GameObject sala = salas[_rand];
-
-            Instantiate(sala, room.transform.position, room.transform.rotation);
-            Destroy(room);
+            item = dpsItems[Random.Range(0, dpsItems.Count)];
+            dpsItems.Remove(item);
         }
-    }
 
-    public GameObject GetItem()
-    {
-        GameObject item = _allItems[Random.Range(0, _allItems.Count)];
-        _allItems.Remove(item);
+        else if (type.Equals(TypeOfItems.EFFECT))
+        {
+            item = effectItems[Random.Range(0, effectItems.Count)];
+            effectItems.Remove(item);
+        }
+
+        else if (type.Equals(TypeOfItems.GENERAL))
+        {
+            item = generalItems[Random.Range(0, generalItems.Count)];
+            generalItems.Remove(item);
+        }
+
+        else if (type.Equals(TypeOfItems.ORBITAL))
+        {
+            item = orbitalItems[Random.Range(0, orbitalItems.Count)];
+            orbitalItems.Remove(item);
+        }
+
+        else
+        {
+            item = weaponItems[Random.Range(0, weaponItems.Count)];
+            weaponItems.Remove(item);
+        }
+
+        _allitems.Remove(item);
+        Pickable picked = item.GetComponent<Pickable>();
+        _pickedItems.Add(picked.effect);
+
         return item;
+    }
+
+    /////////////////// Room Methods //////////////////////////
+    public void NextRoom()
+    {
+        player.gameObject.SetActive(false);
+        StartCoroutine(UnloadScene(_sceneIndex));
+
+        StopTheCount();
+    }
+
+    IEnumerator LoadScene(int sceneIndex)
+    {
+        loading.SetActive(true);
+
+        _needsToLoad = false;
+
+        AsyncOperation asyncLoad = SceneManager.LoadSceneAsync(sceneIndex, LoadSceneMode.Additive);
+
+        // Wait until the asynchronous scene fully loads
+        while (!asyncLoad.isDone)
+        {
+            yield return null;
+        }
+
+        yield return new WaitForSeconds(0.5f);
+        loading.SetActive(false);
+        ResumeTheCount();
+        MovePlayer();
+    }
+
+    IEnumerator UnloadScene(int sceneIndex)
+    {
+        loading.SetActive(true);
+        AsyncOperation asyncLoad = SceneManager.UnloadSceneAsync(sceneIndex);
+        
+        while (!asyncLoad.isDone)
+        {
+            yield return null;
+        }
+
+        _needsToLoad = true;
+        _sceneIndex++;
+
+        yield return new WaitForSeconds(0.5f);
     }
 }

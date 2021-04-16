@@ -1,0 +1,1356 @@
+fileFormatVersion: 2
+guid: 2ca7970a3a96ef24b972cf0f35ed708b
+TextureImporter:
+  internalIDToNameTable:
+  - first:
+      213: 219978415803908561
+    second: T4 fallin dead_spr; 34x27_0
+  - first:
+      213: -2219545814386903922
+    second: T4 fallin dead_spr; 34x27_1
+  - first:
+      213: 3907221008004028266
+    second: T4 fallin dead_spr; 34x27_2
+  - first:
+      213: 3320376889576772807
+    second: T4 fallin dead_spr; 34x27_3
+  - first:
+      213: 349602714347109334
+    second: T4 fallin dead_spr; 34x27_4
+  - first:
+      213: -1488443763630899497
+    second: T4 fallin dead_spr; 34x27_5
+  - first:
+      213: 4309464285485764057
+    second: T4 fallin dead_spr; 34x27_6
+  - first:
+      213: 6474354029823898445
+    second: T4 fallin dead_spr; 34x27_7
+  - first:
+      213: 7608511827201607699
+    second: T4 fallin dead_spr; 34x27_8
+  - first:
+      213: 5612988749446499229
+    second: T4 fallin dead_spr; 34x27_9
+  - first:
+      213: 3127241059169354603
+    second: T4 fallin dead_spr; 34x27_10
+  - first:
+      213: 5784639988427716266
+    second: T4 fallin dead_spr; 34x27_11
+  - first:
+      213: 2693614037339395367
+    second: T4 fallin dead_spr; 34x27_12
+  - first:
+      213: 5959742132563419362
+    second: T4 fallin dead_spr; 34x27_13
+  - first:
+      213: 488749984639018461
+    second: T4 fallin dead_spr; 34x27_14
+  - first:
+      213: -1939141080321814
+    second: T4 fallin dead_spr; 34x27_15
+  - first:
+      213: -3872483061500907558
+    second: T4 fallin dead_spr; 34x27_16
+  - first:
+      213: 9172385521372294691
+    second: T4 fallin dead_spr; 34x27_17
+  - first:
+      213: -1290369507520178738
+    second: T4 fallin dead_spr; 34x27_18
+  - first:
+      213: -7940791283098207374
+    second: T4 fallin dead_spr; 34x27_19
+  - first:
+      213: -6850704833787459533
+    second: T4 fallin dead_spr; 34x27_20
+  - first:
+      213: -1347583844581044581
+    second: T4 fallin dead_spr; 34x27_21
+  - first:
+      213: -847263562999735800
+    second: T4 fallin dead_spr; 34x27_22
+  - first:
+      213: -5164083506341397363
+    second: T4 fallin dead_spr; 34x27_23
+  - first:
+      213: -7120260986300394064
+    second: T4 fallin dead_spr; 34x27_24
+  - first:
+      213: -660097742787415066
+    second: T4 fallin dead_spr; 34x27_25
+  - first:
+      213: 5130910501947660255
+    second: T4 fallin dead_spr; 34x27_26
+  - first:
+      213: -4025506775215160137
+    second: T4 fallin dead_spr; 34x27_27
+  - first:
+      213: -4098861017406844373
+    second: T4 fallin dead_spr; 34x27_28
+  - first:
+      213: -8508838745636866108
+    second: T4 fallin dead_spr; 34x27_29
+  - first:
+      213: -5513381992271185886
+    second: T4 fallin dead_spr; 34x27_30
+  - first:
+      213: -5683283932110580563
+    second: T4 fallin dead_spr; 34x27_31
+  - first:
+      213: -5955148551858063650
+    second: T4 fallin dead_spr; 34x27_32
+  - first:
+      213: 8874545828530417707
+    second: T4 fallin dead_spr; 34x27_33
+  - first:
+      213: 8510941119079364845
+    second: T4 fallin dead_spr; 34x27_34
+  - first:
+      213: -727878910370663357
+    second: T4 fallin dead_spr; 34x27_35
+  - first:
+      213: 2694521189804724382
+    second: T4 fallin dead_spr; 34x27_36
+  - first:
+      213: 1838865200287871925
+    second: T4 fallin dead_spr; 34x27_37
+  - first:
+      213: 6951166561012650113
+    second: T4 fallin dead_spr; 34x27_38
+  - first:
+      213: 5733702260184024636
+    second: T4 fallin dead_spr; 34x27_39
+  - first:
+      213: -254777134517007469
+    second: T4 fallin dead_spr; 34x27_40
+  - first:
+      213: 7445997806525620758
+    second: T4 fallin dead_spr; 34x27_41
+  - first:
+      213: -5978602619917856549
+    second: T4 fallin dead_spr; 34x27_42
+  - first:
+      213: -6189891042393292225
+    second: T4 fallin dead_spr; 34x27_43
+  - first:
+      213: 5078616729114371575
+    second: T4 fallin dead_spr; 34x27_44
+  - first:
+      213: 6622878945526812067
+    second: T4 fallin dead_spr; 34x27_45
+  - first:
+      213: 6080608559026357783
+    second: T4 fallin dead_spr; 34x27_46
+  - first:
+      213: 3306079368057966718
+    second: T4 fallin dead_spr; 34x27_47
+  - first:
+      213: 4209462064751331452
+    second: T4 fallin dead_spr; 34x27_48
+  - first:
+      213: 3249357879992606939
+    second: T4 fallin dead_spr; 34x27_49
+  - first:
+      213: 812929801505339344
+    second: T4 fallin dead_spr; 34x27_50
+  - first:
+      213: -8780704609766185220
+    second: T4 fallin dead_spr; 34x27_51
+  externalObjects: {}
+  serializedVersion: 11
+  mipmaps:
+    mipMapMode: 0
+    enableMipMap: 0
+    sRGBTexture: 1
+    linearTexture: 0
+    fadeOut: 0
+    borderMipMap: 0
+    mipMapsPreserveCoverage: 0
+    alphaTestReferenceValue: 0.5
+    mipMapFadeDistanceStart: 1
+    mipMapFadeDistanceEnd: 3
+  bumpmap:
+    convertToNormalMap: 0
+    externalNormalMap: 0
+    heightScale: 0.25
+    normalMapFilter: 0
+  isReadable: 0
+  streamingMipmaps: 0
+  streamingMipmapsPriority: 0
+  vTOnly: 0
+  grayScaleToAlpha: 0
+  generateCubemap: 6
+  cubemapConvolution: 0
+  seamlessCubemap: 0
+  textureFormat: 1
+  maxTextureSize: 2048
+  textureSettings:
+    serializedVersion: 2
+    filterMode: 0
+    aniso: -1
+    mipBias: -100
+    wrapU: 1
+    wrapV: 1
+    wrapW: 1
+  nPOTScale: 0
+  lightmap: 0
+  compressionQuality: 50
+  spriteMode: 2
+  spriteExtrude: 1
+  spriteMeshType: 1
+  alignment: 0
+  spritePivot: {x: 0.5, y: 0.5}
+  spritePixelsToUnits: 1
+  spriteBorder: {x: 0, y: 0, z: 0, w: 0}
+  spriteGenerateFallbackPhysicsShape: 1
+  alphaUsage: 1
+  alphaIsTransparency: 1
+  spriteTessellationDetail: -1
+  textureType: 8
+  textureShape: 1
+  singleChannelComponent: 0
+  flipbookRows: 1
+  flipbookColumns: 1
+  maxTextureSizeSet: 0
+  compressionQualitySet: 0
+  textureFormatSet: 0
+  ignorePngGamma: 0
+  applyGammaDecoding: 0
+  platformSettings:
+  - serializedVersion: 3
+    buildTarget: DefaultTexturePlatform
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 3
+    buildTarget: Standalone
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  spriteSheet:
+    serializedVersion: 2
+    sprites:
+    - serializedVersion: 2
+      name: T4 fallin dead_spr; 34x27_0
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 0
+        width: 34
+        height: 27
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 1d1ce3424358d0300800000000000000
+      internalID: 219978415803908561
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: T4 fallin dead_spr; 34x27_1
+      rect:
+        serializedVersion: 2
+        x: 34
+        y: 0
+        width: 34
+        height: 27
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: e8473ca67d69231e0800000000000000
+      internalID: -2219545814386903922
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: T4 fallin dead_spr; 34x27_2
+      rect:
+        serializedVersion: 2
+        x: 68
+        y: 0
+        width: 34
+        height: 27
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: a6716013ecc393630800000000000000
+      internalID: 3907221008004028266
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: T4 fallin dead_spr; 34x27_3
+      rect:
+        serializedVersion: 2
+        x: 102
+        y: 0
+        width: 34
+        height: 27
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 7c4d3af5039541e20800000000000000
+      internalID: 3320376889576772807
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: T4 fallin dead_spr; 34x27_4
+      rect:
+        serializedVersion: 2
+        x: 136
+        y: 0
+        width: 34
+        height: 27
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 6dbfb2101d90ad400800000000000000
+      internalID: 349602714347109334
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: T4 fallin dead_spr; 34x27_5
+      rect:
+        serializedVersion: 2
+        x: 170
+        y: 0
+        width: 34
+        height: 27
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 7de72a8784cf75be0800000000000000
+      internalID: -1488443763630899497
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: T4 fallin dead_spr; 34x27_6
+      rect:
+        serializedVersion: 2
+        x: 204
+        y: 0
+        width: 34
+        height: 27
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 9dd8c946fea4ecb30800000000000000
+      internalID: 4309464285485764057
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: T4 fallin dead_spr; 34x27_7
+      rect:
+        serializedVersion: 2
+        x: 238
+        y: 0
+        width: 34
+        height: 27
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: d43b5c100b689d950800000000000000
+      internalID: 6474354029823898445
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: T4 fallin dead_spr; 34x27_8
+      rect:
+        serializedVersion: 2
+        x: 272
+        y: 0
+        width: 34
+        height: 27
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 318c5b9f13dd69960800000000000000
+      internalID: 7608511827201607699
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: T4 fallin dead_spr; 34x27_9
+      rect:
+        serializedVersion: 2
+        x: 306
+        y: 0
+        width: 34
+        height: 27
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: d9bc50b578755ed40800000000000000
+      internalID: 5612988749446499229
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: T4 fallin dead_spr; 34x27_10
+      rect:
+        serializedVersion: 2
+        x: 340
+        y: 0
+        width: 34
+        height: 27
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: b634ecaac21366b20800000000000000
+      internalID: 3127241059169354603
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: T4 fallin dead_spr; 34x27_11
+      rect:
+        serializedVersion: 2
+        x: 374
+        y: 0
+        width: 34
+        height: 27
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: aa6f0cfcb6b274050800000000000000
+      internalID: 5784639988427716266
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: T4 fallin dead_spr; 34x27_12
+      rect:
+        serializedVersion: 2
+        x: 408
+        y: 0
+        width: 34
+        height: 27
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 725de9112b3a16520800000000000000
+      internalID: 2693614037339395367
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: T4 fallin dead_spr; 34x27_13
+      rect:
+        serializedVersion: 2
+        x: 442
+        y: 0
+        width: 34
+        height: 27
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 2e02f5cb4e145b250800000000000000
+      internalID: 5959742132563419362
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: T4 fallin dead_spr; 34x27_14
+      rect:
+        serializedVersion: 2
+        x: 476
+        y: 0
+        width: 34
+        height: 27
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: dd5e262858368c600800000000000000
+      internalID: 488749984639018461
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: T4 fallin dead_spr; 34x27_15
+      rect:
+        serializedVersion: 2
+        x: 510
+        y: 0
+        width: 34
+        height: 27
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: ae0fcb88c5c19fff0800000000000000
+      internalID: -1939141080321814
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: T4 fallin dead_spr; 34x27_16
+      rect:
+        serializedVersion: 2
+        x: 544
+        y: 0
+        width: 34
+        height: 27
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: adf65804c2d224ac0800000000000000
+      internalID: -3872483061500907558
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: T4 fallin dead_spr; 34x27_17
+      rect:
+        serializedVersion: 2
+        x: 578
+        y: 0
+        width: 34
+        height: 27
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 32ee458c80cda4f70800000000000000
+      internalID: 9172385521372294691
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: T4 fallin dead_spr; 34x27_18
+      rect:
+        serializedVersion: 2
+        x: 612
+        y: 0
+        width: 34
+        height: 27
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: ec5934305cfa71ee0800000000000000
+      internalID: -1290369507520178738
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: T4 fallin dead_spr; 34x27_19
+      rect:
+        serializedVersion: 2
+        x: 646
+        y: 0
+        width: 34
+        height: 27
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 27bb96f6664acc190800000000000000
+      internalID: -7940791283098207374
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: T4 fallin dead_spr; 34x27_20
+      rect:
+        serializedVersion: 2
+        x: 680
+        y: 0
+        width: 34
+        height: 27
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 3380c0110486de0a0800000000000000
+      internalID: -6850704833787459533
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: T4 fallin dead_spr; 34x27_21
+      rect:
+        serializedVersion: 2
+        x: 714
+        y: 0
+        width: 34
+        height: 27
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: b9e01b612ab6c4de0800000000000000
+      internalID: -1347583844581044581
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: T4 fallin dead_spr; 34x27_22
+      rect:
+        serializedVersion: 2
+        x: 748
+        y: 0
+        width: 34
+        height: 27
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 80ad448474aed34f0800000000000000
+      internalID: -847263562999735800
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: T4 fallin dead_spr; 34x27_23
+      rect:
+        serializedVersion: 2
+        x: 782
+        y: 0
+        width: 34
+        height: 27
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: d8c3116596d7558b0800000000000000
+      internalID: -5164083506341397363
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: T4 fallin dead_spr; 34x27_24
+      rect:
+        serializedVersion: 2
+        x: 816
+        y: 0
+        width: 34
+        height: 27
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 0b51e739b50cf2d90800000000000000
+      internalID: -7120260986300394064
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: T4 fallin dead_spr; 34x27_25
+      rect:
+        serializedVersion: 2
+        x: 850
+        y: 0
+        width: 34
+        height: 27
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 6e37e1ca99cd6d6f0800000000000000
+      internalID: -660097742787415066
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: T4 fallin dead_spr; 34x27_26
+      rect:
+        serializedVersion: 2
+        x: 884
+        y: 0
+        width: 34
+        height: 27
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: fd759e2bae7a43740800000000000000
+      internalID: 5130910501947660255
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: T4 fallin dead_spr; 34x27_27
+      rect:
+        serializedVersion: 2
+        x: 918
+        y: 0
+        width: 34
+        height: 27
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 7b44f5e7ae68228c0800000000000000
+      internalID: -4025506775215160137
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: T4 fallin dead_spr; 34x27_28
+      rect:
+        serializedVersion: 2
+        x: 952
+        y: 0
+        width: 34
+        height: 27
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: b22d4c11f9bed17c0800000000000000
+      internalID: -4098861017406844373
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: T4 fallin dead_spr; 34x27_29
+      rect:
+        serializedVersion: 2
+        x: 986
+        y: 0
+        width: 34
+        height: 27
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 4c7fb3b1e388ae980800000000000000
+      internalID: -8508838745636866108
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: T4 fallin dead_spr; 34x27_30
+      rect:
+        serializedVersion: 2
+        x: 1020
+        y: 0
+        width: 34
+        height: 27
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 228f3a70a488c73b0800000000000000
+      internalID: -5513381992271185886
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: T4 fallin dead_spr; 34x27_31
+      rect:
+        serializedVersion: 2
+        x: 1054
+        y: 0
+        width: 34
+        height: 27
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: da41dd4006be021b0800000000000000
+      internalID: -5683283932110580563
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: T4 fallin dead_spr; 34x27_32
+      rect:
+        serializedVersion: 2
+        x: 1088
+        y: 0
+        width: 34
+        height: 27
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: ed671dd91ff0b5da0800000000000000
+      internalID: -5955148551858063650
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: T4 fallin dead_spr; 34x27_33
+      rect:
+        serializedVersion: 2
+        x: 1122
+        y: 0
+        width: 34
+        height: 27
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: b20fa746968b82b70800000000000000
+      internalID: 8874545828530417707
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: T4 fallin dead_spr; 34x27_34
+      rect:
+        serializedVersion: 2
+        x: 1156
+        y: 0
+        width: 34
+        height: 27
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: de8bdfadadfec1670800000000000000
+      internalID: 8510941119079364845
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: T4 fallin dead_spr; 34x27_35
+      rect:
+        serializedVersion: 2
+        x: 1190
+        y: 0
+        width: 34
+        height: 27
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 344bbdbccfd06e5f0800000000000000
+      internalID: -727878910370663357
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: T4 fallin dead_spr; 34x27_36
+      rect:
+        serializedVersion: 2
+        x: 1224
+        y: 0
+        width: 34
+        height: 27
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: e90d216febcd46520800000000000000
+      internalID: 2694521189804724382
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: T4 fallin dead_spr; 34x27_37
+      rect:
+        serializedVersion: 2
+        x: 1258
+        y: 0
+        width: 34
+        height: 27
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 5b37cfc2826f48910800000000000000
+      internalID: 1838865200287871925
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: T4 fallin dead_spr; 34x27_38
+      rect:
+        serializedVersion: 2
+        x: 1292
+        y: 0
+        width: 34
+        height: 27
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 1809bbb8821877060800000000000000
+      internalID: 6951166561012650113
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: T4 fallin dead_spr; 34x27_39
+      rect:
+        serializedVersion: 2
+        x: 1326
+        y: 0
+        width: 34
+        height: 27
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: c368f12c3d3329f40800000000000000
+      internalID: 5733702260184024636
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: T4 fallin dead_spr; 34x27_40
+      rect:
+        serializedVersion: 2
+        x: 1360
+        y: 0
+        width: 34
+        height: 27
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 39bc838cb89d67cf0800000000000000
+      internalID: -254777134517007469
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: T4 fallin dead_spr; 34x27_41
+      rect:
+        serializedVersion: 2
+        x: 1394
+        y: 0
+        width: 34
+        height: 27
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 6122c40fd8f755760800000000000000
+      internalID: 7445997806525620758
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: T4 fallin dead_spr; 34x27_42
+      rect:
+        serializedVersion: 2
+        x: 1428
+        y: 0
+        width: 34
+        height: 27
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: bd0939ad79cb70da0800000000000000
+      internalID: -5978602619917856549
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: T4 fallin dead_spr; 34x27_43
+      rect:
+        serializedVersion: 2
+        x: 1462
+        y: 0
+        width: 34
+        height: 27
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: f3286c374e6191aa0800000000000000
+      internalID: -6189891042393292225
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: T4 fallin dead_spr; 34x27_44
+      rect:
+        serializedVersion: 2
+        x: 1496
+        y: 0
+        width: 34
+        height: 27
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 7f5e739e10fda7640800000000000000
+      internalID: 5078616729114371575
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: T4 fallin dead_spr; 34x27_45
+      rect:
+        serializedVersion: 2
+        x: 1530
+        y: 0
+        width: 34
+        height: 27
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 3ad0a8abf4139eb50800000000000000
+      internalID: 6622878945526812067
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: T4 fallin dead_spr; 34x27_46
+      rect:
+        serializedVersion: 2
+        x: 1564
+        y: 0
+        width: 34
+        height: 27
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 71647fa9449a26450800000000000000
+      internalID: 6080608559026357783
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: T4 fallin dead_spr; 34x27_47
+      rect:
+        serializedVersion: 2
+        x: 1598
+        y: 0
+        width: 34
+        height: 27
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: e70d75c3bad81ed20800000000000000
+      internalID: 3306079368057966718
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: T4 fallin dead_spr; 34x27_48
+      rect:
+        serializedVersion: 2
+        x: 1632
+        y: 0
+        width: 34
+        height: 27
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: c784cf8f1730b6a30800000000000000
+      internalID: 4209462064751331452
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: T4 fallin dead_spr; 34x27_49
+      rect:
+        serializedVersion: 2
+        x: 1666
+        y: 0
+        width: 34
+        height: 27
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: bd06319a6c9081d20800000000000000
+      internalID: 3249357879992606939
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: T4 fallin dead_spr; 34x27_50
+      rect:
+        serializedVersion: 2
+        x: 1700
+        y: 0
+        width: 34
+        height: 27
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 0d7fd0ee85b184b00800000000000000
+      internalID: 812929801505339344
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: T4 fallin dead_spr; 34x27_51
+      rect:
+        serializedVersion: 2
+        x: 1734
+        y: 0
+        width: 34
+        height: 27
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: cf66049fdaba42680800000000000000
+      internalID: -8780704609766185220
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    outline: []
+    physicsShape: []
+    bones: []
+    spriteID: 5e97eb03825dee720800000000000000
+    internalID: 0
+    vertices: []
+    indices: 
+    edges: []
+    weights: []
+    secondaryTextures: []
+  spritePackingTag: 
+  pSDRemoveMatte: 0
+  pSDShowRemoveMatteOption: 0
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 

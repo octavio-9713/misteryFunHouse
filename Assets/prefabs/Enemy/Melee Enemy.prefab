@@ -5182,7 +5182,7 @@ MonoBehaviour:
     personalSpace: 0
     enemyDamage: 2
     bulletSpeed: 8000
-    bulletNockback: 5000
+    bulletNockback: 2500
     attackDelay: 2
     enemyVision: 120
     attackRangeStart: 0
