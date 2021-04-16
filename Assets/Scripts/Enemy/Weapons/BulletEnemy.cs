@@ -41,7 +41,7 @@ public class BulletEnemy : MonoBehaviour
             if (!_player.dashing)
             {
                 ContactPoint2D[] contacts = new ContactPoint2D[5];
-                Vector3 damageDir = contacts[0].point - (Vector2)gameObject.transform.position;
+                Vector3 damageDir = contacts[0].point - (Vector2)_player.transform.position;
 
                 GameManager.Instance.player.GetHurt(damage, damageDir, nockback);
                 Destroy(gameObject);

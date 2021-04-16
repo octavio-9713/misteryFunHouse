@@ -76,7 +76,7 @@ SpriteRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
-  m_Sprite: {fileID: -3965776055616609645, guid: f27630a5a5ff7ee4c80bbbdce726338a,
+  m_Sprite: {fileID: -4564100789644893050, guid: 933aa14b20fa6d1498eb39c595477118,
     type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 1
@@ -98,7 +98,7 @@ Animator:
   m_GameObject: {fileID: 4991751931681616902}
   m_Enabled: 1
   m_Avatar: {fileID: 0}
-  m_Controller: {fileID: 9100000, guid: 7b9a2852cafc5e249b24ebdb6b6ca877, type: 2}
+  m_Controller: {fileID: 9100000, guid: fd4d2a72b0ff3794c9a95e1b5d9df525, type: 2}
   m_CullingMode: 0
   m_UpdateMode: 0
   m_ApplyRootMotion: 0
@@ -141,18 +141,18 @@ BoxCollider2D:
   m_IsTrigger: 0
   m_UsedByEffector: 0
   m_UsedByComposite: 0
-  m_Offset: {x: -0.0422287, y: -1.5569}
+  m_Offset: {x: -0.0422287, y: 2.0212011}
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0.5, y: 0.5}
-    oldSize: {x: 20, y: 21}
+    oldSize: {x: 44, y: 55}
     newSize: {x: 20, y: 21}
     adaptiveTilingThreshold: 0.5
     drawMode: 0
     adaptiveTiling: 0
   m_AutoTiling: 0
   serializedVersion: 2
-  m_Size: {x: 15.955017, y: 17.862038}
+  m_Size: {x: 15.955017, y: 17.668627}
   m_EdgeRadius: 0
 --- !u!114 &4265447597473590345
 MonoBehaviour:
@@ -169,6 +169,9 @@ MonoBehaviour:
   deathEvent:
     m_PersistentCalls:
       m_Calls: []
+  fireEvent:
+    m_PersistentCalls:
+      m_Calls: []
   stats:
     enemyHealth: 50
     enemySpeed: 5000
@@ -176,6 +179,7 @@ MonoBehaviour:
     personalSpace: 100
     enemyDamage: 1
     bulletSpeed: 0
+    bulletNockback: 4000
     attackDelay: 2
     enemyVision: 500
     attackRangeStart: 100
@@ -192,6 +196,7 @@ MonoBehaviour:
     _stage: 0
   needsWanderDirection: 1
   wanderTarget: {x: 0, y: 0, z: 0}
+  appliedEffects: []
   buff:
     lifeIncrease: 25
     movementIncrease: 2000
