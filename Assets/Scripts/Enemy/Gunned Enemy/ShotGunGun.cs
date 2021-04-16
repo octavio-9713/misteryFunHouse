@@ -11,7 +11,7 @@ public class ShotGunGun : EnemyGun
     public float dispertionY = 2;
 
 
-    public override void Shoot(GameObject bullet, float speed, int damage)
+    public override void Shoot(GameObject bullet, float speed, int damage, float nockback)
     {
         for (int i = 0; i < bulletQuantity; i++)
         {
@@ -22,11 +22,12 @@ public class ShotGunGun : EnemyGun
 
             Vector3 spawnPos = shotpos.transform.position + offset;
 
-            GameObject instance = Instantiate(bullet, spawnPos, transform.rotation);
+            GameObject instance = Instantiate(bullet, spawnPos, shotpos.transform.rotation);
             BulletEnemy bInstance = instance.GetComponent<BulletEnemy>();
 
             bInstance.speed = speed;
             bInstance.damage = damage;
+            bInstance.nockback = nockback;
         }
     }
 }

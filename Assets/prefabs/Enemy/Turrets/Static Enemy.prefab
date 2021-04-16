@@ -60,7 +60,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 8187454619192674838}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalPosition: {x: 0, y: 0, z: -1}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 6495362136033091077}
@@ -202,16 +202,16 @@ MonoBehaviour:
     m_PersistentCalls:
       m_Calls: []
   stats:
-    enemyHealth: 100
+    enemyHealth: 50
     enemySpeed: 0
     wanderSpeed: 0
     personalSpace: 0
     enemyDamage: 1
     bulletSpeed: 8000
     attackDelay: 2
-    enemyVision: 100
+    enemyVision: 500
     attackRangeStart: 0
-    attackRangeEnd: 120
+    attackRangeEnd: 150
     bullet: {fileID: 7678671531699396760, guid: a8197990bde693f4faacd62870ee7432,
       type: 3}
     shootSound: {fileID: 8300000, guid: 64f562c0f36502e4b8cdade30f05eb35, type: 3}
@@ -606,7 +606,7 @@ ParticleSystem:
     startSize:
       serializedVersion: 2
       minMaxState: 0
-      scalar: 1.5
+      scalar: 2
       minScalar: 1
       maxCurve:
         serializedVersion: 2
@@ -928,7 +928,7 @@ ParticleSystem:
     gravityModifier:
       serializedVersion: 2
       minMaxState: 0
-      scalar: 0
+      scalar: -0.1
       minScalar: 0
       maxCurve:
         serializedVersion: 2
@@ -1187,7 +1187,7 @@ ParticleSystem:
     rateOverTime:
       serializedVersion: 2
       minMaxState: 0
-      scalar: 10
+      scalar: 20
       minScalar: 10
       maxCurve:
         serializedVersion: 2

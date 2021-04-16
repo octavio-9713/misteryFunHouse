@@ -11,23 +11,26 @@ public class GunnedEnemy : Enemy
 
     protected override void Shoot()
     {
-        gun.Shoot(stats.bullet, stats.bulletSpeed, stats.enemyDamage);
+        gun.Shoot(stats.bullet, stats.bulletSpeed, stats.enemyDamage, stats.bulletNockback);
     }
 
     public override void GetHit(float value, Vector3 direction)
     {
-        _waitForHurt = true;
-        stats.enemyHealth -= value;
-
-        _rb.AddForce(direction * 50000 * Time.deltaTime);
-
-        if (stats.enemyHealth <= 0)
+        if (!_waitForHurt)
         {
-            weaponContainer.SetActive(false);
-            _animator.SetTrigger("isDead");
-        }
+            _waitForHurt = true;
+            stats.enemyHealth -= value;
 
-        else
-            _animator.SetTrigger("hurt");
+            _rb.AddForce(direction * 50000 * Time.deltaTime);
+
+            if (stats.enemyHealth <= 0)
+            {
+                Die();
+                weaponContainer.SetActive(false);
+            }
+
+            else
+                _animator.SetTrigger("hurt");
+        }
     }
 }

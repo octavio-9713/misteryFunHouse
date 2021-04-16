@@ -28,8 +28,23 @@ public class GameManager : MonoBehaviour
 
     [Header("Spawn Settings")]
     public int maxRooms = 5;
-    public int actualRooms = 0;
+    public int rewardsRooms = 2;
+    
+    private int _actualRooms = 0;
+    private int _actualRewardRooms = 0;
+    
     public bool finishSpawn = false;
+    private bool _needsSpecial = true;
+
+    [Header("Items")]
+    public GameObject[] items;
+    private List<GameObject> _allItems;
+
+    [Header("End Rooms")]
+    private List<GameObject> _endRooms = new List<GameObject>();
+
+    [Header("Rooms")]
+    public RoomSpecialTemplates specialRooms;
 
     private static GameManager _instance;
 
@@ -39,7 +54,7 @@ public class GameManager : MonoBehaviour
     {
         if (_instance != null && _instance != this)
         {
-            Destroy(this.gameObject);
+            //Destroy(this.gameObject);
         }
         else
         {
@@ -47,10 +62,11 @@ public class GameManager : MonoBehaviour
 
             GameObject playerEntity = GameObject.FindGameObjectWithTag("Player");
             player = playerEntity.GetComponent<Player>();
+
+            _allItems = new List<GameObject>(items);
         }
 
     }
-
 
     void Update()
     {
@@ -64,6 +80,7 @@ public class GameManager : MonoBehaviour
 
     }
 
+    /////////////////// Count time Methods //////////////////////////
     public void CountTime()
     {
         _secondsCount += Time.deltaTime;
@@ -81,22 +98,61 @@ public class GameManager : MonoBehaviour
 
     }
 
+    /////////////////// Restart Game Methods //////////////////////////
     public void RestarGame()
     {
-        SceneManager.LoadScene(sceneName);
+        SceneManager.LoadScene(SceneManager.GetActiveScene().name);
         _hourCount = 0;
         _minuteCount = 0;
         _secondsCount = 0;
     }
 
+    /////////////////// Room Methods //////////////////////////
     public void IncreaseRoom()
     {
-        actualRooms++;
+        _actualRooms++;
 
-        if (actualRooms > maxRooms)
+        if (_actualRooms > maxRooms)
         {
             finishSpawn = true;
         }
 
+    }
+
+    public void AddEndRoom(int openSide, GameObject room)
+    {
+        if (_needsSpecial)
+        {
+            GameObject[] salas;
+
+            if (_actualRewardRooms < rewardsRooms)
+            {
+                salas = openSide == 1 ? specialRooms.topRewardsRoom : openSide == 2 ?
+                    specialRooms.rightRewardsRooms : openSide == 3 ? specialRooms.bottomRewardsRooms : specialRooms.leftRewardsRooms;
+                _actualRewardRooms++;
+            }
+
+            else
+            {
+                salas = openSide == 1 ? specialRooms.bossTopRooms : openSide == 2 ?
+                    specialRooms.bossRightRooms : openSide == 3 ? specialRooms.bossBottomRooms : specialRooms.bossLeftRooms;
+
+                _needsSpecial = false;
+            }
+
+            int _rand = Random.Range(0, salas.Length - 1);
+
+            GameObject sala = salas[_rand];
+
+            Instantiate(sala, room.transform.position, room.transform.rotation);
+            Destroy(room);
+        }
+    }
+
+    public GameObject GetItem()
+    {
+        GameObject item = _allItems[Random.Range(0, _allItems.Count)];
+        _allItems.Remove(item);
+        return item;
     }
 }

@@ -15,6 +15,7 @@ public class EnemyInfo
     [Header("Attack Settings")]
     public int enemyDamage;
     public float bulletSpeed;
+    public float bulletNockback = 4000f;
     public float attackDelay;
     public float enemyVision;
     public float attackRangeStart;
@@ -27,24 +28,24 @@ public class EnemyInfo
     public void ApplyBuff(BuffStats buff)
     {
         enemyHealth += buff.lifeIncrease;
-        enemyDamage += buff.damage;
-        enemySpeed += buff.movementIncrease;
-        enemyVision += buff.vision;
+        enemyDamage *= buff.damage;
+        enemySpeed *= buff.movementIncrease;
+        enemyVision *= buff.vision;
 
-        attackDelay -= buff.weaponDelay;
-        attackRangeStart -= buff.attackRange;
-        attackRangeEnd += buff.attackRange;
+        attackDelay /= buff.weaponDelay;
+        attackRangeStart /= buff.attackRange;
+        attackRangeEnd *= buff.attackRange;
     }
 
     public void ReverseBuff(BuffStats buff)
     {
         enemyHealth -= buff.lifeIncrease;
-        enemyDamage -= buff.damage;
-        enemySpeed -= buff.movementIncrease;
-        enemyVision -= buff.vision;
+        enemyDamage /= buff.damage;
+        enemySpeed /= buff.movementIncrease;
+        enemyVision /= buff.vision;
 
-        attackDelay += buff.weaponDelay;
-        attackRangeStart += buff.attackRange;
-        attackRangeEnd -= buff.attackRange;
+        attackDelay *= buff.weaponDelay;
+        attackRangeStart *= buff.attackRange;
+        attackRangeEnd /= buff.attackRange;
     }
 }

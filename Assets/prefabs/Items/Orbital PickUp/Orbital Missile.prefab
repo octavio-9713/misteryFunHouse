@@ -18,6 +18,7 @@ MonoBehaviour:
     type: 3}
   showsProvoli: 1
   effect: {fileID: -6690416476196001707, guid: 9b35898c8453c8043af8ba8a44c7b476, type: 3}
+  itemImage: {fileID: 5713219871606434047}
 --- !u!1001 &4011675217768270166
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -25,6 +26,22 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 328553070106353782, guid: 8ab06e2e30363c7498d13f1a844dc99d,
+        type: 3}
+      propertyPath: m_RootOrder
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 328553070106353782, guid: 8ab06e2e30363c7498d13f1a844dc99d,
+        type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 0.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 6742788979383715496, guid: 8ab06e2e30363c7498d13f1a844dc99d,
+        type: 3}
+      propertyPath: m_Sprite
+      value: 
+      objectReference: {fileID: -5857871911948161838, guid: f0a94bb7288920e49a04438622ba2ad9,
+        type: 3}
     - target: {fileID: 7521444293867141520, guid: 8ab06e2e30363c7498d13f1a844dc99d,
         type: 3}
       propertyPath: m_RootOrder
@@ -33,17 +50,17 @@ PrefabInstance:
     - target: {fileID: 7521444293867141520, guid: 8ab06e2e30363c7498d13f1a844dc99d,
         type: 3}
       propertyPath: m_LocalPosition.x
-      value: -421.6
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 7521444293867141520, guid: 8ab06e2e30363c7498d13f1a844dc99d,
         type: 3}
       propertyPath: m_LocalPosition.y
-      value: 139.8
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 7521444293867141520, guid: 8ab06e2e30363c7498d13f1a844dc99d,
         type: 3}
       propertyPath: m_LocalPosition.z
-      value: 459.62228
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 7521444293867141520, guid: 8ab06e2e30363c7498d13f1a844dc99d,
         type: 3}
@@ -84,22 +101,42 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Sprite
       value: 
-      objectReference: {fileID: -5857871911948161838, guid: f0a94bb7288920e49a04438622ba2ad9,
+      objectReference: {fileID: 21300000, guid: bbcdb6abc3bc3154ab3dd821aefbaf10,
         type: 3}
     - target: {fileID: 7521444293867141614, guid: 8ab06e2e30363c7498d13f1a844dc99d,
         type: 3}
+      propertyPath: m_Size.x
+      value: 19.825287
+      objectReference: {fileID: 0}
+    - target: {fileID: 7521444293867141614, guid: 8ab06e2e30363c7498d13f1a844dc99d,
+        type: 3}
+      propertyPath: m_Size.y
+      value: 26.700592
+      objectReference: {fileID: 0}
+    - target: {fileID: 7521444293867141614, guid: 8ab06e2e30363c7498d13f1a844dc99d,
+        type: 3}
+      propertyPath: m_Offset.x
+      value: -3.4126434
+      objectReference: {fileID: 0}
+    - target: {fileID: 7521444293867141614, guid: 8ab06e2e30363c7498d13f1a844dc99d,
+        type: 3}
+      propertyPath: m_Offset.y
+      value: 1.5750732
+      objectReference: {fileID: 0}
+    - target: {fileID: 7521444293867141614, guid: 8ab06e2e30363c7498d13f1a844dc99d,
+        type: 3}
       propertyPath: m_IsTrigger
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 7521444293867141614, guid: 8ab06e2e30363c7498d13f1a844dc99d,
         type: 3}
       propertyPath: m_SpriteTilingProperty.oldSize.x
-      value: 15
+      value: 40
       objectReference: {fileID: 0}
     - target: {fileID: 7521444293867141614, guid: 8ab06e2e30363c7498d13f1a844dc99d,
         type: 3}
       propertyPath: m_SpriteTilingProperty.oldSize.y
-      value: 13
+      value: 49
       objectReference: {fileID: 0}
     - target: {fileID: 7521444293867141615, guid: 8ab06e2e30363c7498d13f1a844dc99d,
         type: 3}
@@ -111,6 +148,12 @@ PrefabInstance:
 --- !u!1 &6903416689338495161 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 7521444293867141615, guid: 8ab06e2e30363c7498d13f1a844dc99d,
+    type: 3}
+  m_PrefabInstance: {fileID: 4011675217768270166}
+  m_PrefabAsset: {fileID: 0}
+--- !u!1 &5713219871606434047 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 8711433303164264873, guid: 8ab06e2e30363c7498d13f1a844dc99d,
     type: 3}
   m_PrefabInstance: {fileID: 4011675217768270166}
   m_PrefabAsset: {fileID: 0}

@@ -37,6 +37,9 @@ public class Move : MonoBehaviour
             {
                 _animator.SetBool("move", false);
                 _player.moving = false;
+
+                //_rb.velocity = Vector2.zero;
+                //_rb.angularVelocity = 0;
             }
 
             else
@@ -45,12 +48,11 @@ public class Move : MonoBehaviour
                     _animator.SetBool("move", true);
 
                 _player.moving = true;
+                _rb.AddForce(move * _player.stats.playerSpeed * Time.deltaTime);
             }
-
-            _rb.AddForce(move * _player.stats.playerSpeed * Time.deltaTime);
         }
 
-        _renderer.flipX = sight.transform.position.x < transform.position.x;
+        transform.rotation = sight.transform.position.x < transform.position.x ? Quaternion.Euler(0, -180, 0) : Quaternion.Euler(0, 0, 0);
     }
 
     public void DisableMove()

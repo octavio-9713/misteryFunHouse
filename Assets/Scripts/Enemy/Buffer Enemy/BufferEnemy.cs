@@ -25,19 +25,16 @@ public class BufferEnemy : Enemy
         allies = allies.FindAll(allie => allie.GetComponent<BufferEnemy>() == null);
     }
 
-    public bool IsInPersonalSpace()
-    {
-        return Vector3.Distance(_player.transform.position, transform.position) < stats.personalSpace;
-    }
-
     public override void Attack()
     {
-        if (!attacking && !_waitForHurt && !_waitForHurt)
+        if (!attacking && !_waitForHurt)
         {
             _animator.SetTrigger("shooting");
             attacking = true;
 
             Buff();
+
+            fireEvent.Invoke();
         }
     }
 
@@ -46,6 +43,13 @@ public class BufferEnemy : Enemy
         GameObject choosenOne = allies[Random.Range(0, allies.Count)];
         _buffedEnemy = choosenOne.GetComponent<Enemy>();
         _buffedEnemy.BuffMeUp(buff);
+        _buffedEnemy.deathEvent.AddListener(DeathOfChoosenOne);
+    }
+
+    private void DeathOfChoosenOne()
+    {
+        attacking = false;
+        StartCoroutine(WaitForBuff());
     }
 
     private void DebuffChosen()
@@ -55,20 +59,23 @@ public class BufferEnemy : Enemy
 
     public override void GetHit(float value, Vector3 direction)
     {
-        _waitForHurt = true;
-        stats.enemyHealth -= value;
+        if (!_waitForHurt)
+        {
+            _waitForHurt = true;
+            stats.enemyHealth -= value;
 
-        _rb.AddForce(direction * 50000 * Time.deltaTime);
+            _rb.AddForce(direction * 50000 * Time.deltaTime);
 
-        if (stats.enemyHealth <= 0)
-            _animator.SetTrigger("isDead");
+            if (stats.enemyHealth <= 0)
+                Die();
 
-        else
-            _animator.SetTrigger("hurt");
-        
-        attacking = false;
-        StartCoroutine(WaitForBuff());
-        DebuffChosen();
+            else
+                _animator.SetTrigger("hurt");
+
+            attacking = false;
+            StartCoroutine(WaitForBuff());
+            DebuffChosen();
+        }
     }
 
     protected IEnumerator WaitForBuff()

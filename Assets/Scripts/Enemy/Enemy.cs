@@ -7,6 +7,10 @@ public class Enemy : MonoBehaviour
 {
     [HideInInspector]
     public UnityEvent deathEvent = new UnityEvent();
+    [HideInInspector]
+    public UnityEvent fireEvent = new UnityEvent();
+
+    protected bool isDead = false;
 
     public EnemyInfo stats;
 
@@ -31,10 +35,14 @@ public class Enemy : MonoBehaviour
 
     [HideInInspector]
     public bool needsWanderDirection = true;
+
     [HideInInspector]
     public Vector3 wanderTarget;
 
     protected bool _waitForHurt = false;
+
+    [HideInInspector]
+    public List<TypeEffect> appliedEffects = new List<TypeEffect>();
 
     private void Start()
     {
@@ -50,15 +58,17 @@ public class Enemy : MonoBehaviour
     private void Update()
     {
         currentState = currentState.Process();
+
+        if (CanSeePlayer())
+            transform.rotation = _player.transform.position.x < transform.position.x ? Quaternion.Euler(0, -180, 0) : Quaternion.Euler(0, 0, 0);
     }
 
     public void MoveToTarget(Vector3 target, float speed)
     {
-        if (!_waitForHurt)
+        if (!isDead)
         {
             _rb.AddForce(target * speed * Time.deltaTime);
             _animator.SetBool("move", target != Vector3.zero);
-            transform.rotation = target.x < 0 ? Quaternion.Euler(0, -180, 0) : Quaternion.Euler(0, 0, 0);
         }
     }
 
@@ -76,7 +86,7 @@ public class Enemy : MonoBehaviour
 
         if (hit.collider != null)
         {
-            if (hit.collider.tag == "Player")
+            if (hit.collider.CompareTag("Player") && !_player.death)
             {
                 return true;
             }
@@ -94,7 +104,7 @@ public class Enemy : MonoBehaviour
     {
         float dist = Vector3.Distance(_player.transform.position, transform.position);
 
-        return dist > stats.attackRangeStart && dist < stats.attackRangeEnd;
+        return dist > stats.attackRangeStart && dist < stats.attackRangeEnd && !_player.death;
     }
 
     ////////////////// Buff Methods //////////////////////
@@ -115,7 +125,7 @@ public class Enemy : MonoBehaviour
 
     public virtual void Attack()
     {
-        if (!attacking && !_waitForHurt)
+        if (!attacking && !isDead)
         {
             Vector3 target = _player.transform.position - this.transform.position;
             transform.rotation = target.x < 0 ? Quaternion.Euler(0, -180, 0) : Quaternion.Euler(0, 0, 0);
@@ -124,6 +134,8 @@ public class Enemy : MonoBehaviour
             attacking = true;
 
             Shoot();
+
+            fireEvent.Invoke();
             StartCoroutine(WaitForAttack());
         }
     }
@@ -136,6 +148,7 @@ public class Enemy : MonoBehaviour
             BulletEnemy bullet = instance.GetComponent<BulletEnemy>();
 
             bullet.speed = stats.bulletSpeed;
+            bullet.nockback = stats.bulletNockback;
             bullet.damage = stats.enemyDamage;
 
             audio.PlayOneShot(stats.shootSound);
@@ -146,16 +159,19 @@ public class Enemy : MonoBehaviour
 
     public virtual void GetHit(float value, Vector3 direction)
     {
-        _waitForHurt = true;
-        stats.enemyHealth -= value;
+        if (!_waitForHurt)
+        {
+            _waitForHurt = true;
+            stats.enemyHealth -= value;
 
-        _rb.AddForce(direction * 50000 * Time.deltaTime);
+            _rb.AddForce(direction * 50000 * Time.deltaTime);
 
-        if (stats.enemyHealth <= 0)
-            _animator.SetTrigger("isDead");
+            if (stats.enemyHealth <= 0)
+                Die();
 
-        else
-            _animator.SetTrigger("hurt");
+            else
+                _animator.SetTrigger("hurt");
+        }
     }
 
     public void FinishHurting()
@@ -164,8 +180,19 @@ public class Enemy : MonoBehaviour
         _animator.ResetTrigger("hurt");
     }
 
+    protected virtual void Die()
+    {
+        isDead = true;
+        _animator.SetTrigger("isDead");
 
-    public void Die()
+        transform.rotation = Quaternion.Euler(0, 0, 0);
+        _renderer.flipX = false;
+        _rb.velocity = Vector3.zero;
+        _rb.angularVelocity = 0;
+    }
+
+
+    public void FinishDeath()
     {
         deathEvent.Invoke();
         Destroy(gameObject);
@@ -186,8 +213,6 @@ public class Enemy : MonoBehaviour
 
     protected IEnumerator WaitForAttack()
     {
-        _animator.ResetTrigger("shooting");
-        _animator.SetTrigger("waiting");
         yield return new WaitForSeconds(stats.attackDelay);
         attacking = false;
     }

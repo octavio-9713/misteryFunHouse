@@ -240,7 +240,7 @@ Tilemap:
     second:
       serializedVersion: 2
       m_TileIndex: 19
-      m_TileSpriteIndex: 8
+      m_TileSpriteIndex: 10
       m_TileMatrixIndex: 0
       m_TileColorIndex: 0
       m_TileObjectToInstantiateIndex: 65535
@@ -1768,13 +1768,13 @@ Tilemap:
   - m_RefCount: 2
     m_Data: {fileID: 2379809176196054921, guid: 67b1a65e5a9598b4a83afd62e49bb543,
       type: 3}
+  - m_RefCount: 0
+    m_Data: {fileID: 0}
+  - m_RefCount: 0
+    m_Data: {fileID: 0}
   - m_RefCount: 1
     m_Data: {fileID: 1188971165409924622, guid: 67b1a65e5a9598b4a83afd62e49bb543,
       type: 3}
-  - m_RefCount: 0
-    m_Data: {fileID: 0}
-  - m_RefCount: 0
-    m_Data: {fileID: 0}
   - m_RefCount: 1
     m_Data: {fileID: -5504245845846016413, guid: 67b1a65e5a9598b4a83afd62e49bb543,
       type: 3}
@@ -1998,7 +1998,7 @@ GameObject:
   - component: {fileID: 5205530244768988316}
   m_Layer: 0
   m_Name: pared5
-  m_TagString: Untagged
+  m_TagString: muro
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0

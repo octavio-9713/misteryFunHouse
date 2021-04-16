@@ -9,19 +9,25 @@ public class Gun : MonoBehaviour
 
     [Header("Weapon Settings")]
     public WeaponInfo weapon = new WeaponInfo();
+
+    [Header("Weapon Effect")]
+    public List<WeaponEffect> effects = new List<WeaponEffect>();
+    
+    [Header("Sight and Containers")]
     public Transform sight;
     public Transform container;
 
     [Header("Audio")]
     public AudioSource audioSource;
-    public AudioClip shootAudio;
 
-    private Player _player;
-    private bool _canShoot = true;
+    protected Player _player;
+    protected SpriteRenderer _renderer;
+    protected bool _canShoot = true;
 
     void Start()
     {
         _player = GameManager.Instance.player;
+        _renderer = GetComponent<SpriteRenderer>();
         Debug.Log(weapon.weaponSprite);
         GameManager.Instance.gameUi.ChangePanel(weapon.weaponSprite);
     }
@@ -31,31 +37,38 @@ public class Gun : MonoBehaviour
     {
         DetectMouse();
 
-        if (Input.GetButton("Fire1") && _canShoot)
+        if (Input.GetButton("Fire1") && CanShoot())
             Shoot();
 
-        if (sight.transform.position.y > container.transform.position.y)
-            gameObject.GetComponent<SpriteRenderer>().sortingOrder = -2;
-        
-        else
-            gameObject.GetComponent<SpriteRenderer>().sortingOrder = 2;
-
+        if (_renderer)
+            _renderer.flipY = sight.transform.position.x < transform.position.x;
     }
-
-    public void Shoot()
-    {
-        StartCoroutine(InstantiateShoot());
-        StartCoroutine(WaitToShoot(weapon.weaponCooldown));
-    }
-
 
     public void LateUpdate()
     {
         container.up = container.position - sight.position;
     }
 
+    /////////////////// Shoot Methods //////////////////////////
 
-    //detectar el mause
+    private bool CanShoot()
+    {
+        return _canShoot && !_player.dashing;
+    }
+
+    public void EnableShoot()
+    {
+        this._canShoot = true;
+    }
+
+    public virtual void Shoot()
+    {
+        StartCoroutine(InstantiateShoot());
+        StartCoroutine(WaitToShoot(weapon.weaponCooldown));
+
+        _player.Recoil(weapon.weaponRecoil);
+    }
+
     public void DetectMouse()
     {
         sight.position = Camera.main.ScreenToWorldPoint(new Vector3(
@@ -65,33 +78,82 @@ public class Gun : MonoBehaviour
             ));
     }
 
-    public void ApplyChanges(WeaponInfo weaponInfo)
+
+    /////////////////// Shoot Methods //////////////////////////
+    
+    protected bool SpawnBulletWithEffect()
+    {
+        if (effects == null || effects.Count == 0)
+            return false;
+
+        float range = Random.Range(0, 100);
+        return range <= EffectProbability();
+    }
+
+    protected float EffectProbability()
+    {
+        float prob = 0;
+        foreach (WeaponEffect effect in effects)
+            prob += effect.probability;
+
+        return prob;
+    }
+
+    public void ApplyEffectToBullet(Bullet bullet)
+    {
+        WeaponEffect effect = effects[Random.Range(0, effects.Count)];
+        bullet.speed *= effect.bulletSpeedMultiplier;
+        bullet.damage *= effect.bulletDamageMultiplier;
+        bullet.life *= effect.bulletLifeMultiplier;
+        bullet.effect = effect.effect;
+
+        Instantiate(effect.effect, bullet.transform);
+    }
+
+    /////////////////// Apply Methods //////////////////////////
+
+    public void ApplyChanges(WeaponBuff weaponInfo)
     {
         this.weapon.ApplyChanges(weaponInfo);
     }
 
-    IEnumerator WaitToShoot(float seconds)
+    public void ApplyEffect(WeaponEffect effect)
+    {
+        effects.Add(effect);
+    }
+
+    /////////////////// Enumerators //////////////////////////
+    ///
+    protected IEnumerator WaitToShoot(float seconds)
     {
         _canShoot = false;
         yield return new WaitForSeconds(seconds);
         _canShoot = true;
     }
 
-    IEnumerator InstantiateShoot()
+    protected  IEnumerator InstantiateShoot()
     {
         for (int i = 0; i < weapon.bulletQuantity; i++)
         {
-            GameObject instance = Instantiate(weapon.bullet, shotpos.transform.position, transform.rotation);
+            GameObject instance = Instantiate(weapon.bullet, shotpos.transform.position, shotpos.transform.rotation);
             Bullet bullet = instance.GetComponent<Bullet>();
 
             bullet.speed = weapon.bulletSpeed;
             bullet.damage = weapon.weaponDamage;
             bullet.life = weapon.bulletLife;
 
-            Instantiate(weapon.weaponSound, shotpos.transform.position, Quaternion.identity);
+            AudioClip shootSound = weapon.weaponSound;
+
+            if (SpawnBulletWithEffect())
+            {
+                ApplyEffectToBullet(bullet);
+
+                if (weapon.weaponSound)
+                    shootSound = weapon.weaponSound;
+            }
+
+            audioSource.PlayOneShot(shootSound);
             yield return new WaitForSeconds(weapon.weaponCadence);
         }
-
-        this.audioSource.PlayOneShot(shootAudio);
     }
 }

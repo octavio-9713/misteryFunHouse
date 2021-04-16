@@ -15,6 +15,15 @@ TagManager:
   - BuMachine
   - ItemHealth1
   - Explocion
+  - BuDefault
+  - muro
+  - SpawnPointSala
+  - Rooms
+  - PlayerBullet
+  - Player Bullet
+  - ProvoliContainer
+  - Orbital
+  - Seek Missile
   - Rooms
   layers:
   - Default
@@ -23,6 +32,10 @@ TagManager:
   - 
   - Water
   - UI
+  - Enemy
+  - Enemy Bullet
+  - Player Bullet
+  - Room
   - PostProcessing
   - 
   - 

@@ -30,39 +30,41 @@ public class Player : MonoBehaviour
     [Header("Stats")]
     public PlayerStats stats = new PlayerStats();
 
+    private List<WeaponBuff> _grabbedGunItems = new List<WeaponBuff>();
+    private List<WeaponEffect> _appliedGunEffects = new List<WeaponEffect>();
+
     [Header("Animator")]
     public Animator animator;
-
-    private bool _wait = true;
+    public AudioSource audioSource;
 
     private Vector2 _mouseDirection;
     private Rigidbody2D _rb;
     private Dash _dash;
     private Move _move;
-    private AudioSource _audio;
 
-    //sonido
-    public GameObject[] SonidoPlayer;
-    
-    public GameObject[] SonidoItems;
+    [Header("Move Audio")]
+    public AudioClip moveSound;
+    public AudioClip dashSound;
+    public AudioClip dashReadySound;
+
+    [Header("Hurt Audio")]
+    public AudioClip hitSound;
+    public AudioClip deathSound;
 
     private bool _waitForHurt = false;
-
-    private List<WeaponInfo> gunApliedStats = new List<WeaponInfo>();
 
     void Awake()
     {
         _rb = GetComponent<Rigidbody2D>();
         _dash = GetComponent<Dash>();
         _move = GetComponent<Move>();
-        _audio = GetComponent<AudioSource>();
 
         gun.sight = sight.transform;
         gun.container = weaponContainer;
 
         stats.currentHp = stats.maxHp;
 
-        lifeUI = GameManager.Instance.gameUi.GetComponentInChildren<Life>();
+        lifeUI.ChangeMaxLife(stats.maxHp, true);
     }
 
     
@@ -120,15 +122,15 @@ public class Player : MonoBehaviour
 
     public void PlayDashSound()
     {
-        Instantiate(SonidoPlayer[0], shotpos.transform.position, Quaternion.identity);
+        audioSource.PlayOneShot(dashSound);
     }
     public void PlayStepSound()
     {
-        Instantiate(SonidoPlayer[4], shotpos.transform.position, Quaternion.identity);
+        audioSource.PlayOneShot(moveSound);
     }
     public void DashReadySound()
     {
-        Instantiate(SonidoPlayer[7], shotpos.transform.position, Quaternion.identity);
+        audioSource.PlayOneShot(dashReadySound);
     }
 
     /////////////////// Stats Methods //////////////////////////
@@ -140,7 +142,7 @@ public class Player : MonoBehaviour
         if (recover)
             stats.currentHp = stats.maxHp;
 
-        GameManager.Instance.gameUi.lifeControl.CambioVida(stats.currentHp);
+        this.lifeUI.ChangeMaxLife(stats.currentHp, recover);
     }
 
     public void RecoverLife(int amount)
@@ -148,45 +150,78 @@ public class Player : MonoBehaviour
         if (stats.currentHp < stats.maxHp)
         {
             stats.currentHp += amount;
-            GameManager.Instance.gameUi.lifeControl.CambioVida(stats.currentHp);
+            this.lifeUI.SetLifeTo(stats.currentHp);
         }
     }
 
-    public void GetHurt(int damage, Vector3 damageDir)
+    public void GetHurt(int damage, Vector3 damageDir, float nockback)
     {
         if (!_waitForHurt)
         {
-            stats.currentHp -= damage;
+            _waitForHurt = true;
 
-            _rb.AddForce(damageDir.normalized * 75000 * Time.deltaTime);
+            stats.currentHp -= damage;
+            lifeUI.SetLifeTo(stats.currentHp);
+
+            _rb.AddForce(damageDir * nockback * Time.deltaTime, ForceMode2D.Force);
 
             if (stats.currentHp <= 0)
                 Die();
 
-            Instantiate(SonidoPlayer[3], shotpos.transform.position, Quaternion.identity);
-            lifeUI.CambioVida(stats.currentHp);
+            else
+                audioSource.PlayOneShot(hitSound);
 
+            animator.SetTrigger("hurt");
             StartCoroutine(InvencibilityTime(stats.invencibilityTime));
         }
     }
 
-    public void ChangeStats(PlayerStats stats, float timeBetweenDashes, float dashLength, float dashWait, WeaponInfo weaponStats)
+    public void ChangeStats(PlayerBuffStats stats, float timeBetweenDashes, float dashLength, float dashWait, WeaponBuff weaponStats)
     {
-        stats.ApplyStats(stats);
+        this.stats.ApplyStats(stats);
         _dash.ChangeStats(timeBetweenDashes, dashLength, dashWait);
         gun.ApplyChanges(weaponStats);
-        gunApliedStats.Add(weaponStats);
+
+        _grabbedGunItems.Add(weaponStats);
+    }
+
+    public void ChangeWeapon(GameObject gun)
+    {
+        Destroy(this.gun.gameObject);
+        
+        GameObject newGun = Instantiate(gun.gameObject, weaponContainer);
+        this.gun = newGun.GetComponent<Gun>();
+        this.gun.sight = sight.transform;
+        this.gun.container = weaponContainer;
+
+        this.ReapplyGunItems();
+    }
+
+    private void ReapplyGunItems()
+    {
+        _grabbedGunItems.ForEach(item => gun.ApplyChanges(item));
+        _appliedGunEffects.ForEach(effect => gun.ApplyEffect(effect));
+    }
+
+    public void ApplyWeaponEffect(WeaponEffect effect)
+    {
+        gun.ApplyEffect(effect);
+        _appliedGunEffects.Add(effect);
     }
 
     /////////////////// Death/Collisions Methods //////////////////////////
 
     public void Die()
     {
+        DisableMovement();
+        death = true;
         gameObject.GetComponent<Animator>().SetBool("muerte", true);
-        Instantiate(SonidoPlayer[1], shotpos.transform.position, Quaternion.identity);
-        gun.gameObject.SetActive(false);
-        _rb.velocity = Vector2.zero;
-        _move.DisableMove();
+        audioSource.PlayOneShot(deathSound);
+    }
+
+    public void Restart()
+    {
+        GameManager.Instance.RestarGame();
     }
 
     public void OnCollisionEnter2D(Collision2D collision)
@@ -206,9 +241,16 @@ public class Player : MonoBehaviour
                 _rb.velocity = Vector3.zero;
                 _rb.angularVelocity = 0;
 
-                Vector3 dir = this.transform.position - collision.gameObject.transform.position;
-                GetHurt(1, dir);
+                ContactPoint2D[] contacts = new ContactPoint2D[5];
+                Vector3 dir = (Vector2)gameObject.transform.position - contacts[0].point;
+                GetHurt(1, dir, 2000);
             }
+        }
+
+        else
+        {
+            if (dashing)
+                _dash.StopDash();
         }
     }
 
@@ -223,7 +265,7 @@ public class Player : MonoBehaviour
 
     IEnumerator Teleport(float seconds)
     {
-        Instantiate(SonidoPlayer[5], shotpos.transform.position, Quaternion.identity);
+        //Instantiate(SonidoPlayer[5], shotpos.transform.position, Quaternion.identity);
         yield return new WaitForSeconds(seconds);
         SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex + 1);
 

@@ -32,4 +32,14 @@ public class PlayerStats
         invencibilityTime += stats.invencibilityTime;
     }
 
+    public void ApplyStats(PlayerBuffStats stats)
+    {
+        playerSpeed *= stats.playerSpeed;
+        invencibilityTime *= stats.invencibilityTime;
+
+        dashSpeed *= stats.dashSpeed;
+        initialDashForce *= stats.initialDashForce;
+        dashDamage *= stats.dashDamage;
+    }
+
 }

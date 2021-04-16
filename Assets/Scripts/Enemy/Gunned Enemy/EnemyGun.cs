@@ -9,6 +9,7 @@ public class EnemyGun : MonoBehaviour
 
     private Player _player;
     private Enemy _enemy;
+    private SpriteRenderer _renderer;
 
     //sonido
     public AudioSource audioSource;
@@ -18,6 +19,7 @@ public class EnemyGun : MonoBehaviour
     {
         _player = GameManager.Instance.player;
         _enemy = GetComponentInParent<Enemy>();
+        _renderer = GetComponentInParent<SpriteRenderer>();
 
     }
 
@@ -26,16 +28,19 @@ public class EnemyGun : MonoBehaviour
     {
         if (_enemy.currentState.name == State.STATE.ATTACK || _enemy.currentState.name == State.STATE.PERSUING)
             ContArma.up = ContArma.position - _player.transform.position;
+
+        _renderer.flipY = _player.transform.position.x < 0;
     }
 
 
-    public virtual void Shoot(GameObject bullet, float speed, int damage)
+    public virtual void Shoot(GameObject bullet, float speed, int damage, float nockback)
     {
         GameObject instance = Instantiate(bullet, shotpos.transform.position, Quaternion.identity);
         BulletEnemy bInstance = instance.GetComponent<BulletEnemy>();
 
         bInstance.speed = speed;
         bInstance.damage = damage;
+        bInstance.nockback = nockback;
 
         this.audioSource.PlayOneShot(gunSound);
     }

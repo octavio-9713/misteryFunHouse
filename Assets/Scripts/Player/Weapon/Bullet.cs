@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class Bullet : MonoBehaviour
 {
-    private Rigidbody2D _rb;
+    protected Rigidbody2D _rb;
 
     [HideInInspector]
     public float speed;
@@ -16,6 +16,9 @@ public class Bullet : MonoBehaviour
     protected Vector2 directionFromMouse;
 
     public Transform player;
+
+    [Header("Bullet Effect")]
+    public BulletEffect effect;
 
     void Start()
     {
@@ -38,17 +41,36 @@ public class Bullet : MonoBehaviour
         directionFromMouse.Normalize();
     }
 
+    protected void ApplyEffectToEnemy(Enemy enemy)
+    {
+        if (enemy.appliedEffects.Count > 0)
+        {
+            foreach (TypeEffect appliedEffect in enemy.appliedEffects)
+            {
+                if (appliedEffect.name.Contains(effect.effect.name))
+                    Destroy(appliedEffect.gameObject);
+            }
+        }
+
+        Instantiate(effect.effect, enemy.gameObject.transform);
+    }
+
     void OnTriggerEnter2D(Collider2D col)
     {
         if (col.gameObject.CompareTag("Enemy"))
         {
-            col.gameObject.GetComponent<Enemy>().GetHit(damage, directionFromMouse);
+            Enemy enemy = col.gameObject.GetComponent<Enemy>();
+            enemy.GetHit(damage, directionFromMouse);
+
+            if (effect != null && effect.effect != null)
+                ApplyEffectToEnemy(enemy);
+
             Destroy(gameObject);
         }
 
         else
         {
-            if (!col.gameObject.CompareTag("Player"))
+            if (col.gameObject.CompareTag("muro") || col.gameObject.CompareTag("Seek Missile"))
                 Destroy(gameObject);
         }
     }

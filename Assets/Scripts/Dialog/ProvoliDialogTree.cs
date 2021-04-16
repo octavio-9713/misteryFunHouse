@@ -1,15 +1,15 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.Events;
 using UnityEngine.UI;
 
 public class ProvoliDialogTree : MonoBehaviour
 {
     public Text dialog;
 
-    [Header("")]
-    public string[] dialogTree;
-    private List<string> _dialogList;
+    [Header("Dialog")]
+    public List<Dialog> dialogTree2;
 
     [Header("Speed of text writting")]
     public float typeWritterSpeed = 0.05f;
@@ -18,15 +18,17 @@ public class ProvoliDialogTree : MonoBehaviour
     public Provoli provoli;
     private Animator _provoliAnim;
 
+    [Header("Dialog Event")]
+    public UnityEvent dialogEvent = new UnityEvent();
+
     private bool _isTalking = false;
 
+    private Dialog _currentDialog;
     private string _currentLine;
 
     public void Start()
     {
         _provoliAnim = provoli.GetComponent<Animator>();
-
-        _dialogList = new List<string>(dialogTree);
         NextLine();
     }
 
@@ -51,11 +53,16 @@ public class ProvoliDialogTree : MonoBehaviour
 
     public void NextLine()
     {
-        if (_dialogList.Count > 0)
+        if (dialogTree2.Count > 0)
         {
-            _currentLine = _dialogList[0];
-            _dialogList.RemoveAt(0);
+            _currentDialog = dialogTree2[0];
+            dialogTree2.RemoveAt(0);
+
+            _currentLine = _currentDialog.dialog;
             dialog.text = "";
+
+            if (_currentDialog.firesEvent)
+                dialogEvent.Invoke();
 
             StopAllCoroutines();
             StartCoroutine(TypeWritterEffect(_currentLine));

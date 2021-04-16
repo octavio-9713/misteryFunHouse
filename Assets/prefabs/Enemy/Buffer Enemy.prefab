@@ -30,7 +30,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 4991751931681616902}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalPosition: {x: 0, y: 0, z: -1}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
@@ -170,14 +170,14 @@ MonoBehaviour:
     m_PersistentCalls:
       m_Calls: []
   stats:
-    enemyHealth: 100
+    enemyHealth: 50
     enemySpeed: 5000
     wanderSpeed: 2500
     personalSpace: 100
     enemyDamage: 1
     bulletSpeed: 0
     attackDelay: 2
-    enemyVision: 100
+    enemyVision: 500
     attackRangeStart: 100
     attackRangeEnd: 120
     bullet: {fileID: 0}

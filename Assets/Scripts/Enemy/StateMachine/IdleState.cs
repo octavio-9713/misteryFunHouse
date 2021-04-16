@@ -30,10 +30,18 @@ public class IdleState : State
                 _stage = EVENT.EXIT;
             }
 
-            else if(_enemy.IsWhitinAttackRange())
+            else
             {
-                nextState = new AttackState(_enemy, _player, _animator);
-                _stage = EVENT.EXIT;
+                if (_enemy.IsWhitinAttackRange())
+                {
+                    nextState = new AttackState(_enemy, _player, _animator);
+                    _stage = EVENT.EXIT;
+                }
+                else
+                {
+                    nextState = new PersueState(_enemy, _player, _animator);
+                    _stage = EVENT.EXIT;
+                }
             }
         }
 

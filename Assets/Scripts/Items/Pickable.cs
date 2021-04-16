@@ -16,25 +16,24 @@ public class Pickable : MonoBehaviour
     [Header("Pickup Effect")]   
     public ItemEffect effect;
 
+    public GameObject itemImage;
 
-    public void Start()
-    {
-        pickedPrefab.GetComponent<OnPickedItem>().SetText(itemName, itemDescription);
-    }
-
-    private void OnCollisionEnter2D(Collision2D collision)
+    private void OnTriggerEnter2D(Collider2D collision)
     {
         if (collision.gameObject.tag == "Player")
         {
-            GameObject picked = Instantiate(pickedPrefab.gameObject, GameManager.Instance.canvas.transform);
-            picked.GetComponent<OnPickedItem>().SetText(itemName, itemDescription);
+            if (showsProvoli)
+            {
+                GameObject picked = Instantiate(pickedPrefab.gameObject, GameManager.Instance.canvas.transform);
+                picked.GetComponent<OnPickedItem>().SetText(itemName, itemDescription);
+            }
 
             effect.ApplyEffect();
-            
-            gameObject.GetComponent<BoxCollider2D>().enabled = false;
-            gameObject.GetComponent<SpriteRenderer>().enabled = false;
 
-            Destroy(gameObject);
+            gameObject.GetComponent<BoxCollider2D>().enabled = false;
+
+            Destroy(itemImage);
         }
     }
+
 }

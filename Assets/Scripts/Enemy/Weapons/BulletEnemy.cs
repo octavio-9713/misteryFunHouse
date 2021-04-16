@@ -8,6 +8,8 @@ public class BulletEnemy : MonoBehaviour
     public float speed;
     [HideInInspector]
     public int damage;
+    [HideInInspector]
+    public float nockback;
 
     protected Player _player;
 
@@ -38,13 +40,18 @@ public class BulletEnemy : MonoBehaviour
         {
             if (!_player.dashing)
             {
-                Vector3 damageDir = _player.transform.position - col.gameObject.transform.position;
-                GameManager.Instance.player.GetHurt(damage, damageDir);
+                ContactPoint2D[] contacts = new ContactPoint2D[5];
+                Vector3 damageDir = contacts[0].point - (Vector2)gameObject.transform.position;
+
+                GameManager.Instance.player.GetHurt(damage, damageDir, nockback);
                 Destroy(gameObject);
             }
         }
         else
-            Destroy(gameObject);
+        {
+            if (col.gameObject.CompareTag("muro"))
+                Destroy(gameObject);
+        }
     }
 
     //public void ShotGunDisparo()
