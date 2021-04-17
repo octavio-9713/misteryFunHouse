@@ -201,11 +201,11 @@ MonoBehaviour:
   appliedEffects: []
   buff:
     lifeIncrease: 25
-    movementIncrease: 2000
-    vision: 10
-    damage: 0
+    movementIncrease: 1.15
+    vision: 1.5
+    damage: 2
     weaponDelay: 0.5
-    attackRange: 10
+    attackRange: 1.15
   waitToBuff: 0
   bufferHalo: {fileID: 6829582547296190220}
   allies: []

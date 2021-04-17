@@ -10,6 +10,7 @@ public class OrbitalEffects : ItemEffect
     public override void ApplyEffect()
     {
         Player player = GameManager.Instance.player;
-        Instantiate(orbitalPrefab, player.transform);
+        Orbital orbital = Instantiate(orbitalPrefab, player.transform);
+        orbital.playerSight = player.sight;
     }
 }

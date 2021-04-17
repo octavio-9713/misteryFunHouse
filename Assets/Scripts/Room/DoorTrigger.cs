@@ -36,11 +36,17 @@ public class DoorTrigger : MonoBehaviour
     {
         Destroy(_collider);
         door.SetActive(true);
+
+        door.TryGetComponent<Animator>(out Animator anim);
+        if (anim)
+            anim.SetTrigger("close");
     }
 
     public void UnlockDoor()
     {
-        Destroy(door);
+        door.TryGetComponent<Animator>(out Animator anim);
+        if (anim)
+            anim.SetTrigger("open");
         Destroy(gameObject);
     }
 
