@@ -79,7 +79,7 @@ public class GameManager : MonoBehaviour
 
         if (Input.GetKey("r"))
         {
-            RestarGame();
+            PlayerDeath();
         }
 
         if (_needsToLoad)
