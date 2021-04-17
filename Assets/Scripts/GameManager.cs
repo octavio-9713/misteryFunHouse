@@ -138,8 +138,12 @@ public class GameManager : MonoBehaviour
         Camera.main.transform.position = camaraPos;
 
         player.gameObject.SetActive(true);
-        Instantiate(provolisIntros[0], provolisIntroPlace.transform);
-        provolisIntros.RemoveAt(0);
+
+        if (provolisIntros.Count > 0)
+        {
+            Instantiate(provolisIntros[0], provolisIntroPlace.transform);
+            provolisIntros.RemoveAt(0);
+        }
     }
 
     /////////////////// Restart Game Methods //////////////////////////

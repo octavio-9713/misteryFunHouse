@@ -11,6 +11,7 @@ public class GunnedEnemy : Enemy
 
     protected override void Shoot()
     {
+        _animator.SetTrigger("shooting");
         gun.Shoot(stats.bullet, stats.bulletSpeed, stats.enemyDamage, stats.bulletNockback);
     }
 

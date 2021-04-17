@@ -326,10 +326,7 @@ MonoBehaviour:
   canvas: {fileID: 1275106202}
   provolisIntroPlace: {fileID: 126097941}
   loading: {fileID: 1162769407}
-  provolisIntros:
-  - {fileID: 6396881423136387825, guid: 744eb9b2caa89bb40947ff560d50d6cf, type: 3}
-  - {fileID: 6396881423136387825, guid: a7f1ab0a047e7424fb0f8fa8ec76c279, type: 3}
-  - {fileID: 6396881423136387825, guid: e7f05f124d5704c498b7e9ee4d235d17, type: 3}
+  provolisIntros: []
   confeti: {fileID: 2048311928537129909, guid: 4d731d1f5e822894897ae3dcfc385cdf, type: 3}
   dpsItems:
   - {fileID: 9205412027030925943, guid: eaae6db720f529542920b35fe366063d, type: 3}

@@ -44,7 +44,13 @@ public class CanvasTrigger : MonoBehaviour
 
     private void DisableCurtains()
     {
-        foreach (Curtain curtain in curtains)
-            curtain.Despejar();
+        if (curtains.Length > 0)
+        {
+            foreach (Curtain curtain in curtains)
+            {
+                if (curtain)
+                    curtain.Despejar();
+            }
+        }
     }
 }
