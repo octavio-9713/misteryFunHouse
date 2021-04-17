@@ -32,6 +32,11 @@ public class RewardRoom : MonoBehaviour
                 Instantiate(GameManager.Instance.confeti, pos.transform.position, pos.transform.rotation);
             }
 
+            foreach (GameObject door in doorPos)
+            {
+                door.SetActive(false);
+            }
+
             activacion = false;
 
             GameObject item = GameManager.Instance.GetItem(itemType);
@@ -59,6 +64,11 @@ public class RewardRoom : MonoBehaviour
         for (int i = 0; i < cortinas.Length; i++)
         {
             cortinas[i].Replegar();
+        }
+
+        foreach (GameObject door in doorPos)
+        {
+            door.SetActive(true);
         }
 
         gameObject.SetActive(true);

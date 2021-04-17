@@ -228,7 +228,7 @@ SpriteRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 1
-  m_Sprite: {fileID: -4617127738941321431, guid: e6590d70e43f69842879dae33845052e,
+  m_Sprite: {fileID: -5565132328244117478, guid: b84afbe1f0a78f64a96c7b92e0960adc,
     type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
@@ -352,6 +352,7 @@ MonoBehaviour:
   weaponContainer: {fileID: 395580913984384087}
   sight: {fileID: 228934260}
   gun: {fileID: 8688177931726254579}
+  defaultGun: {fileID: 0}
   lifeUI: {fileID: 0}
   stats:
     maxHp: 15
