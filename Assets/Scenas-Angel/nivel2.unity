@@ -59543,7 +59543,7 @@ GameObject:
   - component: {fileID: 5627389311426382137}
   m_Layer: 9
   m_Name: Left Boss
-  m_TagString: SpawnPointSala
+  m_TagString: Reward Room
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -59561,7 +59561,7 @@ GameObject:
   - component: {fileID: 5627389310804141871}
   m_Layer: 9
   m_Name: Bottom Reward
-  m_TagString: SpawnPointSala
+  m_TagString: Reward Room
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
