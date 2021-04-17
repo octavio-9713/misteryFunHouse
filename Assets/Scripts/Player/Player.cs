@@ -217,7 +217,7 @@ public class Player : MonoBehaviour
 
     public void Restart()
     {
-        GameManager.Instance.RestarGame();
+        GameManager.Instance.PlayerDeath();
     }
 
     public void OnCollisionEnter2D(Collision2D collision)

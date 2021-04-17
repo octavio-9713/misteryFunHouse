@@ -5661,7 +5661,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 131772712}
-  m_Layer: 9
+  m_Layer: 0
   m_Name: Doors
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -9927,7 +9927,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 367541783}
-  m_Layer: 9
+  m_Layer: 0
   m_Name: Doors
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -9992,7 +9992,7 @@ GameObject:
   - component: {fileID: 414702733}
   - component: {fileID: 414702735}
   - component: {fileID: 414702734}
-  m_Layer: 9
+  m_Layer: 0
   m_Name: Exit Door
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -10121,7 +10121,7 @@ GameObject:
   - component: {fileID: 421209834}
   - component: {fileID: 421209836}
   - component: {fileID: 421209835}
-  m_Layer: 9
+  m_Layer: 0
   m_Name: Exit Door
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -17018,7 +17018,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 621903903}
-  m_Layer: 9
+  m_Layer: 0
   m_Name: Doors
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -18202,7 +18202,7 @@ GameObject:
   - component: {fileID: 689910030}
   - component: {fileID: 689910031}
   - component: {fileID: 689910032}
-  m_Layer: 9
+  m_Layer: 0
   m_Name: Exit Door (1)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -18498,7 +18498,7 @@ GameObject:
   - component: {fileID: 730520002}
   - component: {fileID: 730520004}
   - component: {fileID: 730520003}
-  m_Layer: 9
+  m_Layer: 0
   m_Name: Exit Door (1)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -18656,7 +18656,7 @@ GameObject:
   - component: {fileID: 772805446}
   - component: {fileID: 772805447}
   - component: {fileID: 772805448}
-  m_Layer: 9
+  m_Layer: 0
   m_Name: Exit Door
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -22865,7 +22865,7 @@ GameObject:
   - component: {fileID: 822152895}
   - component: {fileID: 822152896}
   - component: {fileID: 822152897}
-  m_Layer: 9
+  m_Layer: 0
   m_Name: Entrance Door
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -23078,7 +23078,7 @@ GameObject:
   - component: {fileID: 834375215}
   - component: {fileID: 834375216}
   - component: {fileID: 834375217}
-  m_Layer: 9
+  m_Layer: 0
   m_Name: Exit Door (1)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -23284,7 +23284,7 @@ GameObject:
   - component: {fileID: 866063709}
   - component: {fileID: 866063711}
   - component: {fileID: 866063710}
-  m_Layer: 9
+  m_Layer: 0
   m_Name: Exit Door
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -25793,7 +25793,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 897609244}
-  m_Layer: 9
+  m_Layer: 0
   m_Name: Doors
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -26922,7 +26922,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!4 &1134328512
 Transform:
   m_ObjectHideFlags: 0
@@ -27017,7 +27017,7 @@ GameObject:
   - component: {fileID: 1149969597}
   - component: {fileID: 1149969598}
   - component: {fileID: 1149969599}
-  m_Layer: 9
+  m_Layer: 0
   m_Name: Exit Door (1)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -27202,7 +27202,7 @@ GameObject:
   - component: {fileID: 1214062900}
   - component: {fileID: 1214062902}
   - component: {fileID: 1214062901}
-  m_Layer: 9
+  m_Layer: 0
   m_Name: Entrance Door
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -27642,7 +27642,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 1286939141}
-  m_Layer: 9
+  m_Layer: 0
   m_Name: Doors
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -40600,7 +40600,7 @@ GameObject:
   - component: {fileID: 1376408961}
   - component: {fileID: 1376408963}
   - component: {fileID: 1376408962}
-  m_Layer: 9
+  m_Layer: 0
   m_Name: Entrance Door
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -40729,7 +40729,7 @@ GameObject:
   - component: {fileID: 1383952327}
   - component: {fileID: 1383952329}
   - component: {fileID: 1383952328}
-  m_Layer: 9
+  m_Layer: 0
   m_Name: Entrance Door
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -40857,7 +40857,7 @@ GameObject:
   - component: {fileID: 1399747518}
   - component: {fileID: 1399747519}
   - component: {fileID: 1399747520}
-  m_Layer: 9
+  m_Layer: 0
   m_Name: Entrance Door
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -41238,7 +41238,7 @@ GameObject:
   - component: {fileID: 1424169224}
   - component: {fileID: 1424169226}
   - component: {fileID: 1424169225}
-  m_Layer: 9
+  m_Layer: 0
   m_Name: Exit Door
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -41500,7 +41500,7 @@ GameObject:
   - component: {fileID: 1444155606}
   - component: {fileID: 1444155607}
   - component: {fileID: 1444155608}
-  m_Layer: 9
+  m_Layer: 0
   m_Name: Exit Door
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -42940,7 +42940,7 @@ GameObject:
   - component: {fileID: 1515843984}
   - component: {fileID: 1515843985}
   - component: {fileID: 1515843986}
-  m_Layer: 9
+  m_Layer: 0
   m_Name: Entrance Door
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -43140,7 +43140,7 @@ GameObject:
   - component: {fileID: 1587773736}
   - component: {fileID: 1587773738}
   - component: {fileID: 1587773737}
-  m_Layer: 9
+  m_Layer: 0
   m_Name: Exit Door (1)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -43344,7 +43344,7 @@ GameObject:
   - component: {fileID: 1599859968}
   - component: {fileID: 1599859970}
   - component: {fileID: 1599859969}
-  m_Layer: 9
+  m_Layer: 0
   m_Name: Entrance Door
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -43567,7 +43567,7 @@ GameObject:
   - component: {fileID: 1631410188}
   - component: {fileID: 1631410190}
   - component: {fileID: 1631410189}
-  m_Layer: 9
+  m_Layer: 0
   m_Name: Entrance Door
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -43774,7 +43774,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 1701257408}
-  m_Layer: 9
+  m_Layer: 0
   m_Name: Doors
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -43899,7 +43899,7 @@ GameObject:
   - component: {fileID: 1711328965}
   - component: {fileID: 1711328966}
   - component: {fileID: 1711328967}
-  m_Layer: 9
+  m_Layer: 0
   m_Name: Exit Door (1)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -44691,7 +44691,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 1840986193}
-  m_Layer: 9
+  m_Layer: 0
   m_Name: Doors
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -46648,7 +46648,7 @@ GameObject:
   - component: {fileID: 1901042087}
   - component: {fileID: 1901042088}
   - component: {fileID: 1901042089}
-  m_Layer: 9
+  m_Layer: 0
   m_Name: Entrance Door
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -46983,7 +46983,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 2010406510}
-  m_Layer: 9
+  m_Layer: 0
   m_Name: Doors
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -47522,7 +47522,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 2123909238}
-  m_Layer: 9
+  m_Layer: 0
   m_Name: Doors
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -47558,7 +47558,7 @@ GameObject:
   - component: {fileID: 2135688359}
   - component: {fileID: 2135688361}
   - component: {fileID: 2135688360}
-  m_Layer: 9
+  m_Layer: 0
   m_Name: Exit Door
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -54562,7 +54562,7 @@ GameObject:
   - component: {fileID: 1861551517848288885}
   - component: {fileID: 3067094105725408642}
   - component: {fileID: 1753063126445859044}
-  m_Layer: 9
+  m_Layer: 0
   m_Name: Exit Door (1)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -56141,7 +56141,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 5745372309664679970}
-  m_Layer: 9
+  m_Layer: 0
   m_Name: Doors
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -58789,7 +58789,7 @@ GameObject:
   - component: {fileID: 7276216107606355676}
   - component: {fileID: 432231513001357709}
   - component: {fileID: 4937617265991919751}
-  m_Layer: 9
+  m_Layer: 0
   m_Name: Exit Door
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -59049,7 +59049,7 @@ GameObject:
   - component: {fileID: 969485508806255582}
   - component: {fileID: 2320075347186883410}
   - component: {fileID: 5179329120859148099}
-  m_Layer: 9
+  m_Layer: 0
   m_Name: Entrance Door
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -65666,7 +65666,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 7119829527105059565}
-  m_Layer: 9
+  m_Layer: 0
   m_Name: Doors
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -65700,7 +65700,7 @@ GameObject:
   - component: {fileID: 7119829527205963797}
   - component: {fileID: 7119829527205963798}
   - component: {fileID: 7119829527205963799}
-  m_Layer: 9
+  m_Layer: 0
   m_Name: Entrance Door
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -65809,7 +65809,7 @@ GameObject:
   - component: {fileID: 7119829527898780869}
   - component: {fileID: 7119829527898780870}
   - component: {fileID: 7119829527898780871}
-  m_Layer: 9
+  m_Layer: 0
   m_Name: Exit Door
   m_TagString: Untagged
   m_Icon: {fileID: 0}

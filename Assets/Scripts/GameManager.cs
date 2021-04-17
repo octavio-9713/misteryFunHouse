@@ -136,16 +136,23 @@ public class GameManager : MonoBehaviour
         Camera.main.transform.position = camaraPos;
 
         player.gameObject.SetActive(true);
-        _pickedItems.ForEach(item => item.ApplyEffect());
+        //_pickedItems.ForEach(item => item.ApplyEffect());
 
         if (provolisIntros.Count > 0)
-        {
             Instantiate(provolisIntros[0], provolisIntroPlace.transform);
-            provolisIntros.RemoveAt(0);
-        }
+        
     }
 
     /////////////////// Restart Game Methods //////////////////////////
+    public void PlayerDeath()
+    {
+        StartCoroutine(UnloadScene(_sceneIndex, true));
+
+        StopTheCount();
+        player.RecoverLife(player.stats.maxHp);
+        player.animator.SetTrigger("alive");
+    }
+
     public void RestarGame()
     {
         SceneManager.LoadScene(0);
@@ -210,6 +217,7 @@ public class GameManager : MonoBehaviour
     public void NextRoom()
     {
         player.gameObject.SetActive(false);
+        provolisIntros.RemoveAt(0);
         StartCoroutine(UnloadScene(_sceneIndex));
 
         StopTheCount();
@@ -235,7 +243,7 @@ public class GameManager : MonoBehaviour
         MovePlayer();
     }
 
-    IEnumerator UnloadScene(int sceneIndex)
+    IEnumerator UnloadScene(int sceneIndex, bool restart = false)
     {
         loading.SetActive(true);
         AsyncOperation asyncLoad = SceneManager.UnloadSceneAsync(sceneIndex);
@@ -246,7 +254,9 @@ public class GameManager : MonoBehaviour
         }
 
         _needsToLoad = true;
-        _sceneIndex++;
+
+        if (!restart)
+            _sceneIndex++;
 
         yield return new WaitForSeconds(1.5f);
     }

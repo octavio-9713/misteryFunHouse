@@ -47,6 +47,8 @@ public class DoorTrigger : MonoBehaviour
         door.TryGetComponent<Animator>(out Animator anim);
         if (anim)
             anim.SetTrigger("open");
+
+        Destroy(door.GetComponent<BoxCollider2D>());
         Destroy(gameObject);
     }
 

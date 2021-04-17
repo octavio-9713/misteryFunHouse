@@ -284,7 +284,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 269772835}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: -10}
+  m_LocalPosition: {x: 0, y: 0, z: -12}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
@@ -326,7 +326,9 @@ MonoBehaviour:
   canvas: {fileID: 1275106202}
   provolisIntroPlace: {fileID: 126097941}
   loading: {fileID: 1162769407}
-  provolisIntros: []
+  provolisIntros:
+  - {fileID: 6396881423136387825, guid: 744eb9b2caa89bb40947ff560d50d6cf, type: 3}
+  - {fileID: 6396881423136387825, guid: a7f1ab0a047e7424fb0f8fa8ec76c279, type: 3}
   confeti: {fileID: 2048311928537129909, guid: 4d731d1f5e822894897ae3dcfc385cdf, type: 3}
   dpsItems:
   - {fileID: 9205412027030925943, guid: eaae6db720f529542920b35fe366063d, type: 3}
@@ -462,6 +464,11 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 461115998484160253, guid: 93f0fa913e9aa504eacfc18a99538f1f,
         type: 3}
+      propertyPath: m_Enabled
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 461115998484160253, guid: 93f0fa913e9aa504eacfc18a99538f1f,
+        type: 3}
       propertyPath: m_SpriteTilingProperty.oldSize.x
       value: 21
       objectReference: {fileID: 0}
@@ -545,6 +552,11 @@ PrefabInstance:
       propertyPath: lifeUI
       value: 
       objectReference: {fileID: 711961593}
+    - target: {fileID: 8742973154821635716, guid: 93f0fa913e9aa504eacfc18a99538f1f,
+        type: 3}
+      propertyPath: m_Enabled
+      value: 1
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 93f0fa913e9aa504eacfc18a99538f1f, type: 3}
 --- !u!114 &1250730268 stripped
