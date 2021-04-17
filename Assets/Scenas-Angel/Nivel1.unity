@@ -4204,8 +4204,12 @@ PrefabInstance:
     m_TransformParent: {fileID: 1304152732}
     m_Modifications:
     - target: {fileID: 447885016, guid: 08c621390f2d66341aa931f334e939c5, type: 3}
+      propertyPath: m_Layer
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 447885016, guid: 08c621390f2d66341aa931f334e939c5, type: 3}
       propertyPath: m_IsActive
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 447885016, guid: 08c621390f2d66341aa931f334e939c5, type: 3}
       propertyPath: m_TagString
@@ -4235,9 +4239,17 @@ PrefabInstance:
       propertyPath: m_WasSpriteAssigned
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 863941128, guid: 08c621390f2d66341aa931f334e939c5, type: 3}
+    - target: {fileID: 481295392, guid: 08c621390f2d66341aa931f334e939c5, type: 3}
       propertyPath: m_IsActive
       value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 863941128, guid: 08c621390f2d66341aa931f334e939c5, type: 3}
+      propertyPath: m_Layer
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 863941128, guid: 08c621390f2d66341aa931f334e939c5, type: 3}
+      propertyPath: m_IsActive
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 863941128, guid: 08c621390f2d66341aa931f334e939c5, type: 3}
       propertyPath: m_TagString
