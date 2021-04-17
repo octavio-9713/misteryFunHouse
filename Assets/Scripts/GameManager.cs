@@ -132,9 +132,12 @@ public class GameManager : MonoBehaviour
     private void MovePlayer()
     {
         GameObject spawnpoint = GameObject.FindGameObjectWithTag("Player Spawnpoint");
-        player.transform.position = spawnpoint.transform.position;
-        player.gameObject.SetActive(true);
+        Vector3 camaraPos = new Vector3(spawnpoint.transform.position.x, spawnpoint.transform.position.y, Camera.main.transform.position.z);
 
+        player.transform.position = spawnpoint.transform.position;
+        Camera.main.transform.position = camaraPos;
+
+        player.gameObject.SetActive(true);
         Instantiate(provolisIntros[0], provolisIntroPlace.transform);
         provolisIntros.RemoveAt(0);
     }
@@ -242,6 +245,6 @@ public class GameManager : MonoBehaviour
         _needsToLoad = true;
         _sceneIndex++;
 
-        yield return new WaitForSeconds(0.5f);
+        yield return new WaitForSeconds(1.5f);
     }
 }

@@ -331,7 +331,7 @@ MonoBehaviour:
     currentHp: 0
     playerSpeed: 21000
     invencibilityTime: 0.75
-    dashSpeed: 17000
+    dashSpeed: 12000
     initialDashForce: 8000
     dashDamage: 10
   animator: {fileID: 8035971947796995880}
@@ -367,7 +367,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b7e5306c955717244aa95ab8eadfa714, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  dashLengthSec: 0.2
+  dashLengthSec: 0.4
   dashWait: 0.35
   dashCooldown: 1.5
 --- !u!82 &2405628725127526934

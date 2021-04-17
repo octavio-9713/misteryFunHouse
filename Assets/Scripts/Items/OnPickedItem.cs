@@ -16,7 +16,7 @@ public class OnPickedItem : MonoBehaviour
     //TODO: Terminar pickups...
     public void SetText(string name, string desc)
     {
-        textName.text = name;
+        //textName.text = name;
         textDesc.text = "";
 
         StopAllCoroutines();

@@ -29,7 +29,7 @@ public class BufferEnemy : Enemy
     {
         if (!attacking && !_waitForHurt)
         {
-            _animator.SetTrigger("shooting");
+            _animator.SetBool("attacking", true);
             attacking = true;
 
             Buff();
@@ -80,8 +80,7 @@ public class BufferEnemy : Enemy
 
     protected IEnumerator WaitForBuff()
     {
-        _animator.ResetTrigger("shooting");
-        _animator.SetTrigger("waiting");
+        _animator.SetBool("attacking", false);
         yield return new WaitForSeconds(stats.attackDelay);
         waitToBuff = false;
     }

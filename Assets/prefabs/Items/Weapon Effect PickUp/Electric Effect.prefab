@@ -12,8 +12,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 227ce8167b0927a46ab8b738ff00d6a5, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  itemName: Static Shook
-  itemDescription: That is a shooking bullet. We carefull some robots are into that...
+  itemName: Static Shock
+  itemDescription: That is a shooking bullet. Be carefull some robots are into that...
   pickedPrefab: {fileID: 5357196364174934046, guid: d80f6da6a3fda054aa2bea685cb14cfc,
     type: 3}
   showsProvoli: 1

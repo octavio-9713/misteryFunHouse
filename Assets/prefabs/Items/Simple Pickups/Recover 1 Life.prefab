@@ -17,7 +17,7 @@ MonoBehaviour:
   pickedPrefab: {fileID: 5357196364174934046, guid: d80f6da6a3fda054aa2bea685cb14cfc,
     type: 3}
   showsProvoli: 0
-  effect: {fileID: 3843753336030610211, guid: 7e9c9eb9c04472e4e91166ce30a69fbe, type: 3}
+  effect: {fileID: 3843753336030610211, guid: 2707fae99688c254ab4eff46e5c9fd38, type: 3}
   itemImage: {fileID: 5713219871606434047}
 --- !u!1001 &4011675217768270166
 PrefabInstance:
