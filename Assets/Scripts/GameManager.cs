@@ -11,7 +11,7 @@ public class GameManager : MonoBehaviour
 
     [Header("Timer")]
     public TextMeshProUGUI timer;
-    public float minutesToFast = 10f;
+    public float minutesToFast = 2.5f;
     private float _secondsCount;
     private int _minuteCount;
     private int _hourCount;
@@ -125,7 +125,7 @@ public class GameManager : MonoBehaviour
 
     public bool HasFastTime()
     {
-        return _minuteCount <= minutesToFast;
+        return _minuteCount <= minutesToFast * _sceneIndex;
     }
 
     /////////////////// Restart Game Methods //////////////////////////
