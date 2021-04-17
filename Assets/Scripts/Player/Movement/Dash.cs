@@ -136,6 +136,13 @@ public class Dash : MonoBehaviour
         this.dashCooldown -= dashWait;
     }
 
+    public void UnChangeStats(float timeBetweenDashes, float dashLength, float dashWait)
+    {
+        this.dashWait += timeBetweenDashes;
+        this.dashLengthSec -= dashLength;
+        this.dashCooldown += dashWait;
+    }
+
     IEnumerator DashWait(float seconds)
     {
         _dashEnabled = false;

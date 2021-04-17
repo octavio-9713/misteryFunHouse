@@ -41,7 +41,7 @@ public class GameManager : MonoBehaviour
     public List<GameObject> weaponItems;
 
     private List<GameObject> _allitems = new List<GameObject>();
-    private List<ItemEffect> _pickedItems = new List<ItemEffect>();
+    private List<ItemEffect> _levelPickedItems = new List<ItemEffect>();
 
     private int _sceneIndex = 2;
     private bool _needsToLoad = true;
@@ -146,11 +146,30 @@ public class GameManager : MonoBehaviour
     /////////////////// Restart Game Methods //////////////////////////
     public void PlayerDeath()
     {
-        StartCoroutine(UnloadScene(_sceneIndex, true));
+        loading.SetActive(true);
 
+        GameObject[] rooms = GameObject.FindGameObjectsWithTag("SpawnPointSala");
+        foreach (GameObject room in rooms)
+        {
+            RoomManager manager = room.GetComponent<RoomManager>();
+            manager.RestoreRoom();
+        }
+
+        GameObject[] rewardRooms = GameObject.FindGameObjectsWithTag("Reward Room");
+        foreach (GameObject room in rewardRooms)
+        {
+            RewardRoom manager = room.GetComponent<RewardRoom>();
+            manager.RestoreRoom();
+        }
+
+        StartCoroutine(UnloadScene(_sceneIndex, true));
         StopTheCount();
+
         player.RecoverLife(player.stats.maxHp);
         player.animator.SetTrigger("alive");
+        player.animator.SetBool("muerte", false);
+        player.UnDie();
+        _levelPickedItems.ForEach(item => item.UnapplyEffect());
     }
 
     public void RestarGame()
@@ -167,48 +186,26 @@ public class GameManager : MonoBehaviour
         GameObject item;
 
         if (type.Equals(TypeOfItems.ALL))
-        {
             item = _allitems[Random.Range(0, _allitems.Count)];
-            dpsItems.Remove(item);
-            effectItems.Remove(item);
-            generalItems.Remove(item);
-            orbitalItems.Remove(item);
-            weaponItems.Remove(item);
-        }
+        
 
         else if (type.Equals(TypeOfItems.DPS))
-        {
             item = dpsItems[Random.Range(0, dpsItems.Count)];
-            dpsItems.Remove(item);
-        }
 
         else if (type.Equals(TypeOfItems.EFFECT))
-        {
             item = effectItems[Random.Range(0, effectItems.Count)];
-            effectItems.Remove(item);
-        }
 
         else if (type.Equals(TypeOfItems.GENERAL))
-        {
             item = generalItems[Random.Range(0, generalItems.Count)];
-            generalItems.Remove(item);
-        }
 
         else if (type.Equals(TypeOfItems.ORBITAL))
-        {
             item = orbitalItems[Random.Range(0, orbitalItems.Count)];
-            orbitalItems.Remove(item);
-        }
 
         else
-        {
             item = weaponItems[Random.Range(0, weaponItems.Count)];
-            weaponItems.Remove(item);
-        }
 
-        _allitems.Remove(item);
         Pickable picked = item.GetComponent<Pickable>();
-        _pickedItems.Add(picked.effect);
+        _levelPickedItems.Add(picked.effect);
 
         return item;
     }
@@ -217,7 +214,21 @@ public class GameManager : MonoBehaviour
     public void NextRoom()
     {
         player.gameObject.SetActive(false);
-        provolisIntros.RemoveAt(0);
+        
+        if (provolisIntros.Count > 0)
+            provolisIntros.RemoveAt(0);
+        
+        _levelPickedItems.ForEach(item =>
+        {
+            dpsItems.Remove(item.gameObject);
+            effectItems.Remove(item.gameObject);
+            generalItems.Remove(item.gameObject);
+            orbitalItems.Remove(item.gameObject);
+            weaponItems.Remove(item.gameObject);
+            _allitems.Remove(item.gameObject);
+        });
+        _levelPickedItems.Clear();
+
         StartCoroutine(UnloadScene(_sceneIndex));
 
         StopTheCount();

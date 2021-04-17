@@ -12,6 +12,7 @@ public class RoomManager : MonoBehaviour
 
     private float _waitToAttack = 1f;
     private bool activacion = false;
+    private bool deactivated = false;
 
     [Header("Room Settings")]
     public Curtain[] cortinas;
@@ -23,6 +24,7 @@ public class RoomManager : MonoBehaviour
 
     private int deathEnemies = 0;
     private int _cantEnemies;
+    private List<Enemy> _spawnedEnemies = new List<Enemy>();
 
     [Header ("Rewards")]
     public GameObject[] rewardPrefabs;
@@ -35,39 +37,41 @@ public class RoomManager : MonoBehaviour
 
     void Update()
     {
-
-        if (activacion)
+        if (!deactivated)
         {
-            for (int i = 0; i < _cantEnemies; i++) {
-                GameObject en = Instantiate(enemies[i], enemySpawner[i].transform.position, Quaternion.identity);
-                Enemy enemy = en.GetComponent<Enemy>();
-                enemy.deathEvent.AddListener(MuerteEnemy);
-                enemy.WaitToWake(_waitToAttack);
-            }
-
-            for (int i = 0; i < cortinas.Length; i++)
+            if (activacion)
             {
-                cortinas[i].Despejar();
+                for (int i = 0; i < _cantEnemies; i++)
+                {
+                    GameObject en = Instantiate(enemies[i], enemySpawner[i].transform.position, Quaternion.identity);
+                    Enemy enemy = en.GetComponent<Enemy>();
+                    enemy.deathEvent.AddListener(MuerteEnemy);
+                    enemy.WaitToWake(_waitToAttack);
+                    _spawnedEnemies.Add(enemy);
+                }
+
+                for (int i = 0; i < cortinas.Length; i++)
+                {
+                    cortinas[i].Despejar();
+                }
+
+                closeEvent.Invoke();
+                activacion = false;
             }
 
-            closeEvent.Invoke();
-            activacion = false;
-        }
-
-        if (deathEnemies == _cantEnemies)
-        {
-            DesactivarSala();
-
-            float prob = Random.Range(0, 100);
-            if (rewardPrefabs.Length > 0 && prob <= 40)
+            if (deathEnemies == _cantEnemies)
             {
-                GameObject reward = Instantiate(rewardPrefabs[Random.Range(0, rewardPrefabs.Length)]);
-                Vector3 spawPos = new Vector3(rewardPos.transform.position.x, rewardPos.transform.position.y, reward.transform.position.z);
-                Instantiate(GameManager.Instance.confeti, rewardPos.transform.position, transform.rotation);
-                reward.transform.position = spawPos;
-            }
+                DesactivarSala();
 
-            Destroy(this);
+                float prob = Random.Range(0, 100);
+                if (rewardPrefabs.Length > 0 && prob <= 40)
+                {
+                    GameObject reward = Instantiate(rewardPrefabs[Random.Range(0, rewardPrefabs.Length)]);
+                    Vector3 spawPos = new Vector3(rewardPos.transform.position.x, rewardPos.transform.position.y, reward.transform.position.z);
+                    Instantiate(GameManager.Instance.confeti, rewardPos.transform.position, transform.rotation);
+                    reward.transform.position = spawPos;
+                }
+            }
         }
 
     }
@@ -97,6 +101,28 @@ public class RoomManager : MonoBehaviour
             door.UnlockDoor();
 
         openEvent.Invoke();
+        deactivated = true;
+    }
+
+    public void RestoreRoom()
+    {
+        if (_spawnedEnemies.Count > 0)
+            _spawnedEnemies.ForEach(enemy => Destroy(enemy.gameObject));
+
+        foreach (DoorTrigger door in doors)
+        {
+            door.UnlockDoor();
+        }
+
+        for (int i = 0; i < cortinas.Length; i++)
+        {
+            cortinas[i].Replegar();
+        }
+
+        deactivated = false;
+        deathEnemies = 0;
+        _spawnedEnemies.Clear();
+
     }
 
     public void MuerteEnemy()

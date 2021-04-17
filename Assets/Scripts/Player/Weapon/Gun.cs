@@ -117,9 +117,19 @@ public class Gun : MonoBehaviour
         this.weapon.ApplyChanges(weaponInfo);
     }
 
+    public void UnApplyChanges(WeaponBuff weaponInfo)
+    {
+        this.weapon.UnApplyChanges(weaponInfo);
+    }
+
     public void ApplyEffect(WeaponEffect effect)
     {
         effects.Add(effect);
+    }
+    
+    public void UnapplyEffect(WeaponEffect effect)
+    {
+        effects.Remove(effect);
     }
 
     /////////////////// Enumerators //////////////////////////

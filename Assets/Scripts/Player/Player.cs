@@ -23,6 +23,7 @@ public class Player : MonoBehaviour
     public Transform weaponContainer;
     public GameObject sight;
     public Gun gun;
+    public Gun defaultGun;
 
     [Header("Life UI")]
     public Life lifeUI;
@@ -141,6 +142,12 @@ public class Player : MonoBehaviour
         this.lifeUI.ChangeMaxLife(stats.currentHp, recover);
     }
 
+    public void DecreaseLife(int amount, bool recover)
+    {
+        stats.maxHp -= amount;
+        this.lifeUI.ChangeMaxLife(stats.currentHp, recover);
+    }
+
     public void RecoverLife(int amount)
     {
         if (stats.currentHp < stats.maxHp)
@@ -181,11 +188,32 @@ public class Player : MonoBehaviour
         _grabbedGunItems.Add(weaponStats);
     }
 
+    public void UndoChangeStats(PlayerBuffStats stats, float timeBetweenDashes, float dashLength, float dashWait, WeaponBuff weaponStats)
+    {
+        this.stats.UnApplyStats(stats);
+        _dash.ChangeStats(timeBetweenDashes, dashLength, dashWait);
+        gun.UnApplyChanges(weaponStats);
+
+        _grabbedGunItems.Remove(weaponStats);
+    }
+
     public void ChangeWeapon(GameObject gun)
     {
         Destroy(this.gun.gameObject);
         
         GameObject newGun = Instantiate(gun.gameObject, weaponContainer);
+        this.gun = newGun.GetComponent<Gun>();
+        this.gun.sight = sight.transform;
+        this.gun.container = weaponContainer;
+
+        this.ReapplyGunItems();
+    }
+
+    public void RestoreDefaultWeapon()
+    {
+        Destroy(this.gun.gameObject);
+        
+        GameObject newGun = Instantiate(defaultGun.gameObject, weaponContainer);
         this.gun = newGun.GetComponent<Gun>();
         this.gun.sight = sight.transform;
         this.gun.container = weaponContainer;
@@ -205,6 +233,12 @@ public class Player : MonoBehaviour
         _appliedGunEffects.Add(effect);
     }
 
+    public void UnapplyWeaponEffect(WeaponEffect effect)
+    {
+        gun.UnapplyEffect(effect);
+        _appliedGunEffects.Remove(effect);
+    }
+
     /////////////////// Death/Collisions Methods //////////////////////////
 
     public void Die()
@@ -213,6 +247,12 @@ public class Player : MonoBehaviour
         death = true;
         gameObject.GetComponent<Animator>().SetBool("muerte", true);
         audioSource.PlayOneShot(deathSound);
+    }
+
+    public void UnDie()
+    {
+        EnableMovement();
+        death = false;
     }
 
     public void Restart()

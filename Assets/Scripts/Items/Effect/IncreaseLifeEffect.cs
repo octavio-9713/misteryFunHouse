@@ -21,4 +21,15 @@ public class IncreaseLifeEffect : ItemEffect
         else
             player.RecoverLife(lifeToIncrease);
     }
+
+    public override void UnapplyEffect()
+    {
+        Player player = GameManager.Instance.player;
+
+        if (!justRecoversLife)
+            player.DecreaseLife(lifeToIncrease, recoversLife);
+
+        else
+            player.RecoverLife(lifeToIncrease);
+    }
 }

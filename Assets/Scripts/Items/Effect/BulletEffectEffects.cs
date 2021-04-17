@@ -12,4 +12,10 @@ public class BulletEffectEffects : ItemEffect
         Player player = GameManager.Instance.player;
         player.ApplyWeaponEffect(effect);
     }
+
+    public override void UnapplyEffect()
+    {
+        Player player = GameManager.Instance.player;
+        player.ApplyWeaponEffect(effect);
+    }
 }

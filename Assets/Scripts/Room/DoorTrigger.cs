@@ -34,7 +34,7 @@ public class DoorTrigger : MonoBehaviour
 
     public void LockDoor()
     {
-        Destroy(_collider);
+        _collider.enabled = false;
         door.SetActive(true);
 
         door.TryGetComponent<Animator>(out Animator anim);
@@ -48,8 +48,8 @@ public class DoorTrigger : MonoBehaviour
         if (anim)
             anim.SetTrigger("open");
 
-        Destroy(door.GetComponent<BoxCollider2D>());
-        Destroy(gameObject);
+        door.GetComponent<BoxCollider2D>().enabled = false;
+        gameObject.SetActive(false);
     }
 
 }

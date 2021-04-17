@@ -2415,6 +2415,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: Top Reward
       objectReference: {fileID: 0}
+    - target: {fileID: 7548770516211839229, guid: 895e71f740d117a4e88df61b74563eaf,
+        type: 3}
+      propertyPath: m_TagString
+      value: Reward Room
+      objectReference: {fileID: 0}
     - target: {fileID: 7871964601479350705, guid: 895e71f740d117a4e88df61b74563eaf,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -3334,6 +3339,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: Top Boss
+      objectReference: {fileID: 0}
+    - target: {fileID: 1035977305853270424, guid: 34109accadba5c347848f015b63767cc,
+        type: 3}
+      propertyPath: m_TagString
+      value: Reward Room
       objectReference: {fileID: 0}
     - target: {fileID: 2525207507848814976, guid: 34109accadba5c347848f015b63767cc,
         type: 3}

@@ -4,5 +4,7 @@ using UnityEngine;
 
 public abstract class ItemEffect : MonoBehaviour
 {
-    public abstract  void ApplyEffect();
+    public abstract void ApplyEffect();
+
+    public abstract void UnapplyEffect();
 }

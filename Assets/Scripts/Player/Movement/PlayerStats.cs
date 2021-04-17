@@ -41,5 +41,15 @@ public class PlayerStats
         initialDashForce *= stats.initialDashForce > 0 ? stats.initialDashForce : 1;
         dashDamage *= stats.dashDamage > 0 ? stats.dashDamage : 1;
     }
+    
+    public void UnApplyStats(PlayerBuffStats stats)
+    {
+        playerSpeed /= stats.playerSpeed > 0 ? stats.playerSpeed : 1;
+        invencibilityTime /= stats.invencibilityTime > 0 ? stats.invencibilityTime : 1;
+
+        dashSpeed /= stats.dashSpeed > 0 ? stats.dashSpeed : 1;
+        initialDashForce /= stats.initialDashForce > 0 ? stats.initialDashForce : 1;
+        dashDamage /= stats.dashDamage > 0 ? stats.dashDamage : 1;
+    }
 
 }
