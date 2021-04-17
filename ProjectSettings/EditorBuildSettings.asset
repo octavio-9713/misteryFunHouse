@@ -12,14 +12,14 @@ EditorBuildSettings:
     path: Assets/Scenas-Angel/StartScene.unity
     guid: 5c5082cdea07aaa409567c9459778d49
   - enabled: 1
-    path: Assets/Scenas-Angel/nivel2.unity
-    guid: 8564a66a170859449ba63ad7fa88dfb8
+    path: Assets/Scenas-Angel/nivel3.unity
+    guid: 1ce5df44ef31d694e839695b35efad6a
   - enabled: 1
     path: Assets/Scenas-Angel/Nivel1.unity
     guid: 211b374577f808441a45a6d7c3210e41
   - enabled: 1
-    path: Assets/Scenas-Angel/nivel3.unity
-    guid: 1ce5df44ef31d694e839695b35efad6a
+    path: Assets/Scenas-Angel/nivel2.unity
+    guid: 8564a66a170859449ba63ad7fa88dfb8
   - enabled: 1
     path: Assets/Scenes/final.unity
     guid: 0114b69f53146ad44a2db55d49c27e34
