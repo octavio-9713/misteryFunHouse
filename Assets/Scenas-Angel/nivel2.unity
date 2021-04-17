@@ -18783,6 +18783,7 @@ GameObject:
   - component: {fileID: 772805446}
   - component: {fileID: 772805447}
   - component: {fileID: 772805448}
+  - component: {fileID: 772805449}
   m_Layer: 0
   m_Name: Exit Door
   m_TagString: Untagged
@@ -18881,6 +18882,25 @@ BoxCollider2D:
   serializedVersion: 2
   m_Size: {x: 39.97339, y: 31.079014}
   m_EdgeRadius: 0
+--- !u!95 &772805449
+Animator:
+  serializedVersion: 3
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 772805445}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: c8e4fee8defe9d144a3653d0cf9ea610, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorControllerStateOnDisable: 0
 --- !u!1 &785647968
 GameObject:
   m_ObjectHideFlags: 0
@@ -22992,6 +23012,7 @@ GameObject:
   - component: {fileID: 822152895}
   - component: {fileID: 822152896}
   - component: {fileID: 822152897}
+  - component: {fileID: 822152898}
   m_Layer: 0
   m_Name: Entrance Door
   m_TagString: Untagged
@@ -23090,6 +23111,25 @@ BoxCollider2D:
   serializedVersion: 2
   m_Size: {x: 10, y: 31.079014}
   m_EdgeRadius: 0
+--- !u!95 &822152898
+Animator:
+  serializedVersion: 3
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 822152894}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: a52c978095e7a4d4aab34e332aef0416, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorControllerStateOnDisable: 0
 --- !u!1 &827959616
 GameObject:
   m_ObjectHideFlags: 0
@@ -23205,6 +23245,7 @@ GameObject:
   - component: {fileID: 834375215}
   - component: {fileID: 834375216}
   - component: {fileID: 834375217}
+  - component: {fileID: 834375218}
   m_Layer: 0
   m_Name: Exit Door (1)
   m_TagString: Untagged
@@ -23303,6 +23344,25 @@ BoxCollider2D:
   serializedVersion: 2
   m_Size: {x: 39.97339, y: 31.079014}
   m_EdgeRadius: 0
+--- !u!95 &834375218
+Animator:
+  serializedVersion: 3
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 834375214}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: c8e4fee8defe9d144a3653d0cf9ea610, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorControllerStateOnDisable: 0
 --- !u!1001 &860637058
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -27144,6 +27204,7 @@ GameObject:
   - component: {fileID: 1149969597}
   - component: {fileID: 1149969598}
   - component: {fileID: 1149969599}
+  - component: {fileID: 1149969600}
   m_Layer: 0
   m_Name: Exit Door (1)
   m_TagString: Untagged
@@ -27242,6 +27303,25 @@ BoxCollider2D:
   serializedVersion: 2
   m_Size: {x: 39.97339, y: 31.079014}
   m_EdgeRadius: 0
+--- !u!95 &1149969600
+Animator:
+  serializedVersion: 3
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1149969596}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: c8e4fee8defe9d144a3653d0cf9ea610, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorControllerStateOnDisable: 0
 --- !u!1 &1158926130
 GameObject:
   m_ObjectHideFlags: 0
@@ -40984,6 +41064,7 @@ GameObject:
   - component: {fileID: 1399747518}
   - component: {fileID: 1399747519}
   - component: {fileID: 1399747520}
+  - component: {fileID: 1399747521}
   m_Layer: 0
   m_Name: Entrance Door
   m_TagString: Untagged
@@ -41082,6 +41163,25 @@ BoxCollider2D:
   serializedVersion: 2
   m_Size: {x: 10, y: 31.079014}
   m_EdgeRadius: 0
+--- !u!95 &1399747521
+Animator:
+  serializedVersion: 3
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1399747517}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: a52c978095e7a4d4aab34e332aef0416, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorControllerStateOnDisable: 0
 --- !u!1 &1402900246
 GameObject:
   m_ObjectHideFlags: 0
@@ -41627,6 +41727,7 @@ GameObject:
   - component: {fileID: 1444155606}
   - component: {fileID: 1444155607}
   - component: {fileID: 1444155608}
+  - component: {fileID: 1444155609}
   m_Layer: 0
   m_Name: Exit Door
   m_TagString: Untagged
@@ -41725,6 +41826,25 @@ BoxCollider2D:
   serializedVersion: 2
   m_Size: {x: 39.97339, y: 31.079014}
   m_EdgeRadius: 0
+--- !u!95 &1444155609
+Animator:
+  serializedVersion: 3
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1444155605}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: c8e4fee8defe9d144a3653d0cf9ea610, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorControllerStateOnDisable: 0
 --- !u!1 &1445549405
 GameObject:
   m_ObjectHideFlags: 0
@@ -43067,6 +43187,7 @@ GameObject:
   - component: {fileID: 1515843984}
   - component: {fileID: 1515843985}
   - component: {fileID: 1515843986}
+  - component: {fileID: 1515843987}
   m_Layer: 0
   m_Name: Entrance Door
   m_TagString: Untagged
@@ -43165,6 +43286,25 @@ BoxCollider2D:
   serializedVersion: 2
   m_Size: {x: 10, y: 31.079014}
   m_EdgeRadius: 0
+--- !u!95 &1515843987
+Animator:
+  serializedVersion: 3
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1515843983}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: a52c978095e7a4d4aab34e332aef0416, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorControllerStateOnDisable: 0
 --- !u!1 &1522271146
 GameObject:
   m_ObjectHideFlags: 0
@@ -44026,6 +44166,7 @@ GameObject:
   - component: {fileID: 1711328965}
   - component: {fileID: 1711328966}
   - component: {fileID: 1711328967}
+  - component: {fileID: 1711328968}
   m_Layer: 0
   m_Name: Exit Door (1)
   m_TagString: Untagged
@@ -44124,6 +44265,25 @@ BoxCollider2D:
   serializedVersion: 2
   m_Size: {x: 39.97339, y: 31.079014}
   m_EdgeRadius: 0
+--- !u!95 &1711328968
+Animator:
+  serializedVersion: 3
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1711328964}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: c8e4fee8defe9d144a3653d0cf9ea610, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorControllerStateOnDisable: 0
 --- !u!1001 &1723787469
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -46775,6 +46935,7 @@ GameObject:
   - component: {fileID: 1901042087}
   - component: {fileID: 1901042088}
   - component: {fileID: 1901042089}
+  - component: {fileID: 1901042090}
   m_Layer: 0
   m_Name: Entrance Door
   m_TagString: Untagged
@@ -46873,6 +47034,25 @@ BoxCollider2D:
   serializedVersion: 2
   m_Size: {x: 10, y: 31.079014}
   m_EdgeRadius: 0
+--- !u!95 &1901042090
+Animator:
+  serializedVersion: 3
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1901042086}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: a52c978095e7a4d4aab34e332aef0416, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorControllerStateOnDisable: 0
 --- !u!4 &1907060353 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 9173240126137882182, guid: b580a8d8f6ddd51468720505d73ce7c7,
@@ -54689,6 +54869,7 @@ GameObject:
   - component: {fileID: 1861551517848288885}
   - component: {fileID: 3067094105725408642}
   - component: {fileID: 1753063126445859044}
+  - component: {fileID: 1753063126445859045}
   m_Layer: 0
   m_Name: Exit Door (1)
   m_TagString: Untagged
@@ -54722,6 +54903,25 @@ BoxCollider2D:
   serializedVersion: 2
   m_Size: {x: 10, y: 31.079014}
   m_EdgeRadius: 0
+--- !u!95 &1753063126445859045
+Animator:
+  serializedVersion: 3
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1753063126445859043}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: a52c978095e7a4d4aab34e332aef0416, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorControllerStateOnDisable: 0
 --- !u!114 &1856254058021448581
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -58916,6 +59116,7 @@ GameObject:
   - component: {fileID: 7276216107606355676}
   - component: {fileID: 432231513001357709}
   - component: {fileID: 4937617265991919751}
+  - component: {fileID: 4937617265991919752}
   m_Layer: 0
   m_Name: Exit Door
   m_TagString: Untagged
@@ -58949,6 +59150,25 @@ BoxCollider2D:
   serializedVersion: 2
   m_Size: {x: 39.97339, y: 31.079014}
   m_EdgeRadius: 0
+--- !u!95 &4937617265991919752
+Animator:
+  serializedVersion: 3
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4937617265991919750}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: c8e4fee8defe9d144a3653d0cf9ea610, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorControllerStateOnDisable: 0
 --- !u!4 &4964201654813966130
 Transform:
   m_ObjectHideFlags: 0
@@ -59176,6 +59396,7 @@ GameObject:
   - component: {fileID: 969485508806255582}
   - component: {fileID: 2320075347186883410}
   - component: {fileID: 5179329120859148099}
+  - component: {fileID: 5179329120859148100}
   m_Layer: 0
   m_Name: Entrance Door
   m_TagString: Untagged
@@ -59209,6 +59430,25 @@ BoxCollider2D:
   serializedVersion: 2
   m_Size: {x: 39.97339, y: 31.079014}
   m_EdgeRadius: 0
+--- !u!95 &5179329120859148100
+Animator:
+  serializedVersion: 3
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5179329120859148098}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: c8e4fee8defe9d144a3653d0cf9ea610, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorControllerStateOnDisable: 0
 --- !u!1 &5213567103433292524
 GameObject:
   m_ObjectHideFlags: 0
@@ -65827,6 +66067,7 @@ GameObject:
   - component: {fileID: 7119829527205963797}
   - component: {fileID: 7119829527205963798}
   - component: {fileID: 7119829527205963799}
+  - component: {fileID: 7119829527205963800}
   m_Layer: 0
   m_Name: Entrance Door
   m_TagString: Untagged
@@ -65925,6 +66166,25 @@ BoxCollider2D:
   serializedVersion: 2
   m_Size: {x: 10, y: 31.079014}
   m_EdgeRadius: 0
+--- !u!95 &7119829527205963800
+Animator:
+  serializedVersion: 3
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7119829527205963796}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: a52c978095e7a4d4aab34e332aef0416, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorControllerStateOnDisable: 0
 --- !u!1 &7119829527898780868
 GameObject:
   m_ObjectHideFlags: 0
@@ -65936,6 +66196,7 @@ GameObject:
   - component: {fileID: 7119829527898780869}
   - component: {fileID: 7119829527898780870}
   - component: {fileID: 7119829527898780871}
+  - component: {fileID: 7119829527898780872}
   m_Layer: 0
   m_Name: Exit Door
   m_TagString: Untagged
@@ -66034,6 +66295,25 @@ BoxCollider2D:
   serializedVersion: 2
   m_Size: {x: 10, y: 31.079014}
   m_EdgeRadius: 0
+--- !u!95 &7119829527898780872
+Animator:
+  serializedVersion: 3
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7119829527898780868}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: a52c978095e7a4d4aab34e332aef0416, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorControllerStateOnDisable: 0
 --- !u!1001 &7121193075638463736
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -66171,13 +66451,13 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 4937617265991919750}
-  m_LocalRotation: {x: 0, y: 0, z: 0.7071068, w: 0.7071068}
-  m_LocalPosition: {x: 6.3, y: 78, z: 0}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: -0.4, y: 66, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 5745372309664679970}
   m_RootOrder: 1
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 90}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!4 &7315125252479427717
 Transform:
   m_ObjectHideFlags: 0
