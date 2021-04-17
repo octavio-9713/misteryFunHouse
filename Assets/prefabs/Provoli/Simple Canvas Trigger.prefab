@@ -44,8 +44,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 53378b4d58b07dd4d96022629b90dab2, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  spawnPlace: {fileID: 0}
-  prefab: {fileID: 6396881423136387825, guid: e55ef6891cc1a114da173dd6a489b6b1, type: 3}
+  manager: {fileID: 0}
+  prefab: {fileID: 6396881423136387825, guid: c1cdf6b4468caca4098cfa03edc7148c, type: 3}
+  fastPrefab: {fileID: 6396881423136387825, guid: 49fc545e8741fe54fb6d8317bf32d095,
+    type: 3}
+  curtains:
+  - {fileID: 0}
 --- !u!61 &7724377921349067131
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -59,7 +63,7 @@ BoxCollider2D:
   m_IsTrigger: 1
   m_UsedByEffector: 0
   m_UsedByComposite: 0
-  m_Offset: {x: 4.47031, y: 25.174908}
+  m_Offset: {x: -7.5834484, y: -28.160538}
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0, y: 0}
@@ -70,5 +74,5 @@ BoxCollider2D:
     adaptiveTiling: 0
   m_AutoTiling: 0
   serializedVersion: 2
-  m_Size: {x: 61.29093, y: 60.349815}
+  m_Size: {x: 122.302704, y: 62.50107}
   m_EdgeRadius: 0

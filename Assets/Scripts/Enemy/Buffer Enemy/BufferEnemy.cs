@@ -8,6 +8,9 @@ public class BufferEnemy : Enemy
 
     public bool waitToBuff;
 
+    [Header("Buffed Halo")]
+    public GameObject bufferHalo;
+
     [Header("Posible Buffed Enemies")]
     public List<GameObject> allies;
     private Enemy _buffedEnemy;
@@ -35,6 +38,7 @@ public class BufferEnemy : Enemy
             Buff();
 
             fireEvent.Invoke();
+            bufferHalo.SetActive(true);
         }
     }
 
@@ -49,6 +53,7 @@ public class BufferEnemy : Enemy
     private void DeathOfChoosenOne()
     {
         attacking = false;
+        bufferHalo.SetActive(false);
         StartCoroutine(WaitForBuff());
     }
 
@@ -73,6 +78,8 @@ public class BufferEnemy : Enemy
                 _animator.SetTrigger("hurt");
 
             attacking = false;
+            bufferHalo.SetActive(false);
+
             StartCoroutine(WaitForBuff());
             DebuffChosen();
         }
