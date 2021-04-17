@@ -41171,7 +41171,7 @@ GameObject:
   - component: {fileID: 1952504017}
   m_Layer: 9
   m_Name: Bottom-Boss.Long
-  m_TagString: SpawnPointSala
+  m_TagString: Reward Room
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -48506,7 +48506,7 @@ GameObject:
   - component: {fileID: 3187249921235092231}
   m_Layer: 9
   m_Name: Left Reward
-  m_TagString: SpawnPointSala
+  m_TagString: Reward Room
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -51401,7 +51401,7 @@ GameObject:
   - component: {fileID: 6166870004339776710}
   m_Layer: 9
   m_Name: Right Reward
-  m_TagString: SpawnPointSala
+  m_TagString: Reward Room
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0

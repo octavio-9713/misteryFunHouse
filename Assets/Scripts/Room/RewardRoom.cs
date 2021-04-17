@@ -15,6 +15,7 @@ public class RewardRoom : MonoBehaviour
     public GameManager.TypeOfItems itemType = GameManager.TypeOfItems.ALL;
 
     public GameObject itemSpawnPos;
+    private GameObject spawnedItem;
 
     void Update()
     {
@@ -34,20 +35,33 @@ public class RewardRoom : MonoBehaviour
             activacion = false;
 
             GameObject item = GameManager.Instance.GetItem(itemType);
-            Instantiate(item, itemSpawnPos.transform);
-
-            Destroy(this);
+            spawnedItem = Instantiate(item, itemSpawnPos.transform);
+        
         }
     }
 
     public void ActivarSala()
     {
-        if (numActivacion == 0)
+        if (!activacion)
         {
             activacion = true;
             numActivacion++;
         }
        
+    }
+
+    public void RestoreRoom()
+    {
+        if (spawnedItem)
+            Destroy(spawnedItem);
+
+
+        for (int i = 0; i < cortinas.Length; i++)
+        {
+            cortinas[i].Replegar();
+        }
+
+        gameObject.SetActive(true);
     }
 
 }

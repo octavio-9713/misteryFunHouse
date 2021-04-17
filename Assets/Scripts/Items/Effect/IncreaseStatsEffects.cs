@@ -21,4 +21,10 @@ public class IncreaseStatsEffects : ItemEffect
         Player player = GameManager.Instance.player;
         player.ChangeStats(buffstats, timeBetweenDashes, dashLength, dashCooldown, buff);
     }
+
+    public override void UnapplyEffect()
+    {
+        Player player = GameManager.Instance.player;
+        player.UndoChangeStats(buffstats, timeBetweenDashes, dashLength, dashCooldown, buff);
+    }
 }

@@ -36,6 +36,7 @@ TagManager:
   - Player Life
   - Player Spawnpoint
   - Buff Halo
+  - Reward Room
   layers:
   - Default
   - TransparentFX

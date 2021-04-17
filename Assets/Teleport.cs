@@ -6,6 +6,7 @@ public class Teleport : MonoBehaviour
 {
     public void OnTriggerEnter2D(Collider2D collision)
     {
-        GameManager.Instance.NextRoom();
+        if (collision.gameObject.CompareTag("Player"))
+            GameManager.Instance.NextRoom();
     }
 }

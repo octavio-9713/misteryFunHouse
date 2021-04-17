@@ -12,4 +12,10 @@ public class ChangeWeapon : ItemEffect
         Player player = GameManager.Instance.player;
         player.ChangeWeapon(newGun);
     }
+
+    public override void UnapplyEffect()
+    {
+        Player player = GameManager.Instance.player;
+        player.RestoreDefaultWeapon();
+    }
 }
