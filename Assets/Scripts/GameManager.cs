@@ -69,8 +69,6 @@ public class GameManager : MonoBehaviour
         this._allitems.AddRange(effectItems);
         this._allitems.AddRange(weaponItems);
 
-        _pickedItems.ForEach(item => item.ApplyEffect());
-
         StopTheCount();
     }
 
@@ -138,6 +136,7 @@ public class GameManager : MonoBehaviour
         Camera.main.transform.position = camaraPos;
 
         player.gameObject.SetActive(true);
+        _pickedItems.ForEach(item => item.ApplyEffect());
 
         if (provolisIntros.Count > 0)
         {
