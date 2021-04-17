@@ -1348,6 +1348,11 @@ PrefabInstance:
       value: 
       objectReference: {fileID: 8187454619192674838, guid: 5881a8ff36f8f5d429eb554e98111550,
         type: 3}
+    - target: {fileID: 8524060623887469276, guid: 4e10158c0bcce9641a40dad523ef4421,
+        type: 3}
+      propertyPath: m_LocalPosition.x
+      value: -102.3
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 4e10158c0bcce9641a40dad523ef4421, type: 3}
 --- !u!1001 &2585990134219817806
@@ -1357,6 +1362,16 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 1304152732}
     m_Modifications:
+    - target: {fileID: 285484123998302526, guid: 895e71f740d117a4e88df61b74563eaf,
+        type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 44.8
+      objectReference: {fileID: 0}
+    - target: {fileID: 285484123998302526, guid: 895e71f740d117a4e88df61b74563eaf,
+        type: 3}
+      propertyPath: m_LocalPosition.y
+      value: -26.8
+      objectReference: {fileID: 0}
     - target: {fileID: 7278285078417508770, guid: 895e71f740d117a4e88df61b74563eaf,
         type: 3}
       propertyPath: m_RootOrder
@@ -1416,6 +1431,16 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: Top Reward
+      objectReference: {fileID: 0}
+    - target: {fileID: 7871964601479350705, guid: 895e71f740d117a4e88df61b74563eaf,
+        type: 3}
+      propertyPath: m_LocalPosition.x
+      value: -49.6
+      objectReference: {fileID: 0}
+    - target: {fileID: 7871964601479350705, guid: 895e71f740d117a4e88df61b74563eaf,
+        type: 3}
+      propertyPath: m_LocalPosition.y
+      value: -24.8
       objectReference: {fileID: 0}
     - target: {fileID: 7925148491944839249, guid: 895e71f740d117a4e88df61b74563eaf,
         type: 3}
@@ -2489,6 +2514,11 @@ PrefabInstance:
       propertyPath: enemySpawner.Array.data[2]
       value: 
       objectReference: {fileID: 7119829527580165837}
+    - target: {fileID: 3337200854055417531, guid: 08c621390f2d66341aa931f334e939c5,
+        type: 3}
+      propertyPath: m_LocalPosition.x
+      value: -103.4
+      objectReference: {fileID: 0}
     - target: {fileID: 5790018403086870586, guid: 08c621390f2d66341aa931f334e939c5,
         type: 3}
       propertyPath: m_IsActive
@@ -2531,6 +2561,46 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 1304152732}
     m_Modifications:
+    - target: {fileID: 1637931886654188621, guid: edd78055b6a13e941aec4ae2f12e4cd1,
+        type: 3}
+      propertyPath: m_LocalScale.x
+      value: 0.66242
+      objectReference: {fileID: 0}
+    - target: {fileID: 1637931886654188621, guid: edd78055b6a13e941aec4ae2f12e4cd1,
+        type: 3}
+      propertyPath: m_LocalPosition.x
+      value: -60.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 1637931886654188621, guid: edd78055b6a13e941aec4ae2f12e4cd1,
+        type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 104.3
+      objectReference: {fileID: 0}
+    - target: {fileID: 1637931886654188621, guid: edd78055b6a13e941aec4ae2f12e4cd1,
+        type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 0.7795427
+      objectReference: {fileID: 0}
+    - target: {fileID: 1637931886654188621, guid: edd78055b6a13e941aec4ae2f12e4cd1,
+        type: 3}
+      propertyPath: m_LocalRotation.x
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1637931886654188621, guid: edd78055b6a13e941aec4ae2f12e4cd1,
+        type: 3}
+      propertyPath: m_LocalRotation.y
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1637931886654188621, guid: edd78055b6a13e941aec4ae2f12e4cd1,
+        type: 3}
+      propertyPath: m_LocalRotation.z
+      value: 0.62634915
+      objectReference: {fileID: 0}
+    - target: {fileID: 1637931886654188621, guid: edd78055b6a13e941aec4ae2f12e4cd1,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 77.563
+      objectReference: {fileID: 0}
     - target: {fileID: 7635570687823998416, guid: edd78055b6a13e941aec4ae2f12e4cd1,
         type: 3}
       propertyPath: enemies.Array.data[1]
