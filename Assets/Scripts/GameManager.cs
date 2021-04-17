@@ -43,7 +43,7 @@ public class GameManager : MonoBehaviour
     private List<GameObject> _allitems = new List<GameObject>();
     private List<ItemEffect> _pickedItems = new List<ItemEffect>();
 
-    private int _sceneIndex = 2;
+    public int _sceneIndex = 2;
     private bool _needsToLoad = true;
 
     private static GameManager _instance;
@@ -217,7 +217,11 @@ public class GameManager : MonoBehaviour
     public void NextRoom()
     {
         player.gameObject.SetActive(false);
-        provolisIntros.RemoveAt(0);
+        if (provolisIntros.Count > 0)
+        {
+            provolisIntros.RemoveAt(0);
+        }
+        //provolisIntros.RemoveAt(0);
         StartCoroutine(UnloadScene(_sceneIndex));
 
         StopTheCount();
