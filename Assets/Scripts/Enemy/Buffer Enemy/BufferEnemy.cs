@@ -8,6 +8,9 @@ public class BufferEnemy : Enemy
 
     public bool waitToBuff;
 
+    [Header("Buffed Halo")]
+    public GameObject bufferHalo;
+
     [Header("Posible Buffed Enemies")]
     public List<GameObject> allies;
     private Enemy _buffedEnemy;
@@ -29,12 +32,13 @@ public class BufferEnemy : Enemy
     {
         if (!attacking && !_waitForHurt)
         {
-            _animator.SetTrigger("shooting");
+            _animator.SetBool("attacking", true);
             attacking = true;
 
             Buff();
 
             fireEvent.Invoke();
+            bufferHalo.SetActive(true);
         }
     }
 
@@ -49,6 +53,7 @@ public class BufferEnemy : Enemy
     private void DeathOfChoosenOne()
     {
         attacking = false;
+        bufferHalo.SetActive(false);
         StartCoroutine(WaitForBuff());
     }
 
@@ -73,6 +78,8 @@ public class BufferEnemy : Enemy
                 _animator.SetTrigger("hurt");
 
             attacking = false;
+            bufferHalo.SetActive(false);
+
             StartCoroutine(WaitForBuff());
             DebuffChosen();
         }
@@ -80,8 +87,7 @@ public class BufferEnemy : Enemy
 
     protected IEnumerator WaitForBuff()
     {
-        _animator.ResetTrigger("shooting");
-        _animator.SetTrigger("waiting");
+        _animator.SetBool("attacking", false);
         yield return new WaitForSeconds(stats.attackDelay);
         waitToBuff = false;
     }

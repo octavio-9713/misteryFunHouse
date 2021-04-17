@@ -12,7 +12,6 @@ public class MeleeEnemy : Enemy
         _player = GameManager.Instance.player;
         _animator = gameObject.GetComponent<Animator>();
         _renderer = gameObject.GetComponent<SpriteRenderer>();
-        _ps = gameObject.GetComponentInChildren<ParticleSystem>();
         _rb = gameObject.GetComponent<Rigidbody2D>();
 
         _hitAttack = gameObject.GetComponentInChildren<HitAttack>();

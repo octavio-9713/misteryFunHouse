@@ -43,7 +43,7 @@ public class BulletEnemy : MonoBehaviour
                 ContactPoint2D[] contacts = new ContactPoint2D[5];
                 Vector3 damageDir = contacts[0].point - (Vector2)_player.transform.position;
 
-                GameManager.Instance.player.GetHurt(damage, damageDir, nockback);
+                GameManager.Instance.player.GetHurt(damage, damageDir, 0);
                 Destroy(gameObject);
             }
         }

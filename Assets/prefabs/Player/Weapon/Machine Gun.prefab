@@ -112,7 +112,7 @@ MonoBehaviour:
     weaponCadence: 0.15
     weaponCooldown: 0.2
     weaponDamage: 15
-    weaponRecoil: 2500
+    weaponRecoil: 0
   effects: []
   sight: {fileID: 0}
   container: {fileID: 0}

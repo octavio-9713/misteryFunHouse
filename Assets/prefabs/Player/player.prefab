@@ -159,6 +159,7 @@ GameObject:
   - component: {fileID: 8760048502444100715}
   - component: {fileID: 6088944589472554309}
   - component: {fileID: 461115998484160253}
+  - component: {fileID: 8742973154821635716}
   - component: {fileID: 8035971947796995880}
   - component: {fileID: 5373942582161254871}
   - component: {fileID: 3619905251375265379}
@@ -270,7 +271,7 @@ BoxCollider2D:
   m_Enabled: 1
   m_Density: 1
   m_Material: {fileID: 0}
-  m_IsTrigger: 0
+  m_IsTrigger: 1
   m_UsedByEffector: 0
   m_UsedByComposite: 0
   m_Offset: {x: -0.27297974, y: -1.4084826}
@@ -285,6 +286,32 @@ BoxCollider2D:
   m_AutoTiling: 0
   serializedVersion: 2
   m_Size: {x: 16.766907, y: 21.150507}
+  m_EdgeRadius: 0
+--- !u!61 &8742973154821635716
+BoxCollider2D:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4925357294853648683}
+  m_Enabled: 1
+  m_Density: 1
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_UsedByEffector: 0
+  m_UsedByComposite: 0
+  m_Offset: {x: -0.23398209, y: -10.236748}
+  m_SpriteTilingProperty:
+    border: {x: 0, y: 0, z: 0, w: 0}
+    pivot: {x: 0.5, y: 0.5}
+    oldSize: {x: 21, y: 28}
+    newSize: {x: 21, y: 28}
+    adaptiveTilingThreshold: 0.5
+    drawMode: 0
+    adaptiveTiling: 0
+  m_AutoTiling: 0
+  serializedVersion: 2
+  m_Size: {x: 9.768829, y: 7.5265045}
   m_EdgeRadius: 0
 --- !u!95 &8035971947796995880
 Animator:
@@ -331,7 +358,7 @@ MonoBehaviour:
     currentHp: 0
     playerSpeed: 21000
     invencibilityTime: 0.75
-    dashSpeed: 17000
+    dashSpeed: 12000
     initialDashForce: 8000
     dashDamage: 10
   animator: {fileID: 8035971947796995880}
@@ -367,7 +394,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b7e5306c955717244aa95ab8eadfa714, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  dashLengthSec: 0.2
+  dashLengthSec: 0.4
   dashWait: 0.35
   dashCooldown: 1.5
 --- !u!82 &2405628725127526934

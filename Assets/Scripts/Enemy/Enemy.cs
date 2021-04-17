@@ -19,9 +19,13 @@ public class Enemy : MonoBehaviour
     public GameObject[] shotpos;
     public bool attacking = false;
 
+
+    [Header("Buff")]
+    public GameObject buffHalo;
+
     protected Animator _animator;
     protected SpriteRenderer _renderer;
-    protected ParticleSystem _ps;
+
     protected Rigidbody2D _rb;
     protected Player _player;
 
@@ -50,7 +54,6 @@ public class Enemy : MonoBehaviour
         _player = GameManager.Instance.player;
         _animator = gameObject.GetComponent<Animator>();
         _renderer = gameObject.GetComponent<SpriteRenderer>();
-        _ps = gameObject.GetComponentInChildren<ParticleSystem>();
         _rb = gameObject.GetComponent<Rigidbody2D>();
 
         currentState = new IdleState(this, _player, _animator);
@@ -114,13 +117,13 @@ public class Enemy : MonoBehaviour
     public void BuffMeUp(BuffStats buff)
     {
         stats.ApplyBuff(buff);
-        _ps.Play();
+        buffHalo.SetActive(true);
     }
 
     public void DeBuffMe(BuffStats buff)
     {
         stats.ReverseBuff(buff);
-        _ps.Stop();
+        buffHalo.SetActive(false);
     }
 
     ////////////////// Attacking Methods //////////////////////
