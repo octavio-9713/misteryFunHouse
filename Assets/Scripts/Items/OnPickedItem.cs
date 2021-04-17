@@ -7,17 +7,16 @@ public class OnPickedItem : MonoBehaviour
 {
     public Text textName;
     public Text textDesc;
+    public Image image;
 
     [Header ("Speed of text writting")]
     public float typeWritterSpeed = 0.05f;
 
-    //TODO: Agregar Escritura lenta de letras...
-
-    //TODO: Terminar pickups...
-    public void SetText(string name, string desc)
+    public void SetText(string name, string desc, Sprite image)
     {
-        //textName.text = name;
+        textName.text = name;
         textDesc.text = "";
+        this.image.sprite = image;
 
         StopAllCoroutines();
         StartCoroutine(TypeWritterEffect(desc));

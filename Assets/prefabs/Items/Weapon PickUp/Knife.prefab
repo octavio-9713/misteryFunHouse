@@ -15,6 +15,7 @@ MonoBehaviour:
   itemName: Knife?
   itemDescription: Did you just grab a knife?! Are you crazy who brings a knife to
     a gun fight !
+  itemSprite: {fileID: 21300000, guid: 13be85179e4876445b7fc95fc9617623, type: 3}
   pickedPrefab: {fileID: 5357196364174934046, guid: d80f6da6a3fda054aa2bea685cb14cfc,
     type: 3}
   showsProvoli: 1

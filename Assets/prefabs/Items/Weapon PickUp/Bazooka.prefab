@@ -14,6 +14,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   itemName: B.F.B
   itemDescription: You Know what BFG is, well change the g for a Bazooka
+  itemSprite: {fileID: 584694796413287674, guid: 577098cf6d0250946b9b14ed6263e601,
+    type: 3}
   pickedPrefab: {fileID: 5357196364174934046, guid: d80f6da6a3fda054aa2bea685cb14cfc,
     type: 3}
   showsProvoli: 1

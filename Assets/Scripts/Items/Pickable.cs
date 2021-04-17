@@ -8,6 +8,7 @@ public class Pickable : MonoBehaviour
     [Header ("Item Info")]
     public string itemName;
     public string itemDescription;
+    public Sprite itemSprite;
 
     [Header("Pickup Message")]
     public GameObject pickedPrefab;
@@ -25,7 +26,7 @@ public class Pickable : MonoBehaviour
             if (showsProvoli)
             {
                 GameObject picked = Instantiate(pickedPrefab.gameObject, GameManager.Instance.canvas.transform);
-                picked.GetComponent<OnPickedItem>().SetText(itemName, itemDescription);
+                picked.GetComponent<OnPickedItem>().SetText(itemName, itemDescription, itemSprite);
             }
 
             effect.ApplyEffect();

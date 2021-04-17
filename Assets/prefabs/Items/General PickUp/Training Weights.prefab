@@ -12,8 +12,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 227ce8167b0927a46ab8b738ff00d6a5, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  itemName: Training Weights
-  itemDescription: I sure you know this, but you have wheels not legs!
+  itemName: Piston
+  itemDescription: How do you not know what this is? You have wheels!
+  itemSprite: {fileID: 21300000, guid: 7487856ab77d61f43b63556124cc2109, type: 3}
   pickedPrefab: {fileID: 5357196364174934046, guid: d80f6da6a3fda054aa2bea685cb14cfc,
     type: 3}
   showsProvoli: 1
@@ -31,6 +32,12 @@ PrefabInstance:
       propertyPath: m_RootOrder
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 6742788979383715496, guid: 8ab06e2e30363c7498d13f1a844dc99d,
+        type: 3}
+      propertyPath: m_Sprite
+      value: 
+      objectReference: {fileID: 21300000, guid: 7487856ab77d61f43b63556124cc2109,
+        type: 3}
     - target: {fileID: 7521444293867141520, guid: 8ab06e2e30363c7498d13f1a844dc99d,
         type: 3}
       propertyPath: m_RootOrder

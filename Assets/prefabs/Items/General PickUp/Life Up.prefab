@@ -14,6 +14,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   itemName: Life Up
   itemDescription: It's Just a Life up, what did you Expected
+  itemSprite: {fileID: 21300000, guid: eb483f1a878130a4d9d048139ddf4489, type: 3}
   pickedPrefab: {fileID: 5357196364174934046, guid: d80f6da6a3fda054aa2bea685cb14cfc,
     type: 3}
   showsProvoli: 1
@@ -45,7 +46,7 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Sprite
       value: 
-      objectReference: {fileID: 21300000, guid: 8cc1a345261e72645acb576b1598f13e,
+      objectReference: {fileID: 21300000, guid: eb483f1a878130a4d9d048139ddf4489,
         type: 3}
     - target: {fileID: 7521444293867141520, guid: 8ab06e2e30363c7498d13f1a844dc99d,
         type: 3}
