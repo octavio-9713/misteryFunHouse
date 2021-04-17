@@ -249,6 +249,36 @@ public class Player : MonoBehaviour
         }
     }
 
+    private void OnTriggerEnter2D(Collider2D collision)
+    {
+        if (collision.gameObject.CompareTag("Enemy"))
+        {
+            if (dashing)
+            {
+                Vector3 dir = collision.gameObject.transform.position - this.transform.position;
+                collision.gameObject.GetComponent<Enemy>().GetHit(stats.dashDamage, dir.normalized);
+
+                _dash.StopDash();
+            }
+
+            else
+            {
+                _rb.velocity = Vector3.zero;
+                _rb.angularVelocity = 0;
+
+                ContactPoint2D[] contacts = new ContactPoint2D[5];
+                Vector3 dir = (Vector2)gameObject.transform.position - contacts[0].point;
+                GetHurt(1, dir, 1000);
+            }
+        }
+
+        else
+        {
+            if (dashing)
+                _dash.StopDash();
+        }
+    }
+
     //corrutina
     IEnumerator InvencibilityTime(float seconds)
     {

@@ -23,6 +23,9 @@ public class ProvoliDialogTree : MonoBehaviour
 
     private bool _isTalking = false;
 
+    [Header ("Game Ender")]
+    public bool isEnder = false;
+
     private Dialog _currentDialog;
     private string _currentLine;
 
@@ -78,13 +81,15 @@ public class ProvoliDialogTree : MonoBehaviour
         if (dialogTree2.Count > 0)
         {
             Dialog firer = dialogTree2.Find(dialog => dialog.firesEvent);
-            Debug.Log(firer);
             if (firer != null)
                 dialogEvent.Invoke();
         }
 
         _provoliAnim.SetTrigger("fade");
         GetComponent<Animator>().SetTrigger("fade");
+
+        if (isEnder)
+            GameManager.Instance.NextRoom();
     }
 
     public void OnFinishAnimation()

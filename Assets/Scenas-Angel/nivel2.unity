@@ -62582,7 +62582,7 @@ MonoBehaviour:
   confetiPos:
   - {fileID: 3754107620322398773}
   - {fileID: 7866808738224550096}
-  itemType: 4
+  itemType: 1
   itemSpawnPos: {fileID: 4582636628660315841}
 --- !u!19719996 &5630308916822272531
 TilemapCollider2D:

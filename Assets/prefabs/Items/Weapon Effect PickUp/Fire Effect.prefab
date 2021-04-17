@@ -15,6 +15,7 @@ MonoBehaviour:
   itemName: Red Hot Chili Pepper
   itemDescription: This is hot... Can't Stop now. By The Way try to get to the Otherside,
     don't give in to your Dark Necessities...
+  itemSprite: {fileID: 21300000, guid: 69951732e42d787428dddd876f147c43, type: 3}
   pickedPrefab: {fileID: 5357196364174934046, guid: d80f6da6a3fda054aa2bea685cb14cfc,
     type: 3}
   showsProvoli: 1
@@ -51,17 +52,17 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Sprite
       value: 
-      objectReference: {fileID: -9037724387597929990, guid: b88be7762d6e1bd4ba8b4b0ac2024a72,
+      objectReference: {fileID: 21300000, guid: 69951732e42d787428dddd876f147c43,
         type: 3}
     - target: {fileID: 6742788979383715496, guid: 8ab06e2e30363c7498d13f1a844dc99d,
         type: 3}
       propertyPath: m_Color.b
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 6742788979383715496, guid: 8ab06e2e30363c7498d13f1a844dc99d,
         type: 3}
       propertyPath: m_Color.g
-      value: 0.42728096
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 6742788979383715496, guid: 8ab06e2e30363c7498d13f1a844dc99d,
         type: 3}

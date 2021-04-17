@@ -1,5 +1,26 @@
 %YAML 1.1
 %TAG !u! tag:unity3d.com,2011:
+--- !u!114 &4753032921896434661
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6903416689338495161}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 227ce8167b0927a46ab8b738ff00d6a5, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  itemName: Ice Age
+  itemDescription: Brrr... It's freezing... Everything will freeze at this rate.
+    It's not like i care or anything
+  itemSprite: {fileID: 21300000, guid: 2b5c8addb2674a14988efe656b28d8de, type: 3}
+  pickedPrefab: {fileID: 5357196364174934046, guid: d80f6da6a3fda054aa2bea685cb14cfc,
+    type: 3}
+  showsProvoli: 1
+  effect: {fileID: -2936343068656741452, guid: f424de294aede984dbffb3f8ac32b300, type: 3}
+  itemImage: {fileID: 5713219871606434047}
 --- !u!95 &408869562736348543
 Animator:
   serializedVersion: 3
@@ -19,26 +40,6 @@ Animator:
   m_HasTransformHierarchy: 1
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorControllerStateOnDisable: 0
---- !u!114 &4753032921896434661
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 6903416689338495161}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 227ce8167b0927a46ab8b738ff00d6a5, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  itemName: Ice Age
-  itemDescription: Brrr... It's freezing... Everything will freeze at this rate.
-    It's not like i care or anything
-  pickedPrefab: {fileID: 5357196364174934046, guid: d80f6da6a3fda054aa2bea685cb14cfc,
-    type: 3}
-  showsProvoli: 1
-  effect: {fileID: -2936343068656741452, guid: f424de294aede984dbffb3f8ac32b300, type: 3}
-  itemImage: {fileID: 5713219871606434047}
 --- !u!1001 &4011675217768270166
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -54,12 +55,12 @@ PrefabInstance:
     - target: {fileID: 328553070106353782, guid: 8ab06e2e30363c7498d13f1a844dc99d,
         type: 3}
       propertyPath: m_LocalScale.x
-      value: 1.5
+      value: 0.75
       objectReference: {fileID: 0}
     - target: {fileID: 328553070106353782, guid: 8ab06e2e30363c7498d13f1a844dc99d,
         type: 3}
       propertyPath: m_LocalScale.y
-      value: 1.5
+      value: 0.5
       objectReference: {fileID: 0}
     - target: {fileID: 328553070106353782, guid: 8ab06e2e30363c7498d13f1a844dc99d,
         type: 3}
@@ -70,7 +71,7 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Sprite
       value: 
-      objectReference: {fileID: -5316452027832287083, guid: a97b02e5fcb6d4749bb52b96e5019f1f,
+      objectReference: {fileID: 21300000, guid: 2b5c8addb2674a14988efe656b28d8de,
         type: 3}
     - target: {fileID: 7521444293867141520, guid: 8ab06e2e30363c7498d13f1a844dc99d,
         type: 3}

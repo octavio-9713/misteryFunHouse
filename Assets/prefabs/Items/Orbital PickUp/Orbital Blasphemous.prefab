@@ -15,6 +15,7 @@ MonoBehaviour:
   itemName: Power of Admin
   itemDescription: I know this guy... he is terrifing. Some people say that he has
     the power to erase what he doesn't like
+  itemSprite: {fileID: 21300000, guid: a55782454d1f8324fa7998ad253744d1, type: 3}
   pickedPrefab: {fileID: 5357196364174934046, guid: d80f6da6a3fda054aa2bea685cb14cfc,
     type: 3}
   showsProvoli: 1
