@@ -5,6 +5,7 @@ using UnityEngine;
 public class Orbital : MonoBehaviour
 {
     public float rotationSpeed;
+    public GameObject playerSight;
 
     // Update is called once per frame
     void Update()

@@ -102,7 +102,8 @@ public class Player : MonoBehaviour
     public void Recoil(float force)
     {
         DetectMouse();
-        _rb.velocity = -_mouseDirection * force * Time.fixedDeltaTime;
+        if (force > 0)
+            _rb.velocity = -_mouseDirection * force * Time.fixedDeltaTime;
     }
 
 
@@ -244,7 +245,7 @@ public class Player : MonoBehaviour
 
         else
         {
-            if (dashing)
+            if (collision.gameObject.CompareTag("muro") && dashing)
                 _dash.StopDash();
         }
     }
@@ -274,7 +275,7 @@ public class Player : MonoBehaviour
 
         else
         {
-            if (dashing)
+            if (collision.gameObject.CompareTag("muro") && dashing)
                 _dash.StopDash();
         }
     }
