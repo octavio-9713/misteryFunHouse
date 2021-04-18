@@ -557,6 +557,11 @@ PrefabInstance:
       propertyPath: deathSound
       value: 
       objectReference: {fileID: 8300000, guid: 5d04450afd965b440aa63376c1835ffc, type: 3}
+    - target: {fileID: 5373942582161254871, guid: 93f0fa913e9aa504eacfc18a99538f1f,
+        type: 3}
+      propertyPath: stats.maxHp
+      value: 15
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 93f0fa913e9aa504eacfc18a99538f1f, type: 3}
 --- !u!114 &1250730268 stripped
@@ -588,6 +593,11 @@ PrefabInstance:
         type: 3}
       propertyPath: typeWritterSpeed
       value: 0.25
+      objectReference: {fileID: 0}
+    - target: {fileID: 2946958494554551268, guid: 4b187daf6ad39fe479667c9fff996568,
+        type: 3}
+      propertyPath: m_Enabled
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 2946958495637360592, guid: 4b187daf6ad39fe479667c9fff996568,
         type: 3}
@@ -698,6 +708,16 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: Canvas
+      objectReference: {fileID: 0}
+    - target: {fileID: 2946958495913638005, guid: 4b187daf6ad39fe479667c9fff996568,
+        type: 3}
+      propertyPath: m_Sprite
+      value: 
+      objectReference: {fileID: 0}
+    - target: {fileID: 2946958495913638005, guid: 4b187daf6ad39fe479667c9fff996568,
+        type: 3}
+      propertyPath: m_Enabled
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 4681285732081979419, guid: 4b187daf6ad39fe479667c9fff996568,
         type: 3}

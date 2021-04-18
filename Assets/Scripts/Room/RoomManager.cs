@@ -102,12 +102,16 @@ public class RoomManager : MonoBehaviour
 
         openEvent.Invoke();
         deactivated = true;
+        _spawnedEnemies.Clear();
     }
 
     public void RestoreRoom()
     {
         if (_spawnedEnemies.Count > 0)
-            _spawnedEnemies.ForEach(enemy => Destroy(enemy.gameObject));
+            _spawnedEnemies.ForEach(enemy => {
+                if (enemy != null)
+                    Destroy(enemy.gameObject);
+            });
 
         foreach (DoorTrigger door in doors)
         {

@@ -574,3 +574,4 @@ MonoBehaviour:
   dialogEvent:
     m_PersistentCalls:
       m_Calls: []
+  isEnder: 1

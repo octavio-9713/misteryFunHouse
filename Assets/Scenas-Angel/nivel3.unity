@@ -623,14 +623,12 @@ MonoBehaviour:
   - {fileID: 1714680266}
   - {fileID: 1827035227}
   - {fileID: 769906965}
-  - {fileID: 538048959}
   enemies:
   - {fileID: 6562394763544965211, guid: e584c4085c00b2048ac993090bd3fb64, type: 3}
   - {fileID: 6562394763544965211, guid: e584c4085c00b2048ac993090bd3fb64, type: 3}
   - {fileID: 4991751931681616902, guid: 46057ea5c380a9548870680f8ed4dcb9, type: 3}
   - {fileID: 6562394763544965211, guid: e584c4085c00b2048ac993090bd3fb64, type: 3}
   - {fileID: 6562394763544965211, guid: e584c4085c00b2048ac993090bd3fb64, type: 3}
-  - {fileID: 4991751931681616902, guid: 46057ea5c380a9548870680f8ed4dcb9, type: 3}
   rewardPrefabs:
   - {fileID: 6903416689338495161, guid: 7a2deffef4b6d314b92aade2f9693aa3, type: 3}
   rewardPos: {fileID: 1032278591}
@@ -958,14 +956,12 @@ MonoBehaviour:
   - {fileID: 372069571}
   - {fileID: 1291035843}
   - {fileID: 519026987}
-  - {fileID: 27902667}
   enemies:
   - {fileID: 780370978927417345, guid: 0fef6f5e5fb3fbd42ac8e3718b119141, type: 3}
   - {fileID: 1960038463033351767, guid: 37e3e36f1d05b45458e3115973d19b8f, type: 3}
   - {fileID: 4991751931681616902, guid: 46057ea5c380a9548870680f8ed4dcb9, type: 3}
   - {fileID: 780370978927417345, guid: 0fef6f5e5fb3fbd42ac8e3718b119141, type: 3}
   - {fileID: 1960038463033351767, guid: 37e3e36f1d05b45458e3115973d19b8f, type: 3}
-  - {fileID: 4991751931681616902, guid: 46057ea5c380a9548870680f8ed4dcb9, type: 3}
   rewardPrefabs:
   - {fileID: 6903416689338495161, guid: 7a2deffef4b6d314b92aade2f9693aa3, type: 3}
   rewardPos: {fileID: 203731564}
@@ -1552,14 +1548,12 @@ MonoBehaviour:
   - {fileID: 350738285}
   - {fileID: 1565775842}
   - {fileID: 1223426549}
-  - {fileID: 311672865}
   enemies:
   - {fileID: 780370978927417345, guid: 0fef6f5e5fb3fbd42ac8e3718b119141, type: 3}
   - {fileID: 1960038463033351767, guid: 37e3e36f1d05b45458e3115973d19b8f, type: 3}
   - {fileID: 4991751931681616902, guid: 46057ea5c380a9548870680f8ed4dcb9, type: 3}
   - {fileID: 780370978927417345, guid: 0fef6f5e5fb3fbd42ac8e3718b119141, type: 3}
   - {fileID: 1960038463033351767, guid: 37e3e36f1d05b45458e3115973d19b8f, type: 3}
-  - {fileID: 4991751931681616902, guid: 46057ea5c380a9548870680f8ed4dcb9, type: 3}
   rewardPrefabs:
   - {fileID: 6903416689338495161, guid: 7a2deffef4b6d314b92aade2f9693aa3, type: 3}
   rewardPos: {fileID: 758319692}
@@ -13263,14 +13257,12 @@ MonoBehaviour:
   - {fileID: 1319226682}
   - {fileID: 244193188}
   - {fileID: 1267931942}
-  - {fileID: 226059961}
   enemies:
   - {fileID: 780370978927417345, guid: 0fef6f5e5fb3fbd42ac8e3718b119141, type: 3}
   - {fileID: 6562394763544965211, guid: e584c4085c00b2048ac993090bd3fb64, type: 3}
   - {fileID: 4991751931681616902, guid: 46057ea5c380a9548870680f8ed4dcb9, type: 3}
   - {fileID: 780370978927417345, guid: 0fef6f5e5fb3fbd42ac8e3718b119141, type: 3}
   - {fileID: 6562394763544965211, guid: e584c4085c00b2048ac993090bd3fb64, type: 3}
-  - {fileID: 4991751931681616902, guid: 46057ea5c380a9548870680f8ed4dcb9, type: 3}
   rewardPrefabs:
   - {fileID: 6903416689338495161, guid: 7a2deffef4b6d314b92aade2f9693aa3, type: 3}
   rewardPos: {fileID: 1691705706}
@@ -13497,14 +13489,12 @@ MonoBehaviour:
   - {fileID: 638532461}
   - {fileID: 2021059135}
   - {fileID: 1200104144}
-  - {fileID: 1135602695}
   enemies:
   - {fileID: 1960038463033351767, guid: 37e3e36f1d05b45458e3115973d19b8f, type: 3}
   - {fileID: 1960038463033351767, guid: 37e3e36f1d05b45458e3115973d19b8f, type: 3}
   - {fileID: 4991751931681616902, guid: 46057ea5c380a9548870680f8ed4dcb9, type: 3}
   - {fileID: 1960038463033351767, guid: 37e3e36f1d05b45458e3115973d19b8f, type: 3}
   - {fileID: 1960038463033351767, guid: 37e3e36f1d05b45458e3115973d19b8f, type: 3}
-  - {fileID: 4991751931681616902, guid: 46057ea5c380a9548870680f8ed4dcb9, type: 3}
   rewardPrefabs:
   - {fileID: 6903416689338495161, guid: 7a2deffef4b6d314b92aade2f9693aa3, type: 3}
   rewardPos: {fileID: 1960782616}
@@ -26687,7 +26677,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1187626626}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: -41, z: 0}
+  m_LocalPosition: {x: 0, y: -57, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
@@ -33167,14 +33157,12 @@ MonoBehaviour:
   - {fileID: 1605746608}
   - {fileID: 1807302560}
   - {fileID: 1298093834}
-  - {fileID: 1277706755}
   enemies:
   - {fileID: 6527378175143817557, guid: d80013c79aae9c64693ca3d66d416e62, type: 3}
   - {fileID: 1960038463033351767, guid: 37e3e36f1d05b45458e3115973d19b8f, type: 3}
   - {fileID: 4991751931681616902, guid: 46057ea5c380a9548870680f8ed4dcb9, type: 3}
   - {fileID: 6527378175143817557, guid: d80013c79aae9c64693ca3d66d416e62, type: 3}
   - {fileID: 1960038463033351767, guid: 37e3e36f1d05b45458e3115973d19b8f, type: 3}
-  - {fileID: 4991751931681616902, guid: 46057ea5c380a9548870680f8ed4dcb9, type: 3}
   rewardPrefabs:
   - {fileID: 6903416689338495161, guid: 7a2deffef4b6d314b92aade2f9693aa3, type: 3}
   rewardPos: {fileID: 2030213773}
@@ -33268,11 +33256,9 @@ MonoBehaviour:
   enemySpawner:
   - {fileID: 868497809}
   - {fileID: 1737232035}
-  - {fileID: 1268880058}
   enemies:
   - {fileID: 1960038463033351767, guid: 37e3e36f1d05b45458e3115973d19b8f, type: 3}
   - {fileID: 780370978927417345, guid: 0fef6f5e5fb3fbd42ac8e3718b119141, type: 3}
-  - {fileID: 6527378175143817557, guid: d80013c79aae9c64693ca3d66d416e62, type: 3}
   rewardPrefabs:
   - {fileID: 6903416689338495161, guid: 7a2deffef4b6d314b92aade2f9693aa3, type: 3}
   rewardPos: {fileID: 469022355}
@@ -41511,10 +41497,10 @@ BoxCollider2D:
   m_Offset: {x: -0.12, y: 3.79}
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
-    pivot: {x: 0, y: 0}
-    oldSize: {x: 0, y: 0}
-    newSize: {x: 0, y: 0}
-    adaptiveTilingThreshold: 0
+    pivot: {x: 0.5, y: 0.5}
+    oldSize: {x: 42, y: 42}
+    newSize: {x: 42, y: 42}
+    adaptiveTilingThreshold: 0.5
     drawMode: 0
     adaptiveTiling: 0
   m_AutoTiling: 0
@@ -41609,7 +41595,7 @@ MonoBehaviour:
   cortinas:
   - {fileID: 366509647}
   doorPos:
-  - {fileID: 0}
+  - {fileID: 1984880741}
   confetiPos:
   - {fileID: 1886267656}
   - {fileID: 443893607}
@@ -41861,6 +41847,12 @@ PrefabInstance:
 --- !u!4 &1984880740 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 4288389244565880194, guid: 4c2ab4487a088214782c6469c843dcb5,
+    type: 3}
+  m_PrefabInstance: {fileID: 1984880739}
+  m_PrefabAsset: {fileID: 0}
+--- !u!1 &1984880741 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 670041893516404821, guid: 4c2ab4487a088214782c6469c843dcb5,
     type: 3}
   m_PrefabInstance: {fileID: 1984880739}
   m_PrefabAsset: {fileID: 0}
@@ -51615,11 +51607,9 @@ MonoBehaviour:
   enemySpawner:
   - {fileID: 4214017886256616289}
   - {fileID: 1922125191066675525}
-  - {fileID: 2307313423628038870}
   enemies:
   - {fileID: 1960038463033351767, guid: 37e3e36f1d05b45458e3115973d19b8f, type: 3}
   - {fileID: 780370978927417345, guid: 0fef6f5e5fb3fbd42ac8e3718b119141, type: 3}
-  - {fileID: 6527378175143817557, guid: d80013c79aae9c64693ca3d66d416e62, type: 3}
   rewardPrefabs:
   - {fileID: 6903416689338495161, guid: 7a2deffef4b6d314b92aade2f9693aa3, type: 3}
   rewardPos: {fileID: 5454173049772758986}
