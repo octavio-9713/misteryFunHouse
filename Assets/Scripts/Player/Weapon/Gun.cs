@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.InputSystem;
 
 public class Gun : MonoBehaviour
 {
@@ -24,6 +25,8 @@ public class Gun : MonoBehaviour
     protected SpriteRenderer _renderer;
     protected bool _canShoot = true;
 
+    protected bool _isPressingShoot = false;
+
     void Start()
     {
         _player = GameManager.Instance.player;
@@ -35,9 +38,7 @@ public class Gun : MonoBehaviour
 
     void Update()
     {
-        DetectMouse();
-
-        if (Input.GetButton("Fire1") && CanShoot())
+        if (CanShoot() && _isPressingShoot)
             Shoot();
 
         if (_renderer)
@@ -68,16 +69,6 @@ public class Gun : MonoBehaviour
 
         _player.Recoil(weapon.weaponRecoil);
     }
-
-    public void DetectMouse()
-    {
-        sight.position = Camera.main.ScreenToWorldPoint(new Vector3(
-            Input.mousePosition.x,
-            Input.mousePosition.y,
-            -Camera.main.transform.position.z
-            ));
-    }
-
 
     /////////////////// Shoot Methods //////////////////////////
     
@@ -165,5 +156,10 @@ public class Gun : MonoBehaviour
             audioSource.PlayOneShot(shootSound);
             yield return new WaitForSeconds(weapon.weaponCadence);
         }
+    }
+
+    void OnShoot(InputValue value)
+    {
+        _isPressingShoot = value.isPressed;
     }
 }

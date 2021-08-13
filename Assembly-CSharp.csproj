@@ -68,6 +68,7 @@
     <Compile Include="Assets\TextMesh Pro\Examples &amp; Extras\Scripts\SimpleScript.cs" />
     <Compile Include="Assets\Scripts\Player\Mira.cs" />
     <Compile Include="Assets\Scripts\Room\DoorRewardTrigger.cs" />
+    <Compile Include="Assets\Scripts\Pause\MenuPause.cs" />
     <Compile Include="Assets\Scripts\Enemy\Melee Enemy\States\PersueMeleeState.cs" />
     <Compile Include="Assets\Scripts\Dialog\Dialog.cs" />
     <Compile Include="Assets\Scripts\Enemy\Buffer Enemy\FleeState.cs" />
@@ -77,6 +78,7 @@
     <Compile Include="Assets\Scripts\Player\Weapon\Bullet.cs" />
     <Compile Include="Assets\Scripts\Player\Weapon\Effect\TypeEffect.cs" />
     <Compile Include="Assets\Scripts\Items\Orbital.cs" />
+    <Compile Include="Assets\Scripts\GameOver\MenuButton.cs" />
     <Compile Include="Assets\Scripts\Enemy\Static Enemy\SM Static\AttackStateStatic.cs" />
     <Compile Include="Assets\Scripts\Enemy\StateMachine\PersueState.cs" />
     <Compile Include="Assets\Scripts\Enemy\Weapons\BulletEnemy.cs" />
@@ -150,6 +152,7 @@
     <Compile Include="Assets\Scripts\Player\Weapon\ExplosiveBullet.cs" />
     <Compile Include="Assets\Scripts\Player\Player.cs" />
     <Compile Include="Assets\TextMesh Pro\Examples &amp; Extras\Scripts\CameraController.cs" />
+    <Compile Include="Assets\Scripts\GameOver\MenuManager.cs" />
     <Compile Include="Assets\Scripts\Items\Pickable.cs" />
     <Compile Include="Assets\Scripts\Player\Weapon\Effect\BulletEffect.cs" />
     <Compile Include="Assets\Scripts\Enemy\Gunned Enemy\ShotGunGun.cs" />
@@ -869,6 +872,9 @@
     </Reference>
     <Reference Include="Unity.2D.SpriteShape.Runtime">
       <HintPath>Library\ScriptAssemblies\Unity.2D.SpriteShape.Runtime.dll</HintPath>
+    </Reference>
+    <Reference Include="Unity.InputSystem">
+      <HintPath>Library\ScriptAssemblies\Unity.InputSystem.dll</HintPath>
     </Reference>
   </ItemGroup>
   <ItemGroup>

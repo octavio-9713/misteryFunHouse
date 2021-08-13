@@ -1,6 +1,5 @@
-﻿using System.Collections;
-using System.Collections.Generic;
-using UnityEngine;
+﻿using UnityEngine;
+using UnityEngine.InputSystem;
 
 public class Move : MonoBehaviour
 {
@@ -11,8 +10,14 @@ public class Move : MonoBehaviour
     private SpriteRenderer _renderer;
     private Player _player;
 
+    private Vector2 move; 
+
     [Header("Sight")]
     public Transform sight;
+
+    public float rotationOffset = 1f;
+
+    private float _lastRotation = 0;
 
     void Start()
     {
@@ -25,13 +30,7 @@ public class Move : MonoBehaviour
     void Update()
     {
         if (!_player.death && moveEnabled)
-        {
-
-            float horMov = Input.GetAxisRaw("Horizontal");
-            float verMov = Input.GetAxisRaw("Vertical");
-
-
-            Vector2 move = new Vector2(horMov, verMov);
+        { 
 
             if (move == Vector2.zero)
             {
@@ -52,7 +51,13 @@ public class Move : MonoBehaviour
             }
         }
 
-        transform.rotation = sight.transform.position.x < transform.position.x ? Quaternion.Euler(0, -180, 0) : Quaternion.Euler(0, 0, 0);
+        if (_lastRotation > 0.5f)
+        {
+            transform.rotation = sight.transform.position.x < (transform.position.x - rotationOffset) ? Quaternion.Euler(0, -180, 0) : Quaternion.Euler(0, 0, 0);
+            _lastRotation = 0;
+        }
+
+        _lastRotation += Time.deltaTime;
     }
 
     public void DisableMove()
@@ -65,6 +70,15 @@ public class Move : MonoBehaviour
     {
         this.moveEnabled = true;
     }
+
+    #region inputFunctions
+
+    public void OnMovement(InputValue value)
+    {
+        move = value.Get<Vector2>();
+    }
+
+    #endregion
 }
 
 

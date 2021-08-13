@@ -1,24 +1,26 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.InputSystem;
 
 public class Mira : MonoBehaviour
 {
+    private Vector3 rightStick;
+    public float sensibility = 10f;
+    public PlayerInput playerInput;
 
-    //TODO: MOVE THIS CODE TO SHOT 
+    private void Start()
+    {
+        playerInput = GetComponentInParent<PlayerInput>();
+    }
+
     void Update()
     {
-        //if (Input.GetMouseButton(0))
-        //{
-        //    gameObject.GetComponent<Animator>().SetBool("disparo", true);
-            
-        //}
-        //else
-        //{
-        //    gameObject.GetComponent<Animator>().SetBool("disparo", false);
-        //}
+        if (Gamepad.current != null && playerInput.currentControlScheme.Equals("Gamepad"))
+            this.transform.position += rightStick * Time.deltaTime * sensibility;
 
-        DetectMouse();
+        else
+            DetectMouse();
     }
 
     public void DetectMouse()
@@ -30,4 +32,9 @@ public class Mira : MonoBehaviour
          ));
     }
 
+    void OnCamera(InputValue value)
+    {
+        Debug.Log("Here:" + value.Get<Vector2>());
+        rightStick = value.Get<Vector2>();
+    }
 }

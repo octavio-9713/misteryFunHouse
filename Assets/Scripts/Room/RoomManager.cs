@@ -24,7 +24,6 @@ public class RoomManager : MonoBehaviour
 
     private int deathEnemies = 0;
     private int _cantEnemies;
-    private List<Enemy> _spawnedEnemies = new List<Enemy>();
 
     [Header ("Rewards")]
     public GameObject[] rewardPrefabs;
@@ -47,7 +46,8 @@ public class RoomManager : MonoBehaviour
                     Enemy enemy = en.GetComponent<Enemy>();
                     enemy.deathEvent.AddListener(MuerteEnemy);
                     enemy.WaitToWake(_waitToAttack);
-                    _spawnedEnemies.Add(enemy);
+                    
+                    GameManager.Instance.AddInstantiatedObject(en);
                 }
 
                 for (int i = 0; i < cortinas.Length; i++)
@@ -68,8 +68,11 @@ public class RoomManager : MonoBehaviour
                 {
                     GameObject reward = Instantiate(rewardPrefabs[Random.Range(0, rewardPrefabs.Length)]);
                     Vector3 spawPos = new Vector3(rewardPos.transform.position.x, rewardPos.transform.position.y, reward.transform.position.z);
-                    Instantiate(GameManager.Instance.confeti, rewardPos.transform.position, transform.rotation);
+                    GameObject confeti = Instantiate(GameManager.Instance.confeti, rewardPos.transform.position, transform.rotation);
                     reward.transform.position = spawPos;
+
+                    GameManager.Instance.AddInstantiatedObject(reward);
+                    GameManager.Instance.AddInstantiatedObject(confeti);
                 }
             }
         }
@@ -102,17 +105,10 @@ public class RoomManager : MonoBehaviour
 
         openEvent.Invoke();
         deactivated = true;
-        _spawnedEnemies.Clear();
     }
 
     public void RestoreRoom()
     {
-        if (_spawnedEnemies.Count > 0)
-            _spawnedEnemies.ForEach(enemy => {
-                if (enemy != null)
-                    Destroy(enemy.gameObject);
-            });
-
         foreach (DoorTrigger door in doors)
         {
             door.UnlockDoor();
@@ -125,7 +121,6 @@ public class RoomManager : MonoBehaviour
 
         deactivated = false;
         deathEnemies = 0;
-        _spawnedEnemies.Clear();
 
     }
 

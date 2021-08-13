@@ -1,7 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-
+using UnityEngine.InputSystem;
 
 public class Dash : MonoBehaviour
 {
@@ -38,15 +38,8 @@ public class Dash : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        //el uso del dash
-        if (Input.GetMouseButtonDown(1) && _dashEnabled)
-            this.DoADash();
-
-        else
-        {
+        if (!_dashEnabled)
             this.CheckTime();
-        }
-
     }
 
     void FixedUpdate()
@@ -149,5 +142,17 @@ public class Dash : MonoBehaviour
         yield return new WaitForSeconds(seconds);
         _dashEnabled = true;
     }
+
+    #region Input system methods
+
+    public void OnDash()
+    {
+        if (_dashEnabled)
+            this.DoADash();
+    }
+
+    #endregion
+
+
 
 }

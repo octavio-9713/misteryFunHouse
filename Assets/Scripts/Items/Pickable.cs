@@ -27,6 +27,8 @@ public class Pickable : MonoBehaviour
             {
                 GameObject picked = Instantiate(pickedPrefab.gameObject, GameManager.Instance.canvas.transform);
                 picked.GetComponent<OnPickedItem>().SetText(itemName, itemDescription, itemSprite);
+
+                GameManager.Instance.AddInstantiatedObject(picked);
             }
 
             effect.ApplyEffect();

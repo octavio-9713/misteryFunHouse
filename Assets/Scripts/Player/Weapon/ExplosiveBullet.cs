@@ -11,7 +11,7 @@ public class ExplosiveBullet : Bullet
     {
         _rb = GetComponent<Rigidbody2D>();
         Invoke(nameof(Explode), life);
-        DetectarMouse();
+        DetectSight();
     }
 
 

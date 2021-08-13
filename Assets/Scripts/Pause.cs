@@ -6,55 +6,56 @@ using UnityEngine.SceneManagement;
 public class Pause : MonoBehaviour
 {
 
-    private bool pause = false;
-    public GameObject panelPause;
-    private Move playerScript;
-    private Gun gun;
-
+    private bool _pressedPause = false;
+    private bool _onPause = false;
+    public MenuPause panelPause;
+    public Player player;
+    
     public GameObject SonidoClick;
 
-    void Start()
+    public void PauseGame()
     {
+        Time.timeScale = 0;
+        _onPause = true;
+        _pressedPause = true;
 
-        playerScript = GameObject.FindGameObjectWithTag("Player").GetComponent<Move>();
-        gun = GameObject.FindGameObjectWithTag("Gun").GetComponent<Gun>();
+        if (!GameManager.Instance.provoliTalking)
+            player.DisableMovement();
+
+        panelPause.gameObject.SetActive(true);
+        panelPause.disableSelection = false;
     }
 
-    void Update()
+    public void Resume()
     {
-
-        if (Input.GetKeyDown(KeyCode.Escape))
-        {
-            pause = !pause;
-        }
-        if (pause)
-        {
-            Time.timeScale = 0;
-            playerScript.enabled = false;
-            gun.enabled = false;
-            panelPause.SetActive(true);
-            
-        }
-        else if (!pause)
-        {
-            Time.timeScale = 1;
-            playerScript.enabled = true;
-            gun.enabled = true;
-            panelPause.SetActive(false);
-            
-        }
+        panelPause.gameObject.GetComponent<Animator>().SetTrigger("Closing");
     }
 
-    public void ApplicationPause()
+    public void OnClickResume()
     {
-        Instantiate(SonidoClick, transform.position, Quaternion.identity);
-        pause = !pause;
+        Resume();
     }
 
-    public void DirigirAlMenu()
+    public void EndPause()
     {
-        Instantiate(SonidoClick, transform.position, Quaternion.identity);
-        SceneManager.LoadScene("menu");
+        Time.timeScale = 1;
 
+        if (!GameManager.Instance.provoliTalking)
+            player.EnableMovement();
+
+        _onPause = false;
+        _pressedPause = false;
+
+        panelPause.gameObject.SetActive(false);
+        Debug.Log("Setting to false");
+    }
+
+
+    void OnPause()
+    {
+        if (!_onPause)
+            PauseGame();
+        else
+            Resume();
     }
 }

@@ -283,7 +283,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 5
+  m_RootOrder: 4
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &228934263
 MonoBehaviour:
@@ -316,79 +316,6 @@ Animator:
   m_HasTransformHierarchy: 1
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorControllerStateOnDisable: 0
---- !u!1 &253748936
-GameObject:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  serializedVersion: 6
-  m_Component:
-  - component: {fileID: 253748938}
-  - component: {fileID: 253748937}
-  - component: {fileID: 253748939}
-  m_Layer: 0
-  m_Name: GameControler
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
---- !u!114 &253748937
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 253748936}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: b50871fb9746f8045ad1ba206e9b4a45, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  timer: {fileID: 1392326261}
-  minutesToFast: 10
-  player: {fileID: 0}
-  gameUi: {fileID: 0}
-  canvas: {fileID: 0}
-  provolisIntroPlace: {fileID: 0}
-  loading: {fileID: 0}
-  provolisIntros: []
-  confeti: {fileID: 0}
-  dpsItems: []
-  generalItems: []
-  orbitalItems: []
-  effectItems: []
-  weaponItems: []
---- !u!4 &253748938
-Transform:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 253748936}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 191.55322, y: 65.95723, z: -5144.597}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_Children: []
-  m_Father: {fileID: 0}
-  m_RootOrder: 2
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &253748939
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 253748936}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 0af36ac038131024db11039f037dd3a0, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  panelPause: {fileID: 884345613}
-  SonidoClick: {fileID: 7840707515616337063, guid: 19127e8efa9af9041a58ba5436c36e9f,
-    type: 3}
 --- !u!1 &459135241
 GameObject:
   m_ObjectHideFlags: 0
@@ -585,7 +512,7 @@ RectTransform:
   - {fileID: 2067857402}
   - {fileID: 884345614}
   m_Father: {fileID: 0}
-  m_RootOrder: 3
+  m_RootOrder: 2
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 0, y: 0}
@@ -799,7 +726,7 @@ PrefabInstance:
         type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
       value: 
-      objectReference: {fileID: 253748939}
+      objectReference: {fileID: 0}
     - target: {fileID: 2791595187559960872, guid: 96a9274fc5e84984dac5edc762793a6a,
         type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
@@ -809,7 +736,7 @@ PrefabInstance:
         type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
       value: 
-      objectReference: {fileID: 253748939}
+      objectReference: {fileID: 0}
     - target: {fileID: 3655042477903943662, guid: 96a9274fc5e84984dac5edc762793a6a,
         type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
@@ -952,12 +879,6 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 96a9274fc5e84984dac5edc762793a6a, type: 3}
---- !u!1 &884345613 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 7367433962372550778, guid: 96a9274fc5e84984dac5edc762793a6a,
-    type: 3}
-  m_PrefabInstance: {fileID: 770368899}
-  m_PrefabAsset: {fileID: 0}
 --- !u!224 &884345614 stripped
 RectTransform:
   m_CorrespondingSourceObject: {fileID: 7367433962372550773, guid: 96a9274fc5e84984dac5edc762793a6a,
@@ -1253,7 +1174,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 4
+  m_RootOrder: 3
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1207639593
 GameObject:

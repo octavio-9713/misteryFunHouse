@@ -37,6 +37,7 @@ TagManager:
   - Player Spawnpoint
   - Buff Halo
   - Reward Room
+  - Sight
   layers:
   - Default
   - TransparentFX

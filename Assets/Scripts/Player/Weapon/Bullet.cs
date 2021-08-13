@@ -12,9 +12,10 @@ public class Bullet : MonoBehaviour
     public float damage;
     [HideInInspector]
     public float life = 1f;
- 
-    protected Vector2 directionFromMouse;
 
+    public Transform sight;
+    protected Vector2 directionFromMouse;
+    
     public Transform player;
 
     [Header("Bullet Effect")]
@@ -23,8 +24,9 @@ public class Bullet : MonoBehaviour
     void Start()
     {
         _rb = GetComponent<Rigidbody2D>();
+        sight = GameObject.FindGameObjectWithTag("Sight").transform;
         Destroy(gameObject, life);
-        DetectarMouse();
+        DetectSight();
     }
 
     
@@ -34,10 +36,10 @@ public class Bullet : MonoBehaviour
     }
 
 
-    public void DetectarMouse()
+    public void DetectSight()
     {
-        Vector2 mousePosition = Camera.main.ScreenToWorldPoint(Input.mousePosition);
-        directionFromMouse = mousePosition - (Vector2)transform.position;
+        Vector2 sightPosition = sight.position;
+        directionFromMouse = sightPosition - (Vector2)transform.position;
         directionFromMouse.Normalize();
     }
 

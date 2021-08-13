@@ -27,24 +27,40 @@ public class GameManager : MonoBehaviour
     public GameObject provolisIntroPlace;
     public GameObject loading;
 
+    public GameObject gameover;
+
     [Header("Provoli Intros")]
     public List<GameObject> provolisIntros;
+    public bool provoliTalking = false;
 
     [Header("Confetti")]
     public GameObject confeti;
 
     [Header("Items")]
     public List<GameObject> dpsItems;
+    private List<GameObject> _updatedDpsItems;
+    
     public List<GameObject> generalItems;
+    private List<GameObject> _updatedGeneralItems;
+
     public List<GameObject> orbitalItems;
+    private List<GameObject> _updatedOrbitalItems;
+
     public List<GameObject> effectItems;
+    private List<GameObject> _updatedEffectItems;
+
     public List<GameObject> weaponItems;
+    private List<GameObject> _updatedWeaponItems;
 
     private List<GameObject> _allitems = new List<GameObject>();
     private List<ItemEffect> _levelPickedItems = new List<ItemEffect>();
 
+    private List<GameObject> _instantiatedObjects = new List<GameObject>();
+
     private int _sceneIndex = 2;
     private bool _needsToLoad = true;
+
+    private Pause _pause;
 
     private static GameManager _instance;
 
@@ -63,11 +79,10 @@ public class GameManager : MonoBehaviour
 
     private void Start()
     {
-        this._allitems.AddRange(dpsItems);
-        this._allitems.AddRange(generalItems);
-        this._allitems.AddRange(orbitalItems);
-        this._allitems.AddRange(effectItems);
-        this._allitems.AddRange(weaponItems);
+        _pause = GetComponent<Pause>();
+        Cursor.visible = false;
+
+        SetUpItems();
 
         StopTheCount();
     }
@@ -76,11 +91,6 @@ public class GameManager : MonoBehaviour
     {
         if (_countTime)
             CountTime();
-
-        if (Input.GetKey("r"))
-        {
-            PlayerDeath();
-        }
 
         if (_needsToLoad)
         {
@@ -116,6 +126,13 @@ public class GameManager : MonoBehaviour
         this._countTime = false;
     }
 
+    public void RestartTheCount()
+    {
+        _hourCount = 0;
+        _minuteCount = 0;
+        _secondsCount = 0;
+    }
+
     public void ResumeTheCount()
     {
         this._countTime = true;
@@ -143,44 +160,95 @@ public class GameManager : MonoBehaviour
         
     }
 
-    /////////////////// Restart Game Methods //////////////////////////
-    public void PlayerDeath()
+    public void PlayerDeath(bool gameOver = true)
     {
-        loading.SetActive(true);
+        _instantiatedObjects.ForEach(obj => {
+            if (obj != null)
+                Destroy(obj);
+        });
 
-        GameObject[] rooms = GameObject.FindGameObjectsWithTag("SpawnPointSala");
-        foreach (GameObject room in rooms)
+        if (gameOver)
         {
-            RoomManager manager = room.GetComponent<RoomManager>();
-            manager.RestoreRoom();
+            gameover.SetActive(true);
+            Cursor.visible = true;
+            StopTheCount();
+
+            //Si elige reiniciar
+            //RestarGame();
         }
 
-        GameObject[] rewardRooms = GameObject.FindGameObjectsWithTag("Reward Room");
-        foreach (GameObject room in rewardRooms)
+        else
         {
-            RewardRoom manager = room.GetComponent<RewardRoom>();
-            manager.RestoreRoom();
+            loading.SetActive(true);
+
+            StartCoroutine(UnloadScene(_sceneIndex, true));
+
+            player.RecoverLife(player.stats.maxHp);
+            player.animator.SetTrigger("alive");
+            player.animator.SetBool("muerte", false);
+            player.UnDie();
+
+            _levelPickedItems.ForEach(item => item.UnapplyEffect());
+            SetUpItems();
         }
-
-        StartCoroutine(UnloadScene(_sceneIndex, true));
-        StopTheCount();
-
-        player.RecoverLife(player.stats.maxHp);
-        player.animator.SetTrigger("alive");
-        player.animator.SetBool("muerte", false);
-        player.UnDie();
-        _levelPickedItems.ForEach(item => item.UnapplyEffect());
     }
 
     public void RestarGame()
     {
+        Cursor.visible = false;
+
+        SceneManager.LoadScene(1);
+        RestartTheCount();
+    }
+
+    public void QuitMainMenu()
+    {
+        Cursor.visible = false;
         SceneManager.LoadScene(0);
-        _hourCount = 0;
-        _minuteCount = 0;
-        _secondsCount = 0;
+    }
+
+    public void ExitGame()
+    {
+        Application.Quit();
+    }
+
+    public void AddInstantiatedObject(GameObject obj)
+    {
+        _instantiatedObjects.Add(obj);
+    }
+
+    /////////////////// Menus Game Methods //////////////////////////
+
+    public void ResumeGame()
+    {
+        this._pause.Resume();
+    }
+
+    public void EndResumeAnim()
+    {
+        this._pause.EndPause();
     }
 
     /////////////////// Items Methods //////////////////////////
+
+    private void SetUpItems()
+    {
+        _updatedDpsItems = dpsItems;
+        _allitems.AddRange(dpsItems);
+
+        _updatedGeneralItems = generalItems;
+        _allitems.AddRange(generalItems);
+
+        _updatedOrbitalItems = orbitalItems;
+        _allitems.AddRange(orbitalItems);
+
+        _updatedEffectItems = effectItems;
+        _allitems.AddRange(effectItems);
+
+        _updatedWeaponItems = weaponItems;
+        _allitems.AddRange(weaponItems);
+    }
+
     public GameObject GetItem(TypeOfItems type)
     {
         GameObject item;
@@ -190,19 +258,19 @@ public class GameManager : MonoBehaviour
         
 
         else if (type.Equals(TypeOfItems.DPS))
-            item = dpsItems[Random.Range(0, dpsItems.Count)];
+            item = _updatedDpsItems[Random.Range(0, _updatedDpsItems.Count)];
 
         else if (type.Equals(TypeOfItems.EFFECT))
-            item = effectItems[Random.Range(0, effectItems.Count)];
+            item = _updatedEffectItems[Random.Range(0, _updatedEffectItems.Count)];
 
         else if (type.Equals(TypeOfItems.GENERAL))
-            item = generalItems[Random.Range(0, generalItems.Count)];
+            item = _updatedGeneralItems[Random.Range(0, _updatedGeneralItems.Count)];
 
         else if (type.Equals(TypeOfItems.ORBITAL))
-            item = orbitalItems[Random.Range(0, orbitalItems.Count)];
+            item = _updatedOrbitalItems[Random.Range(0, _updatedOrbitalItems.Count)];
 
         else
-            item = weaponItems[Random.Range(0, weaponItems.Count)];
+            item = _updatedWeaponItems[Random.Range(0, _updatedWeaponItems.Count)];
 
         Pickable picked = item.GetComponent<Pickable>();
         _levelPickedItems.Add(picked.effect);
@@ -270,5 +338,10 @@ public class GameManager : MonoBehaviour
             _sceneIndex++;
 
         yield return new WaitForSeconds(1.5f);
+    }
+
+    void OnRestart()
+    {
+        PlayerDeath(true);
     }
 }

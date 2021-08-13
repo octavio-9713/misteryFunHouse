@@ -29,7 +29,8 @@ public class RewardRoom : MonoBehaviour
 
             foreach (GameObject pos in confetiPos)
             {
-                Instantiate(GameManager.Instance.confeti, pos.transform.position, pos.transform.rotation);
+                GameObject confeti = Instantiate(GameManager.Instance.confeti, pos.transform.position, pos.transform.rotation);
+                GameManager.Instance.AddInstantiatedObject(confeti);
             }
 
             foreach (GameObject door in doorPos)
@@ -41,7 +42,8 @@ public class RewardRoom : MonoBehaviour
 
             GameObject item = GameManager.Instance.GetItem(itemType);
             spawnedItem = Instantiate(item, itemSpawnPos.transform);
-        
+            GameManager.Instance.AddInstantiatedObject(spawnedItem);
+
         }
     }
 

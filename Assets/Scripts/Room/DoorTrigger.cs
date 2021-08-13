@@ -19,7 +19,6 @@ public class DoorTrigger : MonoBehaviour
 
     private void OnTriggerEnter2D(Collider2D collision)
     {
-        Debug.Log("PLAYER ENTERED");
         if (collision.CompareTag("Player"))
         {
             if (manager)

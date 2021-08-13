@@ -9,6 +9,7 @@ public class Provoli : MonoBehaviour
     public void Start()
     {
         GameManager.Instance.player.DisableMovement();
+        GameManager.Instance.provoliTalking = true;
     }
 
     public void StartTalking()
@@ -19,6 +20,7 @@ public class Provoli : MonoBehaviour
     public void DestroyProvoli()
     {
         GameManager.Instance.player.EnableMovement();
+        GameManager.Instance.provoliTalking = false;
         Destroy(transform.parent.gameObject);
     }
 
