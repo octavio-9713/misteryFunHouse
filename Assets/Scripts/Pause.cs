@@ -53,9 +53,12 @@ public class Pause : MonoBehaviour
 
     void OnPause()
     {
-        if (!_onPause)
-            PauseGame();
-        else
-            Resume();
+        if (!GameManager.Instance.player.death)
+        {
+            if (!_onPause)
+                PauseGame();
+            else
+                Resume();
+        }
     }
 }

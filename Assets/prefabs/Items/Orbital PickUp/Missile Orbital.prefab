@@ -11,7 +11,7 @@ GameObject:
   - component: {fileID: 8050174277199306424}
   - component: {fileID: -6690416476196001707}
   m_Layer: 0
-  m_Name: OrbitalEffect
+  m_Name: Missile Orbital
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -43,5 +43,5 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7cacf91567df1864cb7435e02f1ebec4, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  orbitalPrefab: {fileID: 1384887483638908169, guid: 65bf9b102c399b1418bdc3cacfef6103,
+  orbitalPrefab: {fileID: 5965444816225976692, guid: 65bf9b102c399b1418bdc3cacfef6103,
     type: 3}

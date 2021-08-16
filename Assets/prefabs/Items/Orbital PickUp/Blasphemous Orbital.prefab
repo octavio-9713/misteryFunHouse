@@ -43,5 +43,5 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7cacf91567df1864cb7435e02f1ebec4, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  orbitalPrefab: {fileID: 1384887483638908169, guid: 17c29567a79b5374b8882f9e3371ea7b,
+  orbitalPrefab: {fileID: 5965444816225976692, guid: 17c29567a79b5374b8882f9e3371ea7b,
     type: 3}
