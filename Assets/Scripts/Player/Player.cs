@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.InputSystem;
 using UnityEngine.SceneManagement;
 
 public class Player : MonoBehaviour
@@ -53,6 +54,8 @@ public class Player : MonoBehaviour
     public AudioClip deathSound;
 
     private bool _waitForHurt = false;
+
+    public PlayerInput playerInput;
 
     void Awake()
     {

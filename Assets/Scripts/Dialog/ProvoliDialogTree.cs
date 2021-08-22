@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.Events;
+using UnityEngine.InputSystem;
 using UnityEngine.UI;
 
 public class ProvoliDialogTree : MonoBehaviour
@@ -33,25 +34,6 @@ public class ProvoliDialogTree : MonoBehaviour
     {
         _provoliAnim = provoli.GetComponent<Animator>();
         NextLine();
-    }
-
-    private void Update()
-    {
-        if (Input.GetButtonDown("Fire1"))
-        {
-            if (_isTalking)
-            {
-                StopAllCoroutines();
-                dialog.text = _currentLine;
-                _isTalking = false;
-            }
-
-            else
-                NextLine();
-        }
-
-        if (Input.GetButtonDown("Fire2"))
-            FinishTalk();
     }
 
     public void NextLine()
@@ -109,5 +91,23 @@ public class ProvoliDialogTree : MonoBehaviour
         }
 
         _isTalking = false;
+    }
+
+    public void OnDash()
+    {
+        FinishTalk();
+    }
+
+    void OnShoot(InputValue value)
+    {
+        if (_isTalking)
+        {
+            StopAllCoroutines();
+            dialog.text = _currentLine;
+            _isTalking = false;
+        }
+
+        else
+            NextLine();
     }
 }

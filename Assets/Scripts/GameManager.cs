@@ -4,6 +4,7 @@ using UnityEngine;
 using UnityEngine.SceneManagement;
 using UnityEngine.UI;
 using TMPro;
+using UnityEngine.InputSystem;
 
 public class GameManager : MonoBehaviour
 {
@@ -340,8 +341,11 @@ public class GameManager : MonoBehaviour
         yield return new WaitForSeconds(1.5f);
     }
 
-    void OnRestart()
+    /////////////////// Other Methods //////////////////////////
+    
+    public PlayerInput PlayerInput()
     {
-        PlayerDeath(true);
+        return player.playerInput;
     }
+
 }
